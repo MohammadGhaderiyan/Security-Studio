@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CefSharp.Wpf" Version="100.0.230" />
+    <PackageReference Include="FluentValidation" Version="10.4.0" />
+    <PackageReference Include="Ninject" Version="3.3.4" />
+    <PackageReference Include="NLog" Version="4.7.15" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SecurityStudio.Base.Main\SecurityStudio.Base.Main.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Linux\" />
+    <Folder Include="MobilePenTest\" />
+    <Folder Include="Validation\CodeEditor\" />
+    <Folder Include="Validation\Linux\" />
+    <Folder Include="Validation\MobilePenTest\" />
+    <Folder Include="Validation\NetworkPenTest\" />
+    <Folder Include="Validation\Tool\" />
+    <Folder Include="Windows\" />
+    <Folder Include="WebPenTest\" />
+    <Folder Include="CodeEditor\" />
+    <Folder Include="NetworkPenTest\" />
+    <Folder Include="Tool\" />
+  </ItemGroup>
+
+</Project>

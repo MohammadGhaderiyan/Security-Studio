@@ -1,0 +1,845 @@
+<doc>
+  <assembly>
+    <name>Rebex.Terminal.Control</name>
+  </assembly>
+  <members>
+    <member name="T:Rebex.TerminalEmulation.TerminalControl">
+      <summary>
+            Terminal emulator control.
+            </summary>
+    </member>
+    <member name="E:Rebex.TerminalEmulation.TerminalControl.RemoteResize">
+      <summary>
+            Occurs when the screen resize is requested by the server.
+            </summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnRemoteResize(Rebex.TerminalEmulation.RemoteResizeEventArgs)">
+      <summary>
+            Raises the <see cref="E:Rebex.TerminalEmulation.TerminalControl.RemoteResize" /> event.
+            </summary>
+      <param name="e">A <see cref="T:Rebex.TerminalEmulation.RemoteResizeEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="E:Rebex.TerminalEmulation.TerminalControl.ScreenResize">
+      <summary>
+            Occurs when the screen is resized.
+            </summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnScreenResize(Rebex.TerminalEmulation.ScreenResizeEventArgs)">
+      <summary>
+            Raises the <see cref="E:Rebex.TerminalEmulation.TerminalControl.ScreenResize" /> event.
+            </summary>
+      <param name="e">A <see cref="T:Rebex.TerminalEmulation.ScreenResizeEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="E:Rebex.TerminalEmulation.TerminalControl.ScrollChanged">
+      <summary>
+            Occurs when the screen is scrolled (<see cref="P:Rebex.TerminalEmulation.TerminalControl.ScreenPosition" /> is changed).
+            </summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnScrollChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:Rebex.TerminalEmulation.TerminalControl.ScrollChanged" /> event.
+            </summary>
+      <param name="e">A <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="E:Rebex.TerminalEmulation.TerminalControl.CursorColor">
+      <summary>
+            Occurs when a cursor color needs to be determined.
+            </summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnCursorColor(Rebex.TerminalEmulation.CursorColorEventArgs)">
+      <summary>
+            Raises the <see cref="E:Rebex.TerminalEmulation.TerminalControl.CursorColor" /> event.
+            </summary>
+      <param name="e">An <see cref="E:Rebex.TerminalEmulation.TerminalControl.CursorColor" /> that contains the event data.</param>
+    </member>
+    <member name="E:Rebex.TerminalEmulation.TerminalControl.ActionRequested">
+      <summary>
+            Occurs when a specific client action is requested by the server.
+            </summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnActionRequested(Rebex.TerminalEmulation.ActionRequestEventArgs)">
+      <summary>
+            Raises the <see cref="E:Rebex.TerminalEmulation.TerminalControl.ActionRequested" /> event.
+            </summary>
+      <param name="e">An <see cref="T:Rebex.TerminalEmulation.ActionRequestEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="E:Rebex.TerminalEmulation.TerminalControl.DataReceived">
+      <summary>
+            Occurs when the data are received from the server.
+            </summary>
+    </member>
+    <member name="E:Rebex.TerminalEmulation.TerminalControl.Disconnected">
+      <summary>
+            Occurs when disconnected from the server.
+            </summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnDisconnected(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:Rebex.TerminalEmulation.TerminalControl.Disconnected" /> event.
+            </summary>
+      <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="E:Rebex.TerminalEmulation.TerminalControl.ProcessingError">
+      <summary>
+            Occurs when an exception occurred while <see cref="F:Rebex.TerminalEmulation.DataProcessingMode.Automatic" /> was in progress.
+            </summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnProcessingError(Rebex.TerminalEmulation.ErrorEventArgs)">
+      <summary>
+            Raises the <see cref="E:Rebex.TerminalEmulation.TerminalControl.ProcessingError" /> event.
+            </summary>
+      <param name="e">An <see cref="T:Rebex.TerminalEmulation.ErrorEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="E:Rebex.TerminalEmulation.TerminalControl.SelectionChanged">
+      <summary>
+            Occurs when a selection is changed.
+            </summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnSelectionChanged(Rebex.TerminalEmulation.SelectionChangedEventArgs)">
+      <summary>
+            Raises the <see cref="E:Rebex.TerminalEmulation.TerminalControl.SelectionChanged" /> event.
+            </summary>
+      <param name="e">A <see cref="T:Rebex.TerminalEmulation.SelectionChangedEventArgs" /> that contains the event data.</param>
+    </member>
+    <member name="E:Rebex.TerminalEmulation.TerminalControl.Pasting">
+      <summary>
+            Occurs when a text is to be pasted from clipboard to screen.
+            </summary>
+    </member>
+    <member name="E:Rebex.TerminalEmulation.TerminalControl.Copying">
+      <summary>
+            Occurs when a text is to be copied from screen to clipboard.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.HistoryMaxLength">
+      <summary>
+            Gets or sets a maximum history buffer length.
+            </summary>
+      <value>Maximum history buffer length (0..99999).</value>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.HistoryLength">
+      <summary>
+            Gets the current history buffer length.
+            </summary>
+      <value>History buffer length (0..HistoryMaxLength).</value>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.#ctor">
+      <summary>
+            Creates a new instance of terminal control.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.CursorText">
+      <summary>
+            Gets or sets the cursor to display in standard text mode.
+            </summary>
+      <value>Cursor for the standard text mode.</value>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.CursorMouse">
+      <summary>
+            Gets or sets the cursor to display in mouse enabled mode.
+            </summary>
+      <value>Cursor for the mouse enabled mode.</value>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.Dispose(System.Boolean)">
+      <summary> 
+            Clean up any resources being used.
+            </summary>
+      <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+      <summary>
+            Paints the control background.
+            </summary>
+      <param name="pevent">Contains information about the control to paint.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnCreateControl">
+      <summary>
+            Raises the <see cref="M:System.Windows.Forms.Control.CreateControl" /> event.
+            </summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.WndProc(System.Windows.Forms.Message@)">
+      <summary>
+            Processes Windows messages.
+            </summary>
+      <param name="m">The Windows message to process.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnPaint(System.Windows.Forms.PaintEventArgs)">
+      <summary>
+            Paints the control.
+            </summary>
+      <param name="e">Contains information about the control to paint.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.IsInputKey(System.Windows.Forms.Keys)">
+      <summary>
+            Determines whether the specified key is a regular input key or a special key that requires preprocessing.
+            </summary>
+      <param name="keyData">Key data.</param>
+      <returns>Value indicating whether to preprocess the key.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.IsInputChar(System.Char)">
+      <summary>
+            Determines if a character is an input character the control recognizes.
+            </summary>
+      <param name="charCode">Input character.</param>
+      <returns>Value indicating whether the input character is recognized by the control.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.KeyDown" /> event.
+            </summary>
+      <param name="e">Contains the event data.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.KeyPress" /> event.
+            </summary>
+      <param name="e">Contains the event data.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnKeyUp(System.Windows.Forms.KeyEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.KeyUp" /> event.
+            </summary>
+      <param name="e">Contains the event data.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+      <summary>
+            Processes a command key.
+            </summary>
+      <param name="msg">A message message to process.</param>
+      <param name="keyData">Key value that represents the key to process.</param>
+      <returns>True if the character was processed; false otherwise.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.PreProcessMessage(System.Windows.Forms.Message@)">
+      <summary>
+            Preprocesses an input message such as a keyboard message.
+            </summary>
+      <param name="msg">A message to process.</param>
+      <returns>True if the message was processed; false otherwise.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.MouseDown" /> event.
+            </summary>
+      <param name="e">Contains the event data.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.MouseMove" /> event.
+            </summary>
+      <param name="e">Contains the event data.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.MouseUp" /> event.
+            </summary>
+      <param name="e">Contains the event data.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnLostFocus(System.EventArgs)">
+      <summary>
+            Raises the <see cref="M:System.Windows.Forms.Control.OnLostFocus(System.EventArgs)" /> event.
+            </summary>
+      <param name="e">Contains the event data.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.Scroll(System.Int32)">
+      <summary>
+            Scrolls the terminal screen for specified number of rows up or down.
+            Positive numbers scroll up (to display history), negative numbers scroll down (to display current screen).
+            </summary>
+      <param name="rows">Number of rows to scroll.</param>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.MouseWheelMode">
+      <summary>
+            Gets or sets the behavior for mouse wheel action.
+            </summary>
+      <value>Behavior for mouse wheel action.</value>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.MouseWheel" /> event.
+            </summary>
+      <param name="e">Contains the event data.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnSizeChanged(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.SizeChanged" /> event.
+            </summary>
+      <param name="e">Contains the event data.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.OnResize(System.EventArgs)">
+      <summary>
+            Raises the <see cref="E:System.Windows.Forms.Control.Resize" /> event.
+            </summary>
+      <param name="e">Contains the event data.</param>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.EnableMouseWheel">
+      <summary>
+            Enables mouse wheel scrolling. 
+            </summary>
+      <value>True - mouse wheel is enabled; false - mouse wheel is disabled.</value>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.SuppressShortcutKeys">
+      <summary>
+            Determines how to handle keystrokes which are registered shortcut keys of the application (e.g. Ctrl+O can activate a menu item).
+            </summary>
+      <value>True - keystroke is processed by the <see cref="T:Rebex.TerminalEmulation.TerminalControl" /> and send to the remote end (shortcut is not activated); 
+            false - keystroke is used as a shortcut (nothing is send to the remote end).</value>
+      <remarks>
+        <seealso cref="P:Rebex.TerminalEmulation.TerminalControl.AltKeyMode" />
+        <seealso cref="P:Rebex.TerminalEmulation.TerminalControl.SuppressAltAsMenuKey" />
+      </remarks>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.SuppressAltAsMenuKey">
+      <summary>
+            Determines whether to suppress menu activation when Alt key is pressed.
+            </summary>
+      <value>True - Alt is only treated as a keystroke with no menu activation; false - do the opposite.</value>
+      <remarks>
+        <seealso cref="P:Rebex.TerminalEmulation.TerminalControl.AltKeyMode" />
+        <seealso cref="P:Rebex.TerminalEmulation.TerminalControl.SuppressShortcutKeys" />
+      </remarks>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.AltKeyMode">
+      <summary>
+            Determines how to handle the Alt key.
+            </summary>
+      <value>Alt key mode.</value>
+      <remarks>
+        <seealso cref="P:Rebex.TerminalEmulation.TerminalControl.SuppressShortcutKeys" />
+        <seealso cref="P:Rebex.TerminalEmulation.TerminalControl.SuppressAltAsMenuKey" />
+      </remarks>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.UserInputEnabled">
+      <summary>
+            Enables or disables user input.
+            </summary>
+      <value>True if user input enabled; false if disable.</value>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.AutoAdjustTerminalSize">
+      <summary>
+            Enables or disables automatic terminal size adjustment based on font size and control size.
+            </summary>
+      <value>True to enable automatic adjustment; false to disable automatic adjustment.</value>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.ScrollBarEnabled">
+      <summary>
+            Enables or disables scroll bar.
+            </summary>
+      <value>True to enable scroll bar; false to disable scroll bar.</value>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.ScrollbackResetOnDisplayActivity">
+      <summary>
+            Enables or disables scrollback reset on display activity (when received any data).
+            </summary>
+      <value>True to enable scrollback reset; false to disable scrollback reset.</value>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.MousePasteEnabled">
+      <summary>
+            Enables or disables right-mouse-button paste functionality.
+            </summary>
+      <value>True to enable right-mouse-button paste functionality; false to disable it.</value>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.MouseSelectionCopiesToClipboard">
+      <summary>
+            Gets or sets a value whether to copy selected text into clipboard automatically or not.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.SelectionMode">
+      <summary>
+            Gets or sets text selection mode (for paste functionality).
+            </summary>
+      <value>Text selection mode.</value>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.CursorStyle">
+      <summary>
+            Gets or sets text cursor style.
+            </summary>
+      <value>Text cursor style.</value>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.CursorBlinkingInterval">
+      <summary>
+            Gets or sets text cursor blinking interval (in miliseconds). Setting it to a value lower than 100 disables blinking.
+            </summary>
+      <value>Text cursor blinking interval.</value>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.Scripting">
+      <summary>
+            Gets the object which allows enhanced scripting.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.Transfers">
+      <summary>
+            Gets the object which allows file transferring.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.Font">
+      <summary>
+            Gets or sets the font of the text displayed by this control.
+            </summary>
+      <value>Font of the text displayed by this control.</value>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalControl.Options">
+      <summary>
+            Gets or sets terminal options.
+            </summary>
+      <value>Terminal options.</value>
+      <remarks>If the options are already used by another terminal, a copy is assigned instead.</remarks>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.SetScreenSize(System.Int32,System.Int32)">
+      <summary>
+            Sets a new screen size, resizing the control accordingly.
+            </summary>
+      <param name="columns">Horizontal size in character columns.</param>
+      <param name="rows">Vertical size in character rows.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.GetControlSize(System.Int32,System.Int32)">
+      <summary>
+            Calculate a control size corresponding to the specified screen size.
+            </summary>
+      <param name="columns">Desired horizontal size in character columns.</param>
+      <param name="rows">Desired vertical size in character rows.</param>
+      <returns>Control size.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.Bind(Rebex.TerminalEmulation.IShellChannelFactory)">
+      <summary>
+            Binds the control to the specified shell channel factory - usually an instance of Rebex.Net.Ssh or Rebex.Net.Telnet class.
+            </summary>
+      <param name="factory">Shell channel factory.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.Unbind">
+      <summary>
+            Unbinds the control from the current channel and closes the channel.
+            </summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.SetDataProcessingMode(Rebex.TerminalEmulation.DataProcessingMode)">
+      <summary>
+            Sets incoming data processing mode.
+            </summary>
+      <param name="mode">Incoming data processing mode.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.Save(System.IO.Stream,Rebex.TerminalEmulation.TerminalCaptureFormat,Rebex.TerminalEmulation.TerminalCaptureOptions)">
+      <summary>
+            Saves the content of the terminal screen to the specified stream in the specified format with the specified options.
+            </summary>
+      <param name="output">Output stream.</param>
+      <param name="format">Capture format.</param>
+      <param name="options">Capture options.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.Save(System.String,Rebex.TerminalEmulation.TerminalCaptureFormat,Rebex.TerminalEmulation.TerminalCaptureOptions)">
+      <summary>
+            Saves the content of the terminal screen to the specified file in the specified format with the specified options.
+            </summary>
+      <param name="path">Path to a local file.</param>
+      <param name="format">Capture format.</param>
+      <param name="options">Capture options.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.Save(System.IO.Stream,Rebex.TerminalEmulation.TerminalCaptureFormat)">
+      <summary>
+            Saves the content of the terminal screen to the specified stream in the specified format.
+            </summary>
+      <param name="output">Output stream.</param>
+      <param name="format">Capture format.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.Save(System.String,Rebex.TerminalEmulation.TerminalCaptureFormat)">
+      <summary>
+            Saves the content of the terminal screen to the specified file in the specified format.
+            </summary>
+      <param name="path">Path to a local file.</param>
+      <param name="format">Capture format.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.Save(System.IO.Stream,Rebex.TerminalEmulation.TerminalImageFormat,Rebex.TerminalEmulation.TerminalCaptureOptions,Rebex.TerminalEmulation.TerminalFont)">
+      <summary>
+            Saves the content of the terminal screen to the specified stream in the specified image format with the specified options.
+            </summary>
+      <param name="output">Output stream.</param>
+      <param name="format">Image format.</param>
+      <param name="options">Capture options.</param>
+      <param name="font">Font (optional).</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.Save(System.String,Rebex.TerminalEmulation.TerminalImageFormat,Rebex.TerminalEmulation.TerminalCaptureOptions,Rebex.TerminalEmulation.TerminalFont)">
+      <summary>
+            Saves the content of the terminal screen to the specified file in the specified image format with the specified options.
+            </summary>
+      <param name="path">Path to a local file.</param>
+      <param name="format">Image format.</param>
+      <param name="options">Capture options.</param>
+      <param name="font">Font (optional).</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.Save(System.IO.Stream,Rebex.TerminalEmulation.TerminalImageFormat,Rebex.TerminalEmulation.TerminalFont)">
+      <summary>
+            Saves the content of the terminal screen to the specified stream in the specified image format.
+            </summary>
+      <param name="output">Output stream.</param>
+      <param name="format">Image format.</param>
+      <param name="font">Font (optional).</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.Save(System.String,Rebex.TerminalEmulation.TerminalImageFormat,Rebex.TerminalEmulation.TerminalFont)">
+      <summary>
+            Saves the content of the terminal screen to the specified file in the specified image format.
+            </summary>
+      <param name="path">Path to a local file.</param>
+      <param name="format">Image format.</param>
+      <param name="font">Font (optional).</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.GetSelectedText">
+      <summary>
+            Returns the currently selected text.
+            </summary>
+      <returns>Currently selected text, or null if no text is selected.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.SetSelection(System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>
+            Sets selection area.
+            </summary>
+      <param name="startColumn">Start column.</param>
+      <param name="startRow">Start row.</param>
+      <param name="endColumn">End column.</param>
+      <param name="endRow">End row.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.ResetSelection">
+      <summary>
+            Unselects selection area.
+            </summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalControl.BindAsync(Rebex.TerminalEmulation.IShellChannelFactory,System.Object)">
+      <summary>
+            Begins asynchronous Bind operation.
+            Binds the control to the specified shell channel factory - usually an instance of Rebex.Net.Ssh or Rebex.Net.Telnet class.
+            </summary>
+      <param name="factory">Shell channel factory.</param>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+    </member>
+    <member name="T:Rebex.TerminalEmulation.ClipboardSelectionCopyMode">
+      <summary>
+            Determines behavior for copying selected text into clipboard.
+            </summary>
+    </member>
+    <member name="F:Rebex.TerminalEmulation.ClipboardSelectionCopyMode.CopyAutomatically">
+      <summary>
+            Selected text is copied into clipboard automatically.
+            </summary>
+    </member>
+    <member name="F:Rebex.TerminalEmulation.ClipboardSelectionCopyMode.DoNotCopy">
+      <summary>
+            Selected text is not copied into clipboard.
+            </summary>
+    </member>
+    <member name="T:Rebex.TerminalEmulation.ClipboardOperationEventArgs">
+      <summary>
+            Provides data for the <see cref="E:Rebex.TerminalEmulation.TerminalControl.Pasting" /> and <see cref="E:Rebex.TerminalEmulation.TerminalControl.Copying" /> events.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.ClipboardOperationEventArgs.Text">
+      <summary>
+            Gets or sets the text to be copied from/to clipboard.
+            If set to null reference (Nothing in Visual Basic) the clipboard operation will be skipped.
+            </summary>
+    </member>
+    <member name="T:Rebex.TerminalEmulation.CursorColorEventArgs">
+      <summary>
+            Provides data for the <see cref="E:Rebex.TerminalEmulation.TerminalControl.CursorColor">CursorColor</see> event.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.CursorColorEventArgs.Blink">
+      <summary>
+            Gets the blink state.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.CursorColorEventArgs.CellForeColor">
+      <summary>
+            Gets the original foreground color (a palette index) of the cell at the cursor position.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.CursorColorEventArgs.CellBackColor">
+      <summary>
+            Gets the original background color (a palette index) of the cell at the cursor position.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.CursorColorEventArgs.ForeColor">
+      <summary>
+            Gets or sets the foreground color (a palette index) of the cursor cell.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.CursorColorEventArgs.BackColor">
+      <summary>
+            Gets or sets the background color (a palette index) of the cursor cell.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.CursorColorEventArgs.IsSelected">
+      <summary>
+            Gets a value that indicates whether the cursor cell is part of a selection.
+            </summary>
+    </member>
+    <member name="T:Rebex.TerminalEmulation.ScreenResizeEventArgs">
+      <summary>
+            Provides data for the <see cref="E:Rebex.TerminalEmulation.TerminalControl.ScreenResize">ScreenResize</see> event.
+            </summary>
+    </member>
+    <member name="T:Rebex.TerminalEmulation.ErrorEventArgs">
+      <summary>
+            Provides data for the <see cref="E:Rebex.TerminalEmulation.TerminalControl.ProcessingError">ProcessingError</see> event.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.ErrorEventArgs.Exception">
+      <summary>
+            Gets the Exception.
+            </summary>
+      <value>An Exception.</value>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.ErrorEventArgs.#ctor(System.Exception)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Rebex.TerminalEmulation.ErrorEventArgs" /> class with the specified exception
+            and a default Handled property value of false.
+            </summary>
+      <param name="exception">An Exception.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.ErrorEventArgs.#ctor(System.Exception,System.Boolean)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Rebex.TerminalEmulation.ErrorEventArgs" /> class with the specified exception
+            and default value for the Handled property.
+            </summary>
+      <param name="exception">An Exception.</param>
+      <param name="defaultHandledValue">The default value for the Handled property.</param>
+    </member>
+    <member name="T:Rebex.TerminalEmulation.SelectionChangedEventArgs">
+      <summary>
+            Provides data for the <see cref="E:Rebex.TerminalEmulation.TerminalControl.SelectionChanged">SelectionChanged</see> event.
+            </summary>
+    </member>
+    <member name="T:Rebex.TerminalEmulation.TerminalFont">
+      <summary>
+            Represents a fixed-width terminal font.
+            </summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalFont.#ctor(Rebex.TerminalEmulation.TerminalFontInfo)">
+      <summary>
+            Initializes a new instance of terminal font with the specified font info.
+            </summary>
+      <param name="info">Font info.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalFont.#ctor(System.String,System.Single)">
+      <summary>
+            Initializes a new instance of terminal font with the specified family name and size.
+            </summary>
+      <param name="familyName">Font family name.</param>
+      <param name="emSize">The em-size in points.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalFont.#ctor(System.Drawing.FontFamily,System.Single)">
+      <summary>
+            Initializes a new instance of terminal font with the specified family name and size.
+            </summary>
+      <param name="family">Font family.</param>
+      <param name="emSize">The em-size in points.</param>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalFont.Width">
+      <summary>
+            Gets font cell width.
+            </summary>
+      <value>Font cell width.</value>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalFont.Height">
+      <summary>
+            Gets font cell height.
+            </summary>
+      <value>Font cell height.</value>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalFont.FromDosFont(System.Byte[])">
+      <summary>
+            Creates a font from a DOS raster font.
+            </summary>
+      <param name="font">Raw DOS raster font data - either 4KB for 256 8x16 characters or 2KB for 256 8x8 characters.</param>
+      <returns>DOS terminal font.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalFont.FromDosFont(System.Byte[],System.Boolean)">
+      <summary>
+            Creates a font from a DOS raster font.
+            </summary>
+      <param name="font">Raw DOS raster font data - either 4KB for 256 8x16 characters or 2KB for 256 8x8 characters.</param>
+      <param name="spacing">Add additional empty columns to each character, in the same way VGA does in 720x480 resolution.</param>
+      <returns>DOS terminal font.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalFont.IsSupportedFamily(System.String)">
+      <summary>
+            Gets a value indicating whether the specified font family is supported.
+            </summary>
+      <param name="familyName">Font family name.</param>
+      <returns>True if supported; false if not supported.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalFont.IsSupportedFamily(System.Drawing.FontFamily)">
+      <summary>
+            Gets a value indicating whether the specified font family is supported.
+            </summary>
+      <param name="family">Font family.</param>
+      <returns>True if supported; false if not supported.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalFont.Dispose">
+      <summary>
+            Disposes the <see cref="T:Rebex.TerminalEmulation.TerminalFont" /> object.
+            </summary>
+      <remarks>
+            Calling this method ensures that all resources are freed.
+            </remarks>
+    </member>
+    <member name="T:Rebex.TerminalEmulation.TerminalFontStyles">
+      <summary>
+            Specifies terminal font style.
+            </summary>
+    </member>
+    <member name="F:Rebex.TerminalEmulation.TerminalFontStyles.Regular">
+      <summary>
+            Regular text.
+            </summary>
+    </member>
+    <member name="F:Rebex.TerminalEmulation.TerminalFontStyles.Bold">
+      <summary>
+            Bold text.
+            </summary>
+    </member>
+    <member name="F:Rebex.TerminalEmulation.TerminalFontStyles.Italic">
+      <summary>
+            Italic text.
+            </summary>
+    </member>
+    <member name="T:Rebex.TerminalEmulation.TerminalFontInfo">
+      <summary>
+            Specifies terminal font info.
+            </summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.TerminalFontInfo.#ctor">
+      <summary>
+            Creates a terminal font info with default settings.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalFontInfo.FamilyName">
+      <summary>
+            Gets or sets the font family name. Sets <see cref="P:Rebex.TerminalEmulation.TerminalFontInfo.Family" /> as well.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalFontInfo.Family">
+      <summary>
+            Gets or sets the font family. Sets <see cref="P:Rebex.TerminalEmulation.TerminalFontInfo.FamilyName" /> as well.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalFontInfo.FontSize">
+      <summary>
+            Gets or sets the font em-size in points.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalFontInfo.ExtraSize">
+      <summary>
+            Gets or sets an extra size by which to adjust the default cell size.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalFontInfo.CharacterPosition">
+      <summary>
+            Specifies an offset by which to adjust the character position within the cell.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalFontInfo.Styles">
+      <summary>
+            Specifies supported font styles.
+            </summary>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.TerminalFontInfo.Bold">
+      <summary>
+            Forces regular text to be rendered as bold.
+            </summary>
+    </member>
+    <member name="T:Rebex.TerminalEmulation.TerminalImageFormat">
+      <summary>
+            Terminal image format.
+            </summary>
+    </member>
+    <member name="F:Rebex.TerminalEmulation.TerminalImageFormat.Bmp">
+      <summary>BMP image.</summary>
+    </member>
+    <member name="F:Rebex.TerminalEmulation.TerminalImageFormat.Jpeg">
+      <summary>JPEG image.</summary>
+    </member>
+    <member name="F:Rebex.TerminalEmulation.TerminalImageFormat.Png">
+      <summary>PNG image.</summary>
+    </member>
+    <member name="F:Rebex.TerminalEmulation.TerminalImageFormat.Gif">
+      <summary>GIF image.</summary>
+    </member>
+    <member name="F:Rebex.TerminalEmulation.TerminalImageFormat.Tiff">
+      <summary>TIFF image.</summary>
+    </member>
+    <member name="T:Rebex.TerminalEmulation.VirtualTerminalExtensions">
+      <summary>
+            Provides image saving methods for <see cref="T:Rebex.TerminalEmulation.VirtualTerminal" /> class.
+            </summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.VirtualTerminalExtensions.Save(Rebex.TerminalEmulation.VirtualTerminal,System.IO.Stream,Rebex.TerminalEmulation.TerminalImageFormat,Rebex.TerminalEmulation.TerminalCaptureOptions,Rebex.TerminalEmulation.TerminalFont)">
+      <summary>
+            Saves the content of the terminal screen to the specified stream in the specified image format with the specified options.
+            </summary>
+      <param name="terminal">Virtual terminal.</param>
+      <param name="output">Output stream.</param>
+      <param name="format">Image format.</param>
+      <param name="options">Capture options.</param>
+      <param name="font">Font (optional).</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.VirtualTerminalExtensions.Save(Rebex.TerminalEmulation.VirtualTerminal,System.String,Rebex.TerminalEmulation.TerminalImageFormat,Rebex.TerminalEmulation.TerminalCaptureOptions,Rebex.TerminalEmulation.TerminalFont)">
+      <summary>
+            Saves the content of the terminal screen to the specified file in the specified image format with the specified options.
+            </summary>
+      <param name="terminal">Virtual terminal.</param>
+      <param name="path">Path to a local file.</param>
+      <param name="format">Image format.</param>
+      <param name="options">Capture options.</param>
+      <param name="font">Font (optional).</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.VirtualTerminalExtensions.Save(Rebex.TerminalEmulation.VirtualTerminal,System.IO.Stream,Rebex.TerminalEmulation.TerminalImageFormat,Rebex.TerminalEmulation.TerminalFont)">
+      <summary>
+            Saves the content of the terminal screen to the specified stream in the specified image format.
+            </summary>
+      <param name="terminal">Virtual terminal.</param>
+      <param name="output">Output stream.</param>
+      <param name="format">Image format.</param>
+      <param name="font">Font (optional).</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.VirtualTerminalExtensions.Save(Rebex.TerminalEmulation.VirtualTerminal,System.String,Rebex.TerminalEmulation.TerminalImageFormat,Rebex.TerminalEmulation.TerminalFont)">
+      <summary>
+            Saves the content of the terminal screen to the specified file in the specified image format.
+            </summary>
+      <param name="terminal">Virtual terminal.</param>
+      <param name="path">Path to a local file.</param>
+      <param name="format">Image format.</param>
+      <param name="font">Font (optional).</param>
+    </member>
+    <member name="T:Rebex.Legacy.TerminalControlExtensions">
+      <summary>
+            Extension class for TerminalControl.
+            </summary>
+    </member>
+    <member name="M:Rebex.Legacy.TerminalControlExtensions.BeginBind(Rebex.TerminalEmulation.TerminalControl,Rebex.TerminalEmulation.IShellChannelFactory,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous Bind operation.
+            Binds the control to the specified shell channel factory - usually an instance of Rebex.Net.Ssh or Rebex.Net.Telnet class.
+            </summary>
+      <param name="factory">Shell channel factory.</param>
+      <remarks>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of TerminalControl.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.TerminalControlExtensions.EndBind(Rebex.TerminalEmulation.TerminalControl,System.IAsyncResult)">
+      <summary>
+            Ends an asynchronous BeginBind operation.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+      <param name="instance">Instance of TerminalControl.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.ScreenResizeEventArgs.#ctor">
+      <summary>Creates an instance of <see cref="T:Rebex.TerminalEmulation.ScreenResizeEventArgs" /> class.</summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.SelectionChangedEventArgs.#ctor">
+      <summary>Creates an instance of <see cref="T:Rebex.TerminalEmulation.SelectionChangedEventArgs" /> class.</summary>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,141 @@
+﻿<mvvm:SsWindowView x:Class="SecurityStudio.Module.Main.Main.View.SsMainWindowView"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:container="clr-namespace:SecurityStudio.Base.Control.Container;assembly=SecurityStudio.Base.Control"
+                   xmlns:ribbon="clr-namespace:SecurityStudio.Base.Control.Ribbon;assembly=SecurityStudio.Base.Control"
+                   xmlns:mvvm="clr-namespace:SecurityStudio.Base.Main.Mvvm;assembly=SecurityStudio.Base.Main"
+                   xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
+                   xmlns:bar="clr-namespace:SecurityStudio.Base.Control.Bar;assembly=SecurityStudio.Base.Control"
+                   xmlns:dock="clr-namespace:SecurityStudio.Base.Control.Dock;assembly=SecurityStudio.Base.Control"
+                   xmlns:layout="clr-namespace:SecurityStudio.Base.Control.Layout;assembly=SecurityStudio.Base.Control"
+                   mc:Ignorable="d" Title="Security Studio" WindowState="Maximized"
+                   MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen">
+    <container:SsDockPanel LastChildFill="True">
+        <ribbon:SsRibbonControl ApplicationButtonText="Security Studio" DockPanel.Dock="Top">
+            <!--region #AppMenu-->
+            <ribbon:SsRibbonControl.ApplicationMenu>
+                <ribbon:SsApplicationMenu RightPaneWidth="280" ShowRightPane="True" />
+            </ribbon:SsRibbonControl.ApplicationMenu>
+            <!--endregion #AppMenu-->
+            <!--region #DefaultPageCategory-->
+            <ribbon:SsRibbonDefaultPageCategory>
+                <ribbon:SsRibbonPage Caption="Mitre">
+                    <ribbon:SsRibbonPageGroup Caption="Mitre">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Tools">
+                    <ribbon:SsRibbonPageGroup Caption="Tools">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Linux">
+                    <ribbon:SsRibbonPageGroup Caption="Linux">
+                        <ribbon:SsLargeBarButtonItem Content="Terminal"
+                                                     Command="{wpf:SsBinding Path=SsShowSsTerminalViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Windows">
+                    <ribbon:SsRibbonPageGroup Caption="Windows">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Code Editor">
+                    <ribbon:SsRibbonPageGroup Caption="Code Editor">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Web Pen Test">
+                    <ribbon:SsRibbonPageGroup Caption="Web Pen Test">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Mobile Pen Test">
+                    <ribbon:SsRibbonPageGroup Caption="Mobile Pen Test">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Network Pen Test">
+                    <ribbon:SsRibbonPageGroup Caption="Network Pen Test">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Definition">
+                    <ribbon:SsRibbonPageGroup Caption="Definition">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+            </ribbon:SsRibbonDefaultPageCategory>
+            <!--endregion #DefaultPageCategory-->
+        </ribbon:SsRibbonControl>
+        <bar:SsStatusBarControl DockPanel.Dock="Bottom" Caption="StatusBar">
+            <bar:SsBarStaticItem Content="XXXXXXXX" ShowBorder="False" />
+            <!--<bar:SsBarEditItem Content="XXXXXXXX" EditWidth="150" Alignment="Far"
+                                EditValue="{wpf:SsBinding Path=CurrentTheme}">
+                <bar:SsBarEditItem.EditSettings>
+                    <dxe:ComboBoxEditSettings ItemsSource="{wpf:SsBinding Path=Themes}" IsTextEditable="False" />
+                </bar:SsBarEditItem.EditSettings>
+            </bar:SsBarEditItem>-->
+        </bar:SsStatusBarControl>
+        <container:SsBackgroundPanel>
+            <layout:SsLayoutControl>
+                <layout:SsLayoutGroup VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <dock:SsDockLayoutManager DockItemClosing="DockLayoutManagerOnDockItemClosing"
+                                              DockItemClosed="DockLayoutManagerOnDockItemClosed">
+                        <dock:SsLayoutGroup Orientation="Horizontal">
+                            <dock:SsLayoutGroup ItemWidth="*" Orientation="Horizontal">
+                                <dock:SsDocumentGroup ItemWidth="*" x:Name="SdvDocumentGroupMain" />
+                            </dock:SsLayoutGroup>
+                        </dock:SsLayoutGroup>
+                    </dock:SsDockLayoutManager>
+                </layout:SsLayoutGroup>
+            </layout:SsLayoutControl>
+        </container:SsBackgroundPanel>
+    </container:SsDockPanel>
+</mvvm:SsWindowView>

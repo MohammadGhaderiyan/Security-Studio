@@ -1,0 +1,3904 @@
+<doc>
+  <assembly>
+    <name>Rebex.Msg</name>
+  </assembly>
+  <members>
+    <member name="T:Rebex.Mail.MsgAddressType">
+      <summary>
+            Specifies types of an e-mail address.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgAddressType.Unknown">
+      <summary>
+            Unknown address type.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgAddressType.Smtp">
+      <summary>
+            SMTP address. <see cref="F:Rebex.Mail.MsgPropertyTag.AddressType" /> value is "SMTP".
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgAddressType.Exchange">
+      <summary>
+            Exchange address. <see cref="F:Rebex.Mail.MsgPropertyTag.AddressType" /> value is "EX".
+            </summary>
+    </member>
+    <member name="T:Rebex.Mail.MsgAddress">
+      <summary>
+            Represents an Outlook .MSG e-mail address.
+            </summary>
+    </member>
+    <member name="M:Rebex.Mail.MsgAddress.#ctor(Rebex.Mail.MsgAddress)">
+      <summary>
+            Initializes a new instance of <see cref="T:Rebex.Mail.MsgAddress" /> class from an existing instance.
+            </summary>
+      <param name="address">An address to copy values from.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgAddress.#ctor(System.String,System.String)">
+      <summary>
+            Initializes a new instance of <see cref="T:Rebex.Mail.MsgAddress" /> class.
+            </summary>
+      <param name="emailAddress">An e-mail address (optionally with display name).
+            If the value starts with slash ("/"), the address type is set to <see cref="F:Rebex.Mail.MsgAddressType.Exchange" />.
+            Otherwise, the address type is set to <see cref="F:Rebex.Mail.MsgAddressType.Smtp" />.
+            </param>
+      <param name="displayName">A display name of the e-mail address.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgAddress.#ctor(Rebex.Mail.MsgAddressType,System.String,System.String)">
+      <summary>
+            Initializes a new instance of <see cref="T:Rebex.Mail.MsgAddress" /> class.
+            </summary>
+      <param name="addressType">A type of the e-mail address.</param>
+      <param name="emailAddress">An e-mail address.</param>
+      <param name="displayName">A display name of the e-mail address.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgAddress.op_Implicit(System.String)~Rebex.Mail.MsgAddress">
+      <summary>
+            Converts a <see cref="T:System.String" /> (an address, possibly with a display name) to an <see cref="T:Rebex.Mail.MsgAddress" />.
+            </summary>
+      <param name="address">An <see cref="T:Rebex.Mail.MsgAddress" />.</param>
+    </member>
+    <member name="P:Rebex.Mail.MsgAddress.DisplayName">
+      <summary>
+            Gets display name of the e-mail address.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgAddress.SmtpAddress">
+      <summary>
+            Gets SMTP equivalent of the e-mail address (if it exists).
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgAddress.EmailAddress">
+      <summary>
+            Gets the e-mail address.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgAddress.AddressType">
+      <summary>
+            Gets the type of the e-mail address.
+            </summary>
+    </member>
+    <member name="M:Rebex.Mail.MsgAddress.ToString">
+      <inheritdoc />
+    </member>
+    <member name="M:Rebex.Mail.MsgAddress.GetHashCode">
+      <inheritdoc />
+    </member>
+    <member name="M:Rebex.Mail.MsgAddress.Equals(System.Object)">
+      <inheritdoc />
+    </member>
+    <member name="M:Rebex.Mail.MsgAddress.op_Equality(Rebex.Mail.MsgAddress,Rebex.Mail.MsgAddress)">
+      <summary>
+            Compares two <see cref="T:Rebex.Mail.MsgAddress" /> instances for equality.
+            </summary>
+    </member>
+    <member name="M:Rebex.Mail.MsgAddress.op_Inequality(Rebex.Mail.MsgAddress,Rebex.Mail.MsgAddress)">
+      <summary>
+            Compares two <see cref="T:Rebex.Mail.MsgAddress" /> instances for non-equality.
+            </summary>
+    </member>
+    <member name="T:Rebex.Mail.MsgAddressCollection">
+      <summary>
+            Represents a collection of Outlook .MSG e-mail addresses.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgAddressCollection.Count">
+      <summary>
+            Gets the number of elements.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgAddressCollection.Item(System.Int32)">
+      <summary>
+            Gets the e-mail address on specified index.
+            </summary>
+      <param name="index">Index of e-mail address to return.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgAddressCollection.Add(System.String,System.String)">
+      <summary>
+            Adds an SMTP address to the collection.
+            </summary>
+      <param name="emailAddress">An e-mail address.
+            If the value starts with slash "/" the address type is set to <see cref="F:Rebex.Mail.MsgAddressType.Exchange" />;
+            otherwise the address type is set to <see cref="F:Rebex.Mail.MsgAddressType.Smtp" />.
+            </param>
+      <param name="displayName">A display name of the e-mail address.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgAddressCollection.Add(Rebex.Mail.MsgAddressType,System.String,System.String)">
+      <summary>
+            Adds an e-mail address to the collection.
+            </summary>
+      <param name="addressType">A type of the e-mail address.</param>
+      <param name="emailAddress">An e-mail address to add.</param>
+      <param name="displayName">A display name of the e-mail address.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgAddressCollection.Add(Rebex.Mail.MsgAddress)">
+      <summary>
+            Adds an e-mail address to the collection.
+            </summary>
+      <param name="address">An e-mail address to add.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgAddressCollection.Remove(Rebex.Mail.MsgAddress)">
+      <summary>
+            Removes specified address from the collection.
+            </summary>
+      <param name="address">Address to remove.</param>
+      <returns>A value indicating whether the address was found within the collection and removed.</returns>
+    </member>
+    <member name="M:Rebex.Mail.MsgAddressCollection.RemoveAt(System.Int32)">
+      <summary>
+            Removes an address at specified index.
+            </summary>
+      <param name="index">Index of address to remove.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgAddressCollection.Clear">
+      <summary>
+            Clears the collection.
+            </summary>
+    </member>
+    <member name="M:Rebex.Mail.MsgAddressCollection.Contains(Rebex.Mail.MsgAddress)">
+      <summary>
+            Gets a value indicating whether the specified address is in the collection.
+            </summary>
+      <param name="address">An address to be located.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgAddressCollection.CopyTo(Rebex.Mail.MsgAddress[],System.Int32)">
+      <summary>
+            Copies the entire collection to an array, starting at the specified index of the target array.
+            </summary>
+      <param name="array">An array where to copy addresses.</param>
+      <param name="arrayIndex">A zero-based index in target array at which copying begins.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgAddressCollection.ToString">
+      <inheritdoc />
+    </member>
+    <member name="M:Rebex.Mail.MsgAddressCollection.GetEnumerator">
+      <summary>
+            Gets an <see cref="T:System.Collections.Generic.IEnumerator`1" /> to iterate through the collection.
+            </summary>
+      <returns>An <see cref="T:System.Collections.Generic.IEnumerator`1" /> to iterate through the collection.</returns>
+    </member>
+    <member name="T:Rebex.Mail.MsgAttachment">
+      <summary>
+            Represents an Outlook .MSG attachment.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgAttachment.Properties">
+      <summary>
+            Gets a collection of properties of the attachment.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgAttachment.Data">
+      <summary>
+            Gets the data of the attachment (only if data are stored as byte array).
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgAttachment.DisplayName">
+      <summary>
+            Gets display name of the attachment.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgAttachment.FileName">
+      <summary>
+            Gets file name of the attachment.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgAttachment.IsEmbeddedMessage">
+      <summary>
+            Gets a value indicating whether the attachment is an embedded Outlook .MSG mail message.
+            </summary>
+    </member>
+    <member name="M:Rebex.Mail.MsgAttachment.ToMessage">
+      <summary>
+            Converts attachment data into a new <see cref="T:Rebex.Mail.MsgMessage" /> instance.
+            </summary>
+      <returns>New instance of <see cref="T:Rebex.Mail.MsgMessage" /> converted from attachment data.</returns>
+    </member>
+    <member name="M:Rebex.Mail.MsgAttachment.Save(System.String)">
+      <summary>
+            Saves the attachment to a file.
+            </summary>
+      <param name="path">Path where to save the attachment.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgAttachment.Save(System.IO.Stream)">
+      <summary>
+            Saves the attachment to the supplied stream.
+            </summary>
+      <param name="output">Stream to save the attachment to.</param>
+    </member>
+    <member name="T:Rebex.Mail.MsgAttachmentCollection">
+      <summary>
+            Represents a collection of Outlook .MSG attachments.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgAttachmentCollection.Count">
+      <summary>
+            Gets the number of elements.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgAttachmentCollection.Item(System.Int32)">
+      <summary>
+            Gets the attachment on specified index.
+            </summary>
+      <param name="index">Index of attachment to return.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgAttachmentCollection.Add(System.String,System.String)">
+      <summary>
+            Adds an attachment to the collection.
+            </summary>
+      <param name="filePath">Path to a file to provide data for the attachment.</param>
+      <param name="displayName">Display name of the attachment.</param>
+      <returns>Created attachment object.</returns>
+    </member>
+    <member name="M:Rebex.Mail.MsgAttachmentCollection.Add(System.IO.Stream,System.String,System.String)">
+      <summary>
+            Adds an attachment to the collection.
+            </summary>
+      <param name="input">Stream from which the data for the attachment will be read.</param>
+      <param name="fileName">File name of the attachment.</param>
+      <param name="displayName">Display name of the attachment.</param>
+      <returns>Created attachment object.</returns>
+    </member>
+    <member name="M:Rebex.Mail.MsgAttachmentCollection.Remove(Rebex.Mail.MsgAttachment)">
+      <summary>
+            Removes specified attachment from the collection.
+            </summary>
+      <param name="attachment">Attachment to remove.</param>
+      <returns>A value indicating whether the attachment was found within the collection and removed.</returns>
+    </member>
+    <member name="M:Rebex.Mail.MsgAttachmentCollection.RemoveAt(System.Int32)">
+      <summary>
+            Removes an attachment at specified index.
+            </summary>
+      <param name="index">Index of attachment to remove.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgAttachmentCollection.Clear">
+      <summary>
+            Clears the collection.
+            </summary>
+    </member>
+    <member name="M:Rebex.Mail.MsgAttachmentCollection.Contains(Rebex.Mail.MsgAttachment)">
+      <summary>
+            Gets a value indicating whether the specified attachment is in the collection.
+            </summary>
+      <param name="attachment">An attachment to be located.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgAttachmentCollection.CopyTo(Rebex.Mail.MsgAttachment[],System.Int32)">
+      <summary>
+            Copies the entire collection to an array, starting at the specified index of the target array.
+            </summary>
+      <param name="array">An array where to copy attachments.</param>
+      <param name="arrayIndex">A zero-based index in target array at which copying begins.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgAttachmentCollection.GetEnumerator">
+      <summary>
+            Gets an <see cref="T:System.Collections.Generic.IEnumerator`1" /> to iterate through the collection.
+            </summary>
+      <returns>An <see cref="T:System.Collections.Generic.IEnumerator`1" /> to iterate through the collection.</returns>
+    </member>
+    <member name="T:Rebex.Mail.MsgPropertyKind">
+      <summary>
+            Specifies a kind of <see cref="T:Rebex.Mail.MsgProperty" />.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyKind.Tagged">
+      <summary>
+            A tagged property (identified by <see cref="T:Rebex.Mail.MsgPropertyTag" />, prefix in [MS-OXPROPS] is "PidTag").
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyKind.NumericalNamed">
+      <summary>
+            A named property with a numerical identifier (identified by <see cref="T:Rebex.Mail.MsgPropertyId" />, prefix in [MS-OXPROPS] is "PidLid").
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyKind.StringNamed">
+      <summary>
+            A named property with a string identifier (identified by <see cref="T:System.String" />, prefix in [MS-OXPROPS] is "PidName").
+            </summary>
+    </member>
+    <member name="T:Rebex.Mail.MsgPropertySet">
+      <summary>
+            Specifies a <em>property set</em> of <see cref="T:Rebex.Mail.MsgProperty" />.
+            </summary>
+      <remarks>
+            Defined in [MS-OXPROPS] (names start with "PS_" or "PSETID_").
+            </remarks>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.None">
+      <summary>
+            Default - unknown property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.Mapi">
+      <summary>
+            MAPI property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.PublicStrings">
+      <summary>
+            Publicly visible client string. 
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.InternetHeaders">
+      <summary>
+            Internet headers property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.Common">
+      <summary>
+            Common property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.Address">
+      <summary>
+            Contact address property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.Appointment">
+      <summary>
+            Calendar appointment property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.Meeting">
+      <summary>
+            Calendar meeting property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.Log">
+      <summary>
+            Log journal property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.Messaging">
+      <summary>
+            Messaging property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.Note">
+      <summary>
+            Sticky note property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.Rss">
+      <summary>
+            RSS feed property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.Task">
+      <summary>
+            Task property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.UnifiedMessaging">
+      <summary>
+            Unified messaging property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.AirSync">
+      <summary>
+            Air Sync property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.Sharing">
+      <summary>
+            Sharing property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.CalendarAsistant">
+      <summary>
+            Calendar Assistant property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.Attachment">
+      <summary>
+            Attachment property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.Report">
+      <summary>
+            Report of general messaging property set.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertySet.RemoteMessaging">
+      <summary>
+            Remote messaging property set.
+            </summary>
+    </member>
+    <member name="T:Rebex.Mail.MsgPropertyDataType">
+      <summary>
+            Specifies a <em>data type</em> of the <see cref="T:Rebex.Mail.MsgProperty" /> value.
+            </summary>
+      <remarks>
+            Defined in [MS-OXCDATA] (names start with "Ptyp").
+            </remarks>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.Unspecified">
+      <summary>
+            PtypUnspecified - the data type is unknown or it is not important to the caller.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.Null">
+      <summary>
+            PtypNull - an empty value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.Integer16">
+      <summary>
+            PtypInteger16 - 16-bit signed integer value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.Integer32">
+      <summary>
+            PtypInteger32 - 32-bit signed integer value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.Floating32">
+      <summary>
+            PtypFloating32 - 32-bit floating point single precision value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.Floating64">
+      <summary>
+            PtypFloating64 - 64-bit floating point double precision value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.Currency">
+      <summary>
+            PtypCurrency - a currency value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.FloatingTime">
+      <summary>
+            PtypFloatingTime - 64-bit floating time double precision value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.ErrorCode">
+      <summary>
+            PtypErrorCode - an error value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.Boolean">
+      <summary>
+            PtypBoolean - 8-bit boolean value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.ComObject">
+      <summary>
+            PtypObject - a COM object or embedded table.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.Integer64">
+      <summary>
+            PtypInteger64 - 64-bit signed integer value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.String8">
+      <summary>
+            PtypString8 - a string value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.String">
+      <summary>
+            PtypString - a Unicode string value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.Time">
+      <summary>
+            PtypTime - 64-bit time value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.Guid">
+      <summary>
+            PtypGuid - 128-bit GUID or Class identifier value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.ServerId">
+      <summary>
+            PtypServerId - a server identifier value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.Restriction">
+      <summary>
+            PtypRestriction - an array of restriction entries.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.RuleAction">
+      <summary>
+            PtypRuleAction - a rule action value.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.Binary">
+      <summary>
+            PtypBinary - an array of binary data.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.MultipleInteger16">
+      <summary>
+            PtypMultipleInteger16 - an array of 16-bit signed integer values.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.MultipleInteger32">
+      <summary>
+            PtypMultipleInteger32 - an array of 32-bit signed integer values.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.MultipleFloating32">
+      <summary>
+            PtypMultipleFloating32 - an array of 32-bit floating point single precision values.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.MultipleFloating64">
+      <summary>
+            PtypMultipleFloating64 - an array of 64-bit floating point double precision values.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.MultipleCurrency">
+      <summary>
+            PtypMultipleCurrency - an array of currency values.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.MultipleFloatingTime">
+      <summary>
+            PtypMultipleFloatingTime - an array of 64-bit floating time double precision values.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.MultipleInteger64">
+      <summary>
+            PtypMultipleInteger64 - an array of 64-bit signed integer values.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.MultipleString8">
+      <summary>
+            PtypMultipleString8 - an array of string values.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.MultipleString">
+      <summary>
+            PtypMultipleString - an array of Unicode string values.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.MultipleTime">
+      <summary>
+            PtypMultipleTime - an array of 64-bit time values.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.MultipleGuid">
+      <summary>
+            PtypMultipleGuid - an array of GUID values.
+            </summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyDataType.MultipleBinary">
+      <summary>
+            PtypMultipleBinary - an array of binary data.
+            </summary>
+    </member>
+    <member name="T:Rebex.Mail.MsgPropertyTag">
+      <summary>
+            Specifies a known property Tag.
+            </summary>
+      <remarks>
+            Defined in [MS-OXPROPS] (names start with "PidTag").
+            </remarks>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SevenBitDisplayName">
+      <summary>ID: 0x39FF. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Access">
+      <summary>ID: 0x0FF4. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AccessLevel">
+      <summary>ID: 0x0FF7. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Account">
+      <summary>ID: 0x3A00. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AdditionalRenEntryIds">
+      <summary>ID: 0x36D8. Data type: MultipleBinary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AdditionalRenEntryIdsEx">
+      <summary>ID: 0x36D9. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookAuthorizedSenders">
+      <summary>ID: 0x8CD8. Data type: Object.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookContainerId">
+      <summary>ID: 0xFFFD. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookDeliveryContentLength">
+      <summary>ID: 0x806A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookDisplayNamePrintable">
+      <summary>ID: 0x39FF. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookDisplayTypeExtended">
+      <summary>ID: 0x8C93. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookDistributionListExternalMemberCount">
+      <summary>ID: 0x8CE3. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookDistributionListMemberCount">
+      <summary>ID: 0x8CE2. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookDistributionListMemberSubmitAccepted">
+      <summary>ID: 0x8073. Data type: Object.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookDistributionListMemberSubmitRejected">
+      <summary>ID: 0x8CDA. Data type: Object.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookDistributionListRejectMessagesFromDLMembers">
+      <summary>ID: 0x8CDB. Data type: Object.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookEntryId">
+      <summary>ID: 0x663B. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookExtensionAttribute1">
+      <summary>ID: 0x802D. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookExtensionAttribute15">
+      <summary>ID: 0x8C61. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookFolderPathname">
+      <summary>ID: 0x8004. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookHierarchicalChildDepartments">
+      <summary>ID: 0x8C9A. Data type: EmbeddedTable.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookHierarchicalDepartmentMembers">
+      <summary>ID: 0x8C97. Data type: EmbeddedTable.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookHierarchicalIsHierarchicalGroup">
+      <summary>ID: 0x8CDD. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookHierarchicalParentDepartment">
+      <summary>ID: 0x8C99. Data type: EmbeddedTable.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookHierarchicalRootDepartment">
+      <summary>ID: 0x8C98. Data type: String8.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookHierarchicalShowInDepartments">
+      <summary>ID: 0x8C94. Data type: EmbeddedTable.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookHomeMessageDatabase">
+      <summary>ID: 0x8006. Data type: String8.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookIsMaster">
+      <summary>ID: 0xFFFB. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookIsMemberOfDistributionList">
+      <summary>ID: 0x8008. Data type: MultipleString8.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookManageDistributionList">
+      <summary>ID: 0x6704. Data type: Object.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookManager">
+      <summary>ID: 0x8005. Data type: EmbeddedTable.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookManagerDistinguishedName">
+      <summary>ID: 0x8005. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookMember">
+      <summary>ID: 0x8009. Data type: MultipleString8.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookMessageId">
+      <summary>ID: 0x674F. Data type: Integer64.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookModerationEnabled">
+      <summary>ID: 0x8CB5. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookNetworkAddress">
+      <summary>ID: 0x8170. Data type: MultipleString.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookObjectDistinguishedName">
+      <summary>ID: 0x803C. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookObjectGuid">
+      <summary>ID: 0x8C6D. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookOrganizationalUnitRootDistinguishedName">
+      <summary>ID: 0x8CA8. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookOwner">
+      <summary>ID: 0x800C. Data type: EmbeddedTable.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookOwnerBackLink">
+      <summary>ID: 0x8024. Data type: EmbeddedTable.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookParentEntryId">
+      <summary>ID: 0xFFFC. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookPhoneticCompanyName">
+      <summary>ID: 0x8C91. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookPhoneticDepartmentName">
+      <summary>ID: 0x8C90. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookPhoneticDisplayName">
+      <summary>ID: 0x8C92. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookPhoneticGivenName">
+      <summary>ID: 0x8C8E. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookPhoneticSurname">
+      <summary>ID: 0x8C8F. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookProxyAddresses">
+      <summary>ID: 0x800F. Data type: MultipleString.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookPublicDelegates">
+      <summary>ID: 0x8015. Data type: EmbeddedTable.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookReports">
+      <summary>ID: 0x800E. Data type: EmbeddedTable.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookRoomCapacity">
+      <summary>ID: 0x0807. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookRoomContainers">
+      <summary>ID: 0x8C96. Data type: MultipleString.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookRoomDescription">
+      <summary>ID: 0x0809. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookSenderHintTranslations">
+      <summary>ID: 0x8CAC. Data type: MultipleString.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookSeniorityIndex">
+      <summary>ID: 0x8CA0. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookTargetAddress">
+      <summary>ID: 0x8011. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookUnauthorizedSenders">
+      <summary>ID: 0x8CD9. Data type: Object.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressBookX509Certificate">
+      <summary>ID: 0x8C6A. Data type: MultipleBinary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AddressType">
+      <summary>ID: 0x3002. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AlternateRecipientAllowed">
+      <summary>ID: 0x0002. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Anr">
+      <summary>ID: 0x360C. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ArchiveDate">
+      <summary>ID: 0x301F. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ArchivePeriod">
+      <summary>ID: 0x301E. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ArchiveTag">
+      <summary>ID: 0x3018. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Assistant">
+      <summary>ID: 0x3A30. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AssistantTelephoneNumber">
+      <summary>ID: 0x3A2E. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Associated">
+      <summary>ID: 0x67AA. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachAdditionalInformation">
+      <summary>ID: 0x370F. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachContentBase">
+      <summary>ID: 0x3711. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachContentId">
+      <summary>ID: 0x3712. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachContentLocation">
+      <summary>ID: 0x3713. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachDataBinary">
+      <summary>ID: 0x3701. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachDataObject">
+      <summary>ID: 0x3701. Data type: Object.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachEncoding">
+      <summary>ID: 0x3702. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachExtension">
+      <summary>ID: 0x3703. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachFilename">
+      <summary>ID: 0x3704. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachFlags">
+      <summary>ID: 0x3714. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachLongFilename">
+      <summary>ID: 0x3707. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachLongPathname">
+      <summary>ID: 0x370D. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachmentContactPhoto">
+      <summary>ID: 0x7FFF. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachmentFlags">
+      <summary>ID: 0x7FFD. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachmentHidden">
+      <summary>ID: 0x7FFE. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachmentLinkId">
+      <summary>ID: 0x7FFA. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachMethod">
+      <summary>ID: 0x3705. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachMimeSequence">
+      <summary>ID: 0x3710. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachMimeTag">
+      <summary>ID: 0x370E. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachNumber">
+      <summary>ID: 0x0E21. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachPathname">
+      <summary>ID: 0x3708. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachPayloadClass">
+      <summary>ID: 0x371A. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachPayloadProviderGuidString">
+      <summary>ID: 0x3719. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachRendering">
+      <summary>ID: 0x3709. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachSize">
+      <summary>ID: 0x0E20. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachTag">
+      <summary>ID: 0x370A. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttachTransportName">
+      <summary>ID: 0x370C. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttributeHidden">
+      <summary>ID: 0x10F4. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttributeReadOnly">
+      <summary>ID: 0x10F6. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AttributeSystem">
+      <summary>ID: 0x10F5. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AutoForwarded">
+      <summary>ID: 0x0005. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AutoForwardComment">
+      <summary>ID: 0x0004. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.AutoResponseSuppress">
+      <summary>ID: 0x3FDF. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Birthday">
+      <summary>ID: 0x3A42. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.BlockStatus">
+      <summary>ID: 0x1096. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Body">
+      <summary>ID: 0x1000. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.BodyContentId">
+      <summary>ID: 0x1015. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.BodyContentLocation">
+      <summary>ID: 0x1014. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.BodyHtml">
+      <summary>ID: 0x1013. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Business2TelephoneNumber">
+      <summary>ID: 0x3A1B. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Business2TelephoneNumbers">
+      <summary>ID: 0x3A1B. Data type: MultipleString.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.BusinessFaxNumber">
+      <summary>ID: 0x3A24. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.BusinessHomePage">
+      <summary>ID: 0x3A51. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.BusinessTelephoneNumber">
+      <summary>ID: 0x3A08. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.CallbackTelephoneNumber">
+      <summary>ID: 0x3A02. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.CallId">
+      <summary>ID: 0x6806. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.CarTelephoneNumber">
+      <summary>ID: 0x3A1E. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.CdoRecurrenceid">
+      <summary>ID: 0x10C5. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ChangeKey">
+      <summary>ID: 0x65E2. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ChangeNotificationGuid">
+      <summary>ID: 0x6637. Data type: Guid.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ChangeNumber">
+      <summary>ID: 0x67A4. Data type: Integer64.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ChildrensNames">
+      <summary>ID: 0x3A58. Data type: MultipleString.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ClientActions">
+      <summary>ID: 0x6645. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ClientSubmitTime">
+      <summary>ID: 0x0039. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.CnsetRead">
+      <summary>ID: 0x67D2. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.CnsetSeen">
+      <summary>ID: 0x6796. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.CnsetSeenFAI">
+      <summary>ID: 0x67DA. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.CodePageId">
+      <summary>ID: 0x66C3. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Comment">
+      <summary>ID: 0x3004. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.CompanyMainTelephoneNumber">
+      <summary>ID: 0x3A57. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.CompanyName">
+      <summary>ID: 0x3A16. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ComputerNetworkName">
+      <summary>ID: 0x3A49. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ConflictEntryId">
+      <summary>ID: 0x3FF0. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ConflictItems">
+      <summary>ID: 0x1098. Data type: MultipleBinary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ContainerClass">
+      <summary>ID: 0x3613. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ContainerContents">
+      <summary>ID: 0x360F. Data type: EmbeddedTable.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ContainerFlags">
+      <summary>ID: 0x3600. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ContainerHierarchy">
+      <summary>ID: 0x360E. Data type: Object.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ContentCount">
+      <summary>ID: 0x3602. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ContentFilterPhishingConfidenceLevel">
+      <summary>ID: 0x4084. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ContentFilterSpamConfidenceLevel">
+      <summary>ID: 0x4076. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ContentUnreadCount">
+      <summary>ID: 0x3603. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ConversationId">
+      <summary>ID: 0x3013. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ConversationIndex">
+      <summary>ID: 0x0071. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ConversationIndexTracking">
+      <summary>ID: 0x3016. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ConversationTopic">
+      <summary>ID: 0x0070. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Country">
+      <summary>ID: 0x3A26. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.CreationTime">
+      <summary>ID: 0x3007. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.CreatorEntryId">
+      <summary>ID: 0x3FF9. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.CreatorName">
+      <summary>ID: 0x3FF8. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.CreatorSimpleDisplayName">
+      <summary>ID: 0x4038. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.CustomerId">
+      <summary>ID: 0x3A4A. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DamBackPatched">
+      <summary>ID: 0x6647. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DamOriginalEntryId">
+      <summary>ID: 0x6646. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DefaultPostMessageClass">
+      <summary>ID: 0x36E5. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DeferredActionMessageOriginalEntryId">
+      <summary>ID: 0x6741. Data type: ServerId.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DeferredDeliveryTime">
+      <summary>ID: 0x000F. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DeferredSendNumber">
+      <summary>ID: 0x3FEB. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DeferredSendTime">
+      <summary>ID: 0x3FEF. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DeferredSendUnits">
+      <summary>ID: 0x3FEC. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DelegatedByRule">
+      <summary>ID: 0x3FE3. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DelegateFlags">
+      <summary>ID: 0x686B. Data type: MultipleInteger32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DeleteAfterSubmit">
+      <summary>ID: 0x0E01. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DeletedOn">
+      <summary>ID: 0x668F. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DepartmentName">
+      <summary>ID: 0x3A18. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Depth">
+      <summary>ID: 0x3005. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DisplayBcc">
+      <summary>ID: 0x0E02. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DisplayCc">
+      <summary>ID: 0x0E03. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DisplayName">
+      <summary>ID: 0x3001. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DisplayNamePrefix">
+      <summary>ID: 0x3A45. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DisplayTo">
+      <summary>ID: 0x0E04. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DisplayType">
+      <summary>ID: 0x3900. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.DisplayTypeEx">
+      <summary>ID: 0x3905. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.EcWarning">
+      <summary>ID: 0x400F. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.EmailAddress">
+      <summary>ID: 0x3003. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.EndAttach">
+      <summary>ID: 0x400E. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.EndDate">
+      <summary>ID: 0x0061. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.EndEmbed">
+      <summary>ID: 0x4002. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.EndFolder">
+      <summary>ID: 0x400B. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.EndMessage">
+      <summary>ID: 0x400D. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.EndToRecip">
+      <summary>ID: 0x4004. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.EntryId">
+      <summary>ID: 0x0FFF. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ExceptionEndTime">
+      <summary>ID: 0x7FFC. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ExceptionReplaceTime">
+      <summary>ID: 0x7FF9. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ExceptionStartTime">
+      <summary>ID: 0x7FFB. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ExchangeNTSecurityDescriptor">
+      <summary>ID: 0x0E84. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ExpiryNumber">
+      <summary>ID: 0x3FED. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ExpiryTime">
+      <summary>ID: 0x0015. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ExpiryUnits">
+      <summary>ID: 0x3FEE. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ExtendedFolderFlags">
+      <summary>ID: 0x36DA. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ExtendedRuleMessageActions">
+      <summary>ID: 0x0E99. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ExtendedRuleMessageCondition">
+      <summary>ID: 0x0E9A. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ExtendedRuleSizeLimit">
+      <summary>ID: 0x0E9B. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FaxNumberOfPages">
+      <summary>ID: 0x6804. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FlagCompleteTime">
+      <summary>ID: 0x1091. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FlagStatus">
+      <summary>ID: 0x1090. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FlatUrlName">
+      <summary>ID: 0x670E. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FolderAssociatedContents">
+      <summary>ID: 0x3610. Data type: Object.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FolderId">
+      <summary>ID: 0x6748. Data type: Integer64.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FolderType">
+      <summary>ID: 0x3601. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FollowupIcon">
+      <summary>ID: 0x1095. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FreeBusyCountMonths">
+      <summary>ID: 0x6869. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FreeBusyEntryIds">
+      <summary>ID: 0x36E4. Data type: MultipleBinary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FreeBusyMessageEmailAddress">
+      <summary>ID: 0x6849. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FreeBusyPublishEnd">
+      <summary>ID: 0x6848. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FreeBusyPublishStart">
+      <summary>ID: 0x6847. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FreeBusyRangeTimestamp">
+      <summary>ID: 0x6868. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FtpSite">
+      <summary>ID: 0x3A4C. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FXDelProp">
+      <summary>ID: 0x4016. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.FXErrorInfo">
+      <summary>ID: 0x4018. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.GatewayNeedsToRefresh">
+      <summary>ID: 0x6846. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Gender">
+      <summary>ID: 0x3A4D. Data type: Integer16.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Generation">
+      <summary>ID: 0x3A05. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.GivenName">
+      <summary>ID: 0x3A06. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.GovernmentIdNumber">
+      <summary>ID: 0x3A07. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.HasAttachments">
+      <summary>ID: 0x0E1B. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.HasDeferredActionMessages">
+      <summary>ID: 0x3FEA. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.HasNamedProperties">
+      <summary>ID: 0x664A. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.HasRules">
+      <summary>ID: 0x663A. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.HierarchyChangeNumber">
+      <summary>ID: 0x663E. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Hobbies">
+      <summary>ID: 0x3A43. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Home2TelephoneNumber">
+      <summary>ID: 0x3A2F. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Home2TelephoneNumbers">
+      <summary>ID: 0x3A2F. Data type: MultipleString.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.HomeAddressCity">
+      <summary>ID: 0x3A59. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.HomeAddressCountry">
+      <summary>ID: 0x3A5A. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.HomeAddressPostalCode">
+      <summary>ID: 0x3A5B. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.HomeAddressPostOfficeBox">
+      <summary>ID: 0x3A5E. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.HomeAddressStateOrProvince">
+      <summary>ID: 0x3A5C. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.HomeAddressStreet">
+      <summary>ID: 0x3A5D. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.HomeFaxNumber">
+      <summary>ID: 0x3A25. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.HomeTelephoneNumber">
+      <summary>ID: 0x3A09. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Html">
+      <summary>ID: 0x1013. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ICalendarEndTime">
+      <summary>ID: 0x10C4. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ICalendarReminderNextTime">
+      <summary>ID: 0x10CA. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ICalendarStartTime">
+      <summary>ID: 0x10C3. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IconIndex">
+      <summary>ID: 0x1080. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IdsetDeleted">
+      <summary>ID: 0x67E5. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IdsetExpired">
+      <summary>ID: 0x6793. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IdsetGiven">
+      <summary>ID: 0x4017. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IdsetRead">
+      <summary>ID: 0x402D. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IdsetNoLongerInScope">
+      <summary>ID: 0x4021. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IdsetUnread">
+      <summary>ID: 0x402E. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ImapCachedMsgsize">
+      <summary>ID: 0x10F0. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Importance">
+      <summary>ID: 0x0017. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.InConflict">
+      <summary>ID: 0x666C. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IncrementalSyncMessagePartial">
+      <summary>ID: 0x407A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IncrSyncChg">
+      <summary>ID: 0x4012. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IncrSyncChgPartial">
+      <summary>ID: 0x407D. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IncrSyncDel">
+      <summary>ID: 0x4013. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IncrSyncEnd">
+      <summary>ID: 0x4014. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IncrSyncGroupId">
+      <summary>ID: 0x407C. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IncrSyncGroupInfo">
+      <summary>ID: 0x407B. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IncrSyncMessage">
+      <summary>ID: 0x4015. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IncrSyncProgressMode">
+      <summary>ID: 0x4074. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IncrSyncProgressPerMsg">
+      <summary>ID: 0x4075. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IncrSyncRead">
+      <summary>ID: 0x402F. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IncrSyncStateBegin">
+      <summary>ID: 0x403A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IncrSyncStateEnd">
+      <summary>ID: 0x403B. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.InitialDetailsPane">
+      <summary>ID: 0x3F08. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Initials">
+      <summary>ID: 0x3A0A. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.InReplyToId">
+      <summary>ID: 0x1042. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.InstanceKey">
+      <summary>ID: 0x0FF6. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.InstanceNum">
+      <summary>ID: 0x674E. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.InstID">
+      <summary>ID: 0x674D. Data type: Integer64.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.InternetArticleNumber">
+      <summary>ID: 0x0E23. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.InternetCodepage">
+      <summary>ID: 0x3FDE. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.InternetMailOverrideFormat">
+      <summary>ID: 0x5902. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.InternetMessageId">
+      <summary>ID: 0x1035. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.InternetReferences">
+      <summary>ID: 0x1039. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IpmAppointmentEntryId">
+      <summary>ID: 0x36D0. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IpmContactEntryId">
+      <summary>ID: 0x36D1. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IpmDraftsEntryId">
+      <summary>ID: 0x36D7. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IpmJournalEntryId">
+      <summary>ID: 0x36D2. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IpmNoteEntryId">
+      <summary>ID: 0x36D3. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IpmTaskEntryId">
+      <summary>ID: 0x36D4. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.IsdnNumber">
+      <summary>ID: 0x3A2D. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ItemTemporaryflags">
+      <summary>ID: 0x1097. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.JunkAddRecipientsToSafeSendersList">
+      <summary>ID: 0x6103. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.JunkIncludeContacts">
+      <summary>ID: 0x6100. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.JunkPermanentlyDelete">
+      <summary>ID: 0x6102. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.JunkPhishingEnableLinks">
+      <summary>ID: 0x6107. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.JunkThreshold">
+      <summary>ID: 0x6101. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Keyword">
+      <summary>ID: 0x3A0B. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Language">
+      <summary>ID: 0x3A0C. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.LastModificationTime">
+      <summary>ID: 0x3008. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.LastModifierEntryId">
+      <summary>ID: 0x3FFB. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.LastModifierName">
+      <summary>ID: 0x3FFA. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.LastModifierSimpleDisplayName">
+      <summary>ID: 0x4039. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.LastVerbExecuted">
+      <summary>ID: 0x1081. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.LastVerbExecutionTime">
+      <summary>ID: 0x1082. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ListHelp">
+      <summary>ID: 0x1043. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ListSubscribe">
+      <summary>ID: 0x1044. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ListUnsubscribe">
+      <summary>ID: 0x1045. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.LocalCommitTime">
+      <summary>ID: 0x6709. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.LocaleId">
+      <summary>ID: 0x66A1. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Locality">
+      <summary>ID: 0x3A27. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Location">
+      <summary>ID: 0x3A0D. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MailboxOwnerEntryId">
+      <summary>ID: 0x661B. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MailboxOwnerName">
+      <summary>ID: 0x661C. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ManagerName">
+      <summary>ID: 0x3A4E. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MappingSignature">
+      <summary>ID: 0x0FF8. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MaximumSubmitMessageSize">
+      <summary>ID: 0x666D. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MemberId">
+      <summary>ID: 0x6671. Data type: Integer64.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MemberName">
+      <summary>ID: 0x6672. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MemberRights">
+      <summary>ID: 0x6673. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageAttachments">
+      <summary>ID: 0x0E13. Data type: Object.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageCcMe">
+      <summary>ID: 0x0058. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageClass">
+      <summary>ID: 0x001A. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageCodepage">
+      <summary>ID: 0x3FFD. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageDeliveryTime">
+      <summary>ID: 0x0E06. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageEditorFormat">
+      <summary>ID: 0x5909. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageFlags">
+      <summary>ID: 0x0E07. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageHandlingSystemCommonName">
+      <summary>ID: 0x3A0F. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageLocaleId">
+      <summary>ID: 0x3FF1. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageRecipientMe">
+      <summary>ID: 0x0059. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageRecipients">
+      <summary>ID: 0x0E12. Data type: Object.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageSize">
+      <summary>ID: 0x0E08. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageSizeExtended">
+      <summary>ID: 0x0E08. Data type: Integer64.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageStatus">
+      <summary>ID: 0x0E17. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageSubmissionId">
+      <summary>ID: 0x0047. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MessageToMe">
+      <summary>ID: 0x0057. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Mid">
+      <summary>ID: 0x674A. Data type: Integer64.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MiddleName">
+      <summary>ID: 0x3A44. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MimeSkeleton">
+      <summary>ID: 0x0470. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.MobileTelephoneNumber">
+      <summary>ID: 0x3A1C. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.NativeBody">
+      <summary>ID: 0x1016. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.NewAttach">
+      <summary>ID: 0x4000. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.NewFXFolder">
+      <summary>ID: 0x4011. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.NextSendAcct">
+      <summary>ID: 0x0E29. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Nickname">
+      <summary>ID: 0x3A4F. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.NormalizedSubject">
+      <summary>ID: 0x0E1D. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.NormalMessageSize">
+      <summary>ID: 0x66B3. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ObjectType">
+      <summary>ID: 0x0FFE. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OfficeLocation">
+      <summary>ID: 0x3A19. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OfflineAddressBookCompressedSize">
+      <summary>ID: 0x6809. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OfflineAddressBookContainerGuid">
+      <summary>ID: 0x6802. Data type: String8.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OfflineAddressBookDistinguishedName">
+      <summary>ID: 0x6804. Data type: String8.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OfflineAddressBookFileSize">
+      <summary>ID: 0x680A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OfflineAddressBookFileType">
+      <summary>ID: 0x6808. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OfflineAddressBookLanguageId">
+      <summary>ID: 0x6807. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OfflineAddressBookMessageClass">
+      <summary>ID: 0x6803. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OfflineAddressBookName">
+      <summary>ID: 0x6800. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OfflineAddressBookSequence">
+      <summary>ID: 0x6801. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OfflineAddressBookShaHash">
+      <summary>ID: 0x6806. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OfflineAddressBookTruncatedProperties">
+      <summary>ID: 0x6805. Data type: MultipleInteger32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OrdinalMost">
+      <summary>ID: 0x36E2. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OrganizationalIdNumber">
+      <summary>ID: 0x3A10. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalDeliveryTime">
+      <summary>ID: 0x0055. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalDisplayBcc">
+      <summary>ID: 0x0072. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalDisplayCc">
+      <summary>ID: 0x0073. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalDisplayName">
+      <summary>ID: 0x3A13. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalDisplayTo">
+      <summary>ID: 0x0074. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalEntryId">
+      <summary>ID: 0x3A12. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalMessageClass">
+      <summary>ID: 0x004B. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalMessageId">
+      <summary>ID: 0x1046. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalSearchKey">
+      <summary>ID: 0x3A14. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalSenderAddressType">
+      <summary>ID: 0x0066. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalSenderEmailAddress">
+      <summary>ID: 0x0067. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalSenderEntryId">
+      <summary>ID: 0x005B. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalSenderName">
+      <summary>ID: 0x005A. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalSenderSearchKey">
+      <summary>ID: 0x005C. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalSensitivity">
+      <summary>ID: 0x002E. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalSentRepresentingAddressType">
+      <summary>ID: 0x0068. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalSentRepresentingEmailAddress">
+      <summary>ID: 0x0069. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalSentRepresentingEntryId">
+      <summary>ID: 0x005E. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalSentRepresentingName">
+      <summary>ID: 0x005D. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalSentRepresentingSearchKey">
+      <summary>ID: 0x005F. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalSubject">
+      <summary>ID: 0x0049. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginalSubmitTime">
+      <summary>ID: 0x004E. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginatorDeliveryReportRequested">
+      <summary>ID: 0x0023. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OriginatorNonDeliveryReportRequested">
+      <summary>ID: 0x0C08. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OtherAddressCity">
+      <summary>ID: 0x3A5F. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OtherAddressCountry">
+      <summary>ID: 0x3A60. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OtherAddressPostalCode">
+      <summary>ID: 0x3A61. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OtherAddressPostOfficeBox">
+      <summary>ID: 0x3A64. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OtherAddressStateOrProvince">
+      <summary>ID: 0x3A62. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OtherAddressStreet">
+      <summary>ID: 0x3A63. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OtherTelephoneNumber">
+      <summary>ID: 0x3A1F. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OutOfOfficeState">
+      <summary>ID: 0x661D. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.OwnerAppointmentId">
+      <summary>ID: 0x0062. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.PagerTelephoneNumber">
+      <summary>ID: 0x3A21. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ParentEntryId">
+      <summary>ID: 0x0E09. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ParentFolderId">
+      <summary>ID: 0x6749. Data type: Integer64.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ParentKey">
+      <summary>ID: 0x0025. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ParentSourceKey">
+      <summary>ID: 0x65E1. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.PersonalHomePage">
+      <summary>ID: 0x3A50. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.PolicyTag">
+      <summary>ID: 0x3019. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.PostalAddress">
+      <summary>ID: 0x3A15. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.PostalCode">
+      <summary>ID: 0x3A2A. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.PostOfficeBox">
+      <summary>ID: 0x3A2B. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.PredecessorChangeList">
+      <summary>ID: 0x65E3. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.PrimaryFaxNumber">
+      <summary>ID: 0x3A23. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.PrimarySendAccount">
+      <summary>ID: 0x0E28. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.PrimarySmtpAddress">
+      <summary>ID: 0x39FE. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.PrimaryTelephoneNumber">
+      <summary>ID: 0x3A1A. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Priority">
+      <summary>ID: 0x0026. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Processed">
+      <summary>ID: 0x7D01. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Profession">
+      <summary>ID: 0x3A46. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ProhibitReceiveQuota">
+      <summary>ID: 0x666A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ProhibitSendQuota">
+      <summary>ID: 0x666E. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ProviderSubmitTime">
+      <summary>ID: 0x0048. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.PublicFolderAdministrativeDescription">
+      <summary>ID: 0x671C. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.PublicFolderProxy">
+      <summary>ID: 0x671D. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.PurportedSenderDomain">
+      <summary>ID: 0x4083. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RadioTelephoneNumber">
+      <summary>ID: 0x3A1D. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Read">
+      <summary>ID: 0x0E69. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReadReceiptAddressType">
+      <summary>ID: 0x4029. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReadReceiptEmailAddress">
+      <summary>ID: 0x402A. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReadReceiptEntryId">
+      <summary>ID: 0x0046. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReadReceiptName">
+      <summary>ID: 0x402B. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReadReceiptRequested">
+      <summary>ID: 0x0029. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReadReceiptSearchKey">
+      <summary>ID: 0x0053. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReceivedByAddressType">
+      <summary>ID: 0x0075. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReceivedByEmailAddress">
+      <summary>ID: 0x0076. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReceivedByEntryId">
+      <summary>ID: 0x003F. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReceivedByFlags">
+      <summary>ID: 0x401B. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReceivedByName">
+      <summary>ID: 0x0040. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReceivedBySearchKey">
+      <summary>ID: 0x0051. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReceivedRepresentingAddressType">
+      <summary>ID: 0x0077. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReceivedRepresentingEmailAddress">
+      <summary>ID: 0x0078. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReceivedRepresentingEntryId">
+      <summary>ID: 0x0043. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReceivedRepresentingFlags">
+      <summary>ID: 0x401C. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReceivedRepresentingName">
+      <summary>ID: 0x0044. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReceivedRepresentingSearchKey">
+      <summary>ID: 0x0052. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReceivedRepresentingSimpleDisplayName">
+      <summary>ID: 0x4035. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RecipientDisplayName">
+      <summary>ID: 0x5FF6. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RecipientEntryId">
+      <summary>ID: 0x5FF7. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RecipientFlags">
+      <summary>ID: 0x5FFD. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RecipientOrder">
+      <summary>ID: 0x5FDF. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RecipientProposed">
+      <summary>ID: 0x5FE1. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RecipientProposedEndTime">
+      <summary>ID: 0x5FE4. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RecipientProposedStartTime">
+      <summary>ID: 0x5FE3. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RecipientReassignmentProhibited">
+      <summary>ID: 0x002B. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RecipientResourceState">
+      <summary>ID: 0x5FDE. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RecipientTrackStatus">
+      <summary>ID: 0x5FFF. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RecipientTrackStatusTime">
+      <summary>ID: 0x5FFB. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RecipientType">
+      <summary>ID: 0x0C15. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RecordKey">
+      <summary>ID: 0x0FF9. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReferredByName">
+      <summary>ID: 0x3A47. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RemindersOnlineEntryId">
+      <summary>ID: 0x36D5. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RemoteHeaderLoc">
+      <summary>ID: 0x0078. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RemoteMessageTransferAgent">
+      <summary>ID: 0x0C21. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RenderingPosition">
+      <summary>ID: 0x370B. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReplyRecipientEntries">
+      <summary>ID: 0x004F. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReplyRecipientNames">
+      <summary>ID: 0x0050. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReplyRequested">
+      <summary>ID: 0x0C17. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReplyTemplateId">
+      <summary>ID: 0x65C2. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReplyTime">
+      <summary>ID: 0x0030. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReportEntryId">
+      <summary>ID: 0x0045. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReportingMessageTransferAgent">
+      <summary>ID: 0x6820. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReportName">
+      <summary>ID: 0x003A. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReportSearchKey">
+      <summary>ID: 0x0054. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReportTag">
+      <summary>ID: 0x0031. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReportText">
+      <summary>ID: 0x1001. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ReportTime">
+      <summary>ID: 0x0032. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ResolveMethod">
+      <summary>ID: 0x3FE7. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ResponseRequested">
+      <summary>ID: 0x0063. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Responsibility">
+      <summary>ID: 0x0E0F. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RetentionDate">
+      <summary>ID: 0x301C. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RetentionFlags">
+      <summary>ID: 0x301D. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RetentionPeriod">
+      <summary>ID: 0x301A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Rights">
+      <summary>ID: 0x6639. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RoamingDatatypes">
+      <summary>ID: 0x7C06. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RoamingDictionary">
+      <summary>ID: 0x7C07. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RoamingXmlStream">
+      <summary>ID: 0x7C08. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RowId">
+      <summary>ID: 0x3000. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RowType">
+      <summary>ID: 0x0FF5. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RtfCompressed">
+      <summary>ID: 0x1009. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RtfInSync">
+      <summary>ID: 0x0E1F. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RtfSyncBodyCount">
+      <summary>ID: 0x1007. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RtfSyncBodyCrc">
+      <summary>ID: 0x1006. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RtfSyncBodyTag">
+      <summary>ID: 0x1008. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RtfSyncPrefixCount">
+      <summary>ID: 0x1010. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RtfSyncTrailingCount">
+      <summary>ID: 0x1011. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleActionNumber">
+      <summary>ID: 0x6650. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleActions">
+      <summary>ID: 0x6680. Data type: RuleAction.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleActionType">
+      <summary>ID: 0x6649. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleCondition">
+      <summary>ID: 0x6679. Data type: Restriction.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleError">
+      <summary>ID: 0x6648. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleFolderEntryId">
+      <summary>ID: 0x6651. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleId">
+      <summary>ID: 0x6674. Data type: Integer64.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleIds">
+      <summary>ID: 0x6675. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleLevel">
+      <summary>ID: 0x6683. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleMessageLevel">
+      <summary>ID: 0x65ED. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleMessageName">
+      <summary>ID: 0x65EC. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleMessageProvider">
+      <summary>ID: 0x65EB. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleMessageProviderData">
+      <summary>ID: 0x65EE. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleMessageSequence">
+      <summary>ID: 0x65F3. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleMessageState">
+      <summary>ID: 0x65E9. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleMessageUserFlags">
+      <summary>ID: 0x65EA. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleName">
+      <summary>ID: 0x6682. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleProvider">
+      <summary>ID: 0x6681. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleProviderData">
+      <summary>ID: 0x6684. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleSequence">
+      <summary>ID: 0x6676. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleState">
+      <summary>ID: 0x6677. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RuleUserFlags">
+      <summary>ID: 0x6678. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.RwRulesStream">
+      <summary>ID: 0x6802. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoAppointmentTombstone">
+      <summary>ID: 0x686A. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoAutoAcceptAppointments">
+      <summary>ID: 0x686D. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoDelegateEntryIds">
+      <summary>ID: 0x6845. Data type: MultipleBinary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoDelegateNames">
+      <summary>ID: 0x6844. Data type: MultipleString.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoDelegateNamesW">
+      <summary>ID: 0x684A. Data type: MultipleString.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoDelegatorWantsCopy">
+      <summary>ID: 0x6842. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoDelegatorWantsInfo">
+      <summary>ID: 0x684B. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoDisallowOverlappingAppts">
+      <summary>ID: 0x686F. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoDisallowRecurringAppts">
+      <summary>ID: 0x686E. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoDontMailDelegates">
+      <summary>ID: 0x6843. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoFreeBusy">
+      <summary>ID: 0x686C. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoFreeBusyAway">
+      <summary>ID: 0x6856. Data type: MultipleBinary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoFreeBusyBusy">
+      <summary>ID: 0x6854. Data type: MultipleBinary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoFreeBusyMerged">
+      <summary>ID: 0x6850. Data type: MultipleBinary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoFreeBusyTentative">
+      <summary>ID: 0x6852. Data type: MultipleBinary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoMonthsAway">
+      <summary>ID: 0x6855. Data type: MultipleInteger32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoMonthsBusy">
+      <summary>ID: 0x6853. Data type: MultipleInteger32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoMonthsMerged">
+      <summary>ID: 0x684F. Data type: MultipleInteger32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoMonthsTentative">
+      <summary>ID: 0x6851. Data type: MultipleInteger32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScheduleInfoResourceType">
+      <summary>ID: 0x6841. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SchedulePlusFreeBusyEntryId">
+      <summary>ID: 0x6622. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ScriptData">
+      <summary>ID: 0x0004. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SearchFolderDefinition">
+      <summary>ID: 0x6845. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SearchFolderEfpFlags">
+      <summary>ID: 0x6848. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SearchFolderExpiration">
+      <summary>ID: 0x683A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SearchFolderId">
+      <summary>ID: 0x6842. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SearchFolderLastUsed">
+      <summary>ID: 0x6834. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SearchFolderRecreateInfo">
+      <summary>ID: 0x6844. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SearchFolderStorageType">
+      <summary>ID: 0x6846. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SearchFolderTag">
+      <summary>ID: 0x6847. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SearchFolderTemplateId">
+      <summary>ID: 0x6841. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SearchKey">
+      <summary>ID: 0x300B. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SecureSubmitFlags">
+      <summary>ID: 0x65C6. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SecurityDescriptor">
+      <summary>ID: 0x0E27. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SecurityDescriptorAsXml">
+      <summary>ID: 0x0E6A. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Selectable">
+      <summary>ID: 0x3609. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SenderAddressType">
+      <summary>ID: 0x0C1E. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SenderEmailAddress">
+      <summary>ID: 0x0C1F. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SenderEntryId">
+      <summary>ID: 0x0C19. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SenderFlags">
+      <summary>ID: 0x4019. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SenderIdStatus">
+      <summary>ID: 0x4079. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SenderName">
+      <summary>ID: 0x0C1A. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SenderSearchKey">
+      <summary>ID: 0x0C1D. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SenderSimpleDisplayName">
+      <summary>ID: 0x4030. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SenderSmtpAddress">
+      <summary>ID: 0x5D01. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SenderTelephoneNumber">
+      <summary>ID: 0x6802. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SendInternetEncoding">
+      <summary>ID: 0x3A71. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SendRichInfo">
+      <summary>ID: 0x3A40. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Sensitivity">
+      <summary>ID: 0x0036. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SentMailSvrEID">
+      <summary>ID: 0x6740. Data type: ServerId.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SentRepresentingAddressType">
+      <summary>ID: 0x0064. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SentRepresentingEmailAddress">
+      <summary>ID: 0x0065. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SentRepresentingEntryId">
+      <summary>ID: 0x0041. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SentRepresentingFlags">
+      <summary>ID: 0x401A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SentRepresentingName">
+      <summary>ID: 0x0042. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SentRepresentingSearchKey">
+      <summary>ID: 0x003B. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SentRepresentingSimpleDisplayName">
+      <summary>ID: 0x4031. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SessionInitiationProtocolUri">
+      <summary>ID: 0x5FE5. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SmtpAddress">
+      <summary>ID: 0x39FE. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SortLocaleId">
+      <summary>ID: 0x6705. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SourceKey">
+      <summary>ID: 0x65E0. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SpokenName">
+      <summary>ID: 0x8CC2. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SpouseName">
+      <summary>ID: 0x3A48. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.StartDate">
+      <summary>ID: 0x0060. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.StartDateEtc">
+      <summary>ID: 0x301B. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.StartEmbed">
+      <summary>ID: 0x4001. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.StartFAIMsg">
+      <summary>ID: 0x4010. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.StartMessage">
+      <summary>ID: 0x400C. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.StartRecip">
+      <summary>ID: 0x4003. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.StartSubFld">
+      <summary>ID: 0x400A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.StartTopFld">
+      <summary>ID: 0x4009. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.StateOrProvince">
+      <summary>ID: 0x3A28. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.StoreEntryId">
+      <summary>ID: 0x0FFB. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.StoreState">
+      <summary>ID: 0x340E. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.StoreSupportMask">
+      <summary>ID: 0x340D. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.StreetAddress">
+      <summary>ID: 0x3A29. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Subfolder">
+      <summary>ID: 0x6708. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Subfolders">
+      <summary>ID: 0x360A. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Subject">
+      <summary>ID: 0x0037. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SubjectPrefix">
+      <summary>ID: 0x003D. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Surname">
+      <summary>ID: 0x3A11. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SwappedToDoData">
+      <summary>ID: 0x0E2D. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.SwappedToDoStore">
+      <summary>ID: 0x0E2C. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.TargetEntryId">
+      <summary>ID: 0x3010. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.TcvConstLongOne">
+      <summary>ID: 0x8008. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.TelecommunicationsDeviceForDeafTelephoneNumber">
+      <summary>ID: 0x3A4B. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.TelexNumber">
+      <summary>ID: 0x3A2C. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.TemplateData">
+      <summary>ID: 0x0001. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Templateid">
+      <summary>ID: 0x3902. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.TemporaryDefaultDocument">
+      <summary>ID: 0x3F20. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.TextAttachmentCharset">
+      <summary>ID: 0x371B. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ThumbnailPhoto">
+      <summary>ID: 0x8C9E. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.Title">
+      <summary>ID: 0x3A17. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.TnefCorrelationKey">
+      <summary>ID: 0x007F. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ToDoItemFlags">
+      <summary>ID: 0x0E2B. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.TransmittableDisplayName">
+      <summary>ID: 0x3A20. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.TransportMessageHeaders">
+      <summary>ID: 0x007D. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.TrustSender">
+      <summary>ID: 0x0E79. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.TtyTddPhoneNumber">
+      <summary>ID: 0x3A4B. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.UrlCompName">
+      <summary>ID: 0x10F3. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.UrlCompNameSet">
+      <summary>ID: 0x0E62. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.UrlName">
+      <summary>ID: 0x6707. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.UserCertificate">
+      <summary>ID: 0x3A22. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.UserEntryId">
+      <summary>ID: 0x6619. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.UserX509Certificate">
+      <summary>ID: 0x3A70. Data type: MultipleBinary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ViewDescriptorBinary">
+      <summary>ID: 0x7001. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ViewDescriptorName">
+      <summary>ID: 0x7006. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ViewDescriptorStrings">
+      <summary>ID: 0x7002. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.ViewDescriptorVersion">
+      <summary>ID: 0x7007. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.VoiceMessageAttachmentOrder">
+      <summary>ID: 0x6805. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.VoiceMessageDuration">
+      <summary>ID: 0x6801. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.VoiceMessageSenderName">
+      <summary>ID: 0x6803. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WeddingAnniversary">
+      <summary>ID: 0x3A41. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkAddressBookEID">
+      <summary>ID: 0x6854. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkAddressBookStoreEID">
+      <summary>ID: 0x6891. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkCalendarColor">
+      <summary>ID: 0x6853. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkClientID">
+      <summary>ID: 0x6890. Data type: Guid.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkEntryId">
+      <summary>ID: 0x684C. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkFlags">
+      <summary>ID: 0x684A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkFolderType">
+      <summary>ID: 0x684F. Data type: Guid.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkGroupClsid">
+      <summary>ID: 0x6850. Data type: Guid.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkGroupHeaderID">
+      <summary>ID: 0x6842. Data type: Guid.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkGroupName">
+      <summary>ID: 0x6851. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkOrdinal">
+      <summary>ID: 0x684B. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkRecordKey">
+      <summary>ID: 0x684D. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkROGroupType">
+      <summary>ID: 0x6892. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkSaveStamp">
+      <summary>ID: 0x6847. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkSection">
+      <summary>ID: 0x6852. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkStoreEntryId">
+      <summary>ID: 0x684E. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyTag.WlinkType">
+      <summary>ID: 0x6849. Data type: Integer32.</summary>
+    </member>
+    <member name="T:Rebex.Mail.MsgPropertyId">
+      <summary>
+            Specifies a known property Long ID (LID).
+            </summary>
+      <remarks>
+            Defined in [MS-OXPROPS] (names start with "PidLid").
+            </remarks>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AddressBookProviderArrayType">
+      <summary>ID: 0x8029. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AddressBookProviderEmailList">
+      <summary>ID: 0x8028. Data type: MultipleInteger32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AddressCountryCode">
+      <summary>ID: 0x80DD. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AgingDontAgeMe">
+      <summary>ID: 0x850E. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AllAttendeesString">
+      <summary>ID: 0x8238. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AllowExternalCheck">
+      <summary>ID: 0x8246. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AnniversaryEventEntryId">
+      <summary>ID: 0x804E. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentAuxiliaryFlags">
+      <summary>ID: 0x8207. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentColor">
+      <summary>ID: 0x8214. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentCounterProposal">
+      <summary>ID: 0x8257. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentDuration">
+      <summary>ID: 0x8213. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentEndDate">
+      <summary>ID: 0x8211. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentEndTime">
+      <summary>ID: 0x8210. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentEndWhole">
+      <summary>ID: 0x820E. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentLastSequence">
+      <summary>ID: 0x8203. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentMessageClass">
+      <summary>ID: 0x0024. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentNotAllowPropose">
+      <summary>ID: 0x825A. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentProposalNumber">
+      <summary>ID: 0x8259. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentProposedDuration">
+      <summary>ID: 0x8256. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentProposedEndWhole">
+      <summary>ID: 0x8251. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentProposedStartWhole">
+      <summary>ID: 0x8250. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentRecur">
+      <summary>ID: 0x8216. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentReplyName">
+      <summary>ID: 0x8230. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentReplyTime">
+      <summary>ID: 0x8220. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentSequence">
+      <summary>ID: 0x8201. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentSequenceTime">
+      <summary>ID: 0x8202. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentStartDate">
+      <summary>ID: 0x8212. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentStartTime">
+      <summary>ID: 0x820F. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentStartWhole">
+      <summary>ID: 0x820D. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentStateFlags">
+      <summary>ID: 0x8217. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentSubType">
+      <summary>ID: 0x8215. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentTimeZoneDefinitionEndDisplay">
+      <summary>ID: 0x825F. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentTimeZoneDefinitionRecur">
+      <summary>ID: 0x8260. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentTimeZoneDefinitionStartDisplay">
+      <summary>ID: 0x825E. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentUnsendableRecipients">
+      <summary>ID: 0x825D. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AppointmentUpdateTime">
+      <summary>ID: 0x8226. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AttendeeCriticalChange">
+      <summary>ID: 0x0001. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AutoFillLocation">
+      <summary>ID: 0x823A. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AutoLog">
+      <summary>ID: 0x8025. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AutoProcessState">
+      <summary>ID: 0x851A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.AutoStartCheck">
+      <summary>ID: 0x8244. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Billing">
+      <summary>ID: 0x8535. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.BirthdayEventEntryId">
+      <summary>ID: 0x804D. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.BirthdayLocal">
+      <summary>ID: 0x80DE. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.BusinessCardCardPicture">
+      <summary>ID: 0x8041. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.BusinessCardDisplayDefinition">
+      <summary>ID: 0x8040. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.BusyStatus">
+      <summary>ID: 0x8205. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.CalendarType">
+      <summary>ID: 0x001C. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Categories">
+      <summary>ID: 0x9000. Data type: MultipleString.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.CcAttendeesString">
+      <summary>ID: 0x823C. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ChangeHighlight">
+      <summary>ID: 0x8204. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Classification">
+      <summary>ID: 0x85B6. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ClassificationDescription">
+      <summary>ID: 0x85B7. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ClassificationGuid">
+      <summary>ID: 0x85B8. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ClassificationKeep">
+      <summary>ID: 0x85BA. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Classified">
+      <summary>ID: 0x85B5. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.CleanGlobalObjectId">
+      <summary>ID: 0x0023. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ClientIntent">
+      <summary>ID: 0x0015. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ClipEnd">
+      <summary>ID: 0x8236. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ClipStart">
+      <summary>ID: 0x8235. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.CollaborateDoc">
+      <summary>ID: 0x8247. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.CommonEnd">
+      <summary>ID: 0x8517. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.CommonStart">
+      <summary>ID: 0x8516. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Companies">
+      <summary>ID: 0x8539. Data type: MultipleString.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ConferencingCheck">
+      <summary>ID: 0x8240. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ConferencingType">
+      <summary>ID: 0x8241. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ContactCharacterSet">
+      <summary>ID: 0x8023. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ContactItemData">
+      <summary>ID: 0x8007. Data type: MultipleInteger32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ContactLinkEntry">
+      <summary>ID: 0x8585. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ContactLinkName">
+      <summary>ID: 0x8586. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ContactLinkSearchKey">
+      <summary>ID: 0x8584. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Contacts">
+      <summary>ID: 0x853A. Data type: MultipleString.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ContactUserField1">
+      <summary>ID: 0x804F. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ContactUserField2">
+      <summary>ID: 0x8050. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ContactUserField3">
+      <summary>ID: 0x8051. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ContactUserField4">
+      <summary>ID: 0x8052. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ConversationActionLastAppliedTime">
+      <summary>ID: 0x85CA. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ConversationActionMaxDeliveryTime">
+      <summary>ID: 0x85C8. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ConversationActionMoveFolderEid">
+      <summary>ID: 0x85C6. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ConversationActionMoveStoreEid">
+      <summary>ID: 0x85C7. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ConversationActionVersion">
+      <summary>ID: 0x85CB. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ConversationProcessed">
+      <summary>ID: 0x85C9. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.CurrentVersion">
+      <summary>ID: 0x8552. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.CurrentVersionName">
+      <summary>ID: 0x8554. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.DayInterval">
+      <summary>ID: 0x0011. Data type: Integer16.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.DayOfMonth">
+      <summary>ID: 0x1000. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.DelegateMail">
+      <summary>ID: 0x0009. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Department">
+      <summary>ID: 0x8010. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Directory">
+      <summary>ID: 0x8242. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.DistributionListChecksum">
+      <summary>ID: 0x804C. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.DistributionListMembers">
+      <summary>ID: 0x8055. Data type: MultipleBinary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.DistributionListName">
+      <summary>ID: 0x8053. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.DistributionListOneOffMembers">
+      <summary>ID: 0x8054. Data type: MultipleBinary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.DistributionListStream">
+      <summary>ID: 0x8064. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email1AddressType">
+      <summary>ID: 0x8082. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email1DisplayName">
+      <summary>ID: 0x8080. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email1EmailAddress">
+      <summary>ID: 0x8083. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email1OriginalDisplayName">
+      <summary>ID: 0x8084. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email1OriginalEntryId">
+      <summary>ID: 0x8085. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email1RichTextFormat">
+      <summary>ID: 0x8086. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email2AddressType">
+      <summary>ID: 0x8092. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email2DisplayName">
+      <summary>ID: 0x8090. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email2EmailAddress">
+      <summary>ID: 0x8093. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email2OriginalDisplayName">
+      <summary>ID: 0x8094. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email2OriginalEntryId">
+      <summary>ID: 0x8095. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email2RichTextFormat">
+      <summary>ID: 0x8096. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email3AddressType">
+      <summary>ID: 0x80A2. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email3DisplayName">
+      <summary>ID: 0x80A0. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email3EmailAddress">
+      <summary>ID: 0x80A3. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email3OriginalDisplayName">
+      <summary>ID: 0x80A4. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email3OriginalEntryId">
+      <summary>ID: 0x80A5. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Email3RichTextFormat">
+      <summary>ID: 0x80A6. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.EmailList">
+      <summary>ID: 0x8027. Data type: MultipleInteger32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.EndRecurrenceDate">
+      <summary>ID: 0x000F. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.EndRecurrenceTime">
+      <summary>ID: 0x0010. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ExceptionReplaceTime">
+      <summary>ID: 0x8228. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Fax1AddressType">
+      <summary>ID: 0x80B2. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Fax1EmailAddress">
+      <summary>ID: 0x80B3. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Fax1OriginalDisplayName">
+      <summary>ID: 0x80B4. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Fax1OriginalEntryId">
+      <summary>ID: 0x80B5. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Fax2AddressType">
+      <summary>ID: 0x80C2. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Fax2EmailAddress">
+      <summary>ID: 0x80C3. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Fax2OriginalDisplayName">
+      <summary>ID: 0x80C4. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Fax2OriginalEntryId">
+      <summary>ID: 0x80C5. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Fax3AddressType">
+      <summary>ID: 0x80D2. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Fax3EmailAddress">
+      <summary>ID: 0x80D3. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Fax3OriginalDisplayName">
+      <summary>ID: 0x80D4. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Fax3OriginalEntryId">
+      <summary>ID: 0x80D5. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.FExceptionalAttendees">
+      <summary>ID: 0x822B. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.FExceptionalBody">
+      <summary>ID: 0x8206. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.FileUnder">
+      <summary>ID: 0x8005. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.FileUnderId">
+      <summary>ID: 0x8006. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.FileUnderList">
+      <summary>ID: 0x8026. Data type: MultipleInteger32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.FInvited">
+      <summary>ID: 0x8229. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.FlagRequest">
+      <summary>ID: 0x8530. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.FlagString">
+      <summary>ID: 0x85C0. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ForwardInstance">
+      <summary>ID: 0x820A. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ForwardNotificationRecipients">
+      <summary>ID: 0x8261. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.FOthersAppointment">
+      <summary>ID: 0x822F. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.FreeBusyLocation">
+      <summary>ID: 0x80D8. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.GlobalObjectId">
+      <summary>ID: 0x0003. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.HasPicture">
+      <summary>ID: 0x8015. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.HomeAddress">
+      <summary>ID: 0x801A. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.HomeAddressCountryCode">
+      <summary>ID: 0x80DA. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Html">
+      <summary>ID: 0x802B. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ICalendarDayOfWeekMask">
+      <summary>ID: 0x1001. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.InboundICalStream">
+      <summary>ID: 0x827A. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.InfoPathFormName">
+      <summary>ID: 0x85B1. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.InstantMessagingAddress">
+      <summary>ID: 0x8062. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.IntendedBusyStatus">
+      <summary>ID: 0x8224. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.InternetAccountName">
+      <summary>ID: 0x8580. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.InternetAccountStamp">
+      <summary>ID: 0x8581. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.IsException">
+      <summary>ID: 0x000A. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.IsRecurring">
+      <summary>ID: 0x0005. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.IsSilent">
+      <summary>ID: 0x0004. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.LinkedTaskItems">
+      <summary>ID: 0x820C. Data type: MultipleBinary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Location">
+      <summary>ID: 0x8208. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.LogDocumentPosted">
+      <summary>ID: 0x8711. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.LogDocumentPrinted">
+      <summary>ID: 0x870E. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.LogDocumentRouted">
+      <summary>ID: 0x8710. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.LogDocumentSaved">
+      <summary>ID: 0x870F. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.LogDuration">
+      <summary>ID: 0x8707. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.LogEnd">
+      <summary>ID: 0x8708. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.LogFlags">
+      <summary>ID: 0x870C. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.LogStart">
+      <summary>ID: 0x8706. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.LogType">
+      <summary>ID: 0x8700. Data type: PtyString.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.LogTypeDesc">
+      <summary>ID: 0x8712. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.MeetingType">
+      <summary>ID: 0x0026. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.MeetingWorkspaceUrl">
+      <summary>ID: 0x8209. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.MonthInterval">
+      <summary>ID: 0x0013. Data type: Integer16.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.MonthOfYear">
+      <summary>ID: 0x1006. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.MonthOfYearMask">
+      <summary>ID: 0x0017. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.NetShowUrl">
+      <summary>ID: 0x8248. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.NoEndDateFlag">
+      <summary>ID: 0x100B. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.NonSendableBcc">
+      <summary>ID: 0x8538. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.NonSendableCc">
+      <summary>ID: 0x8537. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.NonSendableTo">
+      <summary>ID: 0x8536. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.NonSendBccTrackStatus">
+      <summary>ID: 0x8545. Data type: MultipleInteger32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.NonSendCcTrackStatus">
+      <summary>ID: 0x8544. Data type: MultipleInteger32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.NonSendToTrackStatus">
+      <summary>ID: 0x8543. Data type: MultipleInteger32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.NoteColor">
+      <summary>ID: 0x8B00. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.NoteHeight">
+      <summary>ID: 0x8B03. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.NoteWidth">
+      <summary>ID: 0x8B02. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.NoteX">
+      <summary>ID: 0x8B04. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.NoteY">
+      <summary>ID: 0x8B05. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Occurrences">
+      <summary>ID: 0x1005. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.OldLocation">
+      <summary>ID: 0x0028. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.OldRecurrenceType">
+      <summary>ID: 0x0018. Data type: Integer16.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.OldWhenEndWhole">
+      <summary>ID: 0x002A. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.OldWhenStartWhole">
+      <summary>ID: 0x0029. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.OnlinePassword">
+      <summary>ID: 0x8249. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.OptionalAttendees">
+      <summary>ID: 0x0007. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.OrganizerAlias">
+      <summary>ID: 0x8243. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.OriginalStoreEntryId">
+      <summary>ID: 0x8237. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.OtherAddress">
+      <summary>ID: 0x801C. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.OtherAddressCountryCode">
+      <summary>ID: 0x80DC. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.OwnerCriticalChange">
+      <summary>ID: 0x001A. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.OwnerName">
+      <summary>ID: 0x822E. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.PercentComplete">
+      <summary>ID: 0x8102. Data type: Floating64.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.PostalAddressId">
+      <summary>ID: 0x8022. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.PostRssChannel">
+      <summary>ID: 0x8904. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.PostRssChannelLink">
+      <summary>ID: 0x8900. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.PostRssItemGuid">
+      <summary>ID: 0x8903. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.PostRssItemHash">
+      <summary>ID: 0x8902. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.PostRssItemLink">
+      <summary>ID: 0x8901. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.PostRssItemXml">
+      <summary>ID: 0x8905. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.PostRssSubscription">
+      <summary>ID: 0x8906. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Private">
+      <summary>ID: 0x8506. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.PromptSendUpdate">
+      <summary>ID: 0x8045. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.RecurrenceDuration">
+      <summary>ID: 0x100D. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.RecurrencePattern">
+      <summary>ID: 0x8232. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.RecurrenceType">
+      <summary>ID: 0x8231. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Recurring">
+      <summary>ID: 0x8223. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ReferenceEntryId">
+      <summary>ID: 0x85BD. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ReferredBy">
+      <summary>ID: 0x800E. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ReminderDelta">
+      <summary>ID: 0x8501. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ReminderFileParameter">
+      <summary>ID: 0x851F. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ReminderOverride">
+      <summary>ID: 0x851C. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ReminderPlaySound">
+      <summary>ID: 0x851E. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ReminderSet">
+      <summary>ID: 0x8503. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ReminderSignalTime">
+      <summary>ID: 0x8560. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ReminderTime">
+      <summary>ID: 0x8502. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ReminderTimeDate">
+      <summary>ID: 0x8505. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ReminderTimeTime">
+      <summary>ID: 0x8504. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ReminderType">
+      <summary>ID: 0x851D. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.RemoteStatus">
+      <summary>ID: 0x8511. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.RequiredAttendees">
+      <summary>ID: 0x0006. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ResourceAttendees">
+      <summary>ID: 0x0008. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ResponseStatus">
+      <summary>ID: 0x8218. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ServerProcessed">
+      <summary>ID: 0x85CC. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ServerProcessingActions">
+      <summary>ID: 0x85CD. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingAnonymity">
+      <summary>ID: 0x8A19. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingBindingEntryId">
+      <summary>ID: 0x8A2D. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingBrowseUrl">
+      <summary>ID: 0x8A51. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingCapabilities">
+      <summary>ID: 0x8A17. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingConfigurationUrl">
+      <summary>ID: 0x8A24. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingDataRangeEnd">
+      <summary>ID: 0x8A45. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingDataRangeStart">
+      <summary>ID: 0x8A44. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingDetail">
+      <summary>ID: 0x8A2B. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingExtensionXml">
+      <summary>ID: 0x8A21. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingFilter">
+      <summary>ID: 0x8A13. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingFlags">
+      <summary>ID: 0x8A0A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingFlavor">
+      <summary>ID: 0x8A18. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingFolderEntryId">
+      <summary>ID: 0x8A15. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingIndexEntryId">
+      <summary>ID: 0x8A2E. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingInitiatorEntryId">
+      <summary>ID: 0x8A09. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingInitiatorName">
+      <summary>ID: 0x8A07. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingInitiatorSmtp">
+      <summary>ID: 0x8A08. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingInstanceGuid">
+      <summary>ID: 0x8A1C. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingLastAutoSyncTime">
+      <summary>ID: 0x8A55. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingLastSyncTime">
+      <summary>ID: 0x8A1F. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingLocalComment">
+      <summary>ID: 0x8A4D. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingLocalLastModificationTime">
+      <summary>ID: 0x8A23. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingLocalName">
+      <summary>ID: 0x8A0F. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingLocalPath">
+      <summary>ID: 0x8A0E. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingLocalStoreUid">
+      <summary>ID: 0x8A49. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingLocalType">
+      <summary>ID: 0x8A14. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingLocalUid">
+      <summary>ID: 0x8A10. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingOriginalMessageEntryId">
+      <summary>ID: 0x8A29. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingParentBindingEntryId">
+      <summary>ID: 0x8A5C. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingParticipants">
+      <summary>ID: 0x8A1E. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingPermissions">
+      <summary>ID: 0x8A1B. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingProviderExtension">
+      <summary>ID: 0x8A0B. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingProviderGuid">
+      <summary>ID: 0x8A01. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingProviderName">
+      <summary>ID: 0x8A02. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingProviderUrl">
+      <summary>ID: 0x8A03. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRangeEnd">
+      <summary>ID: 0x8A47. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRangeStart">
+      <summary>ID: 0x8A46. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingReciprocation">
+      <summary>ID: 0x8A1A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRemoteByteSize">
+      <summary>ID: 0x8A4B. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRemoteComment">
+      <summary>ID: 0x8A2F. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRemoteCrc">
+      <summary>ID: 0x8A4C. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRemoteLastModificationTime">
+      <summary>ID: 0x8A22. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRemoteMessageCount">
+      <summary>ID: 0x8A4F. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRemoteName">
+      <summary>ID: 0x8A05. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRemotePass">
+      <summary>ID: 0x8A0D. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRemotePath">
+      <summary>ID: 0x8A04. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRemoteStoreUid">
+      <summary>ID: 0x8A48. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRemoteType">
+      <summary>ID: 0x8A1D. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRemoteUid">
+      <summary>ID: 0x8A06. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRemoteUser">
+      <summary>ID: 0x8A0C. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRemoteVersion">
+      <summary>ID: 0x8A5B. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingResponseTime">
+      <summary>ID: 0x8A28. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingResponseType">
+      <summary>ID: 0x8A27. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingRoamLog">
+      <summary>ID: 0x8A4E. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingStart">
+      <summary>ID: 0x8A25. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingStatus">
+      <summary>ID: 0x8A00. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingStop">
+      <summary>ID: 0x8A26. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingSyncFlags">
+      <summary>ID: 0x8A60. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingSyncInterval">
+      <summary>ID: 0x8A2A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingTimeToLive">
+      <summary>ID: 0x8A2C. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingTimeToLiveAuto">
+      <summary>ID: 0x8A56. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingWorkingHoursDays">
+      <summary>ID: 0x8A42. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingWorkingHoursEnd">
+      <summary>ID: 0x8A41. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingWorkingHoursStart">
+      <summary>ID: 0x8A40. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SharingWorkingHoursTimeZone">
+      <summary>ID: 0x8A43. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SideEffects">
+      <summary>ID: 0x8510. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SingleBodyICal">
+      <summary>ID: 0x827B. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SmartNoAttach">
+      <summary>ID: 0x8514. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.SpamOriginalFolder">
+      <summary>ID: 0x859C. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.StartRecurrenceDate">
+      <summary>ID: 0x000D. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.StartRecurrenceTime">
+      <summary>ID: 0x000E. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskAcceptanceState">
+      <summary>ID: 0x812A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskAccepted">
+      <summary>ID: 0x8108. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskActualEffort">
+      <summary>ID: 0x8110. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskAssigner">
+      <summary>ID: 0x8121. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskAssigners">
+      <summary>ID: 0x8117. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskComplete">
+      <summary>ID: 0x811C. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskCustomFlags">
+      <summary>ID: 0x8139. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskDateCompleted">
+      <summary>ID: 0x810F. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskDeadOccurrence">
+      <summary>ID: 0x8109. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskDueDate">
+      <summary>ID: 0x8105. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskEstimatedEffort">
+      <summary>ID: 0x8111. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskFCreator">
+      <summary>ID: 0x811E. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskFFixOffline">
+      <summary>ID: 0x812C. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskFRecurring">
+      <summary>ID: 0x8126. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskGlobalId">
+      <summary>ID: 0x8519. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskHistory">
+      <summary>ID: 0x811A. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskLastDelegate">
+      <summary>ID: 0x8125. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskLastUpdate">
+      <summary>ID: 0x8115. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskLastUser">
+      <summary>ID: 0x8122. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskMode">
+      <summary>ID: 0x8518. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskMultipleRecipients">
+      <summary>ID: 0x8120. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskNoCompute">
+      <summary>ID: 0x8124. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskOrdinal">
+      <summary>ID: 0x8123. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskOwner">
+      <summary>ID: 0x811F. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskOwnership">
+      <summary>ID: 0x8129. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskRecurrence">
+      <summary>ID: 0x8116. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskResetReminder">
+      <summary>ID: 0x8107. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskRole">
+      <summary>ID: 0x8127. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskStartDate">
+      <summary>ID: 0x8104. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskState">
+      <summary>ID: 0x8113. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskStatus">
+      <summary>ID: 0x8101. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskStatusOnComplete">
+      <summary>ID: 0x8119. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskUpdates">
+      <summary>ID: 0x811B. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TaskVersion">
+      <summary>ID: 0x8112. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TeamTask">
+      <summary>ID: 0x8103. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TimeZone">
+      <summary>ID: 0x000C. Data type: Integer32.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TimeZoneDescription">
+      <summary>ID: 0x8234. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TimeZoneStruct">
+      <summary>ID: 0x8233. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ToAttendeesString">
+      <summary>ID: 0x823B. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ToDoOrdinalDate">
+      <summary>ID: 0x85A0. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ToDoSubOrdinal">
+      <summary>ID: 0x85A1. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ToDoTitle">
+      <summary>ID: 0x85A4. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.TrustRecipientHighlights">
+      <summary>ID: 0x823E. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.UseTnef">
+      <summary>ID: 0x8582. Data type: Boolean.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.ValidFlagStringProof">
+      <summary>ID: 0x85BF. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.VerbResponse">
+      <summary>ID: 0x8524. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.VerbStream">
+      <summary>ID: 0x8520. Data type: Binary.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.WeddingAnniversaryLocal">
+      <summary>ID: 0x80DF. Data type: Time.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.WeekInterval">
+      <summary>ID: 0x0012. Data type: Integer16.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.Where">
+      <summary>ID: 0x0002. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.WorkAddress">
+      <summary>ID: 0x801B. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.WorkAddressCity">
+      <summary>ID: 0x8046. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.WorkAddressCountry">
+      <summary>ID: 0x8049. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.WorkAddressCountryCode">
+      <summary>ID: 0x80DB. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.WorkAddressPostalCode">
+      <summary>ID: 0x8048. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.WorkAddressPostOfficeBox">
+      <summary>ID: 0x804A. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.WorkAddressState">
+      <summary>ID: 0x8047. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.WorkAddressStreet">
+      <summary>ID: 0x8045. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.YearInterval">
+      <summary>ID: 0x0014. Data type: Integer16.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.YomiCompanyName">
+      <summary>ID: 0x802E. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.YomiFirstName">
+      <summary>ID: 0x802C. Data type: String.</summary>
+    </member>
+    <member name="F:Rebex.Mail.MsgPropertyId.YomiLastName">
+      <summary>ID: 0x802D. Data type: String.</summary>
+    </member>
+    <member name="T:Rebex.Mail.MsgMessage">
+      <summary>
+            Represents an Outlook .MSG e-mail message.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgMessage.IsDraft">
+      <summary>
+            Gets or sets a value indicating whether this mail is considered a draft.
+            This value indicates whether the message can be modified in e-mail clients.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgMessage.Subject">
+      <summary>
+            Gets or sets the subject of the message.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgMessage.BodyHtml">
+      <summary>
+            Gets the HTML body of the message.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgMessage.BodyText">
+      <summary>
+            Gets the plain text body of the message.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgMessage.BodyRtf">
+      <summary>
+            Gets the RTF body of the message.
+            </summary>
+    </member>
+    <member name="M:Rebex.Mail.MsgMessage.SetBody(System.String,System.String,System.String)">
+      <summary>
+            Sets the body of the message.
+            </summary>
+      <param name="text">A plain text body (can be null).</param>
+      <param name="html">An HTML body (can be null).</param>
+      <param name="rtf">An RTF body (can be null).</param>
+    </member>
+    <member name="P:Rebex.Mail.MsgMessage.From">
+      <summary>
+            Gets or sets the 'From' address of the message.
+            Setting null value causes the 'From' address to be cleared.
+            </summary>
+      <remarks>
+            The <see cref="P:Rebex.Mail.MsgMessage.From" /> property represents a set of MAPI properties stored within this <see cref="T:Rebex.Mail.MsgMessage" /> object.
+            Therefore, setting a new value to the <see cref="P:Rebex.Mail.MsgMessage.From" /> property does not use the assigning object itself.
+            Instead, new <see cref="T:Rebex.Mail.MsgAddress" /> instance is created for the <see cref="P:Rebex.Mail.MsgMessage.From" /> property and
+            values are copied from the assigning object to update appropriate MAPI properties.
+            </remarks>
+    </member>
+    <member name="P:Rebex.Mail.MsgMessage.Sender">
+      <summary>
+            Gets or sets the 'Sender' address of the message.
+            Setting null value causes the 'Sender' address to be cleared.
+            </summary>
+      <remarks>
+            The <see cref="P:Rebex.Mail.MsgMessage.Sender" /> property represents a set of MAPI properties stored within this <see cref="T:Rebex.Mail.MsgMessage" /> object.
+            Therefore, setting a new value to the <see cref="P:Rebex.Mail.MsgMessage.Sender" /> property does not use the assigning object itself.
+            Instead, new <see cref="T:Rebex.Mail.MsgAddress" /> instance is created for the <see cref="P:Rebex.Mail.MsgMessage.Sender" /> property and
+            values are copied from the assigning object to update appropriate MAPI properties.
+            </remarks>
+    </member>
+    <member name="P:Rebex.Mail.MsgMessage.To">
+      <summary>
+            Gets a collection of 'To' addresses of the message.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgMessage.CC">
+      <summary>
+            Gets a collection of 'CC' addresses of the message.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgMessage.Bcc">
+      <summary>
+            Gets a collection of 'BCC' addresses of the message.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgMessage.Attachments">
+      <summary>
+            Gets a collection of attachments of the message.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgMessage.Properties">
+      <summary>
+            Gets a collection of properties of the message.
+            </summary>
+    </member>
+    <member name="M:Rebex.Mail.MsgMessage.#ctor">
+      <summary>
+            Initializes a new instance of Outlook .MSG e-mail message.
+            </summary>
+    </member>
+    <member name="M:Rebex.Mail.MsgMessage.Load(System.String)">
+      <summary>
+            Loads an Outlook .MSG mail message from the supplied file.
+            </summary>
+      <param name="fileName">Path to the file to load the message from.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgMessage.Load(System.IO.Stream)">
+      <summary>
+            Loads an Outlook .MSG mail message from the supplied stream.
+            </summary>
+      <param name="input">Stream to load the message from.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgMessage.Save(System.String)">
+      <summary>
+            Saves the message to the supplied file.
+            </summary>
+      <param name="fileName">Path to the file to save the message to.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgMessage.Save(System.IO.Stream)">
+      <summary>
+            Saves the message to the supplied stream.
+            </summary>
+      <param name="output">Stream to save the message to.</param>
+    </member>
+    <member name="T:Rebex.Mail.MsgProperty">
+      <summary>
+            Represents a property of the Outlook .MSG message or attachment.
+            </summary>
+      <remarks>
+            Internally, this is a MAPI property.
+            </remarks>
+    </member>
+    <member name="P:Rebex.Mail.MsgProperty.Kind">
+      <summary>
+            Gets a kind of the property.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgProperty.Tag">
+      <summary>
+            Gets a tag of the property.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgProperty.Id">
+      <summary>
+            Gets a long ID (LID) of the property, if kind is <see cref="F:Rebex.Mail.MsgPropertyKind.NumericalNamed" />.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgProperty.Name">
+      <summary>
+            Gets a name of the property, if kind is <see cref="F:Rebex.Mail.MsgPropertyKind.StringNamed" />.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgProperty.DataType">
+      <summary>
+            Gets a data type of the property.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgProperty.PropertySet">
+      <summary>
+            Gets a property set of the <see cref="F:Rebex.Mail.MsgPropertyKind.NumericalNamed" /> or <see cref="F:Rebex.Mail.MsgPropertyKind.StringNamed" /> property.
+            Returns <see cref="F:Rebex.Mail.MsgPropertySet.None" /> for <see cref="F:Rebex.Mail.MsgPropertyKind.Tagged" /> property or if the property set (GUID) is unknown.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgProperty.Value">
+      <summary>
+            Gets a value of the property.
+            </summary>
+    </member>
+    <member name="M:Rebex.Mail.MsgProperty.GetRawData">
+      <summary>
+            Gets copy of the raw data of the property read from the underlying stream.
+            If new value is set to the property, the raw data value is cleared.
+            This method is valid only for data types: <see cref="T:Rebex.Mail.MsgPropertyDataType">String, String8, Binary, Guid</see>.
+            For other data types this method returns null.
+            </summary>
+    </member>
+    <member name="M:Rebex.Mail.MsgProperty.ToString">
+      <summary>
+            Returns a string that represents the current object.
+            </summary>
+      <returns>String representation of the current object.</returns>
+    </member>
+    <member name="T:Rebex.Mail.MsgPropertyCollection">
+      <summary>
+            Represents a collection of properties of the Outlook .MSG message or attachment.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgPropertyCollection.Count">
+      <summary>
+            Gets the number of elements.
+            </summary>
+    </member>
+    <member name="P:Rebex.Mail.MsgPropertyCollection.Item(System.Int32)">
+      <summary>
+            Gets a property at the specified index.
+            </summary>
+      <param name="index">Index of the property to return.</param>
+    </member>
+    <member name="P:Rebex.Mail.MsgPropertyCollection.Item(Rebex.Mail.MsgPropertyTag)">
+      <summary>
+            Gets a property with specified Tag or null reference (Nothing in Visual Basic) if not found.
+            </summary>
+      <param name="tag">Tag of the property to return.</param>
+    </member>
+    <member name="P:Rebex.Mail.MsgPropertyCollection.Item(Rebex.Mail.MsgPropertyId)">
+      <summary>
+            Gets a property with specified LID or null reference (Nothing in Visual Basic) if not found.
+            </summary>
+      <param name="id">LID of the property to return.</param>
+    </member>
+    <member name="P:Rebex.Mail.MsgPropertyCollection.Item(System.String)">
+      <summary>
+            Gets a property with specified name or null reference (Nothing in Visual Basic) if not found.
+            </summary>
+      <param name="name">Name of the property to return.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgPropertyCollection.GetValue``1(Rebex.Mail.MsgPropertyTag)">
+      <summary>
+            Gets the value of a property specified by the property Tag.
+            </summary>
+      <typeparam name="T">Type of the value to return.</typeparam>
+      <param name="tag">Tag of the property to return.</param>
+      <returns>Value of a property specified by the given tag.
+            Throws the <see cref="T:System.Collections.Generic.KeyNotFoundException" /> if the property Tag is not present.
+            Throws the <see cref="T:System.InvalidCastException" /> if the value cannot be converted to requested type.</returns>
+    </member>
+    <member name="M:Rebex.Mail.MsgPropertyCollection.GetValue``1(Rebex.Mail.MsgPropertyTag,``0)">
+      <summary>
+            Gets the value of a property specified by the property Tag.
+            </summary>
+      <typeparam name="T">Type of the value to return.</typeparam>
+      <param name="tag">Tag of the property to return.</param>
+      <param name="defaultValue">Default value to return if the property is not found.</param>
+      <returns>Value of a property specified by the given tag;
+            or <paramref name="defaultValue" /> if the property Tag is not present.
+            Throws the <see cref="T:System.InvalidCastException" /> if the value cannot be converted to requested type.</returns>
+    </member>
+    <member name="M:Rebex.Mail.MsgPropertyCollection.TryGetValue``1(Rebex.Mail.MsgPropertyTag,``0@)">
+      <summary>
+            Gets the value of a property specified by the property Tag.
+            </summary>
+      <typeparam name="T">Type of the value to return.</typeparam>
+      <param name="tag">Tag of the property to return.</param>
+      <param name="value">Contains the value of the property, if the property is present and has appropriate data type.</param>
+      <returns>True if the property with appropriate data type is present; false otherwise.</returns>
+    </member>
+    <member name="M:Rebex.Mail.MsgPropertyCollection.SetValue``1(Rebex.Mail.MsgPropertyTag,``0)">
+      <summary>
+            Sets the value of a property specified by the property Tag.
+            </summary>
+      <typeparam name="T">Type of the value to set.</typeparam>
+      <param name="tag">Tag of the property to set.</param>
+      <param name="value">Value of the property to set.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgPropertyCollection.GetValue``1(Rebex.Mail.MsgPropertyId)">
+      <summary>
+            Gets the value of a Numerical named property specified by the property LID.
+            </summary>
+      <typeparam name="T">Type of the value to return.</typeparam>
+      <param name="id">LID of the Numerical named property to return.</param>
+      <returns>Value of a Numerical named property specified by the given LID.
+            Throws the <see cref="T:System.Collections.Generic.KeyNotFoundException" /> if the property LID is not present.
+            Throws the <see cref="T:System.InvalidCastException" /> if the value cannot be converted to requested type.</returns>
+    </member>
+    <member name="M:Rebex.Mail.MsgPropertyCollection.GetValue``1(Rebex.Mail.MsgPropertyId,``0)">
+      <summary>
+            Gets the value of a Numerical named property specified by the property LID.
+            </summary>
+      <typeparam name="T">Type of the value to return.</typeparam>
+      <param name="id">LID of the Numerical named property to return.</param>
+      <param name="defaultValue">Default value to return if the property is not found.</param>
+      <returns>Value of a Numerical named property specified by the given LID;
+            or <paramref name="defaultValue" /> if the property LID is not present.
+            Throws the <see cref="T:System.InvalidCastException" /> if the value cannot be converted to requested type.</returns>
+    </member>
+    <member name="M:Rebex.Mail.MsgPropertyCollection.SetValue``1(Rebex.Mail.MsgPropertyId,Rebex.Mail.MsgPropertySet,``0)">
+      <summary>
+            Sets the value of a Numerical named property specified by the property LID.
+            </summary>
+      <typeparam name="T">Type of the value to set.</typeparam>
+      <param name="id">LID of the property to set.</param>
+      <param name="set">One of well known property set.</param>
+      <param name="value">Value of the property to set.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgPropertyCollection.GetValue``1(System.String)">
+      <summary>
+            Gets the value of a String named property specified by the property Name.
+            </summary>
+      <typeparam name="T">Type of the value to return.</typeparam>
+      <param name="name">Name of the String named property to return.</param>
+      <returns>Value of a String named property specified by the given Name.
+            Throws the <see cref="T:System.Collections.Generic.KeyNotFoundException" /> if the property Name is not present.
+            Throws the <see cref="T:System.InvalidCastException" /> if the value cannot be converted to requested type.</returns>
+    </member>
+    <member name="M:Rebex.Mail.MsgPropertyCollection.GetValue``1(System.String,``0)">
+      <summary>
+            Gets the value of a String named property specified by the property Name.
+            </summary>
+      <typeparam name="T">Type of the value to return.</typeparam>
+      <param name="name">Name of the String named property to return.</param>
+      <param name="defaultValue">Default value to return if the property is not found.</param>
+      <returns>Value of a String named property specified by the given Name;
+            or <paramref name="defaultValue" /> if the property Name is not present.
+            Throws the <see cref="T:System.InvalidCastException" /> if the value cannot be converted to requested type.</returns>
+    </member>
+    <member name="M:Rebex.Mail.MsgPropertyCollection.Remove(Rebex.Mail.MsgProperty)">
+      <summary>
+            Removes specified property from the collection.
+            </summary>
+      <param name="property">Property to remove.</param>
+      <returns>A value indicating whether the property was found within the collection and removed.</returns>
+    </member>
+    <member name="M:Rebex.Mail.MsgPropertyCollection.Clear">
+      <summary>
+            Clears the collection.
+            </summary>
+    </member>
+    <member name="M:Rebex.Mail.MsgPropertyCollection.Contains(Rebex.Mail.MsgProperty)">
+      <summary>
+            Gets a value indicating whether the specified property is in the collection.
+            </summary>
+      <param name="property">A property to be located.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgPropertyCollection.CopyTo(Rebex.Mail.MsgProperty[],System.Int32)">
+      <summary>
+            Copies the entire collection to an array, starting at the specified index of the target array.
+            </summary>
+      <param name="array">An array where to copy properties.</param>
+      <param name="arrayIndex">A zero-based index in target array at which copying begins.</param>
+    </member>
+    <member name="M:Rebex.Mail.MsgPropertyCollection.GetEnumerator">
+      <summary>
+            Gets an <see cref="T:System.Collections.IEnumerator" /> to iterate through the collection.
+            </summary>
+      <returns>An <see cref="T:System.Collections.IEnumerator" /> to iterate through the collection.</returns>
+    </member>
+  </members>
+</doc>

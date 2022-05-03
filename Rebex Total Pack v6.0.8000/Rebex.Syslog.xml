@@ -1,0 +1,769 @@
+<doc>
+  <assembly>
+    <name>Rebex.Syslog</name>
+  </assembly>
+  <members>
+    <member name="T:Rebex.Net.SyslogFacility">
+      <summary>
+            Specifies syslog message facility.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.Undefined">
+      <summary>
+            Facility was not specified in the message. Valid for <see cref="T:Rebex.Net.SyslogServer" /> only.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.Kernel">
+      <summary>
+            Kernel.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.User">
+      <summary>
+            User.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.Mail">
+      <summary>
+            Mail system.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.System">
+      <summary>
+            System daemons.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.SecurityAuthorization">
+      <summary>
+            Security/Authorization.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.Syslog">
+      <summary>
+            Internal Syslog daemon.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.LinePrinter">
+      <summary>
+            Line Printer subsystem.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.NetworkNews">
+      <summary>
+            Network News subsystem.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.Uucp">
+      <summary>
+            UUCP subsystem.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.Clock">
+      <summary>
+            Clock daemon.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.SecurityAuthorization2">
+      <summary>
+            Security/Authorization.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.Ftp">
+      <summary>
+            FTP daemon.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.Ntp">
+      <summary>
+            NTP subsystem.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.LogAudit">
+      <summary>
+            Log Audit.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.LogAlert">
+      <summary>
+            Log Alert.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFacility.Clock2">
+      <summary>
+            Clock daemon.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.SyslogFraming">
+      <summary>
+            Specifies Syslog message framing.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFraming.AutoDetect">
+      <summary>
+            Automatically detects whether to use <see cref="F:Rebex.Net.SyslogFraming.OctetCounting" /> or <see cref="F:Rebex.Net.SyslogFraming.NonTransparent" />.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFraming.OctetCounting">
+      <summary>
+            The Octet Counting framing as defined in RFC 6587.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogFraming.NonTransparent">
+      <summary>
+            The Non-Transparent-Framing as defined in RFC 6587.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.SyslogMessageFormat">
+      <summary>
+            Specifies syslog message format.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogMessageFormat.AutoDetect">
+      <summary>
+            Automatically detects the format of the syslog message.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogMessageFormat.Modern">
+      <summary>
+            The format as defined in RFC 5424.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogMessageFormat.Bsd">
+      <summary>
+            The format as defined in RFC 3164.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogMessageFormat.Legacy">
+      <summary>
+            The legacy format with only the "&lt;" PRI "&gt;" as the syslog message header.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogMessageFormat.Plain">
+      <summary>
+            No syslog message header is used. Whole message corresponds to the content of the <see cref="P:Rebex.Net.SyslogMessage.Text" /> property.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.SyslogSeverity">
+      <summary>
+            Specifies syslog message severity.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogSeverity.Undefined">
+      <summary>
+            Severity was not specified in the message. Valid for <see cref="T:Rebex.Net.SyslogServer" /> only.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogSeverity.Emergency">
+      <summary>
+            Emergency (system is unusable).
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogSeverity.Alert">
+      <summary>
+            Alert (action must be taken immediately).
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogSeverity.Critical">
+      <summary>
+            Critical (critical conditions).
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogSeverity.Error">
+      <summary>
+            Error.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogSeverity.Warning">
+      <summary>
+            Warning.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogSeverity.Notice">
+      <summary>
+            Notice (normal but significant).
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogSeverity.Informational">
+      <summary>
+            Informational.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogSeverity.Debug">
+      <summary>
+            Debug.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.SyslogTransportProtocol">
+      <summary>
+            Specifies transport layer protocol for Syslog.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogTransportProtocol.Udp">
+      <summary>
+            Syslog over UDP.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogTransportProtocol.Tcp">
+      <summary>
+            Syslog over TCP.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogTransportProtocol.Tls">
+      <summary>
+            Syslog over TCP secured with TLS as specified by RFC 5425.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.SyslogBinding">
+      <summary>
+            Represents a binding of a Syslog transport protocol to an endpoint.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogBinding.EndPoint">
+      <summary>
+            Gets the endpoint.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogBinding.Protocol">
+      <summary>
+            Gets the Syslog transport protocol.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogBinding.Framing">
+      <summary>
+            Gets or sets the syslog message transfer framing for the
+            <see cref="F:Rebex.Net.SyslogTransportProtocol.Tcp" /> and <see cref="F:Rebex.Net.SyslogTransportProtocol.Tls" /> protocols.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogBinding.Trailer">
+      <summary>
+            Gets the trailer bytes for the <see cref="F:Rebex.Net.SyslogFraming.NonTransparent" />.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogBinding.UdpBufferSize">
+      <summary>
+            Gets or sets the buffer size of underlying UDP socket (zero or negative value will use 1MB buffer).
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.SyslogBinding.#ctor(System.Int32,Rebex.Net.SyslogTransportProtocol,Rebex.Net.SyslogFraming)">
+      <summary>
+            Initializes new <see cref="T:Rebex.Net.SyslogBinding" /> instance.
+            </summary>
+      <param name="port">Endpoint.</param>
+      <param name="protocol">Syslog transport protocol.</param>
+      <param name="framing">Syslog message transfer framing (default is Octet Counting).</param>
+    </member>
+    <member name="M:Rebex.Net.SyslogBinding.#ctor(System.Net.EndPoint,Rebex.Net.SyslogTransportProtocol,Rebex.Net.SyslogFraming)">
+      <summary>
+            Initializes new <see cref="T:Rebex.Net.SyslogBinding" /> instance.
+            </summary>
+      <param name="ep">Endpoint.</param>
+      <param name="protocol">Syslog transport protocol.</param>
+      <param name="framing">Syslog message transfer framing (default is Octet Counting).</param>
+    </member>
+    <member name="T:Rebex.Net.SyslogBindingCollection">
+      <summary>
+            A collection of syslog server bindings.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogBindingCollection.Count">
+      <summary>
+            Returns the number of bindings.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.SyslogBindingCollection.GetEnumerator">
+      <summary>
+            Returns an enumerator that iterates through all the bindings in the collection.
+            </summary>
+      <returns />
+    </member>
+    <member name="M:Rebex.Net.SyslogBindingCollection.GetBindings(System.Net.EndPoint)">
+      <summary>
+            Returns a collection of bindings for the specified endpoint.
+            </summary>
+      <param name="endPoint">Endpoint.</param>
+      <returns>A collection of bindings.</returns>
+    </member>
+    <member name="M:Rebex.Net.SyslogBindingCollection.GetBindings(System.Int32)">
+      <summary>
+            Returns a collection of bindings for the specified port.
+            </summary>
+      <param name="port">Port.</param>
+      <returns>A collection of bindings.</returns>
+    </member>
+    <member name="M:Rebex.Net.SyslogBindingCollection.GetBindings(System.Net.IPAddress)">
+      <summary>
+            Returns a collection of bindings for the specified address.
+            </summary>
+      <param name="address">Address.</param>
+      <returns>A collection of bindings.</returns>
+    </member>
+    <member name="M:Rebex.Net.SyslogBindingCollection.GetBindings(Rebex.Net.SyslogTransportProtocol)">
+      <summary>
+            Returns a collection of bindings for the specified module.
+            </summary>
+      <param name="protocol">Server protocol.</param>
+      <returns>A collection of bindings.</returns>
+    </member>
+    <member name="T:Rebex.Net.SyslogClient">
+      <summary>
+            Represents a syslog client, which can send syslog messages to a syslog server.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogClient.DefaultPort">
+      <summary>
+            Default syslog port number (514).
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogClient.DefaultTlsPort">
+      <summary>
+            Default syslog port number for TLS connection (6514).
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.SyslogClient.#ctor">
+      <summary>
+            Initializes an instance of the <see cref="T:Rebex.Net.SyslogClient" /> class and bind it to the specified syslog server.
+            </summary>
+    </member>
+    <member name="E:Rebex.Net.SyslogClient.ValidatingCertificate">
+      <summary>
+            Occurs when a certificate provided by the remote end needs to be validated.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogClient.LogWriter">
+      <summary>
+            Gets or sets the <see cref="T:Rebex.ILogWriter">LogWriter</see> used by this object.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogClient.Settings">
+      <summary>
+            Gets or sets the client settings.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogClient.Timeout">
+      <summary>
+            Gets or sets the timeout for underlying socket.
+            </summary>
+      <remarks>
+        <p>
+              Default is -1 (infinite).
+            </p>
+        <p>
+              Apart from -1 and 0 values, the minimal value is 1000.
+              Setting this property to a value lower than 1000 will cause <see cref="T:System.ArgumentOutOfRangeException" /> to be thrown.
+            </p>
+      </remarks>
+    </member>
+    <member name="M:Rebex.Net.SyslogClient.Connect(System.String,Rebex.Net.SyslogTransportProtocol)">
+      <summary>
+            Connects the client to the specified syslog server.
+            </summary>
+      <param name="serverName">The server address - either a hostname or a dotted string address.</param>
+      <param name="protocol">The transport layer protocol to use.</param>
+    </member>
+    <member name="M:Rebex.Net.SyslogClient.Connect(System.String,System.Int32,Rebex.Net.SyslogTransportProtocol)">
+      <summary>
+            Connects the client to the specified syslog server.
+            </summary>
+      <param name="serverName">The server address - either a hostname or a dotted string address.</param>
+      <param name="port">The server port (e.g. 514).</param>
+      <param name="protocol">The transport layer protocol to use.</param>
+    </member>
+    <member name="M:Rebex.Net.SyslogClient.ConnectAsync(System.String,System.Int32,Rebex.Net.SyslogTransportProtocol)">
+      <summary>
+            Connects the client to the specified syslog server.
+            </summary>
+      <param name="serverName">The server address - either a hostname or a dotted string address.</param>
+      <param name="port">The server port (e.g. 514).</param>
+      <param name="protocol">The transport layer protocol to use.</param>
+    </member>
+    <member name="M:Rebex.Net.SyslogClient.Send(Rebex.Net.SyslogMessage)">
+      <summary>
+            Sends a message to the connected syslog server.
+            </summary>
+      <param name="message">A syslog message to be sent.</param>
+    </member>
+    <member name="M:Rebex.Net.SyslogClient.Send(System.String,Rebex.Net.SyslogSeverity,Rebex.Net.SyslogFacility)">
+      <summary>
+            Sends a message to the connected syslog server.
+            </summary>
+      <param name="message">A message to be sent.</param>
+      <param name="severity">Message severity.</param>
+      <param name="facility">Message facility.</param>
+    </member>
+    <member name="M:Rebex.Net.SyslogClient.SendAsync(Rebex.Net.SyslogMessage)">
+      <summary>
+            Sends a message to the connected syslog server.
+            </summary>
+      <param name="message">A syslog message to be sent.</param>
+    </member>
+    <member name="M:Rebex.Net.SyslogClient.SendAsync(System.String,Rebex.Net.SyslogSeverity,Rebex.Net.SyslogFacility)">
+      <summary>
+            Sends a message to the connected syslog server.
+            </summary>
+      <param name="message">A message to be sent.</param>
+      <param name="severity">Message severity.</param>
+      <param name="facility">Message facility.</param>
+    </member>
+    <member name="M:Rebex.Net.SyslogClient.Close">
+      <summary>
+            Closes the connection and releases all associated resources. 
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.SyslogClient.CloseAsync">
+      <summary>
+            Asynchronously closes the connection and releases all associated resources. 
+            </summary>
+      <returns>A task that represents the close operation.</returns>
+    </member>
+    <member name="T:Rebex.Net.SyslogErrorEventArgs">
+      <summary>
+            Provides data for <see cref="E:Rebex.Net.SyslogServer.ErrorOccurred" /> event.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogErrorEventArgs.Error">
+      <summary>
+            Gets the exception which occurred while receiving syslog messages.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogErrorEventArgs.RemoteEndPoint">
+      <summary>
+            Gets the endpoint which caused the error, or null (Nothing in Visual Basic) if unknown.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogErrorEventArgs.Binding">
+      <summary>
+            Gets the <see cref="T:Rebex.Net.SyslogBinding" /> related to the error.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.SyslogExceptionStatus">
+      <summary>
+            Specifies status codes for the <see cref="T:Rebex.Net.SyslogException" /> class.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogExceptionStatus.Undefined">
+      <summary>
+            Unknown cause of error. For more information see InnerException.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogExceptionStatus.MessageParsingError">
+      <summary>
+            Syslog message parsing failed.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.SyslogException">
+      <summary>
+            Represents a syslog error.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogException.Status">
+      <summary>
+            Gets the status code of the error.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.SyslogException.GetRawData">
+      <summary>
+            Gets the received data; or null if it is not meaningful for this error.
+            </summary>
+      <returns>The raw data received over the connection; or null if not available.</returns>
+    </member>
+    <member name="T:Rebex.Net.SyslogMessage">
+      <summary>
+            This class represents a Syslog protocol message (RFC 5424).
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.SyslogMessage.#ctor">
+      <summary>
+            Initializes a new empty syslog message.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.SyslogMessage.#ctor(System.String)">
+      <summary>
+            Initializes a new syslog message.
+            </summary>
+      <param name="text">A text of the message.</param>
+    </member>
+    <member name="P:Rebex.Net.SyslogMessage.Facility">
+      <summary>
+            Gets or sets the syslog message facility.
+            </summary>
+      <remarks>Applies to: <see cref="F:Rebex.Net.SyslogMessageFormat.Modern" />, <see cref="F:Rebex.Net.SyslogMessageFormat.Bsd" />, <see cref="F:Rebex.Net.SyslogMessageFormat.Legacy" />.</remarks>
+    </member>
+    <member name="P:Rebex.Net.SyslogMessage.Severity">
+      <summary>
+            Gets or sets the syslog message severity.
+            </summary>
+      <remarks>Applies to: <see cref="F:Rebex.Net.SyslogMessageFormat.Modern" />, <see cref="F:Rebex.Net.SyslogMessageFormat.Bsd" />, <see cref="F:Rebex.Net.SyslogMessageFormat.Legacy" />.</remarks>
+    </member>
+    <member name="P:Rebex.Net.SyslogMessage.Timestamp">
+      <summary>
+            Gets the timestamp part of the syslog message as supplied by the client.
+            Only available for messages received by a syslog server.
+            </summary>
+      <remarks>Applies to: <see cref="F:Rebex.Net.SyslogMessageFormat.Modern" />, <see cref="F:Rebex.Net.SyslogMessageFormat.Bsd" />.</remarks>
+    </member>
+    <member name="P:Rebex.Net.SyslogMessage.Hostname">
+      <summary>
+            Gets or sets the hostname part of this syslog message.
+            </summary>
+      <remarks>Applies to: <see cref="F:Rebex.Net.SyslogMessageFormat.Modern" />, <see cref="F:Rebex.Net.SyslogMessageFormat.Bsd" />.</remarks>
+    </member>
+    <member name="P:Rebex.Net.SyslogMessage.ApplicationName">
+      <summary>
+            Gets or sets the application name part of this syslog message.
+            </summary>
+      <remarks>Applies to: <see cref="F:Rebex.Net.SyslogMessageFormat.Modern" />, <see cref="F:Rebex.Net.SyslogMessageFormat.Bsd" />.</remarks>
+    </member>
+    <member name="P:Rebex.Net.SyslogMessage.ProcessId">
+      <summary>
+            Gets or sets the process ID part of this syslog message.
+            </summary>
+      <remarks>Applies to: <see cref="F:Rebex.Net.SyslogMessageFormat.Modern" />, <see cref="F:Rebex.Net.SyslogMessageFormat.Bsd" />.</remarks>
+    </member>
+    <member name="P:Rebex.Net.SyslogMessage.MessageId">
+      <summary>
+            Gets or sets the message ID part of this syslog message.
+            </summary>
+      <remarks>Applies to: <see cref="F:Rebex.Net.SyslogMessageFormat.Modern" />.</remarks>
+    </member>
+    <member name="P:Rebex.Net.SyslogMessage.Text">
+      <summary>
+            Gets or sets the message part of this syslog message.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.SyslogMessage.Encode(Rebex.Net.SyslogMessageFormat,System.Text.Encoding)">
+      <summary>
+            Encodes the message and returns its raw representation.
+            </summary>
+      <param name="format">The format to be used to serialize the syslog message.</param>
+      <param name="encoding">The encoding for message part (<see cref="P:Rebex.Net.SyslogMessage.Text" />). Default is "iso-8859-1" (ISO 8859-1 or Latin-1) encoding.</param>
+    </member>
+    <member name="T:Rebex.Net.SyslogMessageReceivedEventArgs">
+      <summary>
+            Provides data for <see cref="E:Rebex.Net.SyslogServer.MessageReceived" /> event.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogMessageReceivedEventArgs.Binding">
+      <summary>
+            Gets the <see cref="T:Rebex.Net.SyslogBinding" /> related to the message.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogMessageReceivedEventArgs.Message">
+      <summary>
+            Gets the syslog message.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogMessageReceivedEventArgs.RemoteEndPoint">
+      <summary>
+            Gets the remote endpoint from which this syslog message was received.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogMessageReceivedEventArgs.ReceivedTime">
+      <summary>
+            Gets the date and time at which this syslog message was received.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.SyslogServer">
+      <summary>
+            Represents a syslog server that can receive syslog messages.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogServer.DefaultPort">
+      <summary>
+            Default syslog port number (514).
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.SyslogServer.DefaultTlsPort">
+      <summary>
+            Default syslog port number for TLS connection (6514).
+            </summary>
+    </member>
+    <member name="E:Rebex.Net.SyslogServer.MessageReceived">
+      <summary>
+            Occurs when a syslog message is received.
+            </summary>
+    </member>
+    <member name="E:Rebex.Net.SyslogServer.ErrorOccurred">
+      <summary>
+            Occurs when an error occurs while receiving syslog messages.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.SyslogServer.#ctor">
+      <summary>
+            Initializes an instance of the <see cref="T:Rebex.Net.SyslogServer" /> class.
+            Use one of the <see cref="o:Bind" /> methods to bind the server to an endpoint.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogServer.LogWriter">
+      <summary>
+            Gets or sets the <see cref="T:Rebex.ILogWriter">LogWriter</see> used by this object.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogServer.Bindings">
+      <summary>
+            Gets a read-only collection of server bindings.
+            </summary>
+      <remarks>
+            Use one of the <see cref="o:Bind" /> or <see cref="o:Unbind" /> methods to modify binding collection.
+            </remarks>
+    </member>
+    <member name="P:Rebex.Net.SyslogServer.Settings">
+      <summary>
+            Gets or sets the server settings.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.SyslogServer.Bind(Rebex.Net.SyslogTransportProtocol)">
+      <summary>
+            Binds the specified protocol listener to its default port on all network IPv4 interfaces.
+            </summary>
+      <param name="protocol">Protocol to be used.</param>
+      <returns>The associated <see cref="T:Rebex.Net.SyslogBinding" />.</returns>
+    </member>
+    <member name="M:Rebex.Net.SyslogServer.Bind(System.Int32,Rebex.Net.SyslogTransportProtocol)">
+      <summary>
+            Binds the server to the specified port on all network IPv4 interfaces.
+            </summary>
+      <param name="port">A port to listen on.</param>
+      <param name="protocol">Protocol to be used.</param>
+      <returns>The associated <see cref="T:Rebex.Net.SyslogBinding" />.</returns>
+    </member>
+    <member name="M:Rebex.Net.SyslogServer.Bind(System.Net.IPEndPoint,Rebex.Net.SyslogTransportProtocol)">
+      <summary>
+            Binds the server to the specified endpoint.
+            </summary>
+      <param name="endPoint">An IP endpoint to listen on.</param>
+      <param name="protocol">Protocol to be used.</param>
+      <returns>The associated <see cref="T:Rebex.Net.SyslogBinding" />.</returns>
+    </member>
+    <member name="M:Rebex.Net.SyslogServer.Bind(Rebex.Net.SyslogBinding)">
+      <summary>
+            Binds the server to an endpoint using specified settings.
+            </summary>
+      <param name="binding">Binding settings.</param>
+      <returns>The passed <paramref name="binding" /> argument.</returns>
+    </member>
+    <member name="M:Rebex.Net.SyslogServer.Bind(System.Collections.Generic.IEnumerable{Rebex.Net.SyslogBinding})">
+      <summary>
+            Binds the server to the endpoints using specified settings.
+            </summary>
+      <param name="bindings">Enumeration of binding settings.</param>
+    </member>
+    <member name="M:Rebex.Net.SyslogServer.Unbind">
+      <summary>
+            Unbinds server from all network interfaces.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.SyslogServer.Unbind(Rebex.Net.SyslogTransportProtocol)">
+      <summary>
+            Unbinds server from endpoints used by the specified protocol.
+            </summary>
+      <param name="protocol">The protocol to unbind.</param>
+    </member>
+    <member name="M:Rebex.Net.SyslogServer.Unbind(System.Int32)">
+      <summary>
+            Unbinds server from endpoints listening on specified port.
+            </summary>
+      <param name="port">The port to unbind.</param>
+    </member>
+    <member name="M:Rebex.Net.SyslogServer.Unbind(System.Net.IPAddress)">
+      <summary>
+            Unbinds server from endpoints listening on specified address.
+            </summary>
+      <param name="address">The address to unbind.</param>
+    </member>
+    <member name="M:Rebex.Net.SyslogServer.Unbind(System.Net.IPEndPoint)">
+      <summary>
+            Unbinds server from the specified endpoint.
+            </summary>
+      <param name="endPoint">The endpoint to unbind.</param>
+    </member>
+    <member name="M:Rebex.Net.SyslogServer.Unbind(Rebex.Net.SyslogBinding)">
+      <summary>
+            Unbinds server from the specified endpoint, which uses specified protocol.
+            </summary>
+      <param name="binding">The binding to unbind.</param>
+    </member>
+    <member name="M:Rebex.Net.SyslogServer.Start">
+      <summary>
+            Starts the server.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.SyslogServer.Stop">
+      <summary>
+            Stops the server.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.SyslogServer.Dispose">
+      <summary>
+            Disposes the server object, releasing all listeners and sessions.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.SyslogServerSettings">
+      <summary>
+            Specifies syslog server settings.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogServerSettings.TlsParameters">
+      <summary>
+            Gets or sets a TLS security parameters, which are applied for <see cref="F:Rebex.Net.SyslogTransportProtocol.Tls" /> connections.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.SyslogServerSettings.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Rebex.Net.SyslogServerSettings" /> class.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.SyslogClientSettings">
+      <summary>
+            Specifies syslog client settings.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogClientSettings.Format">
+      <summary>
+            Gets or sets the syslog message format.
+            </summary>
+      <remarks>
+            Default is <see cref="F:Rebex.Net.SyslogMessageFormat.Modern" />. See https://tools.ietf.org/html/rfc5424 for details.
+            </remarks>
+    </member>
+    <member name="P:Rebex.Net.SyslogClientSettings.Framing">
+      <summary>
+            Gets or sets the syslog message transfer framing for the
+            <see cref="F:Rebex.Net.SyslogTransportProtocol.Tcp" /> and <see cref="F:Rebex.Net.SyslogTransportProtocol.Tls" /> protocols.
+            </summary>
+      <remarks>
+            Default is Octet Counting framing. See https://tools.ietf.org/html/rfc6587#section-3.4.1 for details.
+            </remarks>
+    </member>
+    <member name="P:Rebex.Net.SyslogClientSettings.Trailer">
+      <summary>
+            Gets or sets a trailer data when <see cref="P:Rebex.Net.SyslogClientSettings.Framing" /> is set to <see cref="F:Rebex.Net.SyslogFraming.NonTransparent" />.
+            If <see cref="P:Rebex.Net.SyslogClientSettings.Trailer" /> is set to null or empty array the 0x0A byte is used for trailer.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogClientSettings.RaiseEventsFromCurrentThread">
+      <summary>
+            Specifies whether to raise asynchronous events from the current working thread or 
+            whether to raise them using a <see cref="T:System.Threading.SynchronizationContext" /> available when an asynchronous operation was started.
+            </summary>
+      <value>False (default) raise events using <see cref="T:System.Threading.SynchronizationContext" />; true to raise them directly from the current working thread.</value>
+      <remarks>Events of synchronous methods are always raised from the current working thread.</remarks>
+    </member>
+    <member name="P:Rebex.Net.SyslogClientSettings.Encoding">
+      <summary>
+            Gets or sets the encoding for message part (<see cref="P:Rebex.Net.SyslogMessage.Text" />) of the syslog message.
+            Default is "ISO-8859-1" (Latin 1) encoding.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.SyslogClientSettings.EmitUtf8Preamble">
+      <summary>
+            Specifies whether to emit UTF-8 preamble (BOM) at the beginning of the message part.
+            Null means default for the used <see cref="P:Rebex.Net.SyslogClientSettings.Format" />, which is true for <see cref="F:Rebex.Net.SyslogMessageFormat.Modern" /> and false for all other formats.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.SyslogClientSettings.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Rebex.Net.SyslogClientSettings" /> class.
+            </summary>
+    </member>
+  </members>
+</doc>

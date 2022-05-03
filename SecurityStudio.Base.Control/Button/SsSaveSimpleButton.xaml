@@ -1,0 +1,6 @@
+﻿<button:SsSimpleButton x:Class="SecurityStudio.Base.Control.Button.SsSaveSimpleButton"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:button="clr-namespace:SecurityStudio.Base.Control.Button"
+                       Content="Save">
+</button:SsSimpleButton>

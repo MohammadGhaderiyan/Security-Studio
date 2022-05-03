@@ -1,0 +1,180 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>disable</Nullable>
+		<UseWPF>true</UseWPF>
+		<UseWindowsForms>true</UseWindowsForms>
+		<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+		<StartupObject></StartupObject>
+		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CefSharp.Wpf" Version="100.0.230" />
+		<PackageReference Include="FluentValidation" Version="10.4.0" />
+		<PackageReference Include="Ninject" Version="3.3.4" />
+		<PackageReference Include="NLog" Version="4.7.15" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\SecurityStudio.Base.Control\SecurityStudio.Base.Control.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Base.Main\SecurityStudio.Base.Main.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Database.Data\SecurityStudio.Database.Data.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Database.Model\SecurityStudio.Database.Model.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Module.CodeEditor\SecurityStudio.Module.CodeEditor.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Module.Definition\SecurityStudio.Module.Definition.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Module.Linux\SecurityStudio.Module.Linux.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Module.Mitre\SecurityStudio.Module.Mitre.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Module.MobilePenTest\SecurityStudio.Module.MobilePenTest.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Module.NetworkPenTest\SecurityStudio.Module.NetworkPenTest.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Module.Tool\SecurityStudio.Module.Tool.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Module.WebPenTest\SecurityStudio.Module.WebPenTest.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Module.Windows\SecurityStudio.Module.Windows.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Service.CodeEditor\SecurityStudio.Service.CodeEditor.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Service.Definition\SecurityStudio.Service.Definition.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Service.Linux\SecurityStudio.Service.Linux.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Service.Main\SecurityStudio.Service.Main.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Service.Mitre\SecurityStudio.Service.Mitre.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Service.MobilePenTest\SecurityStudio.Service.MobilePenTest.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Service.NetworkPenTest\SecurityStudio.Service.NetworkPenTest.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Service.Tool\SecurityStudio.Service.Tool.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Service.WebPenTest\SecurityStudio.Service.WebPenTest.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Service.Windows\SecurityStudio.Service.Windows.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Test.Main\SecurityStudio.Test.Main.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Data.Desktop.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Data.v21.2">
+			<HintPath>..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Standard\DevExpress.Data.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Mvvm.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Mvvm.v21.2.dll</HintPath>
+			<Private>True</Private>
+		</Reference>
+		<Reference Include="DevExpress.Printing.v21.2.Core">
+			<HintPath>..\Devexpress Standard 21.2.5.0\DevExpress.Printing.v21.2.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Controls.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Controls.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Core.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Core.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Docking.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Docking.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Grid.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Grid.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Grid.v21.2.Core">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Grid.v21.2.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Layout.v21.2.Core">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Layout.v21.2.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.LayoutControl.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.LayoutControl.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.NavBar.v21.2">
+			<HintPath>..\Devexpress NetCore 21.2.5.0\DevExpress.Xpf.NavBar.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Printing.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Printing.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Ribbon.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Ribbon.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.LightGray.v21.2">
+			<HintPath>..\Devexpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.LightGray.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2013LightGray.v21.2">
+			<HintPath>..\Devexpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2013LightGray.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Common">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Common.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Ews">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Ews.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.FileServer">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.FileServer.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.FileSystem">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.FileSystem.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.FileTransfer">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.FileTransfer.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Ftp">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Ftp.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Http">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Http.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Imap">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Imap.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Mail">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Mail.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Msg">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Msg.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Networking">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Networking.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Pop3">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Pop3.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Security">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Security.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Sftp">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Sftp.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Smtp">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Smtp.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.SshShell">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.SshShell.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Syslog">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Syslog.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Telnet">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Telnet.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Terminal">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Terminal.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Terminal.Control">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Terminal.Control.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Terminal.SerialPort">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Terminal.SerialPort.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Time">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Time.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Tls">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Tls.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.WebSocket">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.WebSocket.dll</HintPath>
+		</Reference>
+		<Reference Include="Rebex.Zip">
+		  <HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Zip.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+</Project>

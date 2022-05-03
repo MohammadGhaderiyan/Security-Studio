@@ -1,0 +1,262 @@
+	<ItemGroup>
+		<Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Data.Desktop.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Data.v21.2">
+			<HintPath>..\..\..\..\Program Files (x86)\DevExpress 21.2\Components\Bin\Standard\DevExpress.Data.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Diagram.v21.2.Core, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Diagram.v21.2.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Mvvm.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Mvvm.v21.2.dll</HintPath>
+			<Private>True</Private>
+		</Reference>
+		<Reference Include="DevExpress.Printing.v21.2.Core">
+		  <HintPath>..\Devexpress Standard 21.2.5.0\DevExpress.Printing.v21.2.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Accordion.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Accordion.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Carousel.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Carousel.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Charts.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Charts.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.CodeView.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.CodeView.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Controls.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Controls.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Core.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Core.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Core.v21.2.Extensions">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Core.v21.2.Extensions.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Dashboard.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Dashboard.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.DataAccess.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.DataAccess.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.DemoBase.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.DemoBase.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Diagram.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Diagram.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Dialogs.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Dialogs.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Docking.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Docking.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.DocumentViewer.v21.2.Core, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.DocumentViewer.v21.2.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.ExpressionEditor.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.ExpressionEditor.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Gantt.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Gantt.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Gauges.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Gauges.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Grid.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Grid.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Grid.v21.2.Core">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Grid.v21.2.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Grid.v21.2.Extensions">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Grid.v21.2.Extensions.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Layout.v21.2.Core">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Layout.v21.2.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.LayoutControl.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.LayoutControl.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Map.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Map.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.NavBar.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.NavBar.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Office.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Office.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.PdfViewer.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.PdfViewer.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.PivotGrid.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.PivotGrid.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Printing.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Printing.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.PrismAdapters.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.PrismAdapters.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.PropertyGrid.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.PropertyGrid.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.ReportDesigner.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.ReportDesigner.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Ribbon.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Ribbon.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.RichEdit.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.RichEdit.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Scheduler.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Scheduler.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Scheduling.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Scheduling.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.SpellChecker.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.SpellChecker.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Spreadsheet.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Spreadsheet.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.DXStyle.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.DXStyle.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.HybridApp.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.HybridApp.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.LightGray.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.LightGray.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.MetropolisDark.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.MetropolisDark.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.MetropolisLight.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.MetropolisLight.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2007Black.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2007Black.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2007Blue.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2007Blue.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2007Silver.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2007Silver.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2010Black.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2010Black.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2010Blue.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2010Blue.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2010Silver.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2010Silver.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2013.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2013.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2013DarkGray.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2013DarkGray.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2013LightGray.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+			<SpecificVersion>False</SpecificVersion>
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2013LightGray.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2016Black.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2016Black.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2016BlackSE.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2016BlackSE.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2016Colorful.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2016Colorful.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2016ColorfulSE.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2016ColorfulSE.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2016DarkGraySE.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2016DarkGraySE.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2016White.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2016White.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2016WhiteSE.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2016WhiteSE.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2019Black.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2019Black.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2019Colorful.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2019Colorful.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2019DarkGray.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2019DarkGray.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2019HighContrast.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2019HighContrast.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Office2019White.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2019White.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Seven.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Seven.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.TouchlineDark.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.TouchlineDark.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.VS2010.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.VS2010.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.VS2017Blue.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.VS2017Blue.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.VS2017Dark.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.VS2017Dark.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.VS2017Light.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.VS2017Light.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.VS2019Blue.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.VS2019Blue.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.VS2019Dark.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.VS2019Dark.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.VS2019Light.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.VS2019Light.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Win10Dark.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Win10Dark.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.Themes.Win10Light.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Win10Light.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.TreeMap.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.TreeMap.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.Xpf.TypedStyles.v21.2">
+			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.TypedStyles.v21.2.dll</HintPath>
+		</Reference>
+	</ItemGroup>

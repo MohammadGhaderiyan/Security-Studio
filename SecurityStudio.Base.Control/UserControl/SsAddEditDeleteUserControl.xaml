@@ -1,0 +1,27 @@
+﻿<userControl:SsUserControl x:Class="SecurityStudio.Base.Control.UserControl.SsAddEditDeleteUserControl"
+                           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                           xmlns:button="clr-namespace:SecurityStudio.Base.Control.Button"
+                           xmlns:userControl="clr-namespace:SecurityStudio.Base.Control.UserControl"
+                           xmlns:layout="clr-namespace:SecurityStudio.Base.Control.Layout"
+                           xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
+                           mc:Ignorable="d" x:Name="SsMainUserControl">
+    <layout:SsLayoutControl>
+        <layout:SsLayoutGroup>
+            <layout:SsLayoutItem>
+                <button:SsAddSimpleButton
+                    Command="{wpf:SsBinding Path=SsAddCommand, ElementName=SsMainUserControl}" />
+            </layout:SsLayoutItem>
+            <layout:SsLayoutItem>
+                <button:SsEditSimpleButton
+                    Command="{wpf:SsBinding Path=SsEditCommand, ElementName=SsMainUserControl}" />
+            </layout:SsLayoutItem>
+            <layout:SsLayoutItem>
+                <button:SsDeleteSimpleButton
+                    Command="{wpf:SsBinding Path=SsDeleteCommand, ElementName=SsMainUserControl}" />
+            </layout:SsLayoutItem>
+        </layout:SsLayoutGroup>
+    </layout:SsLayoutControl>
+</userControl:SsUserControl>

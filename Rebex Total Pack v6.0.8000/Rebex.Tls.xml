@@ -1,0 +1,572 @@
+<doc>
+  <assembly>
+    <name>Rebex.Tls</name>
+  </assembly>
+  <members>
+    <member name="T:Rebex.Net.TlsClientHelloReceivedEventArgs">
+      <summary>
+            Provides data for custom TLS ClientHello event handler.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.TlsClientHelloReceivedEventArgs.Socket">
+      <summary>
+            Gets the socket that received the ClientHello.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.TlsClientHelloReceivedEventArgs.ServerName">
+      <summary>
+            Gets the common name of the server as requested by the client.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.TlsClientHelloReceivedEventArgs.GetServerCertificates">
+      <summary>
+            Gets the server certificate chains used in server's TLS Certificate response, in the order of preference.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.TlsClientHelloReceivedEventArgs.SetServerCertificates(Rebex.Security.Certificates.CertificateChain[])">
+      <summary>
+            Sets the server certificate chains used in server's TLS Certificate response, in the order of preference.
+            </summary>
+      <param name="serverCertificates">Server certificates (chains).</param>
+    </member>
+    <member name="P:Rebex.Net.TlsClientHelloReceivedEventArgs.ApplicationProtocol">
+      <summary>
+            Gets or sets the selected application protocol to be used in the Application-Layer Protocol Negotiation (ALPN) extension.
+            It must be one of the values provided by the <see cref="M:Rebex.Net.TlsClientHelloReceivedEventArgs.GetApplicationProtocols" /> method.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.TlsClientHelloReceivedEventArgs.GetApplicationProtocols">
+      <summary>
+            Gets the application protocols advertised by the client in the Application-Layer Protocol Negotiation (ALPN) extension.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.TlsClientSettings">
+      <summary>
+            Represents options for <see cref="M:Rebex.Net.TlsStream.AuthenticateAsClient(Rebex.Net.TlsClientSettings)" /> method.
+            For additional TLS settings, see <see cref="P:Rebex.Net.TlsStream.Parameters" />.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.TlsClientSettings.TargetName">
+      <summary>
+            Gets or sets the TLS/SSL server's common name.
+            </summary>
+      <remarks>
+            Provided by the Server Name Indication (SNI) extension.
+            </remarks>
+    </member>
+    <member name="P:Rebex.Net.TlsClientSettings.ClientCertificates">
+      <summary>
+            Gets or sets the collection of certificates used for client certificate authentication.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.TlsClientSettings.#ctor">
+      <summary>
+            Creates an instance of <see cref="T:Rebex.Net.TlsClientSettings" />.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.TlsClientSocket">
+      <summary>
+            Represents a client-side TLS-enabled TCP socket.
+            </summary>
+      <remarks>
+        <p>
+            This class is suitable for securing your socket communication using
+            TLS 1.3, TLS 1.2, TLS 1.1 and TLS 1.0 protocols.
+            </p>
+      </remarks>
+    </member>
+    <member name="M:Rebex.Net.TlsClientSocket.#ctor">
+      <summary>
+             Initializes an instance of the <see cref="T:Rebex.Net.TlsClientSocket" /> class.
+             </summary>
+      <remarks>
+             The default constructor initializes an instance of the <see cref="T:Rebex.Net.TlsClientSocket" />.
+             </remarks>
+    </member>
+    <member name="M:Rebex.Net.TlsClientSocket.#ctor(System.Net.Sockets.Socket)">
+      <summary>
+            Initializes an instance of the <see cref="T:Rebex.Net.TlsClientSocket" /> class with the specified base socket.
+            </summary>
+      <param name="socket">Base socket.</param>
+      <remarks>Use this if you need to upgrade an existing socket to use TLS.</remarks>
+    </member>
+    <member name="M:Rebex.Net.TlsClientSocket.ConnectAsync(System.Net.EndPoint)">
+      <summary>
+            Establishes a connection to a remote device.
+            </summary>
+      <param name="remoteEP">An <see cref="T:System.Net.EndPoint" /> that represents the remote device.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" /> that represents the connect operation.</returns>
+      <remarks>
+            The <see cref="M:Rebex.Net.TlsClientSocket.ConnectAsync(System.Net.EndPoint)" /> method establishes a network connection to a device
+            identified by the <paramref name="remoteEP" /> parameter. Once the connection has been made,
+            you can send data to the remote device with the <see cref="M:Rebex.Net.TlsSocket.SendAsync(System.ArraySegment{System.Byte})" /> method,
+            or receive data from the remote device with the <see cref="M:Rebex.Net.TlsSocket.ReceiveAsync(System.ArraySegment{System.Byte})" /> method.
+            </remarks>
+    </member>
+    <member name="M:Rebex.Net.TlsClientSocket.ConnectAsync(System.String,System.Int32)">
+      <summary>
+            Establishes a connection to a remote device.
+            </summary>
+      <param name="serverName">The hostname (or IP address) of the remote device.</param>
+      <param name="port">The port number associated with the hostname.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" /> that represents the asynchronous operation.</returns>
+      <remarks>
+            The <see cref="M:Rebex.Net.TlsClientSocket.ConnectAsync(System.String,System.Int32)" /> method establishes a network connection to a host identified
+            by the <paramref name="serverName" /> and <paramref name="port" />
+            parameters. Once the connection has been made,
+            you can send data to the remote device with the <see cref="M:Rebex.Net.TlsSocket.SendAsync(System.ArraySegment{System.Byte})" /> method,
+            or receive data from the remote device with the <see cref="M:Rebex.Net.TlsSocket.ReceiveAsync(System.ArraySegment{System.Byte})" /> method.
+            </remarks>
+    </member>
+    <member name="M:Rebex.Net.TlsClientSocket.BeginConnect(System.Net.EndPoint,System.AsyncCallback,System.Object)">
+      <summary>
+            Establishes a connection to a remote device.
+            </summary>
+      <param name="remoteEP">An <see cref="T:System.Net.EndPoint" /> that represents the remote device.</param>
+      <param name="callback">The <see cref="T:System.AsyncCallback" /> delegate.</param>
+      <param name="state">An object containing state information for this request.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous connection.
+            </returns>
+      <remarks>
+            The <see cref="M:Rebex.Net.TlsClientSocket.BeginConnect(System.Net.EndPoint,System.AsyncCallback,System.Object)" /> method establishes a network connection to a device
+            identified by the <paramref name="remoteEP" /> parameter. Once the connection has been made,
+            you can send data to the remote device with the <see cref="M:Rebex.Net.TlsSocket.BeginSend(System.Byte[],System.Int32,System.Int32,System.Net.Sockets.SocketFlags,System.AsyncCallback,System.Object)" /> method,
+            or receive data from the remote device with the <see cref="M:Rebex.Net.TlsSocket.BeginReceive(System.Byte[],System.Int32,System.Int32,System.Net.Sockets.SocketFlags,System.AsyncCallback,System.Object)" /> method.
+            </remarks>
+    </member>
+    <member name="M:Rebex.Net.TlsClientSocket.BeginConnect(System.String,System.Int32,System.AsyncCallback,System.Object)">
+      <summary>
+            Establishes a connection to a remote device.
+            </summary>
+      <param name="serverName">The hostname (or IP address) of the remote device.</param>
+      <param name="port">The port number associated with the hostname.</param>
+      <param name="callback">The <see cref="T:System.AsyncCallback" /> delegate.</param>
+      <param name="state">An object containing state information for this request.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous connection.
+            </returns>
+      <remarks>
+            The <see cref="M:Rebex.Net.TlsClientSocket.BeginConnect(System.String,System.Int32,System.AsyncCallback,System.Object)" /> method establishes a network connection to a host identified
+            by the <paramref name="serverName" /> and <paramref name="port" />
+            parameters. Once the connection has been made,
+            you can send data to the remote device with the <see cref="M:Rebex.Net.TlsSocket.BeginSend(System.Byte[],System.Int32,System.Int32,System.Net.Sockets.SocketFlags,System.AsyncCallback,System.Object)" /> method,
+            or receive data from the remote device with the <see cref="M:Rebex.Net.TlsSocket.BeginReceive(System.Byte[],System.Int32,System.Int32,System.Net.Sockets.SocketFlags,System.AsyncCallback,System.Object)" /> method.
+            </remarks>
+    </member>
+    <member name="M:Rebex.Net.TlsClientSocket.EndConnect(System.IAsyncResult)">
+      <summary>
+            Ends a pending asynchronous connection request.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user-defined data.</param>
+      <remarks>
+            The <see cref="M:Rebex.Net.TlsClientSocket.EndConnect(System.IAsyncResult)" /> method completes a request to accept a connection that
+            was started with <see cref="M:Rebex.Net.TlsClientSocket.BeginConnect(System.Net.EndPoint,System.AsyncCallback,System.Object)" />
+            or <see cref="M:Rebex.Net.TlsClientSocket.BeginConnect(System.String,System.Int32,System.AsyncCallback,System.Object)" /> method.
+            </remarks>
+    </member>
+    <member name="M:Rebex.Net.TlsClientSocket.Connect(System.Net.EndPoint)">
+      <summary>
+            Establishes a connection to a remote device.
+            </summary>
+      <param name="remoteEP">An <see cref="T:System.Net.EndPoint" /> that represents the remote device.</param>
+      <remarks>
+            The <see cref="M:Rebex.Net.TlsClientSocket.Connect(System.Net.EndPoint)" /> method establishes a network connection to a device identified
+            by the <paramref name="remoteEP" /> parameter. Once the connection has been made,
+            you can send data to the remote device with the <see cref="M:Rebex.Net.TlsSocket.Send(System.ArraySegment{System.Byte})" /> method,
+            or receive data from the remote device with the <see cref="M:Rebex.Net.TlsSocket.Receive(System.ArraySegment{System.Byte})" /> method.
+            </remarks>
+    </member>
+    <member name="M:Rebex.Net.TlsClientSocket.Connect(System.String,System.Int32)">
+      <summary>
+            Establishes a connection to a remote device.
+            </summary>
+      <param name="serverName">The hostname (or IP address) of the remote device.</param>
+      <param name="port">The port number associated with the hostname.</param>
+      <remarks>
+            The <see cref="M:Rebex.Net.TlsClientSocket.Connect(System.String,System.Int32)" /> method establishes a network connection to a host identified
+            by the <paramref name="serverName" /> and <paramref name="port" />
+            parameters. Once the connection has been made,
+            you can send data to the remote device with the <see cref="M:Rebex.Net.TlsSocket.Send(System.ArraySegment{System.Byte})" /> method,
+            or receive data from the remote device with the <see cref="M:Rebex.Net.TlsSocket.Receive(System.ArraySegment{System.Byte})" /> method.
+            </remarks>
+    </member>
+    <member name="E:Rebex.Net.TlsClientSocket.ValidatingCertificate">
+      <summary>
+            Occurs when a server certificate needs to be validated.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.TlsServerSettings">
+      <summary>
+            Represents options for <see cref="M:Rebex.Net.TlsStream.AuthenticateAsServer(Rebex.Net.TlsServerSettings)" /> method.
+            For additional TLS settings, see <see cref="P:Rebex.Net.TlsStream.Parameters" />.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.TlsServerSettings.ServerCertificate">
+      <summary>
+            Gets or sets the TLS/SSL server's certificate.
+            (If you need to support virtual hosts, use <see cref="E:Rebex.Net.TlsStream.ClientHelloReceived" /> event.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.TlsServerSettings.#ctor">
+      <summary>
+            Creates an instance of <see cref="T:Rebex.Net.TlsServerSettings" />.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.TlsServerSocket">
+      <summary>
+            Represents a server-side TLS-enabled TCP socket.
+            </summary>
+      <remarks>
+        <p>
+            This class is suitable for securing your socket communication using
+            TLS 1.3, TLS 1.2, TLS 1.1 and TLS 1.0 protocols.
+            </p>
+      </remarks>
+    </member>
+    <member name="M:Rebex.Net.TlsServerSocket.#ctor(System.Net.Sockets.Socket)">
+      <summary>
+            Initializes an instance of the <see cref="T:Rebex.Net.TlsServerSocket" /> class with the specified base socket.
+            </summary>
+      <param name="socket">Base socket.</param>
+      <remarks>Use this if you need to upgrade an existing socket to use TLS.</remarks>
+    </member>
+    <member name="E:Rebex.Net.TlsServerSocket.ValidatingCertificate">
+      <summary>
+            Occurs when a client certificate needs to be validated.
+            </summary>
+    </member>
+    <member name="E:Rebex.Net.TlsServerSocket.ClientHelloReceived">
+      <summary>
+            Occurs when a TLS ClientHello has been received.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.TlsStream">
+      <summary>
+            Represents a TLS-enabled TCP stream.
+            </summary>
+      <remarks>
+        <p>
+            This class is suitable for securing your socket communication using
+            TLS 1.3, TLS 1.2, TLS 1.1 and TLS 1.0 protocols.
+            </p>
+      </remarks>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.#ctor(System.Net.Sockets.Socket)">
+      <summary>
+            Initializes the <see cref="T:Rebex.Net.TlsStream" /> instance.
+            The <see cref="T:Rebex.Net.TlsStream" /> becomes the owner of the supplied socket.
+            </summary>
+      <param name="socket">A socket which provides network layer for sending and receiving data.</param>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.#ctor(System.IO.Stream)">
+      <summary>
+            Initializes the <see cref="T:Rebex.Net.TlsStream" /> instance.
+            The <see cref="T:Rebex.Net.TlsStream" /> becomes the owner of the supplied stream.
+            </summary>
+      <param name="stream">A stream which provides network layer for sending and receiving data.</param>
+    </member>
+    <member name="E:Rebex.Net.TlsStream.ValidatingCertificate">
+      <summary>
+            Occurs when a certificate provided by the remote end needs to be validated.
+            </summary>
+    </member>
+    <member name="E:Rebex.Net.TlsStream.ClientHelloReceived">
+      <summary>
+            Occurs when a TLS ClientHello has been received (useful for TLS servers only).
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.TlsStream.Parameters">
+      <summary>
+            Gets or sets the security parameters of the current <see cref="T:Rebex.Net.TlsStream" />.
+            </summary>
+      <remarks>
+            The <see cref="P:Rebex.Net.TlsStream.Parameters" /> can be set before initiating TLS negotiation only.
+            Modifying <see cref="P:Rebex.Net.TlsStream.Parameters" /> after initiating TLS negotiation does not affect established connection.
+            </remarks>
+    </member>
+    <member name="P:Rebex.Net.TlsStream.LogWriter">
+      <summary>
+            Gets or sets the log writer used by this object.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.TlsStream.Cipher">
+      <summary>
+            Gets the negotiated TLS cipher.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.TlsStream.ApplicationProtocol">
+      <summary>
+            Gets the negotiated application protocol (via ALPN extension).
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.TlsStream.IsServer">
+      <summary>
+            Gets a value indicating whether the local side of the TLS connection is the server side.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.TlsStream.IsAuthenticated">
+      <summary>
+            Gets a value indicating whether TLS security on this <see cref="T:Rebex.Net.TlsStream" /> was successfully negotiated.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.TlsStream.RemoteCertificate">
+      <summary>
+            Gets the certificate chain used to authenticate the remote endpoint.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.TlsStream.LocalCertificate">
+      <summary>
+            Gets the certificate chain used to authenticate the remote endpoint.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.TlsStream.CanRead">
+      <inheritdoc />
+    </member>
+    <member name="P:Rebex.Net.TlsStream.CanSeek">
+      <inheritdoc />
+    </member>
+    <member name="P:Rebex.Net.TlsStream.CanWrite">
+      <inheritdoc />
+    </member>
+    <member name="P:Rebex.Net.TlsStream.CanTimeout">
+      <inheritdoc />
+    </member>
+    <member name="P:Rebex.Net.TlsStream.Length">
+      <inheritdoc />
+    </member>
+    <member name="P:Rebex.Net.TlsStream.Position">
+      <inheritdoc />
+    </member>
+    <member name="P:Rebex.Net.TlsStream.ReadTimeout">
+      <summary>
+            Gets or sets the length of time, in milliseconds, until the read operation times out,
+            or the value -1 or 0 to indicate that the operation does not time out.
+            </summary>
+      <remarks>
+        <p>
+              Default is -1 (infinite).
+            </p>
+        <p>
+              Apart from -1 and 0 values, the minimal value is 1000.
+              Setting this property to a value lower than 1000 will cause <see cref="T:System.ArgumentOutOfRangeException" /> to be thrown.
+            </p>
+      </remarks>
+    </member>
+    <member name="P:Rebex.Net.TlsStream.WriteTimeout">
+      <summary>
+            Gets or sets the length of time, in milliseconds, until the write operation times out,
+            or the value -1 or 0 to indicate that the operation does not time out.
+            </summary>
+      <remarks>
+        <p>
+              Default is -1 (infinite).
+            </p>
+        <p>
+              Apart from -1 and 0 values, the minimal value is 1000.
+              Setting this property to a value lower than 1000 will cause <see cref="T:System.ArgumentOutOfRangeException" /> to be thrown.
+            </p>
+      </remarks>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.Flush">
+      <summary>
+            Causes any buffered data to be written. Has no effect on <see cref="T:Rebex.Net.TlsStream" />.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.FlushAsync(System.Threading.CancellationToken)">
+      <summary>
+            Causes any buffered data to be written. Has no effect on <see cref="T:Rebex.Net.TlsStream" />.
+            </summary>
+      <param name="cancellationToken">Cancellation token.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task`1" /> that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.Seek(System.Int64,System.IO.SeekOrigin)">
+      <inheritdoc />
+    </member>
+    <member name="M:Rebex.Net.TlsStream.SetLength(System.Int64)">
+      <inheritdoc />
+    </member>
+    <member name="M:Rebex.Net.TlsStream.Read(System.Byte[],System.Int32,System.Int32)">
+      <inheritdoc />
+    </member>
+    <member name="M:Rebex.Net.TlsStream.Write(System.Byte[],System.Int32,System.Int32)">
+      <inheritdoc />
+    </member>
+    <member name="M:Rebex.Net.TlsStream.AuthenticateAsServer(Rebex.Security.Certificates.CertificateChain)">
+      <summary>
+            Performs TLS negotiation. This <see cref="T:Rebex.Net.TlsStream" /> will behave as a TLS server.
+            To configure security parameters use the <see cref="P:Rebex.Net.TlsStream.Parameters" /> property.
+            </summary>
+      <param name="serverCertificate">Server certificates used for authenticating the server to the client.</param>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.AuthenticateAsServer(Rebex.Net.TlsServerSettings)">
+      <summary>
+            Performs TLS negotiation. This <see cref="T:Rebex.Net.TlsStream" /> will behave as a TLS server.
+            To configure security parameters use the <see cref="P:Rebex.Net.TlsStream.Parameters" /> property.
+            </summary>
+      <param name="settings">TLS/SSL security settings.</param>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.AuthenticateAsClient(System.String)">
+      <summary>
+            Performs TLS negotiation. This <see cref="T:Rebex.Net.TlsStream" /> will behave as a TLS client.
+            To configure security parameters use the <see cref="P:Rebex.Net.TlsStream.Parameters" /> property.
+            </summary>
+      <param name="serverName">TLS/SSL server's common name.</param>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.AuthenticateAsClient(Rebex.Net.TlsClientSettings)">
+      <summary>
+            Performs TLS negotiation. This <see cref="T:Rebex.Net.TlsStream" /> will behave as a TLS client.
+            To configure security parameters not available in <paramref name="settings" /> use the <see cref="P:Rebex.Net.TlsStream.Parameters" /> property.
+            </summary>
+      <param name="settings">TLS/SSL security settings.</param>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.Shutdown">
+      <summary>
+            Disables sends on this <see cref="T:Rebex.Net.TlsStream" />.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)">
+      <summary>
+            Asynchronously reads data from this <see cref="T:Rebex.Net.TlsStream" />.
+            </summary>
+      <param name="buffer">An array of bytes to fill with read data.</param>
+      <param name="offset">The zero-based byte offset in the buffer at which to copy bytes read from the current stream.</param>
+      <param name="count">The maximum number of bytes to be read into the buffer.</param>
+      <param name="callback">The <see cref="T:System.AsyncCallback" /> delegate.</param>
+      <param name="state">An object containing state information for this request.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous connection.
+            </returns>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.EndRead(System.IAsyncResult)">
+      <summary>
+            Ends a pending asynchronous read request.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user-defined data.</param>
+      <remarks>
+            The <see cref="M:Rebex.Net.TlsStream.EndRead(System.IAsyncResult)" /> method completes a read request that
+            was started with <see cref="M:Rebex.Net.TlsStream.BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)" /> method.
+            </remarks>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)">
+      <summary>
+            Asynchronously writes data into this <see cref="T:Rebex.Net.TlsStream" />.
+            </summary>
+      <param name="buffer">An array of bytes to be written.</param>
+      <param name="offset">The zero-based byte offset in the buffer at which to begin writing bytes to the current stream.</param>
+      <param name="count">The number of bytes to be taken from the buffer.</param>
+      <param name="callback">The <see cref="T:System.AsyncCallback" /> delegate.</param>
+      <param name="state">An object containing state information for this request.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous connection.
+            </returns>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.EndWrite(System.IAsyncResult)">
+      <summary>
+            Ends a pending asynchronous write request.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user-defined data.</param>
+      <remarks>
+            The <see cref="M:Rebex.Net.TlsStream.EndWrite(System.IAsyncResult)" /> method completes a write request that
+            was started with <see cref="M:Rebex.Net.TlsStream.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)" /> method.
+            </remarks>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.ReadAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+      <summary>
+            Asynchronously reads data from this <see cref="T:Rebex.Net.TlsStream" />.
+            </summary>
+      <param name="buffer">An array of bytes to fill with read data.</param>
+      <param name="offset">The zero-based byte offset in the buffer at which to copy bytes read from the current stream.</param>
+      <param name="count">The maximum number of bytes to be read into the buffer.</param>
+      <param name="cancellationToken">Cancellation token.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task`1" /> that represents the asynchronous operation. Result of the <see cref="T:System.Threading.Tasks.Task" /> is the number of bytes read.</returns>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.WriteAsync(System.Byte[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+      <summary>
+            Asynchronously writes data into this <see cref="T:Rebex.Net.TlsStream" />.
+            </summary>
+      <param name="buffer">An array of bytes to be written.</param>
+      <param name="offset">The zero-based byte offset in the buffer at which to begin writing bytes to the current stream.</param>
+      <param name="count">The number of bytes to be taken from the buffer.</param>
+      <param name="cancellationToken">Cancellation token.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" /> that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.AuthenticateAsServerAsync(Rebex.Security.Certificates.CertificateChain)">
+      <summary>
+            Performs TLS negotiation. This <see cref="T:Rebex.Net.TlsStream" /> will behave as a TLS server.
+            To configure security parameters use the <see cref="P:Rebex.Net.TlsStream.Parameters" /> property.
+            </summary>
+      <param name="serverCertificate">Server certificates used for authenticating the server to the client.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" /> that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.AuthenticateAsServerAsync(Rebex.Net.TlsServerSettings)">
+      <summary>
+            Performs TLS negotiation. This <see cref="T:Rebex.Net.TlsStream" /> will behave as a TLS server.
+            To configure security parameters use the <see cref="P:Rebex.Net.TlsStream.Parameters" /> property.
+            </summary>
+      <param name="settings">TLS/SSL security settings.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" /> that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.AuthenticateAsServerAsync(Rebex.Net.TlsServerSettings,System.Threading.CancellationToken)">
+      <summary>
+            Performs TLS negotiation. This <see cref="T:Rebex.Net.TlsStream" /> will behave as a TLS server.
+            To configure security parameters use the <see cref="P:Rebex.Net.TlsStream.Parameters" /> property.
+            </summary>
+      <param name="settings">TLS/SSL security settings.</param>
+      <param name="cancellationToken">Cancellation token.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" /> that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.AuthenticateAsClientAsync(System.String)">
+      <summary>
+            Performs TLS negotiation. This <see cref="T:Rebex.Net.TlsStream" /> will behave as a TLS client.
+            To configure security parameters use the <see cref="P:Rebex.Net.TlsStream.Parameters" /> property.
+            </summary>
+      <param name="targetHost">TLS/SSL server's common name.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" /> that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.AuthenticateAsClientAsync(Rebex.Net.TlsClientSettings)">
+      <summary>
+            Performs TLS negotiation. This <see cref="T:Rebex.Net.TlsStream" /> will behave as a TLS client.
+            To configure security parameters use the <see cref="P:Rebex.Net.TlsStream.Parameters" /> property.
+            </summary>
+      <param name="settings">TLS/SSL security settings.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" /> that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.AuthenticateAsClientAsync(Rebex.Net.TlsClientSettings,System.Threading.CancellationToken)">
+      <summary>
+            Performs TLS negotiation. This <see cref="T:Rebex.Net.TlsStream" /> will behave as a TLS client.
+            To configure security parameters use the <see cref="P:Rebex.Net.TlsStream.Parameters" /> property.
+            </summary>
+      <param name="settings">TLS/SSL security settings.</param>
+      <param name="cancellationToken">Cancellation token.</param>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" /> that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.DisposeAsync">
+      <inheritdoc />
+    </member>
+    <member name="M:Rebex.Net.TlsStream.CloseAsync">
+      <summary>
+            Asynchronously releases resources used by the TlsStream.
+            </summary>
+      <returns>A task that represents the close operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.ShutdownAsync">
+      <summary>
+            Disables sends on this <see cref="T:Rebex.Net.TlsStream" />.
+            </summary>
+      <returns>A <see cref="T:System.Threading.Tasks.Task" /> that represents the asynchronous operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.GetHashCode">
+      <inheritdoc />
+    </member>
+    <member name="M:Rebex.Net.TlsStream.ToString">
+      <summary>
+            Returns a string representation of this object.
+            </summary>
+      <returns>A string representing this object</returns>
+    </member>
+    <member name="M:Rebex.Net.TlsStream.Dispose(System.Boolean)">
+      <inheritdoc />
+    </member>
+  </members>
+</doc>

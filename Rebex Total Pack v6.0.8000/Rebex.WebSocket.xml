@@ -1,0 +1,525 @@
+<doc>
+  <assembly>
+    <name>Rebex.WebSocket</name>
+  </assembly>
+  <members>
+    <member name="T:Rebex.Net.WebSocketClient">
+      <summary>
+            WebSocket client API.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.#ctor">
+      <summary>
+            Creates a new instance of <see cref="T:Rebex.Net.WebSocketClient" />.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebSocketClient.Settings">
+      <summary>
+            Gets an <see cref="T:Rebex.Net.WebSocketClientSettings" /> object.
+            </summary>
+      <value>
+        <see cref="T:Rebex.Net.WebSocketClientSettings" /> object.</value>
+    </member>
+    <member name="E:Rebex.Net.WebSocketClient.ValidatingCertificate">
+      <summary>
+            Occurs when a server certificate needs to be validated.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebSocketClient.Options">
+      <summary>
+            WebSocket options.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebSocketClient.Proxy">
+      <summary>
+            Gets or sets the network proxy to use to access a remote server.
+            </summary>
+      <value>The <see cref="P:Rebex.Net.WebSocketClient.Proxy" /> to use to access a remote server.</value>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.SetSocketFactory(Rebex.Net.ISocketFactory)">
+      <summary>
+            Sets the socket factory to be used to create communication sockets.
+            </summary>
+      <param name="factory">Socket factory.</param>
+    </member>
+    <member name="P:Rebex.Net.WebSocketClient.State">
+      <summary>
+            Gets the last known state of the WebSocket object.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebSocketClient.CloseStatus">
+      <summary>
+            Gets the close status (only available once the WebSocket has been closed).
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebSocketClient.CloseStatusDescription">
+      <summary>
+            Gets the close status description (only available once the WebSocket has been closed).
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebSocketClient.SubProtocol">
+      <summary>
+            Gets the sub-protocol selected by the server (only available once the WebSocket has been connected).
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.ConnectAsync(System.Uri,System.Threading.CancellationToken)">
+      <summary>
+            Establish a WebSocket connection to the specified URL.
+            </summary>
+      <param name="uri">URL that identifies the remote server.</param>
+      <param name="cancellationToken">Cancellation token to cancel the operation.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.ConnectAsync(System.String,System.Threading.CancellationToken)">
+      <summary>
+            Establish a WebSocket connection to the specified URL.
+            </summary>
+      <param name="uri">URL that identifies the remote server.</param>
+      <param name="cancellationToken">Cancellation token to cancel the operation.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.Connect(System.String)">
+      <summary>
+            Establish a WebSocket connection to the specified URL.
+            </summary>
+      <param name="uri">URL that identifies the remote server.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.Connect(System.Uri)">
+      <summary>
+            Establish a WebSocket connection to the specified URL.
+            </summary>
+      <param name="uri">URL that identifies the remote server.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.CloseOutputAsync(Rebex.Net.WebSocketCloseStatus,System.String,System.Threading.CancellationToken)">
+      <summary>
+            Closes the sending part of the WebSocket, making it possible to still receive messages from the server.
+            </summary>
+      <param name="closeStatus">Close status to send to the server.</param>
+      <param name="statusDescription">Close status description to send to the server.</param>
+      <param name="cancellationToken">Cancellation token to cancel the operation.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.CloseOutput(Rebex.Net.WebSocketCloseStatus,System.String)">
+      <summary>
+            Closes the sending part of the WebSocket, making it possible to still receive messages from the server.
+            </summary>
+      <param name="closeStatus">Close status to send to the server.</param>
+      <param name="statusDescription">Close status description to send to the server.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.CloseAsync(Rebex.Net.WebSocketCloseStatus,System.String,System.Threading.CancellationToken)">
+      <summary>
+            Closes the sending part of the WebSocket (unless already closed) and waits for the receiving part to be closed.
+            </summary>
+      <param name="closeStatus">Close status to send to the server.</param>
+      <param name="statusDescription">Close status description to send to the server.</param>
+      <param name="cancellationToken">Cancellation token to cancel the operation.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.Close(Rebex.Net.WebSocketCloseStatus,System.String)">
+      <summary>
+            Closes the sending part of the WebSocket (unless already closed) and waits for the receiving part to be closed.
+            </summary>
+      <param name="closeStatus">Close status to send to the server.</param>
+      <param name="statusDescription">Close status description to send to the server.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.Close">
+      <summary>
+            Closes the sending part of the WebSocket (unless already closed) and waits for the receiving part to be closed.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.Dispose">
+      <summary>
+            Disposes the <see cref="T:Rebex.Net.WebSocketClient" /> object and the underlying connection.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.Abort">
+      <summary>
+            Aborts the WebSocket and all active operations.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.SendAsync(System.ArraySegment{System.Byte},Rebex.Net.WebSocketMessageType,System.Boolean,System.Threading.CancellationToken)">
+      <summary>
+            Sends the specified message fragment to the server.
+            </summary>
+      <param name="buffer">Array segment that contains message fragment data.</param>
+      <param name="messageType">Message type. Must be either <code>Text</code> or <code>Binary</code>.</param>
+      <param name="endOfMessage">A value that indicates whether this is the last fragment of a message.</param>
+      <param name="cancellationToken">Cancellation token to cancel the operation.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.Send(System.ArraySegment{System.Byte},Rebex.Net.WebSocketMessageType,System.Boolean)">
+      <summary>
+            Sends the specified message fragment to the server.
+            </summary>
+      <param name="buffer">Array segment that contains message fragment data.</param>
+      <param name="messageType">Message type. Must be either <code>Text</code> or <code>Binary</code>.</param>
+      <param name="endOfMessage">A value that indicates whether this is the last fragment of a message.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.SendAsync(System.Byte[])">
+      <summary>
+            Sends the specified binary message to the server.
+            </summary>
+      <param name="message">Binary message to send.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.Send(System.Byte[])">
+      <summary>
+            Sends the specified binary message to the server.
+            </summary>
+      <param name="message">Binary message to send.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.SendAsync(System.String)">
+      <summary>
+            Sends the specified text message to the server.
+            </summary>
+      <param name="message">Text message to send.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.Send(System.String)">
+      <summary>
+            Sends the specified text message to the server.
+            </summary>
+      <param name="message">Text message to send.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.Poll(System.Int32)">
+      <summary>
+            Wait until a message fragment is received or the specified timout has elapsed.
+            </summary>
+      <param name="millisecondsTimeOut">Specifies the maximum amout of time to wait for a message fragment to be received.</param>
+      <returns>True if a message is available to be received.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.ReceiveAsync(System.ArraySegment{System.Byte},System.Threading.CancellationToken)">
+      <summary>
+            Receives a message fragment from the server.
+            </summary>
+      <param name="buffer">Array segment that receives message fragment data.</param>
+      <param name="cancellationToken">Cancellation token to cancel the operation.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.Receive(System.ArraySegment{System.Byte})">
+      <summary>
+            Receives a message fragment from the server.
+            </summary>
+      <param name="buffer">Array segment that receives message fragment data.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.ReceiveAsync``1(System.Threading.CancellationToken)">
+      <summary>
+            Receives a message of the specified type from the server. Only String, byte array and Object types are currently supported.
+            </summary>
+      <param name="cancellationToken">Cancellation token to cancel the operation.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClient.Receive``1">
+      <summary>
+            Receives a message of the specified type from the server. Only String, byte array and Object types are currently supported.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.WebSocketClientOptions">
+      <summary>
+            Client-side settings for WebSocket communication.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebSocketClientOptions.UseDefaultCredentials">
+      <summary>
+            Gets or sets a value that indicates thether to use default credentials (single sign-on) for authentication to the server.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebSocketClientOptions.Credentials">
+      <summary>
+            Get or sets network credentials to use for authentication to the server.
+            </summary>
+      <remarks>Only objects derived from <see cref="T:System.Net.NetworkCredential" /> are currently supported.</remarks>
+    </member>
+    <member name="P:Rebex.Net.WebSocketClientOptions.KeepAliveInterval">
+      <summary>
+            Gets or sets keep-alive interval.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClientOptions.AddSubProtocol(System.String)">
+      <summary>
+            Adds subprotocol to a list of subprotocols to be announced to the server.
+            </summary>
+      <param name="subProtocol">Subprotocol name.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClientOptions.SetRequestHeader(System.String,System.String)">
+      <summary>
+            Set request header.
+            </summary>
+      <param name="headerName">Header name.</param>
+      <param name="headerValue">Header value.</param>
+    </member>
+    <member name="T:Rebex.Net.WebSocketClientSettings">
+      <summary>
+            Specifies various WebSocket settings.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.WebSocketClientSettings.#ctor">
+      <summary>
+            Creates a new instance of <see cref="T:Rebex.Net.WebSocketClientSettings" />.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebSocketClientSettings.RaiseEventsFromCurrentThread">
+      <summary>
+            Specifies whether to raise asynchronous events from the current working thread or 
+            whether to raise them using a <see cref="T:System.Threading.SynchronizationContext" /> available when an asynchronous operation was started.
+            </summary>
+      <value>False (default) raise events using <see cref="T:System.Threading.SynchronizationContext" />; true to raise them directly from the current working thread.</value>
+      <remarks>Events of synchronous methods are always raised from the current working thread.</remarks>
+    </member>
+    <member name="T:Rebex.Net.WebSocketError">
+      <summary>
+            Defines error codes for <see cref="T:Rebex.Net.WebSocketException" /> class.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketError.Success">
+      <summary>
+            Success. Errors with this error code should never occur.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketError.InvalidMessageType">
+      <summary>
+            WebSocket message with invalid message type encountered.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketError.Faulted">
+      <summary>
+            A general error has occured.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketError.NotAWebSocket">
+      <summary>
+            The request is not a WebSocket request.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketError.UnsupportedVersion">
+      <summary>
+            Unsupported WebSocket version.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketError.UnsupportedProtocol">
+      <summary>
+            Unsupported subprotocol.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketError.HeaderError">
+      <summary>
+            Error while parsing HTML headers during opening handshake.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketError.ConnectionClosedPrematurely">
+      <summary>
+            Connection has termination unexpectedly.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketError.InvalidState">
+      <summary>
+            The WebSocket is in invalid state to execute the specified operation.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.WebSocketException">
+      <summary>
+            Represents a WebSocket error.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebSocketException.WebSocketErrorCode">
+      <summary>
+            Gets error code.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.WebSocketException.#ctor(System.String)">
+      <summary>
+            Creates a new instance of <see cref="T:Rebex.Net.WebSocketException" />.
+            </summary>
+      <param name="message">Error message.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketException.#ctor(System.String,System.Exception)">
+      <summary>
+            Creates a new instance of <see cref="T:Rebex.Net.WebSocketException" />.
+            </summary>
+      <param name="message">Error message.</param>
+      <param name="innerException">Inner exception.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketException.#ctor(Rebex.Net.WebSocketError)">
+      <summary>
+            Creates a new instance of <see cref="T:Rebex.Net.WebSocketException" />.
+            </summary>
+      <param name="error">WebSocket error code.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketException.#ctor(Rebex.Net.WebSocketError,System.String)">
+      <summary>
+            Creates a new instance of <see cref="T:Rebex.Net.WebSocketException" />.
+            </summary>
+      <param name="error">WebSocket error code.</param>
+      <param name="message">Error message.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketException.#ctor(Rebex.Net.WebSocketError,System.Exception)">
+      <summary>
+            Creates a new instance of <see cref="T:Rebex.Net.WebSocketException" />.
+            </summary>
+      <param name="error">WebSocket error code.</param>
+      <param name="innerException">Inner exception.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketException.#ctor(Rebex.Net.WebSocketError,System.String,System.Exception)">
+      <summary>
+            Creates a new instance of <see cref="T:Rebex.Net.WebSocketException" />.
+            </summary>
+      <param name="error">WebSocket error code.</param>
+      <param name="message">Error message.</param>
+      <param name="innerException">Inner exception.</param>
+    </member>
+    <member name="T:Rebex.Net.WebSocketState">
+      <summary>
+            WebSocket connection state.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketState.None">
+      <summary>
+            None.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketState.Connecting">
+      <summary>
+            Connecting.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketState.Open">
+      <summary>
+            Connection is active.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketState.CloseSent">
+      <summary>
+            Close message has been sent.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketState.CloseReceived">
+      <summary>
+            Close message has been received.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketState.Closed">
+      <summary>
+            Connection has been closed.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketState.Aborted">
+      <summary>
+            Connection has been aborted.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.WebSocketMessageType">
+      <summary>
+            WebSocket message type.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketMessageType.Text">
+      <summary>
+            Text message.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketMessageType.Binary">
+      <summary>
+            Binary message.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketMessageType.Close">
+      <summary>
+            Close message.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.WebSocketCloseStatus">
+      <summary>
+            WebSocket close status.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketCloseStatus.NormalClosure">
+      <summary>
+            Default close reason.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketCloseStatus.EndpointUnavailable">
+      <summary>
+            Server is going down or a browser have navigated away from a page.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketCloseStatus.ProtocolError">
+      <summary>
+            Protocol error.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketCloseStatus.InvalidMessageType">
+      <summary>
+            Received unexpected data type (text versus binary).
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketCloseStatus.Empty">
+      <summary>
+            No close reason.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketCloseStatus.InvalidPayloadData">
+      <summary>
+            Received inconsistent data (such as non-UTF-8 data within a text message).
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketCloseStatus.PolicyViolation">
+      <summary>
+            No suitable code exists or there is a need to hide specific details.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketCloseStatus.MessageTooBig">
+      <summary>
+            Message was too big to be processed.
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketCloseStatus.MandatoryExtension">
+      <summary>
+            Mandatory extension is missing (only sent by clients).
+            </summary>
+    </member>
+    <member name="F:Rebex.Net.WebSocketCloseStatus.InternalServerError">
+      <summary>
+            Internal server error (only sent by servers).
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.WebSocketReceiveResult">
+      <summary>
+            Result of a call to <see cref="M:Rebex.Net.WebSocketClient.Receive``1" /> or equivalent method.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebSocketReceiveResult.Count">
+      <summary>
+            Indicates amount of bytes received by websocket.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebSocketReceiveResult.MessageType">
+      <summary>
+            Gets received message's type.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebSocketReceiveResult.EndOfMessage">
+      <summary>
+            Indicates if the message is received completely.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebSocketReceiveResult.CloseStatus">
+      <summary>
+            Gets received message close status.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebSocketReceiveResult.CloseStatusDescription">
+      <summary>
+            Gets received message close status description.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.WebSocketReceiveResult.#ctor(System.Int32,Rebex.Net.WebSocketMessageType,System.Boolean)">
+      <summary>
+            Creates a new instance of <see cref="T:Rebex.Net.WebSocketReceiveResult" />.
+            </summary>
+      <param name="count">Number of bytes in the received fragment.</param>
+      <param name="messageType">Type of the received fragment.</param>
+      <param name="endOfMessage">Indicates whether this is the last fragment of the message.</param>
+    </member>
+    <member name="M:Rebex.Net.WebSocketReceiveResult.#ctor(System.Int32,Rebex.Net.WebSocketMessageType,System.Boolean,System.Nullable{Rebex.Net.WebSocketCloseStatus},System.String)">
+      <summary>
+            Creates a new instance of <see cref="T:Rebex.Net.WebSocketReceiveResult" />.
+            </summary>
+      <param name="count">Number of bytes in the received fragment.</param>
+      <param name="messageType">Type of the received fragment.</param>
+      <param name="endOfMessage">Indicates whether this is the last fragment of the message.</param>
+      <param name="closeStatus">Close status (only for closure messages).</param>
+      <param name="closeStatusDescription">Close status description (only for closure messages).</param>
+    </member>
+  </members>
+</doc>

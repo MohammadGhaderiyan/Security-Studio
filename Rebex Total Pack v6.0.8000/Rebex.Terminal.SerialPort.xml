@@ -1,0 +1,126 @@
+<doc>
+  <assembly>
+    <name>Rebex.Terminal.SerialPort</name>
+  </assembly>
+  <members>
+    <member name="T:Rebex.TerminalEmulation.SerialPortChannel">
+      <summary>
+            Provides methods for communication over Serial port.
+            </summary>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.SerialPortChannel.#ctor(System.IO.Ports.SerialPort)">
+      <summary>
+            Initialize a new instance of <see cref="T:Rebex.TerminalEmulation.SerialPortChannel" />.
+            </summary>
+      <param name="port">Serial port to communicate with.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.SerialPortChannel.#ctor(System.String)">
+      <summary>
+            Initialize a new instance of <see cref="T:Rebex.TerminalEmulation.SerialPortChannel" /> with specified port name.
+            </summary>
+      <param name="portName">Port name to use.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.SerialPortChannel.#ctor(System.String,System.Int32)">
+      <summary>
+            Initialize a new instance of <see cref="T:Rebex.TerminalEmulation.SerialPortChannel" /> with specified port name and baud rate.
+            </summary>
+      <param name="portName">Port name to use.</param>
+      <param name="baudRate">A baud rate.</param>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.SerialPortChannel.#ctor(System.String,System.Int32,System.IO.Ports.Parity,System.Int32,System.IO.Ports.StopBits)">
+      <summary>
+            Initialize a new instance of <see cref="T:Rebex.TerminalEmulation.SerialPortChannel" /> with specified port name, baud rate, parity bit, data bits and stop bits.
+            </summary>
+      <param name="portName">Port name to use.</param>
+      <param name="baudRate">A baud rate.</param>
+      <param name="parity">Parity bit.</param>
+      <param name="dataBits">Data bits.</param>
+      <param name="stopBits">Stop bits.</param>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.SerialPortChannel.Port">
+      <summary>
+            Gets the serial port.
+            </summary>
+      <value>A serial port.</value>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.SerialPortChannel.LogWriter">
+      <summary>
+            Gets or sets the logger used by this object.
+            </summary>
+      <value>Logger.</value>
+    </member>
+    <member name="P:Rebex.TerminalEmulation.SerialPortChannel.Timeout">
+      <summary>
+            Gets or sets the length of time in milliseconds before the operation times out (specify -1 or 0 to indicate that the request does not time out).
+            </summary>
+      <value>
+            The length of time, in milliseconds, until the operation times out,
+            or the value -1 or 0 to indicate that the request does not time out.
+            Default is -1 (Infinity).
+            </value>
+      <remarks>
+        <p>
+            The internal timeout counter is reset every time data is sent
+            or received from to server. This also means that data transfers only
+            time out after x milliseconds of inactivity, not after x milliseconds
+            from the start of the transfer.
+            </p>
+        <p>
+            Minimal value is 1000. Setting this to a value lower than 1000 will set it to 1000.
+            </p>
+      </remarks>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.SerialPortChannel.op_Implicit(System.IO.Ports.SerialPort)~Rebex.TerminalEmulation.SerialPortChannel">
+      <summary>
+            Converts <see cref="T:System.IO.Ports.SerialPort" /> to <see cref="T:Rebex.TerminalEmulation.SerialPortChannel" />.
+            </summary>
+      <param name="port">
+        <see cref="T:System.IO.Ports.SerialPort" /> to convert.</param>
+      <returns>New instance of <see cref="T:Rebex.TerminalEmulation.SerialPortChannel" />.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.SerialPortChannel.StartScripting">
+      <summary>
+            Starts a scripting session with a virtual terminal.
+            </summary>
+      <returns>Scripting object.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.SerialPortChannel.StartScripting(Rebex.TerminalEmulation.TerminalOptions)">
+      <summary>
+            Starts a scripting session with a virtual terminal.
+            </summary>
+      <param name="options">Initial terminal options.</param>
+      <returns>Scripting object.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.SerialPortChannel.StartScripting(Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32)">
+      <summary>
+            Starts a scripting session with a virtual terminal.
+            </summary>
+      <param name="options">Initial terminal options.</param>
+      <param name="columns">Horizontal size of the terminal (in character columns).</param>
+      <param name="rows">Vertical size of the terminal (in character rows).</param>
+      <returns>Scripting object.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.SerialPortChannel.StartVirtualTerminal">
+      <summary>
+            Starts a virtual terminal session.
+            </summary>
+      <returns>Virtual terminal object.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.SerialPortChannel.StartVirtualTerminal(Rebex.TerminalEmulation.TerminalOptions)">
+      <summary>
+            Starts a virtual terminal session.
+            </summary>
+      <param name="options">Initial terminal options.</param>
+      <returns>Virtual terminal object.</returns>
+    </member>
+    <member name="M:Rebex.TerminalEmulation.SerialPortChannel.StartVirtualTerminal(Rebex.TerminalEmulation.TerminalOptions,System.Int32,System.Int32)">
+      <summary>
+            Starts a virtual terminal session.
+            </summary>
+      <param name="options">Initial terminal options.</param>
+      <param name="columns">Horizontal size in character columns.</param>
+      <param name="rows">Vertical size in character rows.</param>
+      <returns>Virtual terminal object.</returns>
+    </member>
+  </members>
+</doc>

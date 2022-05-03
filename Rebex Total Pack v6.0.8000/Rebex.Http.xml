@@ -1,0 +1,1797 @@
+<doc>
+  <assembly>
+    <name>Rebex.Http</name>
+  </assembly>
+  <members>
+    <member name="T:Rebex.Net.HttpRequest">
+      <summary>
+            This class represents HTTP and HTTPS requests.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.AllowAutoRedirect">
+      <summary>
+            Gets or sets a value indicating whether the request should handle redirects, if the response have sufficient information.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.AllowWriteStreamBuffering">
+      <summary>
+            Gets or sets a value indicating whether to buffer the data sent to server.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.MaximumAutomaticRedirections">
+      <summary>
+            Gets or sets maximum redirection attempts to complete the request.
+            </summary>
+      <remarks>Default value is 50.</remarks>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.CookieContainer">
+      <summary>
+            Gets or sets the cookie container for the request.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.Accept">
+      <summary>
+            Gets or sets HTTP Accept header.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.Connection">
+      <summary>
+            Gets or sets HTTP Connection header.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.ContentType">
+      <summary>
+            Gets or sets HTTP Content-Type header.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.ContentLength">
+      <summary>
+            Gets or sets HTTP Content-Length header.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.SendChunked">
+      <summary>
+            Gets or sets a value that indicates whether to send request content in 'chunked' mode.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.Expect">
+      <summary>
+            Gets or sets HTTP Expect header.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.Expect100Continue">
+      <summary>
+            Gets or sets a value indicating whether to automatically add 'Expect: 100-continue' header to the request.
+            <para>
+            Default value is true.
+            </para></summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.ContinueTimeout">
+      <summary>
+            Gets or sets a timeout in milliseconds, which determines how long to wait
+            for the '100 Continue' response from the server.
+            If the '100 Continue' response is not received within the timeout,
+            request body is send to the server.
+            <para>
+            Zero means no waiting.
+            </para><para>
+            Default value is 350.
+            </para></summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.HaveResponse">
+      <summary>
+            Gets a value whether the response was already received for this request.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.IfModifiedSince">
+      <summary>
+            Gets or sets HTTP If-Modified-Since header.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.KeepAlive">
+      <summary>
+            Gets or sets HTTP Connection header with proper values associated with keep alive mode.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.Method">
+      <summary>
+            Gets or sets HTTP method that this request uses.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.Headers">
+      <summary>
+            Get or sets a collection of HTTP headers to send with a request.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.Referer">
+      <summary>
+            Gets or sets HTTP Referer header.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.Address">
+      <summary>
+            Gets target URI final request connects to. When redirected, this is the URI the final response is retrieved.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.RequestUri">
+      <summary>
+            Gets original URI of the request.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.Timeout">
+      <summary>
+            Gets or sets the length of time in milliseconds before the operation times out (specify -1 or 0 to indicate that the request does not time out).
+            </summary>
+      <value>
+            The length of time, in milliseconds, until the operation times out,
+            or the value -1 or 0 to indicate that the request does not time out.
+            Default is 60000 (60 seconds).
+            </value>
+      <remarks>
+        <p>
+            The internal timeout counter is reset every time data is sent
+            or received from to server. This also means that data transfers only
+            time out after x milliseconds of inactivity, not after x milliseconds
+            from the start of the transfer.
+            </p>
+        <p>
+            Minimal value is 1000. Setting this to a value lower than 1000 will set it to 1000.
+            </p>
+      </remarks>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.Credentials">
+      <summary>
+            Get or sets network credentials to identify a user.
+            </summary>
+      <remarks>Only object derived from <see cref="T:System.Net.NetworkCredential" /> class is valid value.</remarks>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.ConnectionGroupName">
+      <summary>
+            Gets or sets the name of the connection group for the request.
+            Not supported yet.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.PreAuthenticate">
+      <summary>
+            Indicates whether to pre-authenticate the request.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.UserAgent">
+      <summary>
+            Gets or sets HTTP User-Agent header.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.AutomaticDecompression">
+      <summary>
+            Gets or sets the method(s) that can be used for automatic decompression of the response stream; Both <see cref="F:System.Net.DecompressionMethods.GZip" /> and <see cref="F:System.Net.DecompressionMethods.Deflate" /> by default.
+            </summary>
+      <remarks>
+            This property sets Accept-Encoding header if and only if the header is not set explicitly using <see cref="P:Rebex.Net.HttpRequest.Headers" /> collection before the request is sent.
+            If the response encoding meets some of the methods set, the response stream gets decompressed automatically; otherwise, no decompression is used.
+            </remarks>
+    </member>
+    <member name="P:Rebex.Net.HttpRequest.ClientCertificates">
+      <summary>
+            Gets or sets a collection of client certificates for the request.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.#ctor(System.Uri,Rebex.Net.HttpRequestCreator)">
+      <summary>
+            Create a HTTP request targeting specific URI.
+            </summary>
+      <param name="uri">URI of the request.</param>
+      <param name="creator">HTTP request creator to use.</param>
+      <returns>Request to target URI.</returns>
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.Equals(System.Object)">
+      <inheritdoc />
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.GetHashCode">
+      <inheritdoc />
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.AddRange(System.Int64)">
+      <summary>
+            Adds HTTP Range header to the request with 'bytes' unit.
+            </summary>
+      <param name="offset">
+            The position (zero-based) at which the data starts.
+            Negative number means the offset is relative to the end of the data.
+            </param>
+      <example>
+        <para>
+          <paramref name="offset" /> = 100 results to "Range: bytes=100-", which means: from position 100 to the end of data.</para>
+        <para>
+          <paramref name="offset" /> = -100 results to "Range: bytes=-100", which means: the last 100 bytes of the data.</para>
+      </example>
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.AddRange(System.String,System.Int64)">
+      <summary>
+            Adds HTTP Range header to the request.
+            </summary>
+      <param name="unit">The range unit (typically 'bytes').</param>
+      <param name="offset">
+            The position (zero-based) at which the data starts.
+            Negative number means the offset is relative to the end of the data.
+            </param>
+      <example>
+        <para>
+          <paramref name="offset" /> = 100 results to "Range: bytes=100-", which means: from position 100 to the end of data.</para>
+        <para>
+          <paramref name="offset" /> = -100 results to "Range: bytes=-100", which means: the last 100 bytes of the data.</para>
+      </example>
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.AddRange(System.Int64,System.Int64)">
+      <summary>
+            Adds HTTP Range header to the request with 'bytes' unit.
+            </summary>
+      <param name="from">The position (zero-based) from which to start the data.</param>
+      <param name="to">The position (inclusive) where the data ends.</param>
+      <example>
+        <para>"Range: bytes=0-0" retrieves the first byte of the data.</para>
+        <para>"Range: bytes=0-9" retrieves the first ten bytes of the data.</para>
+      </example>
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.AddRange(System.String,System.Int64,System.Int64)">
+      <summary>
+            Adds HTTP Range header to the request.
+            </summary>
+      <param name="unit">The range unit (typically 'bytes').</param>
+      <param name="from">The position (zero-based) from which to start the data.</param>
+      <param name="to">The position (inclusive) where the data ends.</param>
+      <example>
+        <para>"Range: bytes=0-0" retrieves the first byte of the data.</para>
+        <para>"Range: bytes=0-9" retrieves the first ten bytes of the data.</para>
+      </example>
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.BeginGetRequestStream(System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous GetRequestStream operation.
+            Returns request stream that the request data can be written to as an asynchronous operation. Returns writable stream.
+            </summary>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.BeginGetResponse(System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous GetResponse operation.
+            Returns a response for this request as asynchronous operation. If the response was retrieved once, return that response.
+            </summary>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <returns />
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.EndGetRequestStream(System.IAsyncResult)">
+      <summary>
+            Ends an asynchronous BeginGetRequestStream operation.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+      <returns>Returns writable stream.</returns>
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.EndGetResponse(System.IAsyncResult)">
+      <summary>
+            Ends an asynchronous BeginGetResponse operation.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+      <returns>Returns a response for this request.</returns>
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.Abort">
+      <summary>
+            Cancels request.
+            This will make the current (or subsequent) request fail with <see cref="T:System.Net.WebException" /> error
+            with <code>Status</code> of <see cref="F:System.Net.WebExceptionStatus.RequestCanceled" />.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.GetRequestStream">
+      <summary>
+            Returns request stream that the request data can be written to.
+            </summary>
+      <returns>Returns writable stream.</returns>
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.GetRequestStreamAsync">
+      <summary>
+            Returns request stream that the request data can be written to as an asynchronous operation. Returns writable stream.
+            </summary>
+      <returns>Task representing the asynchronous operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.GetResponse">
+      <summary>
+            Returns a response for this request. If the response was retrieved once, return that response.
+            </summary>
+      <returns>Returns a response for this request.</returns>
+    </member>
+    <member name="M:Rebex.Net.HttpRequest.GetResponseAsync">
+      <summary>
+            Returns a response for this request as asynchronous operation. If the response was retrieved once, return that response.
+            </summary>
+      <returns>Task representing the asynchronous operation.</returns>
+    </member>
+    <member name="T:Rebex.Net.HttpRequestCreator">
+      <summary>
+            Implements an interface for creating HTTP requests.
+            </summary>
+    </member>
+    <member name="E:Rebex.Net.HttpRequestCreator.ValidatingCertificate">
+      <summary>
+            Occurs when a server certificate needs to be validated.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequestCreator.Settings">
+      <summary>
+            Gets TLS/SSL settings.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequestCreator.LogWriter">
+      <summary>
+            Gets or sets the log writer used by this object.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpRequestCreator.Proxy">
+      <summary>
+            Gets or sets the network proxy to use to access a remote server.
+            </summary>
+      <value>The <see cref="P:Rebex.Net.HttpRequestCreator.Proxy" /> to use to access a remote server.</value>
+      <remarks>
+            The <see cref="P:Rebex.Net.Proxy.LogWriter" /> object set on this proxy instance is ignored when creating HTTP requests,
+            the <see cref="P:Rebex.Net.HttpRequestCreator.LogWriter" /> object is used instead.
+            </remarks>
+    </member>
+    <member name="M:Rebex.Net.HttpRequestCreator.SetSocketFactory(Rebex.Net.ISocketFactory)">
+      <summary>
+            Sets the socket factory to be used to create communication sockets.
+            </summary>
+      <param name="factory">Socket factory.</param>
+    </member>
+    <member name="M:Rebex.Net.HttpRequestCreator.#ctor">
+      <summary>
+            Creates an instance of HTTP request creator.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.HttpRequestCreator.Register">
+      <summary>
+            Registers this creator with WebRequest to handle HTTP and HTTPS requests (replacing System.Net.HttpWebRequest).
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.HttpRequestCreator.Create(System.Uri)">
+      <summary>
+            Create a HTTP request targeting specific URI.
+            </summary>
+      <param name="uri">URI of the request.</param>
+      <returns>Request to target URI.</returns>
+    </member>
+    <member name="M:Rebex.Net.HttpRequestCreator.Create(System.String)">
+      <summary>
+            Create a HTTP request targeting specific URI.
+            </summary>
+      <param name="uriString">URI of the request.</param>
+      <returns>Request to target URI.</returns>
+    </member>
+    <member name="T:Rebex.Net.HttpResponse">
+      <summary>
+            This class represents HTTP and HTTPS responses.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpResponse.ContentLength">
+      <summary>
+            Gets a value of HTTP Content-Length header of this response.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpResponse.ContentType">
+      <summary>
+            Gets a value of HTTP Content-Type header of this response.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpResponse.Headers">
+      <summary>
+            Gets a collection of HTTP header of this response.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpResponse.Cookies">
+      <summary>
+            Gets a collection of HTTP cookies associated with this response.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpResponse.Cipher">
+      <summary>
+            Gets information about the TLS/SSL cipher (if TLS/SSL is in use).
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpResponse.ProtocolVersion">
+      <summary>
+            Gets HTTP protocol version of this response.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpResponse.ResponseUri">
+      <summary>
+            Gets a uri that responsed to the request.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpResponse.Server">
+      <summary>
+            Gets a value of HTTP Server header of this response.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.HttpResponse.GetResponseStream">
+      <summary>
+            Returns a stream that contains data of the response.
+            </summary>
+      <returns>Stream containing response data, like html page, SOAP response and so on.</returns>
+    </member>
+    <member name="P:Rebex.Net.HttpResponse.StatusCode">
+      <summary>
+            Gets a status code of the response.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpResponse.StatusDescription">
+      <summary>
+            Gets a status code description.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpResponse.CharacterSet">
+      <summary>
+            Gets a character set that is used in response Content-Type HTTP header.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpResponse.ContentEncoding">
+      <summary>
+            Gets a value of HTTP Content-Encoding header of this response.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpResponse.Method">
+      <summary>
+            Gets a HTTP method that a request used when received this response.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpResponse.LastModified">
+      <summary>
+            Gets a value of the Last-Modified header, which indicates the last modification date and time of the resource.
+            </summary>
+      <remarks>
+        <para>If the Last-Modified header is missing, the received time is used.</para>
+        <para>If the Last-Modified header cannot be parsed, the <see cref="T:System.Net.ProtocolViolationException" /> is thrown.</para>
+      </remarks>
+    </member>
+    <member name="M:Rebex.Net.HttpResponse.Close">
+      <summary>
+            Closes the response stream returned by <see cref="M:Rebex.Net.HttpResponse.GetResponseStream" /> method.
+            </summary>
+    </member>
+    <member name="T:Rebex.Net.HttpSettings">
+      <summary>
+            Specifies various HTTP/HTTPS settings.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.HttpSettings.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Rebex.Net.HttpSettings" /> class.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.HttpSettings.HttpSessionCacheEnabled">
+      <summary>
+            Gets or sets a value indicating whether the HTTP session cache is enabled (default is true).
+            </summary>
+      <remarks>HTTP session cache is used for keep-alive connections.</remarks>
+      <value>True when cache is enabled; false when disabled.</value>
+    </member>
+    <member name="P:Rebex.Net.HttpSettings.HttpSessionCacheTimeout">
+      <summary>
+            Gets or sets the length of time in milliseconds for caching HTTP sessions (default is 50000 = 50 seconds).
+            Minimal allowed value is 5000.
+            </summary>
+      <remarks>
+            HTTP session cache is used for keep-alive connections.
+            </remarks>
+      <value>
+            The length of time, in milliseconds, for caching HTTP sessions.
+            </value>
+    </member>
+    <member name="P:Rebex.Net.HttpSettings.SslSessionCacheEnabled">
+      <summary>
+            Gets or sets a value indicating whether the TLS/SSL session cache is enabled (default is true).
+            </summary>
+      <value>True when cache is enabled; false when disabled.</value>
+    </member>
+    <member name="T:Rebex.Net.WebClient">
+      <summary>
+            Provides simple methods to upload and download data from HTTP/HTTPS servers.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.WebClient.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Rebex.Net.WebClient" /> class.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.WebClient.#ctor(Rebex.Net.HttpRequestCreator)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Rebex.Net.WebClient" /> class with specified HTTP request creator.
+            This enables sharing keep-alive connections between instances of <see cref="T:Rebex.Net.WebClient" /> and <see cref="T:System.Net.WebRequest" />.
+            However please note that <see cref="P:Rebex.Net.WebClient.Settings" />, <see cref="P:Rebex.Net.WebClient.LogWriter" /> and <see cref="E:Rebex.Net.WebClient.ValidatingCertificate" /> properties
+            are shared between all instances as well. This means that changing such property affects behavior of all instances as well.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebClient.Timeout">
+      <summary>
+            Gets or sets the length of time in milliseconds before the request times out
+            (specify -1 or 0 to indicate that the request does not time out; minimal value is 1000).
+            </summary>
+      <value>
+            The length of time, in milliseconds, until the operation times out,
+            or the value -1 or 0 to indicate that the request does not time out.
+            Default is 60000 (60 seconds).
+            Minimal value is 1000 (1 second).
+            </value>
+      <remarks>
+        <p>
+            The internal timeout counter is reset every time data is sent
+            or received from to server. This also means that data transfers only
+            time out after x milliseconds of inactivity, not after x milliseconds
+            from the start of the transfer.
+            </p>
+      </remarks>
+    </member>
+    <member name="P:Rebex.Net.WebClient.LogWriter">
+      <summary>
+            Gets or sets the <see cref="T:Rebex.ILogWriter">LogWriter</see> used by this object.
+            </summary>
+      <value>Log writer.</value>
+    </member>
+    <member name="P:Rebex.Net.WebClient.Proxy">
+      <summary>
+            Gets or sets the network proxy to use to access a remote server.
+            </summary>
+      <value>The <see cref="P:Rebex.Net.WebClient.Proxy" /> to use to access a remote server.</value>
+    </member>
+    <member name="M:Rebex.Net.WebClient.SetSocketFactory(Rebex.Net.ISocketFactory)">
+      <summary>
+            Sets the socket factory to be used to create communication sockets.
+            </summary>
+      <param name="factory">Socket factory.</param>
+    </member>
+    <member name="P:Rebex.Net.WebClient.BaseAddress">
+      <summary>
+            Gets or sets the base address to simplify multiple requests to one server.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebClient.Headers">
+      <summary>
+            Get or sets a collection of HTTP headers to send with a request.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebClient.ResponseHeaders">
+      <summary>
+            Gets or sets a collection of HTTP headers associated with the response.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebClient.Credentials">
+      <summary>
+            Get or sets network credentials to identify a user.
+            </summary>
+      <remarks>Only object derived from <see cref="T:System.Net.NetworkCredential" /> class is valid value.</remarks>
+    </member>
+    <member name="P:Rebex.Net.WebClient.Settings">
+      <summary>
+            Gets TLS/SSL settings.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebClient.Encoding">
+      <summary>
+            Gets or sets the encoding to be used for string upload and download.
+            </summary>
+    </member>
+    <member name="E:Rebex.Net.WebClient.ValidatingCertificate">
+      <summary>
+            Occurs when a server certificate needs to be validated.
+            </summary>
+    </member>
+    <member name="E:Rebex.Net.WebClient.UploadProgressChanged">
+      <summary>
+            Occurs when upload progress has changed.
+            </summary>
+    </member>
+    <member name="E:Rebex.Net.WebClient.DownloadProgressChanged">
+      <summary>
+            Occurs when download progress has changed.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.WebClient.OpenRead(System.String)">
+      <summary>
+            Opens a stream that contains data retrieved from provided URI. 
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <returns>Opened stream with data retrieved from provided URI.</returns>
+      <remarks>HTTP method GET is used to retrieve the data.</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.OpenRead(System.Uri)">
+      <summary>
+            Opens a stream that contains data retrieved from provided URI. 
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <returns>Opened stream with data retrieved from provided URI.</returns>
+      <remarks>HTTP method GET is used to retrieve the data.</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.GetHeaders(System.String)">
+      <summary>
+            Downloads headers for provided URI using HEAD request.
+            </summary>
+      <param name="uri">URI to retrieve headers from.</param>
+      <returns>Response headers collection.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.GetHeaders(System.Uri)">
+      <summary>
+            Downloads headers for provided URI using HEAD request.
+            </summary>
+      <param name="uri">URI to retrieve headers from.</param>
+      <returns>Response headers collection.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.DownloadData(System.String)">
+      <summary>
+            Downloads data from provided URI.
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <returns>Byte array that contains data retrieved from provided URI.</returns>
+      <remarks>HTTP method GET is used to retrieve the data.</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.DownloadData(System.Uri)">
+      <summary>
+            Downloads data from provided URI.
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <returns>Byte array that contains data retrieved from provided URI.</returns>
+      <remarks>HTTP method GET is used to retrieve the data.</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.DownloadString(System.String)">
+      <summary>
+            Downloads a resource from provided URI as a string.
+            </summary>
+      <param name="uri">Uri to retrieve resource from.</param>
+      <returns>String containing a resource.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.DownloadString(System.Uri)">
+      <summary>
+            Downloads a resource from provided URI as a string.
+            </summary>
+      <param name="uri">Uri to retrieve resource from.</param>
+      <returns>String containing a resource.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.DownloadFile(System.String,System.String)">
+      <summary>
+            Downloads data from provided URI and save them to the file.
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <param name="filePath">Path to a file where to store retrieved data.</param>
+      <remarks>HTTP method GET is used to retrieve the data.</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.DownloadFile(System.Uri,System.String)">
+      <summary>
+            Downloads data from provided URI and save them to the file.
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <param name="filePath">Path to a file where to store retrieved data.</param>
+      <remarks>HTTP method GET is used to retrieve the data.</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.OpenWrite(System.String)">
+      <summary>
+            Opens a stream that is used to send data to provided URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <returns>Opened stream.</returns>
+      <remarks>HTTP method POST is used.</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.OpenWrite(System.Uri)">
+      <summary>
+            Opens a stream that is used to send data to  provided URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <returns>Opened stream.</returns>
+      <remarks>HTTP method POST is used.</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.OpenWrite(System.String,System.String)">
+      <summary>
+            Opens a stream that is used to send data to provided URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data from the stream.</param>
+      <returns>Opened stream.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.OpenWrite(System.Uri,System.String)">
+      <summary>
+            Opens a stream that is used to send data to provided URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data from the stream.</param>
+      <returns>Opened stream.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadData(System.String,System.Byte[])">
+      <summary>
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="data">Data to send to provided URI.</param>
+      <returns>Response data of the upload operation.</returns>
+      <remarks>HTTP method POST is used.</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadData(System.Uri,System.Byte[])">
+      <summary>
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="data">Data to send to provided URI.</param>
+      <returns>Response data of the upload operation.</returns>
+      <remarks>HTTP method POST is used.</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadData(System.String,System.String,System.Byte[])">
+      <summary>
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="data">Data to send to provided URI.</param>
+      <returns>Response data of the upload operation.</returns>
+      <remarks>HTTP method POST is used when method is set to null (Nothing in VB).</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadData(System.Uri,System.String,System.Byte[])">
+      <summary>
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="data">Data to send to provided URI.</param>
+      <returns>Response data of the upload operation.</returns>
+      <remarks>HTTP method POST is used when method is set to null (Nothing in VB).</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadString(System.String,System.String)">
+      <summary>
+            Uploads a string to provided URI as a new resource.
+            </summary>
+      <param name="uri">Uri to send resource to.</param>
+      <param name="data">String containing new resource.</param>
+      <returns>Response of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadString(System.Uri,System.String)">
+      <summary>
+            Uploads a string to provided URI as a new resource.
+            </summary>
+      <param name="uri">Uri to send resource to.</param>
+      <param name="data">String containing new resource.</param>
+      <returns>Response of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadString(System.String,System.String,System.String)">
+      <summary>
+            Uploads a string to provided URI as a new resource.
+            </summary>
+      <param name="uri">Uri to send resource to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="data">String containing new resource.</param>
+      <returns>Response of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadString(System.Uri,System.String,System.String)">
+      <summary>
+            Uploads a string to provided URI as a new resource.
+            </summary>
+      <param name="uri">Uri to send resource to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="data">String containing new resource.</param>
+      <returns>Response of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadFile(System.String,System.String)">
+      <summary>
+            Uploads a file to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="filePath">Path to a source file.</param>
+      <returns>Response data of the upload operation.</returns>
+      <remarks>HTTP method POST is used when method is set to null (Nothing in VB).</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadFile(System.Uri,System.String)">
+      <summary>
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="filePath">Path to a source file.</param>
+      <returns>Response data of the upload operation.</returns>
+      <remarks>HTTP method POST is used when method is set to null (Nothing in VB).</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadFile(System.String,System.String,System.String)">
+      <summary>
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="filePath">Path to a source file.</param>
+      <returns>Response data of the upload operation.</returns>
+      <remarks>HTTP method POST is used when method is set to null (Nothing in VB).</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadFile(System.Uri,System.String,System.String)">
+      <summary>
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="filePath">Path to a source file.</param>
+      <returns>Response data of the upload operation.</returns>
+      <remarks>HTTP method POST is used when method is set to null (Nothing in VB).</remarks>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadValues(System.String,System.Collections.Specialized.NameValueCollection)">
+      <summary>
+            Uploads a name/value collection to a specified URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="values">Name/value collection to send.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadValues(System.Uri,System.Collections.Specialized.NameValueCollection)">
+      <summary>
+            Uploads a name/value collection to a specified URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="values">Name/value collection to send.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadValues(System.String,System.String,System.Collections.Specialized.NameValueCollection)">
+      <summary>
+            Uploads a name/value collection to a specified URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="values">Name/value collection to send.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadValues(System.Uri,System.String,System.Collections.Specialized.NameValueCollection)">
+      <summary>
+            Uploads a name/value collection to a specified URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="values">Name/value collection to send.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.Cancel">
+      <summary>
+            Cancels all currently running requests.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.WebClient.Dispose">
+      <summary>
+            Disposes the WebClient object.
+            </summary>
+    </member>
+    <member name="M:Rebex.Net.WebClient.OpenReadAsync(System.String,System.Object)">
+      <summary>
+            Begins asynchronous OpenRead operation.
+            Opens a stream that contains data retrieved from provided URI. 
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <remarks>HTTP method GET is used to retrieve the data.</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Opened stream with data retrieved from provided URI.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.OpenReadAsync(System.Uri,System.Object)">
+      <summary>
+            Begins asynchronous OpenRead operation.
+            Opens a stream that contains data retrieved from provided URI. 
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <remarks>HTTP method GET is used to retrieve the data.</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Opened stream with data retrieved from provided URI.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.GetHeadersAsync(System.String,System.Object)">
+      <summary>
+            Begins asynchronous GetHeaders operation.
+            Downloads headers for provided URI using HEAD request.
+            </summary>
+      <param name="uri">URI to retrieve headers from.</param>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response headers collection.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.GetHeadersAsync(System.Uri,System.Object)">
+      <summary>
+            Begins asynchronous GetHeaders operation.
+            Downloads headers for provided URI using HEAD request.
+            </summary>
+      <param name="uri">URI to retrieve headers from.</param>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response headers collection.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.DownloadDataAsync(System.String,System.Object)">
+      <summary>
+            Begins asynchronous DownloadData operation.
+            Downloads data from provided URI.
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <remarks>HTTP method GET is used to retrieve the data.</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Byte array that contains data retrieved from provided URI.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.DownloadDataAsync(System.Uri,System.Object)">
+      <summary>
+            Begins asynchronous DownloadData operation.
+            Downloads data from provided URI.
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <remarks>HTTP method GET is used to retrieve the data.</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Byte array that contains data retrieved from provided URI.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.DownloadStringAsync(System.String,System.Object)">
+      <summary>
+            Begins asynchronous DownloadString operation.
+            Downloads a resource from provided URI as a string.
+            </summary>
+      <param name="uri">Uri to retrieve resource from.</param>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>String containing a resource.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.DownloadStringAsync(System.Uri,System.Object)">
+      <summary>
+            Begins asynchronous DownloadString operation.
+            Downloads a resource from provided URI as a string.
+            </summary>
+      <param name="uri">Uri to retrieve resource from.</param>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>String containing a resource.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.DownloadFileAsync(System.String,System.String,System.Object)">
+      <summary>
+            Begins asynchronous DownloadFile operation.
+            Downloads data from provided URI and save them to the file.
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <param name="filePath">Path to a file where to store retrieved data.</param>
+      <remarks>HTTP method GET is used to retrieve the data.</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+    </member>
+    <member name="M:Rebex.Net.WebClient.DownloadFileAsync(System.Uri,System.String,System.Object)">
+      <summary>
+            Begins asynchronous DownloadFile operation.
+            Downloads data from provided URI and save them to the file.
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <param name="filePath">Path to a file where to store retrieved data.</param>
+      <remarks>HTTP method GET is used to retrieve the data.</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+    </member>
+    <member name="M:Rebex.Net.WebClient.OpenWriteAsync(System.String,System.Object)">
+      <summary>
+            Begins asynchronous OpenWrite operation.
+            Opens a stream that is used to send data to provided URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <remarks>HTTP method POST is used.</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Opened stream.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.OpenWriteAsync(System.Uri,System.Object)">
+      <summary>
+            Begins asynchronous OpenWrite operation.
+            Opens a stream that is used to send data to  provided URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <remarks>HTTP method POST is used.</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Opened stream.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.OpenWriteAsync(System.String,System.String,System.Object)">
+      <summary>
+            Begins asynchronous OpenWrite operation.
+            Opens a stream that is used to send data to provided URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data from the stream.</param>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Opened stream.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.OpenWriteAsync(System.Uri,System.String,System.Object)">
+      <summary>
+            Begins asynchronous OpenWrite operation.
+            Opens a stream that is used to send data to provided URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data from the stream.</param>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Opened stream.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadDataAsync(System.String,System.Byte[],System.Object)">
+      <summary>
+            Begins asynchronous UploadData operation.
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="data">Data to send to provided URI.</param>
+      <remarks>HTTP method POST is used.</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadDataAsync(System.Uri,System.Byte[],System.Object)">
+      <summary>
+            Begins asynchronous UploadData operation.
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="data">Data to send to provided URI.</param>
+      <remarks>HTTP method POST is used.</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadDataAsync(System.String,System.String,System.Byte[],System.Object)">
+      <summary>
+            Begins asynchronous UploadData operation.
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="data">Data to send to provided URI.</param>
+      <remarks>HTTP method POST is used when method is set to null (Nothing in VB).</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadDataAsync(System.Uri,System.String,System.Byte[],System.Object)">
+      <summary>
+            Begins asynchronous UploadData operation.
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="data">Data to send to provided URI.</param>
+      <remarks>HTTP method POST is used when method is set to null (Nothing in VB).</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadStringAsync(System.String,System.String,System.Object)">
+      <summary>
+            Begins asynchronous UploadString operation.
+            Uploads a string to provided URI as a new resource.
+            </summary>
+      <param name="uri">Uri to send resource to.</param>
+      <param name="data">String containing new resource.</param>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadStringAsync(System.Uri,System.String,System.Object)">
+      <summary>
+            Begins asynchronous UploadString operation.
+            Uploads a string to provided URI as a new resource.
+            </summary>
+      <param name="uri">Uri to send resource to.</param>
+      <param name="data">String containing new resource.</param>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadStringAsync(System.String,System.String,System.String,System.Object)">
+      <summary>
+            Begins asynchronous UploadString operation.
+            Uploads a string to provided URI as a new resource.
+            </summary>
+      <param name="uri">Uri to send resource to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="data">String containing new resource.</param>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadStringAsync(System.Uri,System.String,System.String,System.Object)">
+      <summary>
+            Begins asynchronous UploadString operation.
+            Uploads a string to provided URI as a new resource.
+            </summary>
+      <param name="uri">Uri to send resource to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="data">String containing new resource.</param>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadFileAsync(System.String,System.String,System.Object)">
+      <summary>
+            Begins asynchronous UploadFile operation.
+            Uploads a file to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="filePath">Path to a source file.</param>
+      <remarks>HTTP method POST is used when method is set to null (Nothing in VB).</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadFileAsync(System.Uri,System.String,System.Object)">
+      <summary>
+            Begins asynchronous UploadFile operation.
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="filePath">Path to a source file.</param>
+      <remarks>HTTP method POST is used when method is set to null (Nothing in VB).</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadFileAsync(System.String,System.String,System.String,System.Object)">
+      <summary>
+            Begins asynchronous UploadFile operation.
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="filePath">Path to a source file.</param>
+      <remarks>HTTP method POST is used when method is set to null (Nothing in VB).</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadFileAsync(System.Uri,System.String,System.String,System.Object)">
+      <summary>
+            Begins asynchronous UploadFile operation.
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="filePath">Path to a source file.</param>
+      <remarks>HTTP method POST is used when method is set to null (Nothing in VB).</remarks>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadValuesAsync(System.String,System.Collections.Specialized.NameValueCollection,System.Object)">
+      <summary>
+            Begins asynchronous UploadValues operation.
+            Uploads a name/value collection to a specified URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="values">Name/value collection to send.</param>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadValuesAsync(System.Uri,System.Collections.Specialized.NameValueCollection,System.Object)">
+      <summary>
+            Begins asynchronous UploadValues operation.
+            Uploads a name/value collection to a specified URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="values">Name/value collection to send.</param>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadValuesAsync(System.String,System.String,System.Collections.Specialized.NameValueCollection,System.Object)">
+      <summary>
+            Begins asynchronous UploadValues operation.
+            Uploads a name/value collection to a specified URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="values">Name/value collection to send.</param>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Net.WebClient.UploadValuesAsync(System.Uri,System.String,System.Collections.Specialized.NameValueCollection,System.Object)">
+      <summary>
+            Begins asynchronous UploadValues operation.
+            Uploads a name/value collection to a specified URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="values">Name/value collection to send.</param>
+      <param name="state">An optional user-provided object that identifies this particular asynchronous operation.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="T:Rebex.Net.WebClientProgressChangedEventArgs">
+      <summary>
+            Provides data for the <see cref="E:Rebex.Net.WebClient.DownloadProgressChanged" /> event.
+            </summary>
+    </member>
+    <member name="P:Rebex.Net.WebClientProgressChangedEventArgs.BytesTransferred">
+      <summary>
+            Gets the total number of bytes transferred during the current transfer.
+            </summary>
+      <value>The number of bytes transferred.</value>
+    </member>
+    <member name="P:Rebex.Net.WebClientProgressChangedEventArgs.BytesTotal">
+      <summary>
+            Gets the total number of bytes to be transferred (or <code>null</code> if not available).
+            </summary>
+      <value>Total number of bytes to be transferred.</value>
+      <remarks>Value of <code>null</code> indicates that this information is not available.</remarks>
+    </member>
+    <member name="T:Rebex.Legacy.WebClientExtensions">
+      <summary>
+            Extension class for WebClient.
+            </summary>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginOpenRead(Rebex.Net.WebClient,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous OpenRead operation.
+            Opens a stream that contains data retrieved from provided URI. 
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <remarks>
+        <p>HTTP method GET is used to retrieve the data.</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginOpenRead(Rebex.Net.WebClient,System.Uri,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous OpenRead operation.
+            Opens a stream that contains data retrieved from provided URI. 
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <remarks>
+        <p>HTTP method GET is used to retrieve the data.</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.EndOpenRead(Rebex.Net.WebClient,System.IAsyncResult)">
+      <summary>
+            Ends an asynchronous BeginOpenRead operation.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>Opened stream with data retrieved from provided URI.</returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginGetHeaders(Rebex.Net.WebClient,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous GetHeaders operation.
+            Downloads headers for provided URI using HEAD request.
+            </summary>
+      <param name="uri">URI to retrieve headers from.</param>
+      <remarks>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginGetHeaders(Rebex.Net.WebClient,System.Uri,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous GetHeaders operation.
+            Downloads headers for provided URI using HEAD request.
+            </summary>
+      <param name="uri">URI to retrieve headers from.</param>
+      <remarks>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.EndGetHeaders(Rebex.Net.WebClient,System.IAsyncResult)">
+      <summary>
+            Ends an asynchronous BeginGetHeaders operation.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>Response headers collection.</returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginDownloadData(Rebex.Net.WebClient,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous DownloadData operation.
+            Downloads data from provided URI.
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <remarks>
+        <p>HTTP method GET is used to retrieve the data.</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginDownloadData(Rebex.Net.WebClient,System.Uri,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous DownloadData operation.
+            Downloads data from provided URI.
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <remarks>
+        <p>HTTP method GET is used to retrieve the data.</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.EndDownloadData(Rebex.Net.WebClient,System.IAsyncResult)">
+      <summary>
+            Ends an asynchronous BeginDownloadData operation.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>Byte array that contains data retrieved from provided URI.</returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginDownloadString(Rebex.Net.WebClient,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous DownloadString operation.
+            Downloads a resource from provided URI as a string.
+            </summary>
+      <param name="uri">Uri to retrieve resource from.</param>
+      <remarks>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginDownloadString(Rebex.Net.WebClient,System.Uri,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous DownloadString operation.
+            Downloads a resource from provided URI as a string.
+            </summary>
+      <param name="uri">Uri to retrieve resource from.</param>
+      <remarks>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.EndDownloadString(Rebex.Net.WebClient,System.IAsyncResult)">
+      <summary>
+            Ends an asynchronous BeginDownloadString operation.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>String containing a resource.</returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginDownloadFile(Rebex.Net.WebClient,System.String,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous DownloadFile operation.
+            Downloads data from provided URI and save them to the file.
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <param name="filePath">Path to a file where to store retrieved data.</param>
+      <remarks>
+        <p>HTTP method GET is used to retrieve the data.</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginDownloadFile(Rebex.Net.WebClient,System.Uri,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous DownloadFile operation.
+            Downloads data from provided URI and save them to the file.
+            </summary>
+      <param name="uri">URI to retrieve data from.</param>
+      <param name="filePath">Path to a file where to store retrieved data.</param>
+      <remarks>
+        <p>HTTP method GET is used to retrieve the data.</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.EndDownloadFile(Rebex.Net.WebClient,System.IAsyncResult)">
+      <summary>
+            Ends an asynchronous BeginDownloadFile operation.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+      <param name="instance">Instance of WebClient.</param>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginOpenWrite(Rebex.Net.WebClient,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous OpenWrite operation.
+            Opens a stream that is used to send data to provided URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <remarks>
+        <p>HTTP method POST is used.</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginOpenWrite(Rebex.Net.WebClient,System.Uri,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous OpenWrite operation.
+            Opens a stream that is used to send data to  provided URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <remarks>
+        <p>HTTP method POST is used.</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginOpenWrite(Rebex.Net.WebClient,System.String,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous OpenWrite operation.
+            Opens a stream that is used to send data to provided URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data from the stream.</param>
+      <remarks>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginOpenWrite(Rebex.Net.WebClient,System.Uri,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous OpenWrite operation.
+            Opens a stream that is used to send data to provided URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data from the stream.</param>
+      <remarks>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.EndOpenWrite(Rebex.Net.WebClient,System.IAsyncResult)">
+      <summary>
+            Ends an asynchronous BeginOpenWrite operation.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>Opened stream.</returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadData(Rebex.Net.WebClient,System.String,System.Byte[],System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadData operation.
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="data">Data to send to provided URI.</param>
+      <remarks>
+        <p>HTTP method POST is used.</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadData(Rebex.Net.WebClient,System.Uri,System.Byte[],System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadData operation.
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="data">Data to send to provided URI.</param>
+      <remarks>
+        <p>HTTP method POST is used.</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadData(Rebex.Net.WebClient,System.String,System.String,System.Byte[],System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadData operation.
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="data">Data to send to provided URI.</param>
+      <remarks>
+        <p>HTTP method POST is used when method is set to null (Nothing in VB).</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadData(Rebex.Net.WebClient,System.Uri,System.String,System.Byte[],System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadData operation.
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="data">Data to send to provided URI.</param>
+      <remarks>
+        <p>HTTP method POST is used when method is set to null (Nothing in VB).</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.EndUploadData(Rebex.Net.WebClient,System.IAsyncResult)">
+      <summary>
+            Ends an asynchronous BeginUploadData operation.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadString(Rebex.Net.WebClient,System.String,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadString operation.
+            Uploads a string to provided URI as a new resource.
+            </summary>
+      <param name="uri">Uri to send resource to.</param>
+      <param name="data">String containing new resource.</param>
+      <remarks>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadString(Rebex.Net.WebClient,System.Uri,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadString operation.
+            Uploads a string to provided URI as a new resource.
+            </summary>
+      <param name="uri">Uri to send resource to.</param>
+      <param name="data">String containing new resource.</param>
+      <remarks>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadString(Rebex.Net.WebClient,System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadString operation.
+            Uploads a string to provided URI as a new resource.
+            </summary>
+      <param name="uri">Uri to send resource to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="data">String containing new resource.</param>
+      <remarks>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadString(Rebex.Net.WebClient,System.Uri,System.String,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadString operation.
+            Uploads a string to provided URI as a new resource.
+            </summary>
+      <param name="uri">Uri to send resource to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="data">String containing new resource.</param>
+      <remarks>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.EndUploadString(Rebex.Net.WebClient,System.IAsyncResult)">
+      <summary>
+            Ends an asynchronous BeginUploadString operation.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>Response of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadFile(Rebex.Net.WebClient,System.String,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadFile operation.
+            Uploads a file to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="filePath">Path to a source file.</param>
+      <remarks>
+        <p>HTTP method POST is used when method is set to null (Nothing in VB).</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadFile(Rebex.Net.WebClient,System.Uri,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadFile operation.
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="filePath">Path to a source file.</param>
+      <remarks>
+        <p>HTTP method POST is used when method is set to null (Nothing in VB).</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadFile(Rebex.Net.WebClient,System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadFile operation.
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="filePath">Path to a source file.</param>
+      <remarks>
+        <p>HTTP method POST is used when method is set to null (Nothing in VB).</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadFile(Rebex.Net.WebClient,System.Uri,System.String,System.String,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadFile operation.
+            Uploads a data to provided URI and returns a response data of the upload operation.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="filePath">Path to a source file.</param>
+      <remarks>
+        <p>HTTP method POST is used when method is set to null (Nothing in VB).</p>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.EndUploadFile(Rebex.Net.WebClient,System.IAsyncResult)">
+      <summary>
+            Ends an asynchronous BeginUploadFile operation.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadValues(Rebex.Net.WebClient,System.String,System.Collections.Specialized.NameValueCollection,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadValues operation.
+            Uploads a name/value collection to a specified URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="values">Name/value collection to send.</param>
+      <remarks>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadValues(Rebex.Net.WebClient,System.Uri,System.Collections.Specialized.NameValueCollection,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadValues operation.
+            Uploads a name/value collection to a specified URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="values">Name/value collection to send.</param>
+      <remarks>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadValues(Rebex.Net.WebClient,System.String,System.String,System.Collections.Specialized.NameValueCollection,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadValues operation.
+            Uploads a name/value collection to a specified URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="values">Name/value collection to send.</param>
+      <remarks>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.BeginUploadValues(Rebex.Net.WebClient,System.Uri,System.String,System.Collections.Specialized.NameValueCollection,System.AsyncCallback,System.Object)">
+      <summary>
+            Begins asynchronous UploadValues operation.
+            Uploads a name/value collection to a specified URI.
+            </summary>
+      <param name="uri">Uri to send data to.</param>
+      <param name="method">HTTP method to use when sending the data.</param>
+      <param name="values">Name/value collection to send.</param>
+      <remarks>
+        <p>In builds for .NET 4.0 and higher, this method is available as an extension method. Add 'using Rebex.Legacy' (C#) or 'Import Rebex.Legacy' (VB.NET) to your code in order to use it.</p>
+      </remarks>
+      <param name="callback">An optional asynchronous callback to be called when the operation is complete.</param>
+      <param name="state">A user-provided object that identifies this particular asynchronous operation.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>
+            An <see cref="T:System.IAsyncResult" /> that references the asynchronous operation.
+            </returns>
+    </member>
+    <member name="M:Rebex.Legacy.WebClientExtensions.EndUploadValues(Rebex.Net.WebClient,System.IAsyncResult)">
+      <summary>
+            Ends an asynchronous BeginUploadValues operation.
+            </summary>
+      <param name="asyncResult">Stores state information for this asynchronous operation as well as any user defined data.</param>
+      <param name="instance">Instance of WebClient.</param>
+      <returns>Response data of the upload operation.</returns>
+    </member>
+  </members>
+</doc>

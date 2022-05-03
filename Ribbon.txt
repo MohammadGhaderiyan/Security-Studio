@@ -1,0 +1,27 @@
+<ribbon:SsLargeBarSplitButtonItem Content="XXXXXXXX"
+                                    Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}">
+    <ribbon:SsLargeBarSplitButtonItem.PopupControl>
+        <bar:SsPopupMenu>
+            <ribbon:SsSmallBarButtonItem Content="XXXXXXXX"
+                                            Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+            <ribbon:SsSmallBarButtonItem Content="XXXXXXXX"
+                                            Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+            <ribbon:SsSmallBarButtonItem Content="XXXXXXXX"
+                                            Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+            <ribbon:SsSmallBarButtonItem Content="XXXXXXXX"
+                                            Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+        </bar:SsPopupMenu>
+    </ribbon:SsLargeBarSplitButtonItem.PopupControl>
+</ribbon:SsLargeBarSplitButtonItem>
+
+<ribbon:SsLargeBarSplitButtonItem Content="XXXXXXXX"
+                                    Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}">
+    <ribbon:SsLargeBarSplitButtonItem.PopupControl>
+        <bar:SsPopupMenu>
+            <ribbon:SsSmallBarButtonItem Content="XXXXXXXX"
+                                            Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+            <ribbon:SsSmallBarButtonItem Content="XXXXXXXX"
+                                            Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+        </bar:SsPopupMenu>
+    </ribbon:SsLargeBarSplitButtonItem.PopupControl>
+</ribbon:SsLargeBarSplitButtonItem>

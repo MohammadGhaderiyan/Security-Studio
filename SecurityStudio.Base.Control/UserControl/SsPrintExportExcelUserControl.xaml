@@ -1,0 +1,23 @@
+﻿<userControl:SsUserControl x:Class="SecurityStudio.Base.Control.UserControl.SsPrintExportExcelUserControl"
+                           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                           xmlns:button="clr-namespace:SecurityStudio.Base.Control.Button"
+                           xmlns:userControl="clr-namespace:SecurityStudio.Base.Control.UserControl"
+                           xmlns:layout="clr-namespace:SecurityStudio.Base.Control.Layout"
+                           xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
+                           mc:Ignorable="d" x:Name="SsMainUserControl">
+    <layout:SsLayoutControl>
+        <layout:SsLayoutGroup>
+            <layout:SsLayoutItem>
+                <button:SsPrintSimpleButton
+                    Command="{wpf:SsBinding Path=SsPrintCommand, ElementName=SsMainUserControl}" />
+            </layout:SsLayoutItem>
+            <layout:SsLayoutItem>
+                <button:SsExportExcelSimpleButton
+                    Command="{wpf:SsBinding Path=SsExportExcelCommand, ElementName=SsMainUserControl}" />
+            </layout:SsLayoutItem>
+        </layout:SsLayoutGroup>
+    </layout:SsLayoutControl>
+</userControl:SsUserControl>
