@@ -1,0 +1,39 @@
+﻿<mvvm:SsView x:Class="SecurityStudio.Module.Definition.AndroidOperatingSystem.View.SsAndroidOperatingSystemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:layout="clr-namespace:SecurityStudio.Base.Control.Layout;assembly=SecurityStudio.Base.Control"
+             xmlns:dateTime="clr-namespace:SecurityStudio.Base.Control.DateTime;assembly=SecurityStudio.Base.Control"
+             xmlns:mvvm="clr-namespace:SecurityStudio.Base.Main.Mvvm;assembly=SecurityStudio.Base.Main"
+             xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
+             xmlns:comboBox="clr-namespace:SecurityStudio.Base.Control.ComboBox;assembly=SecurityStudio.Base.Control"
+             xmlns:userControl="clr-namespace:SecurityStudio.Base.Control.UserControl;assembly=SecurityStudio.Base.Control"
+             mc:Ignorable="d">
+    <layout:SsLayoutControl>
+        <layout:SsLayoutGroup Orientation="Vertical">
+            <layout:SsGroupBoxLayoutGroup Header="Class Exam">
+                <layout:SsLayoutGroup>
+                    <layout:SsLayoutItem Label="Date Time : ">
+                        <dateTime:SsDateTimeDateEdit Name="SsDateTimeDateEditDateTime"
+                                                     EditValue="{wpf:SsBinding Path=AndroidOperatingSystem.DateTime}" />
+                    </layout:SsLayoutItem>
+                </layout:SsLayoutGroup>
+                <layout:SsLayoutGroup>
+                    <layout:SsLayoutItem Label="Class Exam Name : ">
+                        <comboBox:SsComboBoxEdit ValueMember="Id"
+                                                 ItemsSource="{wpf:SsBinding Path=AndroidOperatingSystemNames}"
+                                                 EditValue="{wpf:SsBinding Path=AndroidOperatingSystem.AndroidOperatingSystemNameId}" />
+                    </layout:SsLayoutItem>
+                </layout:SsLayoutGroup>
+            </layout:SsGroupBoxLayoutGroup>
+            <layout:SsLayoutGroup HorizontalAlignment="Center">
+                <layout:SsLayoutItem HorizontalAlignment="Center">
+                    <userControl:SsSaveCancelUserControl
+                        SsSaveCommand="{wpf:SsBinding Path=SsSaveAndroidOperatingSystemCommand}"
+                        SsCancelCommand="{wpf:SsBinding Path=SsCancelCommand}" />
+                </layout:SsLayoutItem>
+            </layout:SsLayoutGroup>
+        </layout:SsLayoutGroup>
+    </layout:SsLayoutControl>
+</mvvm:SsView>

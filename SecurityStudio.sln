@@ -73,6 +73,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Service.Netw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Service.Definition", "SecurityStudio.Service.Definition\SecurityStudio.Service.Definition.csproj", "{DDE2D298-1215-4707-910F-DF5CA080128E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Module.Database", "SecurityStudio.Module.Database\SecurityStudio.Module.Database.csproj", "{F1E09312-31A4-4849-B02A-21A9060FB1F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Service.Database", "SecurityStudio.Service.Database\SecurityStudio.Service.Database.csproj", "{A4B7D403-DE8A-4E18-9E35-54FDFB6DCB4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -179,6 +183,14 @@ Global
 		{DDE2D298-1215-4707-910F-DF5CA080128E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDE2D298-1215-4707-910F-DF5CA080128E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDE2D298-1215-4707-910F-DF5CA080128E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1E09312-31A4-4849-B02A-21A9060FB1F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E09312-31A4-4849-B02A-21A9060FB1F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E09312-31A4-4849-B02A-21A9060FB1F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E09312-31A4-4849-B02A-21A9060FB1F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4B7D403-DE8A-4E18-9E35-54FDFB6DCB4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4B7D403-DE8A-4E18-9E35-54FDFB6DCB4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4B7D403-DE8A-4E18-9E35-54FDFB6DCB4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4B7D403-DE8A-4E18-9E35-54FDFB6DCB4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -209,6 +221,8 @@ Global
 		{17130234-9F22-4723-A3D9-192056CF52C7} = {B0097886-86D1-4BA5-BD1B-198C98EFB918}
 		{DF9283E8-A5E6-4D74-B6BC-F1D61424F345} = {B0097886-86D1-4BA5-BD1B-198C98EFB918}
 		{DDE2D298-1215-4707-910F-DF5CA080128E} = {B0097886-86D1-4BA5-BD1B-198C98EFB918}
+		{F1E09312-31A4-4849-B02A-21A9060FB1F9} = {E9F4E384-E5CB-442C-A5B2-6C895464356E}
+		{A4B7D403-DE8A-4E18-9E35-54FDFB6DCB4B} = {B0097886-86D1-4BA5-BD1B-198C98EFB918}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C7C9F757-AF06-4938-A625-8C25C8E052A1}

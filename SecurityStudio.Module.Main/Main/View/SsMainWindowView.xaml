@@ -71,6 +71,16 @@
                                                      Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
                     </ribbon:SsRibbonPageGroup>
                 </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Database">
+                    <ribbon:SsRibbonPageGroup Caption="Database">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="Web Pen Test">
                     <ribbon:SsRibbonPageGroup Caption="Web Pen Test">
                         <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"

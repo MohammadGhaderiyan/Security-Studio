@@ -9,6 +9,7 @@
 	<ItemGroup>
 		<PackageReference Include="CefSharp.Wpf" Version="100.0.230" />
 		<PackageReference Include="FluentValidation" Version="10.4.0" />
+		<PackageReference Include="LiteDB" Version="5.0.11" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
 		<PackageReference Include="Ninject" Version="3.3.4" />
 		<PackageReference Include="NLog" Version="4.7.15" />
@@ -16,6 +17,8 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\SecurityStudio.Base.Main\SecurityStudio.Base.Main.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Database.Model\SecurityStudio.Database.Model.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Service.Main\SecurityStudio.Service.Main.csproj" />
 	</ItemGroup>
 
 </Project>

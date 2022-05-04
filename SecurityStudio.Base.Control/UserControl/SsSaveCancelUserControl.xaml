@@ -1,4 +1,4 @@
-﻿<userControl:SsUserControl x:Class="SecurityStudio.Base.Control.UserControl.SsSaveAndAddSaveCancelUserControl"
+﻿<userControl:SsUserControl x:Class="SecurityStudio.Base.Control.UserControl.SsSaveCancelUserControl"
                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -10,10 +10,6 @@
                            mc:Ignorable="d" x:Name="SsMainUserControl">
     <layout:SsLayoutControl>
         <layout:SsLayoutGroup>
-            <layout:SsLayoutItem>
-                <button:SsSimpleButton Content="Save and Add"
-                                       Command="{wpf:SsBinding Path=SsSaveAndAddCommand, ElementName=SsMainUserControl}" />
-            </layout:SsLayoutItem>
             <layout:SsLayoutItem>
                 <button:SsSaveSimpleButton
                     Command="{wpf:SsBinding Path=SsSaveCommand, ElementName=SsMainUserControl}" />

@@ -6,17 +6,19 @@ namespace SecurityStudio.Service.Main.Text
     {
         public string GetName(ModelName modelName)
         {
-            switch (modelName)
-            {
-                case ModelName.SubTechnique:
-                    return "Sub Technique";
-                case ModelName.Tactic:
-                    return "Tactic";
-                case ModelName.Technique:
-                    return "Technique";
-            }
+            return modelName.ToString();
 
-            return null;
+            //switch (modelName)
+            //{
+            //    case ModelName.SubTechnique:
+            //        return "Sub Technique";
+            //    case ModelName.Tactic:
+            //        return "Tactic";
+            //    case ModelName.Technique:
+            //        return "Technique";
+            ////}
+
+            //return null;
         }
 
         public void Dispose()

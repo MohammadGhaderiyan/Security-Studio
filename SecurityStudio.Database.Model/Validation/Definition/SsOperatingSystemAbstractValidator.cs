@@ -7,7 +7,6 @@ namespace SecurityStudio.Database.Model.Validation.Definition
     {
         public SsOperatingSystemAbstractValidator()
         {
-            RuleFor(operatingSystem => operatingSystem.Code).NotEmpty();
             RuleFor(operatingSystem => operatingSystem.Name).NotEmpty();
         }
     }

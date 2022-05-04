@@ -52,6 +52,12 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
         #endregion
 
 
+        #region Database
+
+
+        #endregion
+
+
         #region Web Pen Test
 
 
@@ -109,6 +115,12 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
             #endregion
 
 
+            #region Database
+
+
+            #endregion
+
+
             #region Web Pen Test
 
 
@@ -160,6 +172,12 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
 
         #region Code Editor
+
+
+        #endregion
+
+
+        #region Database
 
 
         #endregion

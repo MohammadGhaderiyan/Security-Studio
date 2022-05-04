@@ -3,23 +3,12 @@ using SecurityStudio.Base.Main.Mvvm;
 
 namespace SecurityStudio.Base.Control.UserControl
 {
-    public partial class SsSaveAndAddSaveCancelUserControl : SsUserControl
+    public partial class SsSaveCancelUserControl : SsUserControl
     {
-        public SsSaveAndAddSaveCancelUserControl()
+        public SsSaveCancelUserControl()
         {
             InitializeComponent();
         }
-
-
-        public SsCommand SsSaveAndAddCommand
-        {
-            get => (SsCommand)GetValue(SsSaveAndAddCommandProperty);
-            set => SetValue(SsSaveAndAddCommandProperty, value);
-        }
-
-        public static readonly DependencyProperty SsSaveAndAddCommandProperty =
-            DependencyProperty.Register("SsSaveAndAddCommand", typeof(SsCommand),
-                typeof(SsSaveAndAddSaveCancelUserControl), new PropertyMetadata(null));
 
 
         public SsCommand SsSaveCommand
@@ -30,7 +19,7 @@ namespace SecurityStudio.Base.Control.UserControl
 
         public static readonly DependencyProperty SsSaveCommandProperty =
             DependencyProperty.Register("SsSaveCommand", typeof(SsCommand),
-                typeof(SsSaveAndAddSaveCancelUserControl), new PropertyMetadata(null));
+                typeof(SsSaveCancelUserControl), new PropertyMetadata(null));
 
 
         public SsCommand SsCancelCommand
@@ -41,6 +30,6 @@ namespace SecurityStudio.Base.Control.UserControl
 
         public static readonly DependencyProperty SsCancelCommandProperty =
             DependencyProperty.Register("SsCancelCommand", typeof(SsCommand),
-                typeof(SsSaveAndAddSaveCancelUserControl), new PropertyMetadata(null));
+                typeof(SsSaveCancelUserControl), new PropertyMetadata(null));
     }
 }

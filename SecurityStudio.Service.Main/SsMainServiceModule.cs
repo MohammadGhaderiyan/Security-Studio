@@ -1,4 +1,5 @@
 ﻿using SecurityStudio.Base.Main.Ioc;
+using SecurityStudio.Database.Model.Infrastructure;
 using SecurityStudio.Service.Main.Clipboard;
 using SecurityStudio.Service.Main.Container;
 using SecurityStudio.Service.Main.DateTime;
@@ -9,6 +10,7 @@ using SecurityStudio.Service.Main.Log;
 using SecurityStudio.Service.Main.MessageBox;
 using SecurityStudio.Service.Main.Parameter;
 using SecurityStudio.Service.Main.Parser;
+using SecurityStudio.Service.Main.Repository;
 using SecurityStudio.Service.Main.Session;
 using SecurityStudio.Service.Main.Text;
 using SecurityStudio.Service.Main.Tunnel;
@@ -30,9 +32,10 @@ namespace SecurityStudio.Service.Main
             Bind<ILogService>().To<LogService>();
             Bind<IMessageBoxService>().To<MessageBoxService>();
             Bind<IParameterService>().To<ParameterService>().InSingletonScope();
-            Bind<IParserService>().To<ParserService>().InSingletonScope();
+            Bind<IParserService>().To<ParserService>();
+            Bind<IRepositoryService<ModelBase>>().To<LiteDbRepositoryService<ModelBase>>(); // ModelBase is not right
             Bind<ISessionService>().To<SessionService>().InSingletonScope();
-            Bind<ITextService>().To<TextService>().InSingletonScope();
+            Bind<ITextService>().To<TextService>();
             Bind<ITunnelService>().To<TunnelService>().InSingletonScope();
             Bind<IUtilityService>().To<UtilityService>();
             Bind<IWindowService>().To<WindowService>();

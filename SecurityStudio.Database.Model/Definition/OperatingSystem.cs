@@ -14,20 +14,6 @@ namespace SecurityStudio.Database.Model.Definition
         }
 
         /// <summary>
-        /// Code
-        /// </summary>
-        private int _code;
-        public int Code
-        {
-            get => _code;
-            set
-            {
-                _code = value;
-                OnPropertyChanged();
-            }
-        }
-
-        /// <summary>
         /// Name
         /// </summary>
         private string _name;
@@ -45,7 +31,7 @@ namespace SecurityStudio.Database.Model.Definition
         /// IP
         /// </summary>
         private string _ip;
-        public string IP
+        public string Ip
         {
             get => _ip;
             set
@@ -134,7 +120,7 @@ namespace SecurityStudio.Database.Model.Definition
 
         public override string ToString()
         {
-            return $"{Code}- {Name}";
+            return Name;
         }
     }
 }
