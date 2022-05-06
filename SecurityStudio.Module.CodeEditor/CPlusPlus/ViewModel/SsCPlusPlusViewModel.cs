@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.CodeEditor.CPlusPlus.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "C++";
         }
 
         protected override void FillData()

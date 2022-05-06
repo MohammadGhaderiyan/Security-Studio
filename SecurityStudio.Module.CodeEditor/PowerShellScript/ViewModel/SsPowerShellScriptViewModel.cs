@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.CodeEditor.PowerShellScript.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "Power Shell Script";
         }
 
         protected override void FillData()

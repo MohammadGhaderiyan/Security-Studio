@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.Tool.WebServer.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "Web Server";
         }
 
         protected override void FillData()

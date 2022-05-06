@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.Tool.Mimikatz.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "Mimikatz";
         }
 
         protected override void FillData()

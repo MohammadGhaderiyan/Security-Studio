@@ -14,12 +14,9 @@
                    MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen">
     <container:SsDockPanel LastChildFill="True">
         <ribbon:SsRibbonControl ApplicationButtonText="Security Studio" DockPanel.Dock="Top">
-            <!--region #AppMenu-->
             <ribbon:SsRibbonControl.ApplicationMenu>
                 <ribbon:SsApplicationMenu RightPaneWidth="280" ShowRightPane="True" />
             </ribbon:SsRibbonControl.ApplicationMenu>
-            <!--endregion #AppMenu-->
-            <!--region #DefaultPageCategory-->
             <ribbon:SsRibbonDefaultPageCategory>
                 <ribbon:SsRibbonPage Caption="Mitre">
                     <ribbon:SsRibbonPageGroup Caption="Mitre">
@@ -33,52 +30,76 @@
                 </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="Tools">
                     <ribbon:SsRibbonPageGroup Caption="Tools">
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="API Platform"
+                                                     Command="{wpf:SsBinding Path=ShowSsApiPlatformViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Exploit DB"
+                                                     Command="{wpf:SsBinding Path=ShowSsExploitDbViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="FTP Manager"
+                                                     Command="{wpf:SsBinding Path=ShowSsFtpManagerViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="GitHub"
+                                                     Command="{wpf:SsBinding Path=ShowSsGitHubViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Mimikatz"
+                                                     Command="{wpf:SsBinding Path=ShowSsMimikatzViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Nmap"
+                                                     Command="{wpf:SsBinding Path=ShowSsNmapViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Shodan"
+                                                     Command="{wpf:SsBinding Path=ShowSsShodanViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Text Editor"
+                                                     Command="{wpf:SsBinding Path=ShowSsTextEditorViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Web Browser"
+                                                     Command="{wpf:SsBinding Path=ShowSsWebBrowserViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Web Server"
+                                                     Command="{wpf:SsBinding Path=ShowSsWebServerViewCommand}" />
                     </ribbon:SsRibbonPageGroup>
                 </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="Linux">
                     <ribbon:SsRibbonPageGroup Caption="Linux">
+                        <ribbon:SsLargeBarButtonItem Content="File Explorer"
+                                                     Command="{wpf:SsBinding Path=ShowSsLinuxFileExplorerViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Network"
+                                                     Command="{wpf:SsBinding Path=ShowSsLinuxNetworkViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Terminal"
-                                                     Command="{wpf:SsBinding Path=SsShowSsTerminalViewCommand}" />
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                                                     Command="{wpf:SsBinding Path=ShowSsTerminalViewCommand}" />
                     </ribbon:SsRibbonPageGroup>
                 </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="Windows">
                     <ribbon:SsRibbonPageGroup Caption="Windows">
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="Command Prompt"
+                                                     Command="{wpf:SsBinding Path=ShowSsCommandPromptViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="File Explorer"
+                                                     Command="{wpf:SsBinding Path=ShowSsWindowsFileExplorerViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Network"
+                                                     Command="{wpf:SsBinding Path=ShowSsWindowsNetworkViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Registry Editor"
+                                                     Command="{wpf:SsBinding Path=ShowSsRegistryEditorViewCommand}" />
                     </ribbon:SsRibbonPageGroup>
                 </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="Code Editor">
                     <ribbon:SsRibbonPageGroup Caption="Code Editor">
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="Bash Script"
+                                                     Command="{wpf:SsBinding Path=ShowSsBashScriptViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Batch Script"
+                                                     Command="{wpf:SsBinding Path=ShowSsBatchScriptViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="C++"
+                                                     Command="{wpf:SsBinding Path=ShowSsCPlusPlusViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="C#"
+                                                     Command="{wpf:SsBinding Path=ShowSsCSharpViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Power Shell Script"
+                                                     Command="{wpf:SsBinding Path=ShowSsPowerShellScriptViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Python"
+                                                     Command="{wpf:SsBinding Path=ShowSsPythonViewCommand}" />
                     </ribbon:SsRibbonPageGroup>
                 </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="Database">
                     <ribbon:SsRibbonPageGroup Caption="Database">
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="Mongo DB"
+                                                     Command="{wpf:SsBinding Path=ShowSsMongoDbViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="My Sql"
+                                                     Command="{wpf:SsBinding Path=ShowSsMySqlViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Oracle"
+                                                     Command="{wpf:SsBinding Path=ShowSsOracleViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="SqlServer"
+                                                     Command="{wpf:SsBinding Path=ShowSsSqlServerViewCommand}" />
                     </ribbon:SsRibbonPageGroup>
                 </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="Web Pen Test">
@@ -113,8 +134,8 @@
                 </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="Definition">
                     <ribbon:SsRibbonPageGroup Caption="Definition">
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="Android Operating System"
+                                                     Command="{wpf:SsBinding Path=ShowSsAndroidOperatingSystemListViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
                                                      Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
                         <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"

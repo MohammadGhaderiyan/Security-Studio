@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.Database.MongoDb.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "Mongo DB";
         }
 
         protected override void FillData()

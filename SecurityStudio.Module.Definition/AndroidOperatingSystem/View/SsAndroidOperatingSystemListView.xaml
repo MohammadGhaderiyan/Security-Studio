@@ -17,12 +17,6 @@
     <layout:SsLayoutControl>
         <layout:SsLayoutGroup HorizontalAlignment="Stretch">
             <layout:SsLayoutItem>
-                <userControl:SsAddEditDeleteUserControl
-                    SsAddCommand="{wpf:SsBinding Path=SsAddAndroidOperatingSystemCommand}"
-                    SsEditCommand="{wpf:SsBinding Path=SsEditAndroidOperatingSystemCommand}"
-                    SsDeleteCommand="{wpf:SsBinding Path=SsDeleteAndroidOperatingSystemCommand}" />
-            </layout:SsLayoutItem>
-            <layout:SsLayoutItem>
                 <text:SsTextEdit Name="SsTextEditSearch" EditValue="{wpf:SsBinding Path=Search}" />
             </layout:SsLayoutItem>
             <layout:SsLayoutItem>
@@ -51,6 +45,14 @@
                         <totalSummary:SsCountGridSummaryItem FieldName="DateTime" />
                     </gridControl:SsReadableGridControl.TotalSummary>
                 </gridControl:SsReadableGridControl>
+            </layout:SsLayoutItem>
+        </layout:SsLayoutGroup>
+        <layout:SsLayoutGroup HorizontalAlignment="Stretch">
+            <layout:SsLayoutItem HorizontalAlignment="Center">
+                <userControl:SsAddEditDeleteUserControl
+                    SsAddCommand="{wpf:SsBinding Path=SsAddAndroidOperatingSystemCommand}"
+                    SsEditCommand="{wpf:SsBinding Path=SsEditAndroidOperatingSystemCommand}"
+                    SsDeleteCommand="{wpf:SsBinding Path=SsDeleteAndroidOperatingSystemCommand}" />
             </layout:SsLayoutItem>
         </layout:SsLayoutGroup>
     </layout:SsLayoutControl>

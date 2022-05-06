@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.Tool.FtpManager.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "FTP Manager";
         }
 
         protected override void FillData()

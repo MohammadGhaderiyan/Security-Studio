@@ -33,7 +33,7 @@ namespace SecurityStudio.Service.Main
             Bind<IMessageBoxService>().To<MessageBoxService>();
             Bind<IParameterService>().To<ParameterService>().InSingletonScope();
             Bind<IParserService>().To<ParserService>();
-            Bind<IRepositoryService<ModelBase>>().To<LiteDbRepositoryService<ModelBase>>(); // ModelBase is not right
+            Bind(typeof(IRepositoryService<>)).To(typeof(LiteDbRepositoryService<>));
             Bind<ISessionService>().To<SessionService>().InSingletonScope();
             Bind<ITextService>().To<TextService>();
             Bind<ITunnelService>().To<TunnelService>().InSingletonScope();

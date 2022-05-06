@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.Tool.Nmap.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "Nmap";
         }
 
         protected override void FillData()

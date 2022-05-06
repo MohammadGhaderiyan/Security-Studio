@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.Database.MySql.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "MySQL";
         }
 
         protected override void FillData()

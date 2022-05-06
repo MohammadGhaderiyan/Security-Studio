@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.CodeEditor.BatchScript.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "Batch Script";
         }
 
         protected override void FillData()

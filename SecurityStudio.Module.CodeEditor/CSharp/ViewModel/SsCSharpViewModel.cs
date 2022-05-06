@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.CodeEditor.CSharp.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "C#";
         }
 
         protected override void FillData()

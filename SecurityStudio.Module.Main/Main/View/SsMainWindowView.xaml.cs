@@ -53,7 +53,7 @@ namespace SecurityStudio.Module.Main.Main.View
                 };
 
                 _ssDocumentPanels.Add(ssDocumentPanel);
-                //SdvDocumentGroupMain.Items.Add(ssDocumentPanel);
+                SdvDocumentGroupMain.Items.Add(ssDocumentPanel);
             }
         }
 

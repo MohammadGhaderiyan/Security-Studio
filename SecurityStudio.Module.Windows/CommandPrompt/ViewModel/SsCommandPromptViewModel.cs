@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.Windows.CommandPrompt.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "Command Prompt";
         }
 
         protected override void FillData()

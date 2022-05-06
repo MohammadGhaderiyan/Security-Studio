@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.Tool.WebBrowser.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "Web Browser";
         }
 
         protected override void FillData()

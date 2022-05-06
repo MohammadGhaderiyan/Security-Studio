@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.Windows.RegistryEditor.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "Registry Editor";
         }
 
         protected override void FillData()

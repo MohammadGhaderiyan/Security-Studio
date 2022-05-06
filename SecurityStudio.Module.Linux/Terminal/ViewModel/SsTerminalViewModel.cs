@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.Linux.Terminal.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "Terminal";
         }
 
         protected override void FillData()

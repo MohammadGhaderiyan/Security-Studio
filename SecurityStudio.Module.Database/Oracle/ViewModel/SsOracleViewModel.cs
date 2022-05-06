@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.Database.Oracle.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "Oracle";
         }
 
         protected override void FillData()

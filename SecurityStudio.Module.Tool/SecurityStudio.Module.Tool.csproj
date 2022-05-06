@@ -13,6 +13,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="CefSharp.Wpf" Version="100.0.230" />
+		<PackageReference Include="CliWrap" Version="3.4.4" />
 		<PackageReference Include="FluentValidation" Version="10.4.0" />
 		<PackageReference Include="LiteDB" Version="5.0.11" />
 		<PackageReference Include="Ninject" Version="3.3.4" />
@@ -166,6 +167,18 @@
 	  <Compile Update="Mimikatz\View\SsMimikatzView.xaml.cs">
 	    <SubType>Code</SubType>
 	  </Compile>
+	  <Compile Update="ExploitDb\View\SsExploitDbView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="GitHub\View\SsGitHubView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="TextEditor\View\SsTextEditorView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Shodan\View\SsShodanView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
 	  <Compile Update="Nmap\View\SsNmapView.xaml.cs">
 	    <SubType>Code</SubType>
 	  </Compile>
@@ -186,6 +199,22 @@
 	    <SubType>Designer</SubType>
 	  </Page>
 	  <Page Update="Mimikatz\View\SsMimikatzView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="ExploitDb\View\SsExploitDbView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="GitHub\View\SsGitHubView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="TextEditor\View\SsTextEditorView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Shodan\View\SsShodanView.xaml">
 	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 	    <SubType>Designer</SubType>
 	  </Page>

@@ -13,6 +13,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="CefSharp.Wpf" Version="100.0.230" />
+		<PackageReference Include="CliWrap" Version="3.4.4" />
 		<PackageReference Include="FluentValidation" Version="10.4.0" />
 		<PackageReference Include="LiteDB" Version="5.0.11" />
 		<PackageReference Include="Ninject" Version="3.3.4" />
@@ -163,13 +164,13 @@
 	  <Compile Update="CommandPrompt\View\SsCommandPromptView.xaml.cs">
 	    <SubType>Code</SubType>
 	  </Compile>
-	  <Compile Update="FileExplorer\View\SsFileExplorerView.xaml.cs">
+	  <Compile Update="WindowsFileExplorer\View\SsWindowsFileExplorerView.xaml.cs">
 	    <SubType>Code</SubType>
 	  </Compile>
 	  <Compile Update="RegistryEditor\View\SsRegistryEditorView.xaml.cs">
 	    <SubType>Code</SubType>
 	  </Compile>
-	  <Compile Update="Network\View\SsNetworkView.xaml.cs">
+	  <Compile Update="WindowsNetwork\View\SsWindowsNetworkView.xaml.cs">
 	    <SubType>Code</SubType>
 	  </Compile>
 	</ItemGroup>
@@ -179,7 +180,7 @@
 	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 	    <SubType>Designer</SubType>
 	  </Page>
-	  <Page Update="FileExplorer\View\SsFileExplorerView.xaml">
+	  <Page Update="WindowsFileExplorer\View\SsWindowsFileExplorerView.xaml">
 	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 	    <SubType>Designer</SubType>
 	  </Page>
@@ -187,7 +188,7 @@
 	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 	    <SubType>Designer</SubType>
 	  </Page>
-	  <Page Update="Network\View\SsNetworkView.xaml">
+	  <Page Update="WindowsNetwork\View\SsWindowsNetworkView.xaml">
 	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 	    <SubType>Designer</SubType>
 	  </Page>

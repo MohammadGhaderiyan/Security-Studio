@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.Database.SqlServer.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "SQL Server";
         }
 
         protected override void FillData()

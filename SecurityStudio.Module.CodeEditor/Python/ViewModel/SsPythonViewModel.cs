@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.CodeEditor.Python.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "Python";
         }
 
         protected override void FillData()

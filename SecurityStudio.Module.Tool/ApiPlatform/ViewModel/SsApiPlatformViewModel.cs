@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.Tool.ApiPlatform.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "API Platform";
         }
 
         protected override void FillData()

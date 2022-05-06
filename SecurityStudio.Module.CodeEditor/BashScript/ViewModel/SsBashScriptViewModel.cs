@@ -10,6 +10,7 @@ namespace SecurityStudio.Module.CodeEditor.BashScript.ViewModel
 
         protected override void PrepareVariables()
         {
+            Title = "Bash Script";
         }
 
         protected override void FillData()
