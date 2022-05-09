@@ -10,5 +10,10 @@ namespace SecurityStudio.Module.Windows.CommandPrompt.View
         {
             InitializeComponent();
         }
+
+        public override void SsViewLoaded()
+        {
+            ((SsCommandPromptViewModel)SsViewModel).ConsoleControl = ConsoleControlMain;
+        }
     }
 }

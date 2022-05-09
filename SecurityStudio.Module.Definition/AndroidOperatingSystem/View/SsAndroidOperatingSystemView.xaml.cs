@@ -13,7 +13,7 @@ namespace SecurityStudio.Module.Definition.AndroidOperatingSystem.View
 
         public override void SsViewLoaded()
         {
-            SsDateTimeDateEditDateTime.Focus();
+            SsTextEditName.Focus();
         }
     }
 }

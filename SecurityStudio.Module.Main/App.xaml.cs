@@ -55,8 +55,8 @@ namespace SecurityStudio.Module.Main
         {
             try
             {
-                var ssMainSplashScreenWindow = new SsMainSplashScreenWindow();
-                ssMainSplashScreenWindow.Show();
+                //var ssMainSplashScreenWindow = new SsMainSplashScreenWindow();
+                //ssMainSplashScreenWindow.Show();
 
                 var kernel = _shell.Kernel;
 

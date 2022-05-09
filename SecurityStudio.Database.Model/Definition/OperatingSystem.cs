@@ -111,7 +111,7 @@ namespace SecurityStudio.Database.Model.Definition
             }
         }
 
-        private readonly SsOperatingSystemAbstractValidator _ssOperatingSystemAbstractValidator = new SsOperatingSystemAbstractValidator();
+        private readonly SsOperatingSystemAbstractValidator _ssOperatingSystemAbstractValidator = new();
 
         public override string ValidateProperty(string propertyName)
         {

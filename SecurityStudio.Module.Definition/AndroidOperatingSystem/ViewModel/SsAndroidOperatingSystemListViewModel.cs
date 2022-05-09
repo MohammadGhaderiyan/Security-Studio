@@ -90,13 +90,8 @@ namespace SecurityStudio.Module.Definition.AndroidOperatingSystem.ViewModel
             FillAndroidOperatingSystems();
         }
 
-        private int? _classId;
-
         private void FillAndroidOperatingSystems()
         {
-            if (_classId == null)
-                _classId = _parameterService.GetValue<int>("ClassId");
-
             int? currentAndroidOperatingSystemId = null;
             if (CurrentAndroidOperatingSystem != null)
                 currentAndroidOperatingSystemId = CurrentAndroidOperatingSystem.Id;

@@ -70,7 +70,10 @@ namespace SecurityStudio.Module.Definition.AndroidOperatingSystem.ViewModel
             }
             else
             {
-                AndroidOperatingSystem = new Database.Model.Definition.AndroidOperatingSystem();
+                AndroidOperatingSystem = new Database.Model.Definition.AndroidOperatingSystem
+                {
+                    Enable = true
+                };
                 Title = "Add Android Operating System";
             }
 

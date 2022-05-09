@@ -17,5 +17,8 @@ namespace SecurityStudio.Service.Main.Session
         void SetAndroidOperatingSystem(AndroidOperatingSystem androidOperatingSystem);
         void SetKernel(IKernel kernel);
         void ExitFromApplication();
+        List<AndroidOperatingSystem> GetAndroidOperatingSystems();
+        List<LinuxOperatingSystem> GetLinuxOperatingSystems();
+        List<WindowsOperatingSystem> GetWindowsOperatingSystems();
     }
 }

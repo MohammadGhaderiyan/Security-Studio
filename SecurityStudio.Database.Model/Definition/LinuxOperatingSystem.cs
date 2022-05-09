@@ -11,7 +11,7 @@ namespace SecurityStudio.Database.Model.Definition
         {
         }
 
-        private readonly SsLinuxOperatingSystemAbstractValidator _ssLinuxOperatingSystemAbstractValidator = new SsLinuxOperatingSystemAbstractValidator();
+        private readonly SsLinuxOperatingSystemAbstractValidator _ssLinuxOperatingSystemAbstractValidator = new();
 
         public override string ValidateProperty(string propertyName)
         {

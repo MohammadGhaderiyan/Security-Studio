@@ -10,6 +10,7 @@
                    xmlns:bar="clr-namespace:SecurityStudio.Base.Control.Bar;assembly=SecurityStudio.Base.Control"
                    xmlns:dock="clr-namespace:SecurityStudio.Base.Control.Dock;assembly=SecurityStudio.Base.Control"
                    xmlns:layout="clr-namespace:SecurityStudio.Base.Control.Layout;assembly=SecurityStudio.Base.Control"
+                   xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
                    mc:Ignorable="d" Title="Security Studio" WindowState="Maximized"
                    MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen">
     <container:SsDockPanel LastChildFill="True">
@@ -64,6 +65,8 @@
                 </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="Windows">
                     <ribbon:SsRibbonPageGroup Caption="Windows">
+                        <ribbon:SsLargeBarButtonItem Content="Arp"
+                                                     Command="{wpf:SsBinding Path=ShowSsArpViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Command Prompt"
                                                      Command="{wpf:SsBinding Path=ShowSsCommandPromptViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="File Explorer"
@@ -136,6 +139,10 @@
                     <ribbon:SsRibbonPageGroup Caption="Definition">
                         <ribbon:SsLargeBarButtonItem Content="Android Operating System"
                                                      Command="{wpf:SsBinding Path=ShowSsAndroidOperatingSystemListViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Linux Operating System"
+                                                     Command="{wpf:SsBinding Path=ShowSsLinuxOperatingSystemListViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Windows Operating System"
+                                                     Command="{wpf:SsBinding Path=ShowSsWindowsOperatingSystemListViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
                                                      Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
                         <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
@@ -143,16 +150,23 @@
                     </ribbon:SsRibbonPageGroup>
                 </ribbon:SsRibbonPage>
             </ribbon:SsRibbonDefaultPageCategory>
-            <!--endregion #DefaultPageCategory-->
         </ribbon:SsRibbonControl>
         <bar:SsStatusBarControl DockPanel.Dock="Bottom" Caption="StatusBar">
-            <bar:SsBarStaticItem Content="XXXXXXXX" ShowBorder="False" />
-            <!--<bar:SsBarEditItem Content="XXXXXXXX" EditWidth="150" Alignment="Far"
-                                EditValue="{wpf:SsBinding Path=CurrentTheme}">
+            <bar:SsBarStaticItem Content="Visual Security" ShowBorder="False" />
+            <bar:SsBarEditItem Content="Windows : " EditWidth="150" Alignment="Far"
+                               EditValue="{wpf:SsBinding Path=CurrentWindowsOperatingSystem}">
                 <bar:SsBarEditItem.EditSettings>
-                    <dxe:ComboBoxEditSettings ItemsSource="{wpf:SsBinding Path=Themes}" IsTextEditable="False" />
+                    <dxe:ComboBoxEditSettings ItemsSource="{wpf:SsBinding Path=WindowsOperatingSystems}"
+                                              IsTextEditable="False" />
                 </bar:SsBarEditItem.EditSettings>
-            </bar:SsBarEditItem>-->
+            </bar:SsBarEditItem>
+            <bar:SsBarEditItem Content="Linux : " EditWidth="150" Alignment="Far"
+                               EditValue="{wpf:SsBinding Path=CurrentLinuxOperatingSystem}">
+                <bar:SsBarEditItem.EditSettings>
+                    <dxe:ComboBoxEditSettings ItemsSource="{wpf:SsBinding Path=LinuxOperatingSystems}"
+                                              IsTextEditable="False" />
+                </bar:SsBarEditItem.EditSettings>
+            </bar:SsBarEditItem>
         </bar:SsStatusBarControl>
         <container:SsBackgroundPanel>
             <layout:SsLayoutControl>

@@ -53,29 +53,39 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityStudio.Service.Mitr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityStudio.Service.Tool", "SecurityStudio.Service.Tool\SecurityStudio.Service.Tool.csproj", "{1844CA00-26F1-4007-B8E3-91C1FAF89319}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Module.CodeEditor", "SecurityStudio.Module.CodeEditor\SecurityStudio.Module.CodeEditor.csproj", "{C8AC7378-9C57-400C-8EBA-D00ECA3F5C0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityStudio.Module.CodeEditor", "SecurityStudio.Module.CodeEditor\SecurityStudio.Module.CodeEditor.csproj", "{C8AC7378-9C57-400C-8EBA-D00ECA3F5C0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Service.CodeEditor", "SecurityStudio.Service.CodeEditor\SecurityStudio.Service.CodeEditor.csproj", "{E73A4E3C-1347-407E-8733-0C100A537589}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityStudio.Service.CodeEditor", "SecurityStudio.Service.CodeEditor\SecurityStudio.Service.CodeEditor.csproj", "{E73A4E3C-1347-407E-8733-0C100A537589}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Module.WebPenTest", "SecurityStudio.Module.WebPenTest\SecurityStudio.Module.WebPenTest.csproj", "{F397B6AA-071F-4509-AB83-2F08EAE90EE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityStudio.Module.WebPenTest", "SecurityStudio.Module.WebPenTest\SecurityStudio.Module.WebPenTest.csproj", "{F397B6AA-071F-4509-AB83-2F08EAE90EE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Module.MobilePenTest", "SecurityStudio.Module.MobilePenTest\SecurityStudio.Module.MobilePenTest.csproj", "{A28584DB-FAFC-4C7D-92A5-C20FF59D1BDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityStudio.Module.MobilePenTest", "SecurityStudio.Module.MobilePenTest\SecurityStudio.Module.MobilePenTest.csproj", "{A28584DB-FAFC-4C7D-92A5-C20FF59D1BDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Module.NetworkPenTest", "SecurityStudio.Module.NetworkPenTest\SecurityStudio.Module.NetworkPenTest.csproj", "{F4A991B2-E82C-448E-A65B-26F9BF03FF56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityStudio.Module.NetworkPenTest", "SecurityStudio.Module.NetworkPenTest\SecurityStudio.Module.NetworkPenTest.csproj", "{F4A991B2-E82C-448E-A65B-26F9BF03FF56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Module.Definition", "SecurityStudio.Module.Definition\SecurityStudio.Module.Definition.csproj", "{830DAA54-2300-46EA-88D3-1F352C887D41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityStudio.Module.Definition", "SecurityStudio.Module.Definition\SecurityStudio.Module.Definition.csproj", "{830DAA54-2300-46EA-88D3-1F352C887D41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Service.WebPenTest", "SecurityStudio.Service.WebPenTest\SecurityStudio.Service.WebPenTest.csproj", "{EC3AF2EF-B96B-4BE6-86C8-8651FD599762}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityStudio.Service.WebPenTest", "SecurityStudio.Service.WebPenTest\SecurityStudio.Service.WebPenTest.csproj", "{EC3AF2EF-B96B-4BE6-86C8-8651FD599762}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Service.MobilePenTest", "SecurityStudio.Service.MobilePenTest\SecurityStudio.Service.MobilePenTest.csproj", "{17130234-9F22-4723-A3D9-192056CF52C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityStudio.Service.MobilePenTest", "SecurityStudio.Service.MobilePenTest\SecurityStudio.Service.MobilePenTest.csproj", "{17130234-9F22-4723-A3D9-192056CF52C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Service.NetworkPenTest", "SecurityStudio.Service.NetworkPenTest\SecurityStudio.Service.NetworkPenTest.csproj", "{DF9283E8-A5E6-4D74-B6BC-F1D61424F345}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityStudio.Service.NetworkPenTest", "SecurityStudio.Service.NetworkPenTest\SecurityStudio.Service.NetworkPenTest.csproj", "{DF9283E8-A5E6-4D74-B6BC-F1D61424F345}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Service.Definition", "SecurityStudio.Service.Definition\SecurityStudio.Service.Definition.csproj", "{DDE2D298-1215-4707-910F-DF5CA080128E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityStudio.Service.Definition", "SecurityStudio.Service.Definition\SecurityStudio.Service.Definition.csproj", "{DDE2D298-1215-4707-910F-DF5CA080128E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Module.Database", "SecurityStudio.Module.Database\SecurityStudio.Module.Database.csproj", "{F1E09312-31A4-4849-B02A-21A9060FB1F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityStudio.Module.Database", "SecurityStudio.Module.Database\SecurityStudio.Module.Database.csproj", "{F1E09312-31A4-4849-B02A-21A9060FB1F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Service.Database", "SecurityStudio.Service.Database\SecurityStudio.Service.Database.csproj", "{A4B7D403-DE8A-4E18-9E35-54FDFB6DCB4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityStudio.Service.Database", "SecurityStudio.Service.Database\SecurityStudio.Service.Database.csproj", "{A4B7D403-DE8A-4E18-9E35-54FDFB6DCB4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Base.Windows", "SecurityStudio.Base.Windows\SecurityStudio.Base.Windows.csproj", "{1709A3B4-828B-456C-B235-0EA49E4BB228}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Base.Linux", "SecurityStudio.Base.Linux\SecurityStudio.Base.Linux.csproj", "{C0D3698D-06BA-4B65-A401-967872CC903A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Base.Tool", "SecurityStudio.Base.Tool\SecurityStudio.Base.Tool.csproj", "{A3796A85-AD50-459F-9DF9-D9CB7BF9B48A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Module.Wiki", "SecurityStudio.Module.Wiki\SecurityStudio.Module.Wiki.csproj", "{C84D1E04-5B83-40A9-AB8B-10B4B7CE74A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityStudio.Service.Wiki", "SecurityStudio.Service.Wiki\SecurityStudio.Service.Wiki.csproj", "{691EC72D-D74C-4383-8C5D-A056215BD29F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -191,6 +201,26 @@ Global
 		{A4B7D403-DE8A-4E18-9E35-54FDFB6DCB4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4B7D403-DE8A-4E18-9E35-54FDFB6DCB4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4B7D403-DE8A-4E18-9E35-54FDFB6DCB4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1709A3B4-828B-456C-B235-0EA49E4BB228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1709A3B4-828B-456C-B235-0EA49E4BB228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1709A3B4-828B-456C-B235-0EA49E4BB228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1709A3B4-828B-456C-B235-0EA49E4BB228}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D3698D-06BA-4B65-A401-967872CC903A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D3698D-06BA-4B65-A401-967872CC903A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D3698D-06BA-4B65-A401-967872CC903A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D3698D-06BA-4B65-A401-967872CC903A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3796A85-AD50-459F-9DF9-D9CB7BF9B48A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3796A85-AD50-459F-9DF9-D9CB7BF9B48A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3796A85-AD50-459F-9DF9-D9CB7BF9B48A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3796A85-AD50-459F-9DF9-D9CB7BF9B48A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C84D1E04-5B83-40A9-AB8B-10B4B7CE74A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C84D1E04-5B83-40A9-AB8B-10B4B7CE74A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C84D1E04-5B83-40A9-AB8B-10B4B7CE74A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C84D1E04-5B83-40A9-AB8B-10B4B7CE74A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{691EC72D-D74C-4383-8C5D-A056215BD29F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{691EC72D-D74C-4383-8C5D-A056215BD29F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{691EC72D-D74C-4383-8C5D-A056215BD29F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{691EC72D-D74C-4383-8C5D-A056215BD29F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -223,6 +253,11 @@ Global
 		{DDE2D298-1215-4707-910F-DF5CA080128E} = {B0097886-86D1-4BA5-BD1B-198C98EFB918}
 		{F1E09312-31A4-4849-B02A-21A9060FB1F9} = {E9F4E384-E5CB-442C-A5B2-6C895464356E}
 		{A4B7D403-DE8A-4E18-9E35-54FDFB6DCB4B} = {B0097886-86D1-4BA5-BD1B-198C98EFB918}
+		{1709A3B4-828B-456C-B235-0EA49E4BB228} = {2DE4A2E9-D8AD-4946-8F9D-3D3C1F1F2C0F}
+		{C0D3698D-06BA-4B65-A401-967872CC903A} = {2DE4A2E9-D8AD-4946-8F9D-3D3C1F1F2C0F}
+		{A3796A85-AD50-459F-9DF9-D9CB7BF9B48A} = {2DE4A2E9-D8AD-4946-8F9D-3D3C1F1F2C0F}
+		{C84D1E04-5B83-40A9-AB8B-10B4B7CE74A5} = {E9F4E384-E5CB-442C-A5B2-6C895464356E}
+		{691EC72D-D74C-4383-8C5D-A056215BD29F} = {B0097886-86D1-4BA5-BD1B-198C98EFB918}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C7C9F757-AF06-4938-A625-8C25C8E052A1}

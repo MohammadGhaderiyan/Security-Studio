@@ -1,4 +1,8 @@
-﻿using SecurityStudio.Base.Main.Mvvm;
+﻿using System.Collections.ObjectModel;
+using System.Linq;
+using DevExpress.Xpf.Core;
+using SecurityStudio.Base.Main.Mvvm;
+using SecurityStudio.Database.Model.Definition;
 using SecurityStudio.Module.CodeEditor.BashScript.View;
 using SecurityStudio.Module.CodeEditor.BatchScript.View;
 using SecurityStudio.Module.CodeEditor.CPlusPlus.View;
@@ -10,6 +14,8 @@ using SecurityStudio.Module.Database.MySql.View;
 using SecurityStudio.Module.Database.Oracle.View;
 using SecurityStudio.Module.Database.SqlServer.View;
 using SecurityStudio.Module.Definition.AndroidOperatingSystem.View;
+using SecurityStudio.Module.Definition.LinuxOperatingSystem.View;
+using SecurityStudio.Module.Definition.WindowsOperatingSystem.View;
 using SecurityStudio.Module.Linux.LinuxFileExplorer.View;
 using SecurityStudio.Module.Linux.LinuxNetwork.View;
 using SecurityStudio.Module.Linux.Terminal.View;
@@ -25,6 +31,7 @@ using SecurityStudio.Module.Tool.Shodan.View;
 using SecurityStudio.Module.Tool.TextEditor.View;
 using SecurityStudio.Module.Tool.WebBrowser.View;
 using SecurityStudio.Module.Tool.WebServer.View;
+using SecurityStudio.Module.Windows.Arp.View;
 using SecurityStudio.Module.Windows.CommandPrompt.View;
 using SecurityStudio.Module.Windows.RegistryEditor.View;
 using SecurityStudio.Module.Windows.WindowsFileExplorer.View;
@@ -84,6 +91,7 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
         #region Windows
 
+        public SsCommand ShowSsArpViewCommand { get; set; }
         public SsCommand ShowSsCommandPromptViewCommand { get; set; }
         public SsCommand ShowSsWindowsFileExplorerViewCommand { get; set; }
         public SsCommand ShowSsWindowsNetworkViewCommand { get; set; }
@@ -135,6 +143,8 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
         #region Definition
 
         public SsCommand ShowSsAndroidOperatingSystemListViewCommand { get; set; }
+        public SsCommand ShowSsLinuxOperatingSystemListViewCommand { get; set; }
+        public SsCommand ShowSsWindowsOperatingSystemListViewCommand { get; set; }
 
         #endregion
 
@@ -174,6 +184,7 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
             #region Windows
 
+            ShowSsArpViewCommand = new SsCommand(ShowSsArpView);
             ShowSsCommandPromptViewCommand = new SsCommand(ShowSsCommandPromptView);
             ShowSsWindowsFileExplorerViewCommand = new SsCommand(ShowSsWindowsFileExplorerView);
             ShowSsWindowsNetworkViewCommand = new SsCommand(ShowSsWindowsNetworkView);
@@ -225,6 +236,8 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
             #region Definition
 
             ShowSsAndroidOperatingSystemListViewCommand = new SsCommand(ShowSsAndroidOperatingSystemListView);
+            ShowSsLinuxOperatingSystemListViewCommand = new SsCommand(ShowSsLinuxOperatingSystemListView);
+            ShowSsWindowsOperatingSystemListViewCommand = new SsCommand(ShowSsWindowsOperatingSystemListView);
 
             #endregion
         }
@@ -312,6 +325,11 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
 
         #region Windows
+
+        private void ShowSsArpView(object parameter)
+        {
+            _dockService.ShowSsView<SsArpView>();
+        }
 
         private void ShowSsCommandPromptView(object parameter)
         {
@@ -421,6 +439,16 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
             _dockService.ShowSsView<SsAndroidOperatingSystemListView>();
         }
 
+        private void ShowSsLinuxOperatingSystemListView(object parameter)
+        {
+            _dockService.ShowSsView<SsLinuxOperatingSystemListView>();
+        }
+
+        private void ShowSsWindowsOperatingSystemListView(object parameter)
+        {
+            _dockService.ShowSsView<SsWindowsOperatingSystemListView>();
+        }
+
         #endregion
 
 
@@ -431,7 +459,31 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
         protected override void FillData()
         {
+            FillAndroidOperatingSystems();
+            FillLinuxOperatingSystems();
+            FillWindowsOperatingSystems();
             //FillThemes();
+        }
+
+        private void FillAndroidOperatingSystems()
+        {
+            AndroidOperatingSystems = new ObservableCollection<AndroidOperatingSystem>(
+                _sessionService.GetAndroidOperatingSystems());
+            CurrentAndroidOperatingSystem = AndroidOperatingSystems.FirstOrDefault();
+        }
+
+        private void FillLinuxOperatingSystems()
+        {
+            LinuxOperatingSystems = new ObservableCollection<LinuxOperatingSystem>(
+                _sessionService.GetLinuxOperatingSystems());
+            CurrentLinuxOperatingSystem = LinuxOperatingSystems.FirstOrDefault();
+        }
+
+        private void FillWindowsOperatingSystems()
+        {
+            WindowsOperatingSystems = new ObservableCollection<WindowsOperatingSystem>(
+                _sessionService.GetWindowsOperatingSystems());
+            CurrentWindowsOperatingSystem = WindowsOperatingSystems.FirstOrDefault();
         }
 
         //private void FillThemes()
@@ -464,28 +516,74 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
             _dockService.ShowSsView<SsTestView>();
         }
 
-        //private ObservableCollection<string> _themes;
-        //public ObservableCollection<string> Themes
-        //{
-        //    get => _themes;
-        //    set
-        //    {
-        //        _themes = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
+        private ObservableCollection<AndroidOperatingSystem> _androidOperatingSystems;
+        public ObservableCollection<AndroidOperatingSystem> AndroidOperatingSystems
+        {
+            get => _androidOperatingSystems;
+            set
+            {
+                _androidOperatingSystems = value;
+                OnPropertyChanged();
+            }
+        }
 
-        //private string _currentTheme;
-        //public string CurrentTheme
-        //{
-        //    get => _currentTheme;
-        //    set
-        //    {
-        //        _currentTheme = value;
-        //        OnPropertyChanged();
-        //        ApplicationThemeHelper.ApplicationThemeName = CurrentTheme;
-        //    }
-        //}
+        private AndroidOperatingSystem _currentAndroidOperatingSystem;
+        public AndroidOperatingSystem CurrentAndroidOperatingSystem
+        {
+            get => _currentAndroidOperatingSystem;
+            set
+            {
+                _currentAndroidOperatingSystem = value;
+                OnPropertyChanged();
+                _sessionService.SetAndroidOperatingSystem(CurrentAndroidOperatingSystem);
+            }
+        }
+
+        private ObservableCollection<LinuxOperatingSystem> _linuxOperatingSystems;
+        public ObservableCollection<LinuxOperatingSystem> LinuxOperatingSystems
+        {
+            get => _linuxOperatingSystems;
+            set
+            {
+                _linuxOperatingSystems = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private LinuxOperatingSystem _currentLinuxOperatingSystem;
+        public LinuxOperatingSystem CurrentLinuxOperatingSystem
+        {
+            get => _currentLinuxOperatingSystem;
+            set
+            {
+                _currentLinuxOperatingSystem = value;
+                OnPropertyChanged();
+                _sessionService.SetLinuxOperatingSystem(CurrentLinuxOperatingSystem);
+            }
+        }
+
+        private ObservableCollection<WindowsOperatingSystem> _windowsOperatingSystems;
+        public ObservableCollection<WindowsOperatingSystem> WindowsOperatingSystems
+        {
+            get => _windowsOperatingSystems;
+            set
+            {
+                _windowsOperatingSystems = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private WindowsOperatingSystem _currentWindowsOperatingSystem;
+        public WindowsOperatingSystem CurrentWindowsOperatingSystem
+        {
+            get => _currentWindowsOperatingSystem;
+            set
+            {
+                _currentWindowsOperatingSystem = value;
+                OnPropertyChanged();
+                _sessionService.SetWindowsOperatingSystem(CurrentWindowsOperatingSystem);
+            }
+        }
 
         public override void Dispose()
         {

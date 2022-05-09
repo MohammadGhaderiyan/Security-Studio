@@ -4,26 +4,43 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:layout="clr-namespace:SecurityStudio.Base.Control.Layout;assembly=SecurityStudio.Base.Control"
-             xmlns:dateTime="clr-namespace:SecurityStudio.Base.Control.DateTime;assembly=SecurityStudio.Base.Control"
              xmlns:mvvm="clr-namespace:SecurityStudio.Base.Main.Mvvm;assembly=SecurityStudio.Base.Main"
              xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
-             xmlns:comboBox="clr-namespace:SecurityStudio.Base.Control.ComboBox;assembly=SecurityStudio.Base.Control"
              xmlns:userControl="clr-namespace:SecurityStudio.Base.Control.UserControl;assembly=SecurityStudio.Base.Control"
+             xmlns:text="clr-namespace:SecurityStudio.Base.Control.Text;assembly=SecurityStudio.Base.Control"
+             xmlns:input="clr-namespace:SecurityStudio.Base.Control.Input;assembly=SecurityStudio.Base.Control"
              mc:Ignorable="d">
     <layout:SsLayoutControl>
         <layout:SsLayoutGroup Orientation="Vertical">
-            <layout:SsGroupBoxLayoutGroup Header="Class Exam">
+            <layout:SsGroupBoxLayoutGroup Header="Android Operating System">
                 <layout:SsLayoutGroup>
-                    <layout:SsLayoutItem Label="Date Time : ">
-                        <dateTime:SsDateTimeDateEdit Name="SsDateTimeDateEditDateTime"
-                                                     EditValue="{wpf:SsBinding Path=AndroidOperatingSystem.DateTime}" />
+                    <layout:SsLayoutItem Label="Name : ">
+                        <text:SsTextEdit Name="SsTextEditName"
+                                         EditValue="{wpf:SsBinding Path=AndroidOperatingSystem.Name}" />
+                    </layout:SsLayoutItem>
+                    <layout:SsLayoutItem Label="IP : ">
+                        <text:SsIpAddressTextEdit EditValue="{wpf:SsBinding Path=AndroidOperatingSystem.Ip}" />
                     </layout:SsLayoutItem>
                 </layout:SsLayoutGroup>
                 <layout:SsLayoutGroup>
-                    <layout:SsLayoutItem Label="Class Exam Name : ">
-                        <comboBox:SsComboBoxEdit ValueMember="Id"
-                                                 ItemsSource="{wpf:SsBinding Path=AndroidOperatingSystemNames}"
-                                                 EditValue="{wpf:SsBinding Path=AndroidOperatingSystem.AndroidOperatingSystemNameId}" />
+                    <layout:SsLayoutItem Label="Version : ">
+                        <text:SsTextEdit EditValue="{wpf:SsBinding Path=AndroidOperatingSystem.Version}" />
+                    </layout:SsLayoutItem>
+                    <layout:SsLayoutItem Label="User Name : ">
+                        <text:SsTextEdit EditValue="{wpf:SsBinding Path=AndroidOperatingSystem.UserName}" />
+                    </layout:SsLayoutItem>
+                </layout:SsLayoutGroup>
+                <layout:SsLayoutGroup>
+                    <layout:SsLayoutItem Label="Password : ">
+                        <text:SsPasswordBoxEdit EditValue="{wpf:SsBinding Path=AndroidOperatingSystem.Password}" />
+                    </layout:SsLayoutItem>
+                    <layout:SsLayoutItem Label="Enable : ">
+                        <input:SsCheckEdit EditValue="{wpf:SsBinding Path=AndroidOperatingSystem.Enable}" />
+                    </layout:SsLayoutItem>
+                </layout:SsLayoutGroup>
+                <layout:SsLayoutGroup HorizontalAlignment="Stretch">
+                    <layout:SsLayoutItem Label="Description : " HorizontalAlignment="Stretch">
+                        <text:SsLargeTextEdit EditValue="{wpf:SsBinding Path=AndroidOperatingSystem.Description}" />
                     </layout:SsLayoutItem>
                 </layout:SsLayoutGroup>
             </layout:SsGroupBoxLayoutGroup>

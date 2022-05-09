@@ -111,7 +111,7 @@ namespace SecurityStudio.Database.Model.Definition
             }
         }
 
-        private readonly SsUserAbstractValidator _ssUserAbstractValidator = new SsUserAbstractValidator();
+        private readonly SsUserAbstractValidator _ssUserAbstractValidator = new();
 
         public override string ValidateProperty(string propertyName)
         {

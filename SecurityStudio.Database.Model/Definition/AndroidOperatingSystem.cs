@@ -11,7 +11,7 @@ namespace SecurityStudio.Database.Model.Definition
         {
         }
 
-        private readonly SsAndroidOperatingSystemAbstractValidator _ssAndroidOperatingSystemAbstractValidator = new SsAndroidOperatingSystemAbstractValidator();
+        private readonly SsAndroidOperatingSystemAbstractValidator _ssAndroidOperatingSystemAbstractValidator = new();
 
         public override string ValidateProperty(string propertyName)
         {

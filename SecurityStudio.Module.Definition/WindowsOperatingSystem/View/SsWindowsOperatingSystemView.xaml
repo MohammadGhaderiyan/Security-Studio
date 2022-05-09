@@ -1,0 +1,56 @@
+﻿<mvvm:SsView x:Class="SecurityStudio.Module.Definition.WindowsOperatingSystem.View.SsWindowsOperatingSystemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:layout="clr-namespace:SecurityStudio.Base.Control.Layout;assembly=SecurityStudio.Base.Control"
+             xmlns:mvvm="clr-namespace:SecurityStudio.Base.Main.Mvvm;assembly=SecurityStudio.Base.Main"
+             xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
+             xmlns:userControl="clr-namespace:SecurityStudio.Base.Control.UserControl;assembly=SecurityStudio.Base.Control"
+             xmlns:text="clr-namespace:SecurityStudio.Base.Control.Text;assembly=SecurityStudio.Base.Control"
+             xmlns:input="clr-namespace:SecurityStudio.Base.Control.Input;assembly=SecurityStudio.Base.Control"
+             mc:Ignorable="d">
+    <layout:SsLayoutControl>
+        <layout:SsLayoutGroup Orientation="Vertical">
+            <layout:SsGroupBoxLayoutGroup Header="Windows Operating System">
+                <layout:SsLayoutGroup>
+                    <layout:SsLayoutItem Label="Name : ">
+                        <text:SsTextEdit Name="SsTextEditName"
+                                         EditValue="{wpf:SsBinding Path=WindowsOperatingSystem.Name}" />
+                    </layout:SsLayoutItem>
+                    <layout:SsLayoutItem Label="IP : ">
+                        <text:SsIpAddressTextEdit EditValue="{wpf:SsBinding Path=WindowsOperatingSystem.Ip}" />
+                    </layout:SsLayoutItem>
+                </layout:SsLayoutGroup>
+                <layout:SsLayoutGroup>
+                    <layout:SsLayoutItem Label="Version : ">
+                        <text:SsTextEdit EditValue="{wpf:SsBinding Path=WindowsOperatingSystem.Version}" />
+                    </layout:SsLayoutItem>
+                    <layout:SsLayoutItem Label="User Name : ">
+                        <text:SsTextEdit EditValue="{wpf:SsBinding Path=WindowsOperatingSystem.UserName}" />
+                    </layout:SsLayoutItem>
+                </layout:SsLayoutGroup>
+                <layout:SsLayoutGroup>
+                    <layout:SsLayoutItem Label="Password : ">
+                        <text:SsPasswordBoxEdit EditValue="{wpf:SsBinding Path=WindowsOperatingSystem.Password}" />
+                    </layout:SsLayoutItem>
+                    <layout:SsLayoutItem Label="Enable : ">
+                        <input:SsCheckEdit EditValue="{wpf:SsBinding Path=WindowsOperatingSystem.Enable}" />
+                    </layout:SsLayoutItem>
+                </layout:SsLayoutGroup>
+                <layout:SsLayoutGroup HorizontalAlignment="Stretch">
+                    <layout:SsLayoutItem Label="Description : " HorizontalAlignment="Stretch">
+                        <text:SsLargeTextEdit EditValue="{wpf:SsBinding Path=WindowsOperatingSystem.Description}" />
+                    </layout:SsLayoutItem>
+                </layout:SsLayoutGroup>
+            </layout:SsGroupBoxLayoutGroup>
+            <layout:SsLayoutGroup HorizontalAlignment="Center">
+                <layout:SsLayoutItem HorizontalAlignment="Center">
+                    <userControl:SsSaveCancelUserControl
+                        SsSaveCommand="{wpf:SsBinding Path=SsSaveWindowsOperatingSystemCommand}"
+                        SsCancelCommand="{wpf:SsBinding Path=SsCancelCommand}" />
+                </layout:SsLayoutItem>
+            </layout:SsLayoutGroup>
+        </layout:SsLayoutGroup>
+    </layout:SsLayoutControl>
+</mvvm:SsView>

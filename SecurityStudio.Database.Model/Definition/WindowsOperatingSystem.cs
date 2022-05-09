@@ -11,7 +11,7 @@ namespace SecurityStudio.Database.Model.Definition
         {
         }
 
-        private readonly SsWindowsOperatingSystemAbstractValidator _ssWindowsOperatingSystemAbstractValidator = new SsWindowsOperatingSystemAbstractValidator();
+        private readonly SsWindowsOperatingSystemAbstractValidator _ssWindowsOperatingSystemAbstractValidator = new();
 
         public override string ValidateProperty(string propertyName)
         {

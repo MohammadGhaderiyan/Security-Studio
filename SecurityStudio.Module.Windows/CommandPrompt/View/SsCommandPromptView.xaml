@@ -6,14 +6,29 @@
              xmlns:mvvm="clr-namespace:SecurityStudio.Base.Main.Mvvm;assembly=SecurityStudio.Base.Main"
              xmlns:layout="clr-namespace:SecurityStudio.Base.Control.Layout;assembly=SecurityStudio.Base.Control"
              xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
-             xmlns:label="clr-namespace:SecurityStudio.Base.Control.Label;assembly=SecurityStudio.Base.Control"
-             mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
-    <layout:SsLayoutControl>
-        <layout:SsGroupBoxLayoutGroup Header="{wpf:SsBinding Path=Title}"
-                                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-            <layout:SsLayoutItem VerticalAlignment="Center" HorizontalAlignment="Center">
-                <label:SsTitleLabel Content="{wpf:SsBinding Path=Title}" />
-            </layout:SsLayoutItem>
-        </layout:SsGroupBoxLayoutGroup>
-    </layout:SsLayoutControl>
+             xmlns:wpf1="clr-namespace:ConsoleControl.WPF;assembly=ConsoleControl.WPF"
+             xmlns:bar="clr-namespace:SecurityStudio.Base.Control.Bar;assembly=SecurityStudio.Base.Control"
+             xmlns:container="clr-namespace:SecurityStudio.Base.Control.Container;assembly=SecurityStudio.Base.Control"
+             mc:Ignorable="d" d:DesignHeight="300">
+    <container:SsDockPanel>
+        <bar:SsBarContainerControl container:SsDockPanel.Dock="Top">
+            <bar:SsMainMenuControl>
+                <bar:SsBarButtonItem Content="Start Process"
+                                     Command="{wpf:SsBinding Path=SsStartProcessCommand}" />
+                <bar:SsBarButtonItem Content="Stop Process"
+                                     Command="{wpf:SsBinding Path=SsStopProcessCommand}" />
+                <bar:SsBarButtonItem Content="Clear"
+                                     Command="{wpf:SsBinding Path=SsClearCommand}" />
+                <bar:SsBarButtonItem Content="Open Command Prompt"
+                                     Command="{wpf:SsBinding Path=SsOpenOpenCommandPromptCommand}" />
+            </bar:SsMainMenuControl>
+        </bar:SsBarContainerControl>
+        <layout:SsLayoutControl>
+            <layout:SsLayoutGroup HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <layout:SsLayoutItem HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <wpf1:ConsoleControl Name="ConsoleControlMain" />
+                </layout:SsLayoutItem>
+            </layout:SsLayoutGroup>
+        </layout:SsLayoutControl>
+    </container:SsDockPanel>
 </mvvm:SsView>
