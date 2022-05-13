@@ -163,6 +163,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Dig\View\SsDigView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="LinuxNslookup\View\SsLinuxNslookupView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="LinuxPing\View\SsLinuxPingView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
 	  <Compile Update="LinuxFileExplorer\View\SsLinuxFileExplorerView.xaml.cs">
 	    <SubType>Code</SubType>
 	  </Compile>
@@ -172,6 +181,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Page Update="Dig\View\SsDigView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="LinuxNslookup\View\SsLinuxNslookupView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="LinuxPing\View\SsLinuxPingView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
 	  <Page Update="LinuxFileExplorer\View\SsLinuxFileExplorerView.xaml">
 	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 	    <SubType>Designer</SubType>

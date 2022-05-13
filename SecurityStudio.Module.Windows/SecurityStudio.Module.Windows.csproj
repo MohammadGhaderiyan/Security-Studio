@@ -169,6 +169,12 @@
 	  <Compile Update="Arp\View\SsArpView.xaml.cs">
 	    <SubType>Code</SubType>
 	  </Compile>
+	  <Compile Update="WindowsPing\View\SsWindowsPingView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="WindowsNslookup\View\SsWindowsNslookupView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
 	  <Compile Update="WindowsFileExplorer\View\SsWindowsFileExplorerView.xaml.cs">
 	    <SubType>Code</SubType>
 	  </Compile>
@@ -186,6 +192,14 @@
 	    <SubType>Designer</SubType>
 	  </Page>
 	  <Page Update="Arp\View\SsArpView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="WindowsPing\View\SsWindowsPingView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="WindowsNslookup\View\SsWindowsNslookupView.xaml">
 	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 	    <SubType>Designer</SubType>
 	  </Page>

@@ -55,6 +55,10 @@ namespace SecurityStudio.Module.Windows.CommandPrompt.ViewModel
             _utilityWindowsTool = new UtilityWindowsTool(_sessionService.WindowsOperatingSystem);
         }
 
+        protected override void FillData()
+        {
+        }
+
         private ConsoleControl.WPF.ConsoleControl _consoleControl;
         public ConsoleControl.WPF.ConsoleControl ConsoleControl
         {
@@ -77,10 +81,6 @@ namespace SecurityStudio.Module.Windows.CommandPrompt.ViewModel
         }
 
         private void ConsoleControlOnOnProcessOutput(object sender, ProcessEventArgs args)
-        {
-        }
-
-        protected override void FillData()
         {
         }
 

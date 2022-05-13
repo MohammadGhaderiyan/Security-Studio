@@ -24,6 +24,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\SecurityStudio.Base.Control\SecurityStudio.Base.Control.csproj" />
 		<ProjectReference Include="..\SecurityStudio.Base.Main\SecurityStudio.Base.Main.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Base.Tool\SecurityStudio.Base.Tool.csproj" />
 		<ProjectReference Include="..\SecurityStudio.Database.Data\SecurityStudio.Database.Data.csproj" />
 		<ProjectReference Include="..\SecurityStudio.Database.Model\SecurityStudio.Database.Model.csproj" />
 		<ProjectReference Include="..\SecurityStudio.Service.Main\SecurityStudio.Service.Main.csproj" />
@@ -165,10 +166,28 @@
 	  <Compile Update="ApiPlatform\View\SsApiPlatformView.xaml.cs">
 	    <SubType>Code</SubType>
 	  </Compile>
-	  <Compile Update="Mimikatz\View\SsMimikatzView.xaml.cs">
+	  <Compile Update="Afta\View\SsAftaView.xaml.cs">
 	    <SubType>Code</SubType>
 	  </Compile>
-	  <Compile Update="ExploitDb\View\SsExploitDbView.xaml.cs">
+	  <Compile Update="Censys\View\SsCensysView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Iana\View\SsIanaView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="GoogleDork\View\SsGoogleDorkView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Hash\View\SsHashView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Encryption\View\SsEncryptionView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Whois\View\SsWhoisView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Mimikatz\View\SsMimikatzView.xaml.cs">
 	    <SubType>Code</SubType>
 	  </Compile>
 	  <Compile Update="GitHub\View\SsGitHubView.xaml.cs">
@@ -199,11 +218,35 @@
 	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 	    <SubType>Designer</SubType>
 	  </Page>
-	  <Page Update="Mimikatz\View\SsMimikatzView.xaml">
+	  <Page Update="Afta\View\SsAftaView.xaml">
 	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 	    <SubType>Designer</SubType>
 	  </Page>
-	  <Page Update="ExploitDb\View\SsExploitDbView.xaml">
+	  <Page Update="Censys\View\SsCensysView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Iana\View\SsIanaView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="GoogleDork\View\SsGoogleDorkView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Hash\View\SsHashView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Encryption\View\SsEncryptionView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Whois\View\SsWhoisView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Mimikatz\View\SsMimikatzView.xaml">
 	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 	    <SubType>Designer</SubType>
 	  </Page>

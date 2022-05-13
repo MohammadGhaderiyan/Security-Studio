@@ -18,6 +18,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\SecurityStudio.Base.Main\SecurityStudio.Base.Main.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<Reference Include="Rebex.Common">
 			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Common.dll</HintPath>
 		</Reference>

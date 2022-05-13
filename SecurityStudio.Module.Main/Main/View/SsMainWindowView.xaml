@@ -31,14 +31,24 @@
                 </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="Tools">
                     <ribbon:SsRibbonPageGroup Caption="Tools">
+                        <ribbon:SsLargeBarButtonItem Content="AFTA"
+                                                     Command="{wpf:SsBinding Path=ShowSsAftaViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="API Platform"
                                                      Command="{wpf:SsBinding Path=ShowSsApiPlatformViewCommand}" />
-                        <ribbon:SsLargeBarButtonItem Content="Exploit DB"
-                                                     Command="{wpf:SsBinding Path=ShowSsExploitDbViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Censys"
+                                                     Command="{wpf:SsBinding Path=ShowSsCensysViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Encryption"
+                                                     Command="{wpf:SsBinding Path=ShowSsEncryptionViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="FTP Manager"
                                                      Command="{wpf:SsBinding Path=ShowSsFtpManagerViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="GitHub"
                                                      Command="{wpf:SsBinding Path=ShowSsGitHubViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Google Dork"
+                                                     Command="{wpf:SsBinding Path=ShowSsGoogleDorkViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Hash"
+                                                     Command="{wpf:SsBinding Path=ShowSsHashViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="IANA"
+                                                     Command="{wpf:SsBinding Path=ShowSsIanaViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Mimikatz"
                                                      Command="{wpf:SsBinding Path=ShowSsMimikatzViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Nmap"
@@ -51,14 +61,22 @@
                                                      Command="{wpf:SsBinding Path=ShowSsWebBrowserViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Web Server"
                                                      Command="{wpf:SsBinding Path=ShowSsWebServerViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Whois"
+                                                     Command="{wpf:SsBinding Path=ShowSsWhoisViewCommand}" />
                     </ribbon:SsRibbonPageGroup>
                 </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="Linux">
                     <ribbon:SsRibbonPageGroup Caption="Linux">
+                        <ribbon:SsLargeBarButtonItem Content="Dig"
+                                                     Command="{wpf:SsBinding Path=ShowSsDigViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="File Explorer"
                                                      Command="{wpf:SsBinding Path=ShowSsLinuxFileExplorerViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Network"
                                                      Command="{wpf:SsBinding Path=ShowSsLinuxNetworkViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="nslookup"
+                                                     Command="{wpf:SsBinding Path=ShowSsLinuxNslookupViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="ping"
+                                                     Command="{wpf:SsBinding Path=ShowSsLinuxPingViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Terminal"
                                                      Command="{wpf:SsBinding Path=ShowSsTerminalViewCommand}" />
                     </ribbon:SsRibbonPageGroup>
@@ -73,8 +91,32 @@
                                                      Command="{wpf:SsBinding Path=ShowSsWindowsFileExplorerViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Network"
                                                      Command="{wpf:SsBinding Path=ShowSsWindowsNetworkViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="nslookup"
+                                                     Command="{wpf:SsBinding Path=ShowSsWindowsNslookupViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Registry Editor"
                                                      Command="{wpf:SsBinding Path=ShowSsRegistryEditorViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="ping"
+                                                     Command="{wpf:SsBinding Path=ShowSsWindowsPingViewCommand}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="OSINT">
+                    <ribbon:SsRibbonPageGroup Caption="OSINT">
+                        <ribbon:SsLargeBarButtonItem Content="OSINT Framework"
+                                                     Command="{wpf:SsBinding Path=ShowSsOsintFrameworkViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Social Searcher"
+                                                     Command="{wpf:SsBinding Path=ShowSsSocialSearcherViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Truecaller"
+                                                     Command="{wpf:SsBinding Path=ShowSsTruecallerViewCommand}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Exploit">
+                    <ribbon:SsRibbonPageGroup Caption="Exploit">
+                        <ribbon:SsLargeBarButtonItem Content="Exploit DB"
+                                                     Command="{wpf:SsBinding Path=ShowSsExploitDbViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
                     </ribbon:SsRibbonPageGroup>
                 </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="Code Editor">
@@ -105,7 +147,7 @@
                                                      Command="{wpf:SsBinding Path=ShowSsSqlServerViewCommand}" />
                     </ribbon:SsRibbonPageGroup>
                 </ribbon:SsRibbonPage>
-                <ribbon:SsRibbonPage Caption="Web Pen Test">
+                <ribbon:SsRibbonPage Caption="Pen Test">
                     <ribbon:SsRibbonPageGroup Caption="Web Pen Test">
                         <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
                                                      Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
@@ -114,8 +156,14 @@
                         <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
                                                      Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
                     </ribbon:SsRibbonPageGroup>
-                </ribbon:SsRibbonPage>
-                <ribbon:SsRibbonPage Caption="Mobile Pen Test">
+                    <ribbon:SsRibbonPageGroup Caption="Network Pen Test">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
                     <ribbon:SsRibbonPageGroup Caption="Mobile Pen Test">
                         <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
                                                      Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
@@ -124,9 +172,57 @@
                         <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
                                                      Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
                     </ribbon:SsRibbonPageGroup>
+                    <ribbon:SsRibbonPageGroup Caption="Compiled Application Pen Test">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
                 </ribbon:SsRibbonPage>
-                <ribbon:SsRibbonPage Caption="Network Pen Test">
-                    <ribbon:SsRibbonPageGroup Caption="Network Pen Test">
+                <ribbon:SsRibbonPage Caption="Forensic">
+                    <ribbon:SsRibbonPageGroup Caption="Malware Forensic">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                    <ribbon:SsRibbonPageGroup Caption="Windows Forensic">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                    <ribbon:SsRibbonPageGroup Caption="Linux Forensic">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                    <ribbon:SsRibbonPageGroup Caption="Memory Forensic">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                    <ribbon:SsRibbonPageGroup Caption="Network Forensic">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                    <ribbon:SsRibbonPageGroup Caption="Mobile Forensic">
                         <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
                                                      Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
                         <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
@@ -143,6 +239,16 @@
                                                      Command="{wpf:SsBinding Path=ShowSsLinuxOperatingSystemListViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Windows Operating System"
                                                      Command="{wpf:SsBinding Path=ShowSsWindowsOperatingSystemListViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Wiki">
+                    <ribbon:SsRibbonPageGroup Caption="Wiki">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
                         <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
                                                      Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
                         <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"

@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
-using DevExpress.Xpf.Core;
 using SecurityStudio.Base.Main.Mvvm;
 using SecurityStudio.Database.Model.Definition;
 using SecurityStudio.Module.CodeEditor.BashScript.View;
@@ -16,26 +15,41 @@ using SecurityStudio.Module.Database.SqlServer.View;
 using SecurityStudio.Module.Definition.AndroidOperatingSystem.View;
 using SecurityStudio.Module.Definition.LinuxOperatingSystem.View;
 using SecurityStudio.Module.Definition.WindowsOperatingSystem.View;
+using SecurityStudio.Module.Exploit.ExploitDb.View;
+using SecurityStudio.Module.Linux.Dig.View;
 using SecurityStudio.Module.Linux.LinuxFileExplorer.View;
 using SecurityStudio.Module.Linux.LinuxNetwork.View;
+using SecurityStudio.Module.Linux.LinuxNslookup.View;
+using SecurityStudio.Module.Linux.LinuxPing.View;
 using SecurityStudio.Module.Linux.Terminal.View;
 using SecurityStudio.Module.Main.Dashboard.View;
 using SecurityStudio.Module.Main.Test.View;
+using SecurityStudio.Module.Osint.OsintFramework.View;
+using SecurityStudio.Module.Osint.SocialSearcher.View;
+using SecurityStudio.Module.Osint.Truecaller.View;
+using SecurityStudio.Module.Tool.Afta.View;
 using SecurityStudio.Module.Tool.ApiPlatform.View;
-using SecurityStudio.Module.Tool.ExploitDb.View;
+using SecurityStudio.Module.Tool.Censys.View;
+using SecurityStudio.Module.Tool.Encryption.View;
 using SecurityStudio.Module.Tool.FtpManager.View;
 using SecurityStudio.Module.Tool.GitHub.View;
+using SecurityStudio.Module.Tool.GoogleDork.View;
+using SecurityStudio.Module.Tool.Hash.View;
+using SecurityStudio.Module.Tool.Iana.View;
 using SecurityStudio.Module.Tool.Mimikatz.View;
 using SecurityStudio.Module.Tool.Nmap.View;
 using SecurityStudio.Module.Tool.Shodan.View;
 using SecurityStudio.Module.Tool.TextEditor.View;
 using SecurityStudio.Module.Tool.WebBrowser.View;
 using SecurityStudio.Module.Tool.WebServer.View;
+using SecurityStudio.Module.Tool.Whois.View;
 using SecurityStudio.Module.Windows.Arp.View;
 using SecurityStudio.Module.Windows.CommandPrompt.View;
 using SecurityStudio.Module.Windows.RegistryEditor.View;
 using SecurityStudio.Module.Windows.WindowsFileExplorer.View;
 using SecurityStudio.Module.Windows.WindowsNetwork.View;
+using SecurityStudio.Module.Windows.WindowsNslookup.View;
+using SecurityStudio.Module.Windows.WindowsPing.View;
 using SecurityStudio.Service.Main.Dock;
 using SecurityStudio.Service.Main.Parameter;
 using SecurityStudio.Service.Main.Session;
@@ -55,7 +69,6 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
             _parameterService = parameterService;
             _sessionService = sessionService;
         }
-        public SsCommand SsLogoutCommand { get; set; }
 
 
         #region Mitre
@@ -66,24 +79,33 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
         #region Tools
 
+        public SsCommand ShowSsAftaViewCommand { get; set; }
         public SsCommand ShowSsApiPlatformViewCommand { get; set; }
-        public SsCommand ShowSsExploitDbViewCommand { get; set; }
+        public SsCommand ShowSsCensysViewCommand { get; set; }
+        public SsCommand ShowSsEncryptionViewCommand { get; set; }
         public SsCommand ShowSsFtpManagerViewCommand { get; set; }
         public SsCommand ShowSsGitHubViewCommand { get; set; }
+        public SsCommand ShowSsGoogleDorkViewCommand { get; set; }
+        public SsCommand ShowSsHashViewCommand { get; set; }
+        public SsCommand ShowSsIanaViewCommand { get; set; }
         public SsCommand ShowSsMimikatzViewCommand { get; set; }
         public SsCommand ShowSsNmapViewCommand { get; set; }
         public SsCommand ShowSsShodanViewCommand { get; set; }
         public SsCommand ShowSsTextEditorViewCommand { get; set; }
         public SsCommand ShowSsWebBrowserViewCommand { get; set; }
         public SsCommand ShowSsWebServerViewCommand { get; set; }
+        public SsCommand ShowSsWhoisViewCommand { get; set; }
 
         #endregion
 
 
         #region Linux
 
+        public SsCommand ShowSsDigViewCommand { get; set; }
         public SsCommand ShowSsLinuxFileExplorerViewCommand { get; set; }
         public SsCommand ShowSsLinuxNetworkViewCommand { get; set; }
+        public SsCommand ShowSsLinuxNslookupViewCommand { get; set; }
+        public SsCommand ShowSsLinuxPingViewCommand { get; set; }
         public SsCommand ShowSsTerminalViewCommand { get; set; }
 
         #endregion
@@ -95,7 +117,25 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
         public SsCommand ShowSsCommandPromptViewCommand { get; set; }
         public SsCommand ShowSsWindowsFileExplorerViewCommand { get; set; }
         public SsCommand ShowSsWindowsNetworkViewCommand { get; set; }
+        public SsCommand ShowSsWindowsNslookupViewCommand { get; set; }
         public SsCommand ShowSsRegistryEditorViewCommand { get; set; }
+        public SsCommand ShowSsWindowsPingViewCommand { get; set; }
+
+        #endregion
+
+
+        #region OSINT
+
+        public SsCommand ShowSsOsintFrameworkViewCommand { get; set; }
+        public SsCommand ShowSsSocialSearcherViewCommand { get; set; }
+        public SsCommand ShowSsTruecallerViewCommand { get; set; }
+
+        #endregion
+
+
+        #region Exploit
+
+        public SsCommand ShowSsExploitDbViewCommand { get; set; }
 
         #endregion
 
@@ -159,24 +199,33 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
             #region Tools
 
+            ShowSsAftaViewCommand = new SsCommand(ShowSsAftaView);
             ShowSsApiPlatformViewCommand = new SsCommand(ShowSsApiPlatformView);
-            ShowSsExploitDbViewCommand = new SsCommand(ShowSsExploitDbView);
+            ShowSsCensysViewCommand = new SsCommand(ShowSsCensysView);
+            ShowSsEncryptionViewCommand = new SsCommand(ShowSsEncryptionView);
             ShowSsFtpManagerViewCommand = new SsCommand(ShowSsFtpManagerView);
             ShowSsGitHubViewCommand = new SsCommand(ShowSsGitHubView);
+            ShowSsGoogleDorkViewCommand = new SsCommand(ShowSsGoogleDorkView);
+            ShowSsHashViewCommand = new SsCommand(ShowSsHashView);
+            ShowSsIanaViewCommand = new SsCommand(ShowSsIanaView);
             ShowSsMimikatzViewCommand = new SsCommand(ShowSsMimikatzView);
             ShowSsNmapViewCommand = new SsCommand(ShowSsNmapView);
             ShowSsShodanViewCommand = new SsCommand(ShowSsShodanView);
             ShowSsTextEditorViewCommand = new SsCommand(ShowSsTextEditorView);
             ShowSsWebBrowserViewCommand = new SsCommand(ShowSsWebBrowserView);
             ShowSsWebServerViewCommand = new SsCommand(ShowSsWebServerView);
+            ShowSsWhoisViewCommand = new SsCommand(ShowSsWhoisView);
 
             #endregion
 
 
             #region Linux
 
+            ShowSsDigViewCommand = new SsCommand(ShowSsDigView);
             ShowSsLinuxFileExplorerViewCommand = new SsCommand(ShowSsLinuxFileExplorerView);
             ShowSsLinuxNetworkViewCommand = new SsCommand(ShowSsLinuxNetworkView);
+            ShowSsLinuxNslookupViewCommand = new SsCommand(ShowSsLinuxNslookupView);
+            ShowSsLinuxPingViewCommand = new SsCommand(ShowSsLinuxPingView);
             ShowSsTerminalViewCommand = new SsCommand(ShowSsTerminalView);
 
             #endregion
@@ -188,7 +237,25 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
             ShowSsCommandPromptViewCommand = new SsCommand(ShowSsCommandPromptView);
             ShowSsWindowsFileExplorerViewCommand = new SsCommand(ShowSsWindowsFileExplorerView);
             ShowSsWindowsNetworkViewCommand = new SsCommand(ShowSsWindowsNetworkView);
+            ShowSsWindowsNslookupViewCommand = new SsCommand(ShowSsWindowsNslookupView);
             ShowSsRegistryEditorViewCommand = new SsCommand(ShowSsRegistryEditorView);
+            ShowSsWindowsPingViewCommand = new SsCommand(ShowSsWindowsPingView);
+
+            #endregion
+
+
+            #region OSINT
+
+            ShowSsOsintFrameworkViewCommand = new SsCommand(ShowSsOsintFrameworkView);
+            ShowSsSocialSearcherViewCommand = new SsCommand(ShowSsSocialSearcherView);
+            ShowSsTruecallerViewCommand = new SsCommand(ShowSsTruecallerView);
+
+            #endregion
+
+
+            #region Exploit
+
+            ShowSsExploitDbViewCommand = new SsCommand(ShowSsExploitDbView);
 
             #endregion
 
@@ -251,14 +318,24 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
         #region Tools
 
+        private void ShowSsAftaView(object parameter)
+        {
+            _dockService.ShowSsView<SsAftaView>();
+        }
+
         private void ShowSsApiPlatformView(object parameter)
         {
             _dockService.ShowSsView<SsApiPlatformView>();
         }
 
-        private void ShowSsExploitDbView(object parameter)
+        private void ShowSsCensysView(object parameter)
         {
-            _dockService.ShowSsView<SsExploitDbView>();
+            _dockService.ShowSsView<SsCensysView>();
+        }
+
+        private void ShowSsEncryptionView(object parameter)
+        {
+            _dockService.ShowSsView<SsEncryptionView>();
         }
 
         private void ShowSsFtpManagerView(object parameter)
@@ -269,6 +346,21 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
         private void ShowSsGitHubView(object parameter)
         {
             _dockService.ShowSsView<SsGitHubView>();
+        }
+
+        private void ShowSsGoogleDorkView(object parameter)
+        {
+            _dockService.ShowSsView<SsGoogleDorkView>();
+        }
+
+        private void ShowSsHashView(object parameter)
+        {
+            _dockService.ShowSsView<SsHashView>();
+        }
+
+        private void ShowSsIanaView(object parameter)
+        {
+            _dockService.ShowSsView<SsIanaView>();
         }
 
         private void ShowSsMimikatzView(object parameter)
@@ -301,10 +393,20 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
             _dockService.ShowSsView<SsWebServerView>();
         }
 
+        private void ShowSsWhoisView(object parameter)
+        {
+            _dockService.ShowSsView<SsWhoisView>();
+        }
+
         #endregion
 
 
         #region Linux
+
+        private void ShowSsDigView(object parameter)
+        {
+            _dockService.ShowSsView<SsDigView>();
+        }
 
         private void ShowSsLinuxFileExplorerView(object parameter)
         {
@@ -314,6 +416,16 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
         private void ShowSsLinuxNetworkView(object parameter)
         {
             _dockService.ShowSsView<SsLinuxNetworkView>();
+        }
+
+        private void ShowSsLinuxNslookupView(object parameter)
+        {
+            _dockService.ShowSsView<SsLinuxNslookupView>();
+        }
+
+        private void ShowSsLinuxPingView(object parameter)
+        {
+            _dockService.ShowSsView<SsLinuxPingView>();
         }
 
         private void ShowSsTerminalView(object parameter)
@@ -346,9 +458,49 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
             _dockService.ShowSsView<SsWindowsNetworkView>();
         }
 
+        private void ShowSsWindowsNslookupView(object parameter)
+        {
+            _dockService.ShowSsView<SsWindowsNslookupView>();
+        }
+
         private void ShowSsRegistryEditorView(object parameter)
         {
             _dockService.ShowSsView<SsRegistryEditorView>();
+        }
+
+        private void ShowSsWindowsPingView(object parameter)
+        {
+            _dockService.ShowSsView<SsWindowsPingView>();
+        }
+
+        #endregion
+
+
+        #region OSINT
+
+        private void ShowSsOsintFrameworkView(object parameter)
+        {
+            _dockService.ShowSsView<SsOsintFrameworkView>();
+        }
+
+        private void ShowSsSocialSearcherView(object parameter)
+        {
+            _dockService.ShowSsView<SsSocialSearcherView>();
+        }
+
+        private void ShowSsTruecallerView(object parameter)
+        {
+            _dockService.ShowSsView<SsTruecallerView>();
+        }
+
+        #endregion
+
+
+        #region Exploit
+
+        private void ShowSsExploitDbView(object parameter)
+        {
+            _dockService.ShowSsView<SsExploitDbView>();
         }
 
         #endregion
