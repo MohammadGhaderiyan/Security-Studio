@@ -14,6 +14,8 @@
             <bar:SsMainMenuControl>
                 <bar:SsBarButtonItem Content="Show OSINT Framework"
                                      Command="{wpf:SsBinding Path=SsShowOsintFrameworkCommand}" />
+                <bar:SsBarButtonItem Content="Open OSINT Framework"
+                                     Command="{wpf:SsBinding Path=SsOpenOsintFrameworkCommand}" />
             </bar:SsMainMenuControl>
         </bar:SsBarContainerControl>
         <layout:SsLayoutControl>

@@ -14,6 +14,8 @@
             <bar:SsMainMenuControl>
                 <bar:SsBarButtonItem Content="Show Social Searcher"
                                      Command="{wpf:SsBinding Path=SsShowSocialSearcherCommand}" />
+                <bar:SsBarButtonItem Content="Open Social Searcher"
+                                     Command="{wpf:SsBinding Path=SsOpenSocialSearcherCommand}" />
             </bar:SsMainMenuControl>
         </bar:SsBarContainerControl>
         <layout:SsLayoutControl>

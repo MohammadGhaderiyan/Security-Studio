@@ -12,7 +12,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CefSharp.Wpf" Version="100.0.230" />
 		<PackageReference Include="CliWrap" Version="3.4.4" />
 		<PackageReference Include="ConsoleControl.WPF" Version="1.3.0" />
 		<PackageReference Include="FluentValidation" Version="10.4.0" />
@@ -159,6 +158,110 @@
 		<Reference Include="Rebex.Zip">
 			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Zip.dll</HintPath>
 		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Execution\View\SsExecutionView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Impact\View\SsImpactView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="ResourceDevelopment\View\SsResourceDevelopmentView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="LateralMovement\View\SsLateralMovementView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="CredentialAccess\View\SsCredentialAccessView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="DefenseEvasion\View\SsDefenseEvasionView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="PrivilegeEscalation\View\SsPrivilegeEscalationView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Collection\View\SsCollectionView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="CommandAndControl\View\SsCommandAndControlView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="InitialAccess\View\SsInitialAccessView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Discovery\View\SsDiscoveryView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Reconnaissance\View\SsReconnaissanceView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Persistence\View\SsPersistenceView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	  <Compile Update="Exfiltration\View\SsExfiltrationView.xaml.cs">
+	    <SubType>Code</SubType>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Execution\View\SsExecutionView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Impact\View\SsImpactView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="ResourceDevelopment\View\SsResourceDevelopmentView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="LateralMovement\View\SsLateralMovementView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="CredentialAccess\View\SsCredentialAccessView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="DefenseEvasion\View\SsDefenseEvasionView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="PrivilegeEscalation\View\SsPrivilegeEscalationView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Collection\View\SsCollectionView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="CommandAndControl\View\SsCommandAndControlView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="InitialAccess\View\SsInitialAccessView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Discovery\View\SsDiscoveryView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Reconnaissance\View\SsReconnaissanceView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Persistence\View\SsPersistenceView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
+	  <Page Update="Exfiltration\View\SsExfiltrationView.xaml">
+	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+	    <SubType>Designer</SubType>
+	  </Page>
 	</ItemGroup>
 
 </Project>

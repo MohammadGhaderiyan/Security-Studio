@@ -1,24 +1,37 @@
 ﻿using SecurityStudio.Base.Main.Mvvm;
+using SecurityStudio.Base.Tool.Utility;
 
 namespace SecurityStudio.Module.Tool.Afta.ViewModel
 {
     public class SsAftaViewModel : SsViewModel
     {
-        public SsCommand SsShowExploitDbCommand { get; set; }
+        public SsCommand SsShowAftaCommand { get; set; }
+        public SsCommand SsOpenAftaCommand { get; set; }
 
         protected override void PrepareSsCommands()
         {
-            SsShowExploitDbCommand = new SsCommand(SsShowExploitDb);
+            SsShowAftaCommand = new SsCommand(SsShowAfta);
+            SsOpenAftaCommand = new SsCommand(SsOpenAfta);
         }
 
-        private void SsShowExploitDb(object parameter)
+        private void SsShowAfta(object parameter)
         {
-            WebBrowser.Navigate("https://sec.ito.gov.ir/");
+            WebBrowser.Navigate(_url);
         }
+
+        private void SsOpenAfta(object parameter)
+        {
+            _utilityTool.OpenUrlInDefaultBrowser(_url);
+        }
+
+        private string _url;
+        private UtilityTool _utilityTool;
 
         protected override void PrepareVariables()
         {
             Title = "AFTA";
+            _url = "https://sec.ito.gov.ir/";
+            _utilityTool = new UtilityTool();
         }
 
         protected override void FillData()
@@ -32,7 +45,7 @@ namespace SecurityStudio.Module.Tool.Afta.ViewModel
             set
             {
                 _webBrowser = value;
-                SsShowExploitDb(null);
+                SsShowAfta(null);
             }
         }
 

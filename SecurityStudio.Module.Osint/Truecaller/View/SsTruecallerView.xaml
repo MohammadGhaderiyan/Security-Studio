@@ -14,6 +14,8 @@
             <bar:SsMainMenuControl>
                 <bar:SsBarButtonItem Content="Show Truecaller"
                                      Command="{wpf:SsBinding Path=SsShowTruecallerCommand}" />
+                <bar:SsBarButtonItem Content="Open Truecaller"
+                                     Command="{wpf:SsBinding Path=SsOpenTruecallerCommand}" />
             </bar:SsMainMenuControl>
         </bar:SsBarContainerControl>
         <layout:SsLayoutControl>

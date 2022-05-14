@@ -21,12 +21,34 @@
             <ribbon:SsRibbonDefaultPageCategory>
                 <ribbon:SsRibbonPage Caption="Mitre">
                     <ribbon:SsRibbonPageGroup Caption="Mitre">
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="01- Reconnaissance"
+                                                     Command="{wpf:SsBinding Path=ShowSsReconnaissanceViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="02- Resource Development"
+                                                     Command="{wpf:SsBinding Path=ShowSsResourceDevelopmentViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="03- Initial Access"
+                                                     Command="{wpf:SsBinding Path=ShowSsInitialAccessViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="04- Execution"
+                                                     Command="{wpf:SsBinding Path=ShowSsExecutionViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="05- Persistence"
+                                                     Command="{wpf:SsBinding Path=ShowSsPersistenceViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="06- Privilege Escalation"
+                                                     Command="{wpf:SsBinding Path=ShowSsPrivilegeEscalationViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="07- Defense Evasion"
+                                                     Command="{wpf:SsBinding Path=ShowSsDefenseEvasionViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="08- Credential Access"
+                                                     Command="{wpf:SsBinding Path=ShowSsCredentialAccessViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="09- Discovery"
+                                                     Command="{wpf:SsBinding Path=ShowSsDiscoveryViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="10- Lateral Movement"
+                                                     Command="{wpf:SsBinding Path=ShowSsLateralMovementViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="11- Collection"
+                                                     Command="{wpf:SsBinding Path=ShowSsCollectionViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="12- Command and Control"
+                                                     Command="{wpf:SsBinding Path=ShowSsCommandAndControlViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="13- Exfiltration"
+                                                     Command="{wpf:SsBinding Path=ShowSsExfiltrationViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="14- Impact"
+                                                     Command="{wpf:SsBinding Path=ShowSsImpactViewCommand}" />
                     </ribbon:SsRibbonPageGroup>
                 </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="Tools">
@@ -37,6 +59,10 @@
                                                      Command="{wpf:SsBinding Path=ShowSsApiPlatformViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Censys"
                                                      Command="{wpf:SsBinding Path=ShowSsCensysViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Douran"
+                                                     Command="{wpf:SsBinding Path=ShowSsDouranViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="EC-Council"
+                                                     Command="{wpf:SsBinding Path=ShowSsEcCouncilViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Encryption"
                                                      Command="{wpf:SsBinding Path=ShowSsEncryptionViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="FTP Manager"
@@ -53,6 +79,8 @@
                                                      Command="{wpf:SsBinding Path=ShowSsMimikatzViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Nmap"
                                                      Command="{wpf:SsBinding Path=ShowSsNmapViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="SANS Institute"
+                                                     Command="{wpf:SsBinding Path=ShowSsSansInstituteViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Shodan"
                                                      Command="{wpf:SsBinding Path=ShowSsShodanViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Text Editor"
@@ -259,14 +287,14 @@
         </ribbon:SsRibbonControl>
         <bar:SsStatusBarControl DockPanel.Dock="Bottom" Caption="StatusBar">
             <bar:SsBarStaticItem Content="Visual Security" ShowBorder="False" />
-            <bar:SsBarEditItem Content="Windows : " EditWidth="150" Alignment="Far"
+            <bar:SsBarEditItem Content="Windows : " EditWidth="100" Alignment="Far"
                                EditValue="{wpf:SsBinding Path=CurrentWindowsOperatingSystem}">
                 <bar:SsBarEditItem.EditSettings>
                     <dxe:ComboBoxEditSettings ItemsSource="{wpf:SsBinding Path=WindowsOperatingSystems}"
                                               IsTextEditable="False" />
                 </bar:SsBarEditItem.EditSettings>
             </bar:SsBarEditItem>
-            <bar:SsBarEditItem Content="Linux : " EditWidth="150" Alignment="Far"
+            <bar:SsBarEditItem Content="Linux : " EditWidth="100" Alignment="Far"
                                EditValue="{wpf:SsBinding Path=CurrentLinuxOperatingSystem}">
                 <bar:SsBarEditItem.EditSettings>
                     <dxe:ComboBoxEditSettings ItemsSource="{wpf:SsBinding Path=LinuxOperatingSystems}"
@@ -277,7 +305,8 @@
         <container:SsBackgroundPanel>
             <layout:SsLayoutControl>
                 <layout:SsLayoutGroup VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                    <dock:SsDockLayoutManager DockItemClosing="DockLayoutManagerOnDockItemClosing"
+                    <dock:SsDockLayoutManager ClosingBehavior="ImmediatelyRemove"
+                                              DockItemClosing="DockLayoutManagerOnDockItemClosing"
                                               DockItemClosed="DockLayoutManagerOnDockItemClosed">
                         <dock:SsLayoutGroup Orientation="Horizontal">
                             <dock:SsLayoutGroup ItemWidth="*" Orientation="Horizontal">

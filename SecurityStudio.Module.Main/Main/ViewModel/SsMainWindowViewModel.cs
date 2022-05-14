@@ -24,12 +24,28 @@ using SecurityStudio.Module.Linux.LinuxPing.View;
 using SecurityStudio.Module.Linux.Terminal.View;
 using SecurityStudio.Module.Main.Dashboard.View;
 using SecurityStudio.Module.Main.Test.View;
+using SecurityStudio.Module.Mitre.Collection.View;
+using SecurityStudio.Module.Mitre.CommandAndControl.View;
+using SecurityStudio.Module.Mitre.CredentialAccess.View;
+using SecurityStudio.Module.Mitre.DefenseEvasion.View;
+using SecurityStudio.Module.Mitre.Discovery.View;
+using SecurityStudio.Module.Mitre.Execution.View;
+using SecurityStudio.Module.Mitre.Exfiltration.View;
+using SecurityStudio.Module.Mitre.Impact.View;
+using SecurityStudio.Module.Mitre.InitialAccess.View;
+using SecurityStudio.Module.Mitre.LateralMovement.View;
+using SecurityStudio.Module.Mitre.Persistence.View;
+using SecurityStudio.Module.Mitre.PrivilegeEscalation.View;
+using SecurityStudio.Module.Mitre.Reconnaissance.View;
+using SecurityStudio.Module.Mitre.ResourceDevelopment.View;
 using SecurityStudio.Module.Osint.OsintFramework.View;
 using SecurityStudio.Module.Osint.SocialSearcher.View;
 using SecurityStudio.Module.Osint.Truecaller.View;
 using SecurityStudio.Module.Tool.Afta.View;
 using SecurityStudio.Module.Tool.ApiPlatform.View;
 using SecurityStudio.Module.Tool.Censys.View;
+using SecurityStudio.Module.Tool.Douran.View;
+using SecurityStudio.Module.Tool.EcCouncil.View;
 using SecurityStudio.Module.Tool.Encryption.View;
 using SecurityStudio.Module.Tool.FtpManager.View;
 using SecurityStudio.Module.Tool.GitHub.View;
@@ -38,6 +54,7 @@ using SecurityStudio.Module.Tool.Hash.View;
 using SecurityStudio.Module.Tool.Iana.View;
 using SecurityStudio.Module.Tool.Mimikatz.View;
 using SecurityStudio.Module.Tool.Nmap.View;
+using SecurityStudio.Module.Tool.SansInstitute.View;
 using SecurityStudio.Module.Tool.Shodan.View;
 using SecurityStudio.Module.Tool.TextEditor.View;
 using SecurityStudio.Module.Tool.WebBrowser.View;
@@ -73,6 +90,20 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
         #region Mitre
 
+        public SsCommand ShowSsReconnaissanceViewCommand { get; set; }
+        public SsCommand ShowSsResourceDevelopmentViewCommand { get; set; }
+        public SsCommand ShowSsInitialAccessViewCommand { get; set; }
+        public SsCommand ShowSsExecutionViewCommand { get; set; }
+        public SsCommand ShowSsPersistenceViewCommand { get; set; }
+        public SsCommand ShowSsPrivilegeEscalationViewCommand { get; set; }
+        public SsCommand ShowSsDefenseEvasionViewCommand { get; set; }
+        public SsCommand ShowSsCredentialAccessViewCommand { get; set; }
+        public SsCommand ShowSsDiscoveryViewCommand { get; set; }
+        public SsCommand ShowSsLateralMovementViewCommand { get; set; }
+        public SsCommand ShowSsCollectionViewCommand { get; set; }
+        public SsCommand ShowSsCommandAndControlViewCommand { get; set; }
+        public SsCommand ShowSsExfiltrationViewCommand { get; set; }
+        public SsCommand ShowSsImpactViewCommand { get; set; }
 
         #endregion
 
@@ -82,6 +113,8 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
         public SsCommand ShowSsAftaViewCommand { get; set; }
         public SsCommand ShowSsApiPlatformViewCommand { get; set; }
         public SsCommand ShowSsCensysViewCommand { get; set; }
+        public SsCommand ShowSsDouranViewCommand { get; set; }
+        public SsCommand ShowSsEcCouncilViewCommand { get; set; }
         public SsCommand ShowSsEncryptionViewCommand { get; set; }
         public SsCommand ShowSsFtpManagerViewCommand { get; set; }
         public SsCommand ShowSsGitHubViewCommand { get; set; }
@@ -90,6 +123,7 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
         public SsCommand ShowSsIanaViewCommand { get; set; }
         public SsCommand ShowSsMimikatzViewCommand { get; set; }
         public SsCommand ShowSsNmapViewCommand { get; set; }
+        public SsCommand ShowSsSansInstituteViewCommand { get; set; }
         public SsCommand ShowSsShodanViewCommand { get; set; }
         public SsCommand ShowSsTextEditorViewCommand { get; set; }
         public SsCommand ShowSsWebBrowserViewCommand { get; set; }
@@ -193,6 +227,20 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
         {
             #region Mitre
 
+            ShowSsReconnaissanceViewCommand = new SsCommand(ShowSsReconnaissanceView);
+            ShowSsResourceDevelopmentViewCommand = new SsCommand(ShowSsResourceDevelopmentView);
+            ShowSsInitialAccessViewCommand = new SsCommand(ShowSsInitialAccessView);
+            ShowSsExecutionViewCommand = new SsCommand(ShowSsExecutionView);
+            ShowSsPersistenceViewCommand = new SsCommand(ShowSsPersistenceView);
+            ShowSsPrivilegeEscalationViewCommand = new SsCommand(ShowSsPrivilegeEscalationView);
+            ShowSsDefenseEvasionViewCommand = new SsCommand(ShowSsDefenseEvasionView);
+            ShowSsCredentialAccessViewCommand = new SsCommand(ShowSsCredentialAccessView);
+            ShowSsDiscoveryViewCommand = new SsCommand(ShowSsDiscoveryView);
+            ShowSsLateralMovementViewCommand = new SsCommand(ShowSsLateralMovementView);
+            ShowSsCollectionViewCommand = new SsCommand(ShowSsCollectionView);
+            ShowSsCommandAndControlViewCommand = new SsCommand(ShowSsCommandAndControlView);
+            ShowSsExfiltrationViewCommand = new SsCommand(ShowSsExfiltrationView);
+            ShowSsImpactViewCommand = new SsCommand(ShowSsImpactView);
 
             #endregion
 
@@ -202,6 +250,8 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
             ShowSsAftaViewCommand = new SsCommand(ShowSsAftaView);
             ShowSsApiPlatformViewCommand = new SsCommand(ShowSsApiPlatformView);
             ShowSsCensysViewCommand = new SsCommand(ShowSsCensysView);
+            ShowSsDouranViewCommand = new SsCommand(ShowSsDouranView);
+            ShowSsEcCouncilViewCommand = new SsCommand(ShowSsEcCouncilView);
             ShowSsEncryptionViewCommand = new SsCommand(ShowSsEncryptionView);
             ShowSsFtpManagerViewCommand = new SsCommand(ShowSsFtpManagerView);
             ShowSsGitHubViewCommand = new SsCommand(ShowSsGitHubView);
@@ -210,6 +260,7 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
             ShowSsIanaViewCommand = new SsCommand(ShowSsIanaView);
             ShowSsMimikatzViewCommand = new SsCommand(ShowSsMimikatzView);
             ShowSsNmapViewCommand = new SsCommand(ShowSsNmapView);
+            ShowSsSansInstituteViewCommand = new SsCommand(ShowSsSansInstituteView);
             ShowSsShodanViewCommand = new SsCommand(ShowSsShodanView);
             ShowSsTextEditorViewCommand = new SsCommand(ShowSsTextEditorView);
             ShowSsWebBrowserViewCommand = new SsCommand(ShowSsWebBrowserView);
@@ -312,6 +363,75 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
         #region Mitre
 
+        private void ShowSsReconnaissanceView(object parameter)
+        {
+            _dockService.ShowSsView<SsReconnaissanceView>();
+        }
+
+        private void ShowSsResourceDevelopmentView(object parameter)
+        {
+            _dockService.ShowSsView<SsResourceDevelopmentView>();
+        }
+
+        private void ShowSsInitialAccessView(object parameter)
+        {
+            _dockService.ShowSsView<SsInitialAccessView>();
+        }
+
+        private void ShowSsExecutionView(object parameter)
+        {
+            _dockService.ShowSsView<SsExecutionView>();
+        }
+
+        private void ShowSsPersistenceView(object parameter)
+        {
+            _dockService.ShowSsView<SsPersistenceView>();
+        }
+
+        private void ShowSsPrivilegeEscalationView(object parameter)
+        {
+            _dockService.ShowSsView<SsPrivilegeEscalationView>();
+        }
+
+        private void ShowSsDefenseEvasionView(object parameter)
+        {
+            _dockService.ShowSsView<SsDefenseEvasionView>();
+        }
+
+        private void ShowSsCredentialAccessView(object parameter)
+        {
+            _dockService.ShowSsView<SsCredentialAccessView>();
+        }
+
+        private void ShowSsDiscoveryView(object parameter)
+        {
+            _dockService.ShowSsView<SsDiscoveryView>();
+        }
+
+        private void ShowSsLateralMovementView(object parameter)
+        {
+            _dockService.ShowSsView<SsLateralMovementView>();
+        }
+
+        private void ShowSsCollectionView(object parameter)
+        {
+            _dockService.ShowSsView<SsCollectionView>();
+        }
+
+        private void ShowSsCommandAndControlView(object parameter)
+        {
+            _dockService.ShowSsView<SsCommandAndControlView>();
+        }
+
+        private void ShowSsExfiltrationView(object parameter)
+        {
+            _dockService.ShowSsView<SsExfiltrationView>();
+        }
+
+        private void ShowSsImpactView(object parameter)
+        {
+            _dockService.ShowSsView<SsImpactView>();
+        }
 
         #endregion
 
@@ -331,6 +451,16 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
         private void ShowSsCensysView(object parameter)
         {
             _dockService.ShowSsView<SsCensysView>();
+        }
+
+        private void ShowSsDouranView(object parameter)
+        {
+            _dockService.ShowSsView<SsDouranView>();
+        }
+
+        private void ShowSsEcCouncilView(object parameter)
+        {
+            _dockService.ShowSsView<SsEcCouncilView>();
         }
 
         private void ShowSsEncryptionView(object parameter)
@@ -371,6 +501,11 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
         private void ShowSsNmapView(object parameter)
         {
             _dockService.ShowSsView<SsNmapView>();
+        }
+
+        private void ShowSsSansInstituteView(object parameter)
+        {
+            _dockService.ShowSsView<SsSansInstituteView>();
         }
 
         private void ShowSsShodanView(object parameter)

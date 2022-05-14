@@ -10,5 +10,10 @@ namespace SecurityStudio.Module.Tool.GitHub.View
         {
             InitializeComponent();
         }
+
+        public override void SsViewLoaded()
+        {
+            ((SsGitHubViewModel)SsViewModel).WebBrowser = WebBrowserMain;
+        }
     }
 }

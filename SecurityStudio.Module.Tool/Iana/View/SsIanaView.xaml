@@ -12,8 +12,10 @@
     <container:SsDockPanel>
         <bar:SsBarContainerControl container:SsDockPanel.Dock="Top">
             <bar:SsMainMenuControl>
-                <bar:SsBarButtonItem Content="IANA"
-                                     Command="{wpf:SsBinding Path=SsShowExploitDbCommand}" />
+                <bar:SsBarButtonItem Content="Show IANA"
+                                     Command="{wpf:SsBinding Path=SsShowIanaCommand}" />
+                <bar:SsBarButtonItem Content="Open IANA"
+                                     Command="{wpf:SsBinding Path=SsOpenIanaCommand}" />
             </bar:SsMainMenuControl>
         </bar:SsBarContainerControl>
         <layout:SsLayoutControl>

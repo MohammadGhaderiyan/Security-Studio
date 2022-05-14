@@ -16,10 +16,19 @@
             <bar:SsMainMenuControl>
                 <bar:SsBarButtonItem Content="Show Google Dork"
                                      Command="{wpf:SsBinding Path=SsShowGoogleDorkCommand}" />
+                <bar:SsBarButtonItem Content="Open Google Dork"
+                                     Command="{wpf:SsBinding Path=SsOpenGoogleDorkCommand}" />
             </bar:SsMainMenuControl>
         </bar:SsBarContainerControl>
         <layout:SsLayoutControl>
             <layout:SsLayoutGroup>
+                <layout:SsLayoutItem Label="Keyword : ">
+                    <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=Keyword}">
+                        <comboBox:SsComboBoxEdit.Items>
+                            <comboBox:SsComboBoxEditItem>CEH Tools</comboBox:SsComboBoxEditItem>
+                        </comboBox:SsComboBoxEdit.Items>
+                    </comboBox:SsComboBoxEdit>
+                </layout:SsLayoutItem>
                 <layout:SsLayoutItem Label="Site : ">
                     <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=Site}">
                         <comboBox:SsComboBoxEdit.Items>
@@ -48,13 +57,28 @@
                     <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=InTitle}">
                         <comboBox:SsComboBoxEdit.Items>
                             <comboBox:SsComboBoxEditItem>login</comboBox:SsComboBoxEditItem>
+                            <comboBox:SsComboBoxEditItem>index of</comboBox:SsComboBoxEditItem>
+                        </comboBox:SsComboBoxEdit.Items>
+                    </comboBox:SsComboBoxEdit>
+                </layout:SsLayoutItem>
+                <layout:SsLayoutItem Label="Link : ">
+                    <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=Link}">
+                        <comboBox:SsComboBoxEdit.Items>
+                            <comboBox:SsComboBoxEditItem>nooranet.com</comboBox:SsComboBoxEditItem>
+                        </comboBox:SsComboBoxEdit.Items>
+                    </comboBox:SsComboBoxEdit>
+                </layout:SsLayoutItem>
+                <layout:SsLayoutItem Label="Cache : ">
+                    <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=Cache}">
+                        <comboBox:SsComboBoxEdit.Items>
+                            <comboBox:SsComboBoxEditItem>nooranet.com</comboBox:SsComboBoxEditItem>
                         </comboBox:SsComboBoxEdit.Items>
                     </comboBox:SsComboBoxEdit>
                 </layout:SsLayoutItem>
             </layout:SsLayoutGroup>
             <layout:SsLayoutGroup HorizontalAlignment="Stretch">
                 <layout:SsLayoutItem HorizontalAlignment="Center">
-                    <button:SsSearchSimpleButton Command="{wpf:SsBinding Path=SearchCommand}" />
+                    <button:SsSearchSimpleButton Command="{wpf:SsBinding Path=SsSearchCommand}" />
                 </layout:SsLayoutItem>
             </layout:SsLayoutGroup>
             <layout:SsLayoutGroup HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
