@@ -13,7 +13,6 @@ namespace SecurityStudio.Module.Osint.Truecaller.View
 
         public override void SsViewLoaded()
         {
-            ((SsTruecallerViewModel)SsViewModel).WebBrowser = WebBrowserMain;
         }
     }
 }

@@ -13,7 +13,6 @@ namespace SecurityStudio.Module.Osint.OsintFramework.View
 
         public override void SsViewLoaded()
         {
-            ((SsOsintFrameworkViewModel)SsViewModel).WebBrowser = WebBrowserMain;
         }
     }
 }

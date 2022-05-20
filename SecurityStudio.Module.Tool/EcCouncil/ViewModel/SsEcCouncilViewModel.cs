@@ -16,21 +16,21 @@ namespace SecurityStudio.Module.Tool.EcCouncil.ViewModel
 
         private void SsShowEcCouncil(object parameter)
         {
-            WebBrowser.Navigate(_url);
+            Uri = _uriAddress;
         }
 
         private void SsOpenEcCouncil(object parameter)
         {
-            _utilityTool.OpenUrlInDefaultBrowser(_url);
+            _utilityTool.OpenUrlInDefaultBrowser(_uriAddress);
         }
 
-        private string _url;
+        private string _uriAddress;
         private UtilityTool _utilityTool;
 
         protected override void PrepareVariables()
         {
             Title = "EC-Council";
-            _url = "https://www.eccouncil.org/";
+            Uri = _uriAddress = "https://www.eccouncil.org/";
             _utilityTool = new UtilityTool();
         }
 
@@ -38,14 +38,14 @@ namespace SecurityStudio.Module.Tool.EcCouncil.ViewModel
         {
         }
 
-        private System.Windows.Controls.WebBrowser _webBrowser;
-        public System.Windows.Controls.WebBrowser WebBrowser
+        private string _uri;
+        public string Uri
         {
-            get => _webBrowser;
+            get => _uri;
             set
             {
-                _webBrowser = value;
-                SsShowEcCouncil(null);
+                _uri = value;
+                OnPropertyChanged();
             }
         }
 

@@ -26,27 +26,27 @@ namespace SecurityStudio.Module.Tool.Shodan.ViewModel
 
         private void SsShowShodan(object parameter)
         {
-            WebBrowser.Navigate(_url);
+            Uri = _uriAddress;
         }
 
         private void SsOpenShodan(object parameter)
         {
-            _utilityTool.OpenUrlInDefaultBrowser(_url);
+            _utilityTool.OpenUrlInDefaultBrowser(_uriAddress);
         }
 
         private void SsSearch(object parameter)
         {
-            WebBrowser.Navigate(_shodanTool.GetUri(
-                Net, Host, Port, Application, Server, Country, City, Custom));
+            Uri = _shodanTool.GetUri(Net, Host, Port,
+                Application, Country, City, Custom);
         }
 
-        private string _url;
+        private string _uriAddress;
         private UtilityTool _utilityTool;
 
         protected override void PrepareVariables()
         {
             Title = "Shodan";
-            _url = "https://www.shodan.io/";
+            Uri = _uriAddress = "https://www.shodan.io/";
             _utilityTool = new UtilityTool();
         }
 
@@ -54,14 +54,14 @@ namespace SecurityStudio.Module.Tool.Shodan.ViewModel
         {
         }
 
-        private System.Windows.Controls.WebBrowser _webBrowser;
-        public System.Windows.Controls.WebBrowser WebBrowser
+        private string _uri;
+        public string Uri
         {
-            get => _webBrowser;
+            get => _uri;
             set
             {
-                _webBrowser = value;
-                SsShowShodan(null);
+                _uri = value;
+                OnPropertyChanged();
             }
         }
 
@@ -105,17 +105,6 @@ namespace SecurityStudio.Module.Tool.Shodan.ViewModel
             set
             {
                 _application = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string _server;
-        public string Server
-        {
-            get => _server;
-            set
-            {
-                _server = value;
                 OnPropertyChanged();
             }
         }

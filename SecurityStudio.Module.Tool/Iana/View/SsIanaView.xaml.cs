@@ -13,7 +13,6 @@ namespace SecurityStudio.Module.Tool.Iana.View
 
         public override void SsViewLoaded()
         {
-            ((SsIanaViewModel)SsViewModel).WebBrowser = WebBrowserMain;
         }
     }
 }

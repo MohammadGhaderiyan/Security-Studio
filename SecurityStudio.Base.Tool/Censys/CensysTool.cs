@@ -4,9 +4,8 @@ namespace SecurityStudio.Base.Tool.Censys
 {
     public class CensysTool : Main.Tool.Tool
     {
-        public CensysTool() : base(true, true)
+        public CensysTool() : base("Censys")
         {
-            CommandName = "";
         }
 
         public string GetUri(string query)

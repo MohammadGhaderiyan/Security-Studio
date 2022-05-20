@@ -13,7 +13,6 @@ namespace SecurityStudio.Module.Linux.Terminal.View
 
         public override void SsViewLoaded()
         {
-            ((SsTerminalViewModel)SsViewModel).ConsoleControl = ConsoleControlMain;
         }
     }
 }

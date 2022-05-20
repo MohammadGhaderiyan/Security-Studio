@@ -5,9 +5,8 @@ namespace SecurityStudio.Base.Tool.GoogleDork
 {
     public class GoogleDorkTool : Main.Tool.Tool
     {
-        public GoogleDorkTool() : base(true, true)
+        public GoogleDorkTool() : base("Google Dork")
         {
-            CommandName = "";
         }
 
         public string GetUri(string keyword, string site, string fileType,
@@ -17,22 +16,22 @@ namespace SecurityStudio.Base.Tool.GoogleDork
 
             #region Check Space
 
-            if (site.Contains(" "))
+            if (site != null && site.Contains(" "))
                 site = $"\"{site}\"";
 
-            if (fileType.Contains(" "))
+            if (fileType != null && fileType.Contains(" "))
                 fileType = $"\"{fileType}\"";
 
-            if (inUrl.Contains(" "))
+            if (inUrl != null && inUrl.Contains(" "))
                 inUrl = $"\"{inUrl}\"";
 
-            if (inTitle.Contains(" "))
+            if (inTitle != null && inTitle.Contains(" "))
                 inTitle = $"\"{inTitle}\"";
 
-            if (link.Contains(" "))
+            if (link != null && link.Contains(" "))
                 link = $"\"{link}\"";
 
-            if (cache.Contains(" "))
+            if (cache != null && cache.Contains(" "))
                 cache = $"\"{cache}\"";
 
             #endregion

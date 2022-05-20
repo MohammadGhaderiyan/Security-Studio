@@ -13,7 +13,6 @@ namespace SecurityStudio.Module.Tool.GoogleDork.View
 
         public override void SsViewLoaded()
         {
-            ((SsGoogleDorkViewModel)SsViewModel).WebBrowser = WebBrowserMain;
         }
     }
 }

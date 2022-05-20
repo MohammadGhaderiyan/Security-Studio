@@ -16,21 +16,21 @@ namespace SecurityStudio.Module.Osint.OsintFramework.ViewModel
 
         private void SsShowOsintFramework(object parameter)
         {
-            WebBrowser.Navigate(_url);
+            Uri = _uriAddress;
         }
 
         private void SsOpenOsintFramework(object parameter)
         {
-            _utilityTool.OpenUrlInDefaultBrowser(_url);
+            _utilityTool.OpenUrlInDefaultBrowser(_uriAddress);
         }
 
-        private string _url;
+        private string _uriAddress;
         private UtilityTool _utilityTool;
 
         protected override void PrepareVariables()
         {
             Title = " OSINT Framework";
-            _url = "https://osintframework.com/";
+            Uri = _uriAddress = "https://osintframework.com/";
             _utilityTool = new UtilityTool();
         }
 
@@ -38,14 +38,14 @@ namespace SecurityStudio.Module.Osint.OsintFramework.ViewModel
         {
         }
 
-        private System.Windows.Controls.WebBrowser _webBrowser;
-        public System.Windows.Controls.WebBrowser WebBrowser
+        private string _uri;
+        public string Uri
         {
-            get => _webBrowser;
+            get => _uri;
             set
             {
-                _webBrowser = value;
-                SsShowOsintFramework(null);
+                _uri = value;
+                OnPropertyChanged();
             }
         }
 

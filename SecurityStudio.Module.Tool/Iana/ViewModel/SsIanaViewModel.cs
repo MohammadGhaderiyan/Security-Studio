@@ -32,69 +32,69 @@ namespace SecurityStudio.Module.Tool.Iana.ViewModel
 
         private void SsShowRipe(object parameter)
         {
-            WebBrowser.Navigate(_ripeUrl);
+            Uri = _ripeUrlAddress;
         }
 
         private void SsShowArin(object parameter)
         {
-            WebBrowser.Navigate(_arinUrl);
+            Uri = _arinUrlAddress;
         }
 
         private void SsShowAfrinic(object parameter)
         {
-            WebBrowser.Navigate(_afrinicUrl);
+            Uri = _afrinicUrlAddress;
         }
 
         private void SsShowApnic(object parameter)
         {
-            WebBrowser.Navigate(_apnicUrl);
+            Uri = _apnicUrlAddress;
         }
 
         private void SsShowLacnic(object parameter)
         {
-            WebBrowser.Navigate(_lacnicUrl);
+            Uri = _lacnicUrlAddress;
         }
 
         private void SsOpenRipe(object parameter)
         {
-            _utilityTool.OpenUrlInDefaultBrowser(_ripeUrl);
+            _utilityTool.OpenUrlInDefaultBrowser(_ripeUrlAddress);
         }
 
         private void SsOpenArin(object parameter)
         {
-            _utilityTool.OpenUrlInDefaultBrowser(_arinUrl);
+            _utilityTool.OpenUrlInDefaultBrowser(_arinUrlAddress);
         }
 
         private void SsOpenAfrinic(object parameter)
         {
-            _utilityTool.OpenUrlInDefaultBrowser(_afrinicUrl);
+            _utilityTool.OpenUrlInDefaultBrowser(_afrinicUrlAddress);
         }
 
         private void SsOpenApnic(object parameter)
         {
-            _utilityTool.OpenUrlInDefaultBrowser(_apnicUrl);
+            _utilityTool.OpenUrlInDefaultBrowser(_apnicUrlAddress);
         }
 
         private void SsOpenLacnic(object parameter)
         {
-            _utilityTool.OpenUrlInDefaultBrowser(_lacnicUrl);
+            _utilityTool.OpenUrlInDefaultBrowser(_lacnicUrlAddress);
         }
 
-        private string _ripeUrl;
-        private string _arinUrl;
-        private string _afrinicUrl;
-        private string _apnicUrl;
-        private string _lacnicUrl;
+        private string _ripeUrlAddress;
+        private string _arinUrlAddress;
+        private string _afrinicUrlAddress;
+        private string _apnicUrlAddress;
+        private string _lacnicUrlAddress;
         private UtilityTool _utilityTool;
 
         protected override void PrepareVariables()
         {
             Title = "IANA";
-            _ripeUrl = "https://www.ripe.net/";
-            _arinUrl = "https://www.arin.net/";
-            _afrinicUrl = "https://afrinic.net/";
-            _apnicUrl = "https://www.apnic.net/";
-            _lacnicUrl = "https://www.lacnic.net/";
+            Uri = _ripeUrlAddress = "https://www.ripe.net/";
+            _arinUrlAddress = "https://www.arin.net/";
+            _afrinicUrlAddress = "https://afrinic.net/";
+            _apnicUrlAddress = "https://www.apnic.net/";
+            _lacnicUrlAddress = "https://www.lacnic.net/";
             _utilityTool = new UtilityTool();
         }
 
@@ -102,14 +102,14 @@ namespace SecurityStudio.Module.Tool.Iana.ViewModel
         {
         }
 
-        private System.Windows.Controls.WebBrowser _webBrowser;
-        public System.Windows.Controls.WebBrowser WebBrowser
+        private string _uri;
+        public string Uri
         {
-            get => _webBrowser;
+            get => _uri;
             set
             {
-                _webBrowser = value;
-                SsShowRipe(null);
+                _uri = value;
+                OnPropertyChanged();
             }
         }
 

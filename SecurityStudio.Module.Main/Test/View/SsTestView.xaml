@@ -7,7 +7,6 @@
              xmlns:layout="clr-namespace:SecurityStudio.Base.Control.Layout;assembly=SecurityStudio.Base.Control"
              xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
              xmlns:button="clr-namespace:SecurityStudio.Base.Control.Button;assembly=SecurityStudio.Base.Control"
-             xmlns:eo="http://schemas.essentialobjects.com/wpf/"
              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
     <layout:SsLayoutControl>
         <layout:SsGroupBoxLayoutGroup Header="{wpf:SsBinding Path=Title}"
@@ -34,7 +33,7 @@
             </layout:SsLayoutGroup>
             <layout:SsLayoutGroup VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                 <layout:SsLayoutItem VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                    <eo:WebControl Name="WebControlMain" />
+                    <WindowsFormsHost Name="WindowsFormsHostMain" />
                 </layout:SsLayoutItem>
             </layout:SsLayoutGroup>
         </layout:SsGroupBoxLayoutGroup>

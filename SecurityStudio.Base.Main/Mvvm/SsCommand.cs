@@ -1,34 +1,59 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace SecurityStudio.Base.Main.Mvvm
 {
     public class SsCommand : ICommand
     {
-        private readonly Action<object> _execute;
-        private readonly Func<object, bool> _canExecute;
+        public event EventHandler CanExecuteChanged;
 
-        public SsCommand(Action<object> execute, Func<object, bool> canExecute = null)
+        private bool _isExecuting;
+        private readonly Func<Task> _execute;
+        private readonly Func<bool> _canExecute;
+
+        public SsCommand(Func<Task> execute, Func<bool> canExecute = null)
         {
             _execute = execute;
             _canExecute = canExecute;
         }
 
-        public event EventHandler CanExecuteChanged;
-
-        public bool CanExecute(object parameter)
+        public bool CanExecute()
         {
-            if (_canExecute != null)
-                return _canExecute(parameter);
-
-            return true;
+            return !_isExecuting && (_canExecute?.Invoke() ?? true);
         }
 
-        public void Execute(object parameter) => _execute(parameter);
+        public async Task ExecuteAsync()
+        {
+            if (CanExecute())
+            {
+                try
+                {
+                    _isExecuting = true;
+                    await _execute();
+                }
+                finally
+                {
+                    _isExecuting = false;
+                }
+            }
 
-        public void CheckCanExecuteChanged()
+            RaiseCanExecuteChanged();
+        }
+
+        public void RaiseCanExecuteChanged()
         {
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        bool ICommand.CanExecute(object parameter)
+        {
+            return CanExecute();
+        }
+
+        async void ICommand.Execute(object parameter)
+        {
+            await ExecuteAsync();
         }
     }
 }

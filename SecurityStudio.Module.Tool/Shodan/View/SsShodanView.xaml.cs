@@ -13,7 +13,6 @@ namespace SecurityStudio.Module.Tool.Shodan.View
 
         public override void SsViewLoaded()
         {
-            ((SsShodanViewModel)SsViewModel).WebBrowser = WebBrowserMain;
         }
     }
 }

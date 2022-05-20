@@ -13,7 +13,6 @@ namespace SecurityStudio.Module.Osint.SocialSearcher.View
 
         public override void SsViewLoaded()
         {
-            ((SsSocialSearcherViewModel)SsViewModel).WebBrowser = WebBrowserMain;
         }
     }
 }

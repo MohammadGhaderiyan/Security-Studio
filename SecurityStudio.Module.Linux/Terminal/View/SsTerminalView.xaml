@@ -8,7 +8,6 @@
              xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
              xmlns:container="clr-namespace:SecurityStudio.Base.Control.Container;assembly=SecurityStudio.Base.Control"
              xmlns:bar="clr-namespace:SecurityStudio.Base.Control.Bar;assembly=SecurityStudio.Base.Control"
-             xmlns:wpf1="clr-namespace:ConsoleControl.WPF;assembly=ConsoleControl.WPF"
              mc:Ignorable="d" d:DesignHeight="300">
     <container:SsDockPanel>
         <bar:SsBarContainerControl container:SsDockPanel.Dock="Top">
@@ -20,7 +19,13 @@
         <layout:SsLayoutControl>
             <layout:SsLayoutGroup HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <layout:SsLayoutItem HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <wpf1:ConsoleControl Name="ConsoleControlMain" />
+
+
+
+
+
+
+
                 </layout:SsLayoutItem>
             </layout:SsLayoutGroup>
         </layout:SsLayoutControl>

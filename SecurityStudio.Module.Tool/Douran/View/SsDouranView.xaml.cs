@@ -13,7 +13,6 @@ namespace SecurityStudio.Module.Tool.Douran.View
 
         public override void SsViewLoaded()
         {
-            ((SsDouranViewModel)SsViewModel).WebBrowser = WebBrowserMain;
         }
     }
 }

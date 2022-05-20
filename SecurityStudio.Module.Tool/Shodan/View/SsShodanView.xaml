@@ -10,6 +10,7 @@
              xmlns:bar="clr-namespace:SecurityStudio.Base.Control.Bar;assembly=SecurityStudio.Base.Control"
              xmlns:comboBox="clr-namespace:SecurityStudio.Base.Control.ComboBox;assembly=SecurityStudio.Base.Control"
              xmlns:button="clr-namespace:SecurityStudio.Base.Control.Button;assembly=SecurityStudio.Base.Control"
+             xmlns:web="clr-namespace:SecurityStudio.Base.Control.Web;assembly=SecurityStudio.Base.Control"
              mc:Ignorable="d" d:DesignHeight="300">
     <container:SsDockPanel>
         <bar:SsBarContainerControl container:SsDockPanel.Dock="Top">
@@ -54,18 +55,12 @@
                             <comboBox:SsComboBoxEditItem>linux</comboBox:SsComboBoxEditItem>
                             <comboBox:SsComboBoxEditItem>windows</comboBox:SsComboBoxEditItem>
                             <comboBox:SsComboBoxEditItem>cisco</comboBox:SsComboBoxEditItem>
+                            <comboBox:SsComboBoxEditItem>sq-webcam</comboBox:SsComboBoxEditItem>
                         </comboBox:SsComboBoxEdit.Items>
                     </comboBox:SsComboBoxEdit>
                 </layout:SsLayoutItem>
             </layout:SsLayoutGroup>
             <layout:SsLayoutGroup>
-                <layout:SsLayoutItem Label="Server : ">
-                    <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=Server}">
-                        <comboBox:SsComboBoxEdit.Items>
-                            <comboBox:SsComboBoxEditItem>sq-webcam</comboBox:SsComboBoxEditItem>
-                        </comboBox:SsComboBoxEdit.Items>
-                    </comboBox:SsComboBoxEdit>
-                </layout:SsLayoutItem>
                 <layout:SsLayoutItem Label="Country : ">
                     <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=Country}">
                         <comboBox:SsComboBoxEdit.Items>
@@ -95,7 +90,7 @@
             </layout:SsLayoutGroup>
             <layout:SsLayoutGroup HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <layout:SsLayoutItem HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <WebBrowser Name="WebBrowserMain" />
+                    <web:SsWebControl Uri="{wpf:SsBinding Path=Uri}" />
                 </layout:SsLayoutItem>
             </layout:SsLayoutGroup>
         </layout:SsLayoutControl>

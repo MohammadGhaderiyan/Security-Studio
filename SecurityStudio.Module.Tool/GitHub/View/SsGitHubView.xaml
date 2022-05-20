@@ -8,6 +8,7 @@
              xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
              xmlns:bar="clr-namespace:SecurityStudio.Base.Control.Bar;assembly=SecurityStudio.Base.Control"
              xmlns:container="clr-namespace:SecurityStudio.Base.Control.Container;assembly=SecurityStudio.Base.Control"
+             xmlns:web="clr-namespace:SecurityStudio.Base.Control.Web;assembly=SecurityStudio.Base.Control"
              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="500">
     <container:SsDockPanel>
         <bar:SsBarContainerControl container:SsDockPanel.Dock="Top">
@@ -21,7 +22,7 @@
         <layout:SsLayoutControl>
             <layout:SsLayoutGroup HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <layout:SsLayoutItem HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <WebBrowser Name="WebBrowserMain" />
+                    <web:SsWebControl Uri="{wpf:SsBinding Path=Uri}" />
                 </layout:SsLayoutItem>
             </layout:SsLayoutGroup>
         </layout:SsLayoutControl>

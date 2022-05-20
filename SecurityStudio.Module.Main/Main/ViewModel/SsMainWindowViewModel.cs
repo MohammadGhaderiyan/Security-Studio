@@ -2,10 +2,14 @@
 using System.Linq;
 using SecurityStudio.Base.Main.Mvvm;
 using SecurityStudio.Database.Model.Definition;
+using SecurityStudio.Module.CodeEditor.Assembly.View;
 using SecurityStudio.Module.CodeEditor.BashScript.View;
 using SecurityStudio.Module.CodeEditor.BatchScript.View;
+using SecurityStudio.Module.CodeEditor.C.View;
 using SecurityStudio.Module.CodeEditor.CPlusPlus.View;
 using SecurityStudio.Module.CodeEditor.CSharp.View;
+using SecurityStudio.Module.CodeEditor.Go.View;
+using SecurityStudio.Module.CodeEditor.Java.View;
 using SecurityStudio.Module.CodeEditor.PowerShellScript.View;
 using SecurityStudio.Module.CodeEditor.Python.View;
 using SecurityStudio.Module.Database.MongoDb.View;
@@ -181,10 +185,14 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
         #region Code Editor
 
+        public SsCommand ShowSsAssemblyViewCommand { get; set; }
         public SsCommand ShowSsBashScriptViewCommand { get; set; }
         public SsCommand ShowSsBatchScriptViewCommand { get; set; }
+        public SsCommand ShowSsCViewCommand { get; set; }
         public SsCommand ShowSsCPlusPlusViewCommand { get; set; }
         public SsCommand ShowSsCSharpViewCommand { get; set; }
+        public SsCommand ShowSsGoViewCommand { get; set; }
+        public SsCommand ShowSsJavaViewCommand { get; set; }
         public SsCommand ShowSsPowerShellScriptViewCommand { get; set; }
         public SsCommand ShowSsPythonViewCommand { get; set; }
 
@@ -326,10 +334,14 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
             #region Code Editor
 
+            ShowSsAssemblyViewCommand = new SsCommand(ShowSsAssemblyView);
             ShowSsBashScriptViewCommand = new SsCommand(ShowSsBashScriptView);
             ShowSsBatchScriptViewCommand = new SsCommand(ShowSsBatchScriptView);
+            ShowSsCViewCommand = new SsCommand(ShowSsCView);
             ShowSsCPlusPlusViewCommand = new SsCommand(ShowSsCPlusPlusView);
             ShowSsCSharpViewCommand = new SsCommand(ShowSsCSharpView);
+            ShowSsGoViewCommand = new SsCommand(ShowSsGoView);
+            ShowSsJavaViewCommand = new SsCommand(ShowSsJavaView);
             ShowSsPowerShellScriptViewCommand = new SsCommand(ShowSsPowerShellScriptView);
             ShowSsPythonViewCommand = new SsCommand(ShowSsPythonView);
 
@@ -673,6 +685,11 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
         #region Code Editor
 
+        private void ShowSsAssemblyView(object parameter)
+        {
+            _dockService.ShowSsView<SsAssemblyView>();
+        }
+
         private void ShowSsBashScriptView(object parameter)
         {
             _dockService.ShowSsView<SsBashScriptView>();
@@ -683,6 +700,11 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
             _dockService.ShowSsView<SsBatchScriptView>();
         }
 
+        private void ShowSsCView(object parameter)
+        {
+            _dockService.ShowSsView<SsCView>();
+        }
+
         private void ShowSsCPlusPlusView(object parameter)
         {
             _dockService.ShowSsView<SsCPlusPlusView>();
@@ -691,6 +713,16 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
         private void ShowSsCSharpView(object parameter)
         {
             _dockService.ShowSsView<SsCSharpView>();
+        }
+
+        private void ShowSsGoView(object parameter)
+        {
+            _dockService.ShowSsView<SsGoView>();
+        }
+
+        private void ShowSsJavaView(object parameter)
+        {
+            _dockService.ShowSsView<SsJavaView>();
         }
 
         private void ShowSsPowerShellScriptView(object parameter)

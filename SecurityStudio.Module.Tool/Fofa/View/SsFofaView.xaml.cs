@@ -13,7 +13,6 @@ namespace SecurityStudio.Module.Tool.Fofa.View
 
         public override void SsViewLoaded()
         {
-            ((SsFofaViewModel)SsViewModel).WebBrowser = WebBrowserMain;
         }
     }
 }

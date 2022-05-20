@@ -13,7 +13,6 @@ namespace SecurityStudio.Module.Osint.LeakLookup.View
 
         public override void SsViewLoaded()
         {
-            ((SsLeakLookupViewModel)SsViewModel).WebBrowser = WebBrowserMain;
         }
     }
 }

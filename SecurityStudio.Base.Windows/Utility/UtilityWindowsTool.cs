@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using SecurityStudio.Base.Windows.Base;
 using SecurityStudio.Database.Model.Definition;
 
 namespace SecurityStudio.Base.Windows.Utility
@@ -6,7 +7,7 @@ namespace SecurityStudio.Base.Windows.Utility
     public class UtilityWindowsTool : WindowsTool
     {
         public UtilityWindowsTool(WindowsOperatingSystem windowsOperatingSystem)
-            : base(windowsOperatingSystem)
+            : base("Utility", windowsOperatingSystem)
         {
         }
 

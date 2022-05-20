@@ -5,8 +5,7 @@ namespace SecurityStudio.Base.Tool.Utility
 {
     public class UtilityTool : Main.Tool.Tool
     {
-        public UtilityTool()
-            : base(true, true)
+        public UtilityTool() : base("Utility")
         {
         }
 

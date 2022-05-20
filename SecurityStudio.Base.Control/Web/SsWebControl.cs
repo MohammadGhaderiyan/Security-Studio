@@ -1,12 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows;
+using EO.Wpf;
 
 namespace SecurityStudio.Base.Control.Web
 {
-    internal class SsWebControl
+    public class SsWebControl : WebControl
     {
+        public SsWebControl()
+        {
+            WebView = new WebView();
+        }
+
+
+        public string Uri
+        {
+            get => (string)GetValue(UriProperty);
+            set => SetValue(UriProperty, value);
+        }
+
+        public static readonly DependencyProperty UriProperty =
+            DependencyProperty.Register("Uri", typeof(string), typeof(SsWebControl), new PropertyMetadata(null, UriPropertyChangedCallback));
+
+        private static void UriPropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (e.NewValue != null)
+            {
+                var ssWebControl = (SsWebControl)d;
+                ssWebControl.WebView.LoadUrl(e.NewValue.ToString());
+            }
+        }
     }
 }

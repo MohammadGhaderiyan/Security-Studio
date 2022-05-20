@@ -201,7 +201,19 @@
 		<Compile Update="BashScript\View\SsBashScriptView.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
-		<Compile Update="CSharp\View\SsTerminalView.xaml.cs">
+		<Compile Update="Assembly\View\SsAssemblyView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Java\View\SsJavaView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Go\View\SsGoView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="C\View\SsCView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="CSharp\View\SsCSharpView.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
 		<Compile Update="PowerShellScript\View\SsPowerShellScriptView.xaml.cs">
@@ -225,7 +237,23 @@
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 			<SubType>Designer</SubType>
 		</Page>
-		<Page Update="CSharp\View\SsTerminalView.xaml">
+		<Page Update="Assembly\View\SsAssemblyView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Java\View\SsJavaView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Go\View\SsGoView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="C\View\SsCView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="CSharp\View\SsCSharpView.xaml">
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 			<SubType>Designer</SubType>
 		</Page>

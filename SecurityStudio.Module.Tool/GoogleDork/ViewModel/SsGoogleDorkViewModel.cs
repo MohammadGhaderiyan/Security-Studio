@@ -26,27 +26,27 @@ namespace SecurityStudio.Module.Tool.GoogleDork.ViewModel
 
         private void SsShowGoogleDork(object parameter)
         {
-            WebBrowser.Navigate(_url);
+            Uri = _uriAddress;
         }
 
         private void SsOpenGoogleDork(object parameter)
         {
-            _utilityTool.OpenUrlInDefaultBrowser(_url);
+            _utilityTool.OpenUrlInDefaultBrowser(_uriAddress);
         }
 
         private void SsSearch(object parameter)
         {
-            WebBrowser.Navigate(_googleDorkTool.GetUri(
-                Keyword, Site, FileType, InUrl, InTitle, Link, Cache, Custom));
+            Uri = _googleDorkTool.GetUri(Keyword, Site,
+                FileType, InUrl, InTitle, Link, Cache, Custom);
         }
 
-        private string _url;
+        private string _uriAddress;
         private UtilityTool _utilityTool;
 
         protected override void PrepareVariables()
         {
             Title = "Google Dork";
-            _url = "https://www.google.com/";
+            Uri = _uriAddress = "https://www.google.com/";
             _utilityTool = new UtilityTool();
         }
 
@@ -54,14 +54,14 @@ namespace SecurityStudio.Module.Tool.GoogleDork.ViewModel
         {
         }
 
-        private System.Windows.Controls.WebBrowser _webBrowser;
-        public System.Windows.Controls.WebBrowser WebBrowser
+        private string _uri;
+        public string Uri
         {
-            get => _webBrowser;
+            get => _uri;
             set
             {
-                _webBrowser = value;
-                SsShowGoogleDork(null);
+                _uri = value;
+                OnPropertyChanged();
             }
         }
 

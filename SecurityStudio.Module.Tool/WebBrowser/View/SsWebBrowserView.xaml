@@ -6,13 +6,13 @@
              xmlns:mvvm="clr-namespace:SecurityStudio.Base.Main.Mvvm;assembly=SecurityStudio.Base.Main"
              xmlns:layout="clr-namespace:SecurityStudio.Base.Control.Layout;assembly=SecurityStudio.Base.Control"
              xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
+             xmlns:web="clr-namespace:SecurityStudio.Base.Control.Web;assembly=SecurityStudio.Base.Control"
              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
     <layout:SsLayoutControl>
         <layout:SsGroupBoxLayoutGroup Header="{wpf:SsBinding Path=Title}"
                                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <layout:SsLayoutItem VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                <!--<wpf1:ChromiumWebBrowser x:Name="Browser"
-                                         Address="https://www.google.com" />-->
+                <web:SsWebControl Uri="{wpf:SsBinding Path=Uri}" />
             </layout:SsLayoutItem>
         </layout:SsGroupBoxLayoutGroup>
     </layout:SsLayoutControl>

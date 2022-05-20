@@ -13,7 +13,6 @@ namespace SecurityStudio.Module.Tool.Censys.View
 
         public override void SsViewLoaded()
         {
-            ((SsCensysViewModel)SsViewModel).WebBrowser = WebBrowserMain;
         }
     }
 }

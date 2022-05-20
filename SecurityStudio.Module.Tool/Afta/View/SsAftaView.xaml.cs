@@ -13,7 +13,6 @@ namespace SecurityStudio.Module.Tool.Afta.View
 
         public override void SsViewLoaded()
         {
-            ((SsAftaViewModel)SsViewModel).WebBrowser = WebBrowserMain;
         }
     }
 }

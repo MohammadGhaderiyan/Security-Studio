@@ -153,14 +153,22 @@
                 </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="Code Editor">
                     <ribbon:SsRibbonPageGroup Caption="Code Editor">
+                        <ribbon:SsLargeBarButtonItem Content="Assembly"
+                                                     Command="{wpf:SsBinding Path=ShowSsAssemblyViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Bash Script"
                                                      Command="{wpf:SsBinding Path=ShowSsBashScriptViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Batch Script"
                                                      Command="{wpf:SsBinding Path=ShowSsBatchScriptViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="C"
+                                                     Command="{wpf:SsBinding Path=ShowSsCViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="C++"
                                                      Command="{wpf:SsBinding Path=ShowSsCPlusPlusViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="C#"
                                                      Command="{wpf:SsBinding Path=ShowSsCSharpViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Go"
+                                                     Command="{wpf:SsBinding Path=ShowSsGoViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Java"
+                                                     Command="{wpf:SsBinding Path=ShowSsJavaViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Power Shell Script"
                                                      Command="{wpf:SsBinding Path=ShowSsPowerShellScriptViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Python"

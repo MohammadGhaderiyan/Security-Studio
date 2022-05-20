@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using SecurityStudio.Base.Main.Model;
 using SecurityStudio.Base.Main.Mvvm;
 using SecurityStudio.Module.Definition.AndroidOperatingSystem.View;
@@ -42,15 +43,18 @@ namespace SecurityStudio.Module.Definition.AndroidOperatingSystem.ViewModel
                 SsDeleteAndroidOperatingSystem, CanSsDeleteAndroidOperatingSystem);
         }
 
-        private void SsSearch(object parameter)
+        private async Task SsSearch(object parameter)
         {
-            FillAndroidOperatingSystems();
+            await Task.Run(FillAndroidOperatingSystems);
         }
 
-        private void SsAddAndroidOperatingSystem(object parameter)
+        private async Task SsAddAndroidOperatingSystem(object parameter)
         {
-            _windowService.ShowDialogSsView<SsAndroidOperatingSystemView>();
-            FillAndroidOperatingSystems();
+            await Task.Run(() =>
+            {
+                _windowService.ShowDialogSsView<SsAndroidOperatingSystemView>();
+                FillAndroidOperatingSystems();
+            });
         }
 
         private void SsEditAndroidOperatingSystem(object parameter)

@@ -13,7 +13,6 @@ namespace SecurityStudio.Module.Tool.EcCouncil.View
 
         public override void SsViewLoaded()
         {
-            ((SsEcCouncilViewModel)SsViewModel).WebBrowser = WebBrowserMain;
         }
     }
 }

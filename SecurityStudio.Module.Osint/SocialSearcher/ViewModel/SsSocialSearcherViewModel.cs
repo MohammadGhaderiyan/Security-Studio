@@ -16,21 +16,21 @@ namespace SecurityStudio.Module.Osint.SocialSearcher.ViewModel
 
         private void SsShowSocialSearcher(object parameter)
         {
-            WebBrowser.Navigate(_url);
+            Uri = _uriAddress;
         }
 
         private void SsOpenSocialSearcher(object parameter)
         {
-            _utilityTool.OpenUrlInDefaultBrowser(_url);
+            _utilityTool.OpenUrlInDefaultBrowser(_uriAddress);
         }
 
-        private string _url;
+        private string _uriAddress;
         private UtilityTool _utilityTool;
 
         protected override void PrepareVariables()
         {
             Title = "Social Searcher";
-            _url = "https://www.social-searcher.com/";
+            Uri = _uriAddress = "https://www.social-searcher.com/";
             _utilityTool = new UtilityTool();
         }
 
@@ -38,14 +38,14 @@ namespace SecurityStudio.Module.Osint.SocialSearcher.ViewModel
         {
         }
 
-        private System.Windows.Controls.WebBrowser _webBrowser;
-        public System.Windows.Controls.WebBrowser WebBrowser
+        private string _uri;
+        public string Uri
         {
-            get => _webBrowser;
+            get => _uri;
             set
             {
-                _webBrowser = value;
-                SsShowSocialSearcher(null);
+                _uri = value;
+                OnPropertyChanged();
             }
         }
 

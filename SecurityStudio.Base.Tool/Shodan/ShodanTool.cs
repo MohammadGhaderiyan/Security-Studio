@@ -5,37 +5,33 @@ namespace SecurityStudio.Base.Tool.Shodan
 {
     public class ShodanTool : Main.Tool.Tool
     {
-        public ShodanTool() : base(true, true)
+        public ShodanTool() : base("Shodan")
         {
-            CommandName = "";
         }
 
         public string GetUri(string net, string host, string port, string application,
-            string server, string country, string city, string custom)
+            string country, string city, string custom)
         {
             var stringBuilder = new StringBuilder("query=");
 
             #region Check Space
 
-            if (net.Contains(" "))
+            if (net != null && net.Contains(" "))
                 net = $"\"{net}\"";
 
-            if (host.Contains(" "))
+            if (host != null && host.Contains(" "))
                 host = $"\"{host}\"";
 
-            if (port.Contains(" "))
+            if (port != null && port.Contains(" "))
                 port = $"\"{port}\"";
 
-            if (application.Contains(" "))
+            if (application != null && application.Contains(" "))
                 application = $"\"{application}\"";
 
-            if (server.Contains(" "))
-                server = $"\"{server}\"";
-
-            if (country.Contains(" "))
+            if (country != null && country.Contains(" "))
                 country = $"\"{country}\"";
 
-            if (city.Contains(" "))
+            if (city != null && city.Contains(" "))
                 city = $"\"{city}\"";
 
             #endregion
@@ -53,11 +49,7 @@ namespace SecurityStudio.Base.Tool.Shodan
 
             if (string.IsNullOrWhiteSpace(application) == false)
                 // ReSharper disable once StringLiteralTypo
-                stringBuilder.Append($"application:{application} ");
-
-            if (string.IsNullOrWhiteSpace(server) == false)
-                // ReSharper disable once StringLiteralTypo
-                stringBuilder.Append($"server:{server} ");
+                stringBuilder.Append($"{application} ");
 
             if (string.IsNullOrWhiteSpace(country) == false)
                 // ReSharper disable once StringLiteralTypo

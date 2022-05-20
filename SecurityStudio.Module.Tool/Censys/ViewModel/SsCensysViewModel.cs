@@ -26,26 +26,26 @@ namespace SecurityStudio.Module.Tool.Censys.ViewModel
 
         private void SsShowCensys(object parameter)
         {
-            WebBrowser.Navigate(_url);
+            Uri = _uriAddress;
         }
 
         private void SsOpenCensys(object parameter)
         {
-            _utilityTool.OpenUrlInDefaultBrowser(_url);
+            _utilityTool.OpenUrlInDefaultBrowser(_uriAddress);
         }
 
         private void SsSearch(object parameter)
         {
-            WebBrowser.Navigate(_censysTool.GetUri(Query));
+            Uri = _censysTool.GetUri(Query);
         }
 
-        private string _url;
+        private string _uriAddress;
         private UtilityTool _utilityTool;
 
         protected override void PrepareVariables()
         {
             Title = "Censys";
-            _url = "https://search.censys.io/";
+            Uri = _uriAddress = "https://search.censys.io/";
             _utilityTool = new UtilityTool();
         }
 
@@ -53,14 +53,14 @@ namespace SecurityStudio.Module.Tool.Censys.ViewModel
         {
         }
 
-        private System.Windows.Controls.WebBrowser _webBrowser;
-        public System.Windows.Controls.WebBrowser WebBrowser
+        private string _uri;
+        public string Uri
         {
-            get => _webBrowser;
+            get => _uri;
             set
             {
-                _webBrowser = value;
-                SsShowCensys(null);
+                _uri = value;
+                OnPropertyChanged();
             }
         }
 

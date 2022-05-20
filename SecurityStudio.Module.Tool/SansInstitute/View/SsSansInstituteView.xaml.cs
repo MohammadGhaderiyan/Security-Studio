@@ -13,7 +13,6 @@ namespace SecurityStudio.Module.Tool.SansInstitute.View
 
         public override void SsViewLoaded()
         {
-            ((SsSansInstituteViewModel)SsViewModel).WebBrowser = WebBrowserMain;
         }
     }
 }
