@@ -75,6 +75,9 @@
                         </comboBox:SsComboBoxEdit.Items>
                     </comboBox:SsComboBoxEdit>
                 </layout:SsLayoutItem>
+                <layout:SsLayoutItem Label="Custom : ">
+                    <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=Custom}" />
+                </layout:SsLayoutItem>
             </layout:SsLayoutGroup>
             <layout:SsLayoutGroup HorizontalAlignment="Stretch">
                 <layout:SsLayoutItem HorizontalAlignment="Center">

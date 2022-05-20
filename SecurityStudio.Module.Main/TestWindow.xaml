@@ -4,12 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-    xmlns:button="clr-namespace:SecurityStudio.Base.Control.Button;assembly=SecurityStudio.Base.Control"
-    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
-    xmlns:securityStudio="clr-namespace:SecurityStudio"
-    xmlns:window="clr-namespace:SecurityStudio.Base.Control.Window;assembly=SecurityStudio.Base.Control"
     x:Class="SecurityStudio.Module.Main.TestWindow"
     mc:Ignorable="d" Title="Window1" Height="150" Width="300">
-    <Grid>
-    </Grid>
+    <Grid />
 </dx:ThemedWindow>

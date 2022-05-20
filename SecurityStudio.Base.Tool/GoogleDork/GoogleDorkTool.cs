@@ -11,7 +11,7 @@ namespace SecurityStudio.Base.Tool.GoogleDork
         }
 
         public string GetUri(string keyword, string site, string fileType,
-            string inUrl, string inTitle, string link, string cache)
+            string inUrl, string inTitle, string link, string cache, string custom)
         {
             var stringBuilder = new StringBuilder("q=");
 
@@ -63,6 +63,10 @@ namespace SecurityStudio.Base.Tool.GoogleDork
             if (string.IsNullOrWhiteSpace(cache) == false)
                 // ReSharper disable once StringLiteralTypo
                 stringBuilder.Append($"cache:{cache} ");
+
+            if (string.IsNullOrWhiteSpace(custom) == false)
+                // ReSharper disable once StringLiteralTypo
+                stringBuilder.Append($"{custom} ");
 
             var uriBuilder = new UriBuilder
             {

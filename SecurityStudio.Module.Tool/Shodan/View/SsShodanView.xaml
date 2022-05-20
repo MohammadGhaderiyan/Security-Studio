@@ -6,14 +6,98 @@
              xmlns:mvvm="clr-namespace:SecurityStudio.Base.Main.Mvvm;assembly=SecurityStudio.Base.Main"
              xmlns:layout="clr-namespace:SecurityStudio.Base.Control.Layout;assembly=SecurityStudio.Base.Control"
              xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
-             xmlns:label="clr-namespace:SecurityStudio.Base.Control.Label;assembly=SecurityStudio.Base.Control"
-             mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
-    <layout:SsLayoutControl>
-        <layout:SsGroupBoxLayoutGroup Header="{wpf:SsBinding Path=Title}"
-                                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-            <layout:SsLayoutItem VerticalAlignment="Center" HorizontalAlignment="Center">
-                <label:SsTitleLabel Content="{wpf:SsBinding Path=Title}" />
-            </layout:SsLayoutItem>
-        </layout:SsGroupBoxLayoutGroup>
-    </layout:SsLayoutControl>
+             xmlns:container="clr-namespace:SecurityStudio.Base.Control.Container;assembly=SecurityStudio.Base.Control"
+             xmlns:bar="clr-namespace:SecurityStudio.Base.Control.Bar;assembly=SecurityStudio.Base.Control"
+             xmlns:comboBox="clr-namespace:SecurityStudio.Base.Control.ComboBox;assembly=SecurityStudio.Base.Control"
+             xmlns:button="clr-namespace:SecurityStudio.Base.Control.Button;assembly=SecurityStudio.Base.Control"
+             mc:Ignorable="d" d:DesignHeight="300">
+    <container:SsDockPanel>
+        <bar:SsBarContainerControl container:SsDockPanel.Dock="Top">
+            <bar:SsMainMenuControl>
+                <bar:SsBarButtonItem Content="Show Shodan"
+                                     Command="{wpf:SsBinding Path=SsShowShodanCommand}" />
+                <bar:SsBarButtonItem Content="Open Shodan"
+                                     Command="{wpf:SsBinding Path=SsOpenShodanCommand}" />
+            </bar:SsMainMenuControl>
+        </bar:SsBarContainerControl>
+        <layout:SsLayoutControl>
+            <layout:SsLayoutGroup>
+                <layout:SsLayoutItem Label="Net : ">
+                    <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=Net}">
+                        <comboBox:SsComboBoxEdit.Items>
+                            <comboBox:SsComboBoxEditItem>77.704.67.0/24</comboBox:SsComboBoxEditItem>
+                            <comboBox:SsComboBoxEditItem>77.36.0.0/16</comboBox:SsComboBoxEditItem>
+                        </comboBox:SsComboBoxEdit.Items>
+                    </comboBox:SsComboBoxEdit>
+                </layout:SsLayoutItem>
+                <layout:SsLayoutItem Label="Host : ">
+                    <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=Host}">
+                        <comboBox:SsComboBoxEdit.Items>
+                            <comboBox:SsComboBoxEditItem>1.2.3.4</comboBox:SsComboBoxEditItem>
+                        </comboBox:SsComboBoxEdit.Items>
+                    </comboBox:SsComboBoxEdit>
+                </layout:SsLayoutItem>
+                <layout:SsLayoutItem Label="Port : ">
+                    <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=Port}">
+                        <comboBox:SsComboBoxEdit.Items>
+                            <comboBox:SsComboBoxEditItem>9200</comboBox:SsComboBoxEditItem>
+                            <comboBox:SsComboBoxEditItem>3389</comboBox:SsComboBoxEditItem>
+                            <comboBox:SsComboBoxEditItem>27017</comboBox:SsComboBoxEditItem>
+                        </comboBox:SsComboBoxEdit.Items>
+                    </comboBox:SsComboBoxEdit>
+                </layout:SsLayoutItem>
+                <layout:SsLayoutItem Label="Application : ">
+                    <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=Application}">
+                        <comboBox:SsComboBoxEdit.Items>
+                            <comboBox:SsComboBoxEditItem>iis</comboBox:SsComboBoxEditItem>
+                            <comboBox:SsComboBoxEditItem>apache</comboBox:SsComboBoxEditItem>
+                            <comboBox:SsComboBoxEditItem>linux</comboBox:SsComboBoxEditItem>
+                            <comboBox:SsComboBoxEditItem>windows</comboBox:SsComboBoxEditItem>
+                            <comboBox:SsComboBoxEditItem>cisco</comboBox:SsComboBoxEditItem>
+                        </comboBox:SsComboBoxEdit.Items>
+                    </comboBox:SsComboBoxEdit>
+                </layout:SsLayoutItem>
+            </layout:SsLayoutGroup>
+            <layout:SsLayoutGroup>
+                <layout:SsLayoutItem Label="Server : ">
+                    <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=Server}">
+                        <comboBox:SsComboBoxEdit.Items>
+                            <comboBox:SsComboBoxEditItem>sq-webcam</comboBox:SsComboBoxEditItem>
+                        </comboBox:SsComboBoxEdit.Items>
+                    </comboBox:SsComboBoxEdit>
+                </layout:SsLayoutItem>
+                <layout:SsLayoutItem Label="Country : ">
+                    <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=Country}">
+                        <comboBox:SsComboBoxEdit.Items>
+                            <comboBox:SsComboBoxEditItem>ir</comboBox:SsComboBoxEditItem>
+                        </comboBox:SsComboBoxEdit.Items>
+                    </comboBox:SsComboBoxEdit>
+                </layout:SsLayoutItem>
+                <layout:SsLayoutItem Label="City : ">
+                    <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=City}">
+                        <comboBox:SsComboBoxEdit.Items>
+                            <comboBox:SsComboBoxEditItem>tehran</comboBox:SsComboBoxEditItem>
+                        </comboBox:SsComboBoxEdit.Items>
+                    </comboBox:SsComboBoxEdit>
+                </layout:SsLayoutItem>
+                <layout:SsLayoutItem Label="Custom : ">
+                    <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=Custom}">
+                        <comboBox:SsComboBoxEdit.Items>
+                            <comboBox:SsComboBoxEditItem>default password</comboBox:SsComboBoxEditItem>
+                        </comboBox:SsComboBoxEdit.Items>
+                    </comboBox:SsComboBoxEdit>
+                </layout:SsLayoutItem>
+            </layout:SsLayoutGroup>
+            <layout:SsLayoutGroup HorizontalAlignment="Stretch">
+                <layout:SsLayoutItem HorizontalAlignment="Center">
+                    <button:SsSearchSimpleButton Command="{wpf:SsBinding Path=SsSearchCommand}" />
+                </layout:SsLayoutItem>
+            </layout:SsLayoutGroup>
+            <layout:SsLayoutGroup HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <layout:SsLayoutItem HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <WebBrowser Name="WebBrowserMain" />
+                </layout:SsLayoutItem>
+            </layout:SsLayoutGroup>
+        </layout:SsLayoutControl>
+    </container:SsDockPanel>
 </mvvm:SsView>

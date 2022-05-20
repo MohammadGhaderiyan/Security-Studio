@@ -65,6 +65,8 @@
                                                      Command="{wpf:SsBinding Path=ShowSsEcCouncilViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Encryption"
                                                      Command="{wpf:SsBinding Path=ShowSsEncryptionViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="FOFA"
+                                                     Command="{wpf:SsBinding Path=ShowSsFofaViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="FTP Manager"
                                                      Command="{wpf:SsBinding Path=ShowSsFtpManagerViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="GitHub"
@@ -129,6 +131,8 @@
                 </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="OSINT">
                     <ribbon:SsRibbonPageGroup Caption="OSINT">
+                        <ribbon:SsLargeBarButtonItem Content="Leak-Lookup"
+                                                     Command="{wpf:SsBinding Path=ShowSsLeakLookupViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="OSINT Framework"
                                                      Command="{wpf:SsBinding Path=ShowSsOsintFrameworkViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="Social Searcher"
@@ -275,8 +279,8 @@
                 </ribbon:SsRibbonPage>
                 <ribbon:SsRibbonPage Caption="Wiki">
                     <ribbon:SsRibbonPageGroup Caption="Wiki">
-                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
-                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="Well Known Ports"
+                                                     Command="{wpf:SsBinding Path=ShowSsWellKnownPortsViewCommand}" />
                         <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
                                                      Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
                         <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"

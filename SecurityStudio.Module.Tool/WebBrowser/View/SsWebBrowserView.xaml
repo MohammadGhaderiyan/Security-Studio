@@ -6,7 +6,6 @@
              xmlns:mvvm="clr-namespace:SecurityStudio.Base.Main.Mvvm;assembly=SecurityStudio.Base.Main"
              xmlns:layout="clr-namespace:SecurityStudio.Base.Control.Layout;assembly=SecurityStudio.Base.Control"
              xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
-             xmlns:wpf1="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
     <layout:SsLayoutControl>
         <layout:SsGroupBoxLayoutGroup Header="{wpf:SsBinding Path=Title}"

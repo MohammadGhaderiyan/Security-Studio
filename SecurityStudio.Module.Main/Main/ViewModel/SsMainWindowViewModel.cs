@@ -38,6 +38,7 @@ using SecurityStudio.Module.Mitre.Persistence.View;
 using SecurityStudio.Module.Mitre.PrivilegeEscalation.View;
 using SecurityStudio.Module.Mitre.Reconnaissance.View;
 using SecurityStudio.Module.Mitre.ResourceDevelopment.View;
+using SecurityStudio.Module.Osint.LeakLookup.View;
 using SecurityStudio.Module.Osint.OsintFramework.View;
 using SecurityStudio.Module.Osint.SocialSearcher.View;
 using SecurityStudio.Module.Osint.Truecaller.View;
@@ -47,6 +48,7 @@ using SecurityStudio.Module.Tool.Censys.View;
 using SecurityStudio.Module.Tool.Douran.View;
 using SecurityStudio.Module.Tool.EcCouncil.View;
 using SecurityStudio.Module.Tool.Encryption.View;
+using SecurityStudio.Module.Tool.Fofa.View;
 using SecurityStudio.Module.Tool.FtpManager.View;
 using SecurityStudio.Module.Tool.GitHub.View;
 using SecurityStudio.Module.Tool.GoogleDork.View;
@@ -60,6 +62,7 @@ using SecurityStudio.Module.Tool.TextEditor.View;
 using SecurityStudio.Module.Tool.WebBrowser.View;
 using SecurityStudio.Module.Tool.WebServer.View;
 using SecurityStudio.Module.Tool.Whois.View;
+using SecurityStudio.Module.Wiki.WellKnownPorts.View;
 using SecurityStudio.Module.Windows.Arp.View;
 using SecurityStudio.Module.Windows.CommandPrompt.View;
 using SecurityStudio.Module.Windows.RegistryEditor.View;
@@ -116,6 +119,7 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
         public SsCommand ShowSsDouranViewCommand { get; set; }
         public SsCommand ShowSsEcCouncilViewCommand { get; set; }
         public SsCommand ShowSsEncryptionViewCommand { get; set; }
+        public SsCommand ShowSsFofaViewCommand { get; set; }
         public SsCommand ShowSsFtpManagerViewCommand { get; set; }
         public SsCommand ShowSsGitHubViewCommand { get; set; }
         public SsCommand ShowSsGoogleDorkViewCommand { get; set; }
@@ -160,6 +164,7 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
         #region OSINT
 
+        public SsCommand ShowSsLeakLookupViewCommand { get; set; }
         public SsCommand ShowSsOsintFrameworkViewCommand { get; set; }
         public SsCommand ShowSsSocialSearcherViewCommand { get; set; }
         public SsCommand ShowSsTruecallerViewCommand { get; set; }
@@ -223,6 +228,12 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
         #endregion
 
 
+        #region Wiki
+
+        public SsCommand ShowSsWellKnownPortsViewCommand { get; set; }
+
+        #endregion
+
         protected override void PrepareSsCommands()
         {
             #region Mitre
@@ -253,6 +264,7 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
             ShowSsDouranViewCommand = new SsCommand(ShowSsDouranView);
             ShowSsEcCouncilViewCommand = new SsCommand(ShowSsEcCouncilView);
             ShowSsEncryptionViewCommand = new SsCommand(ShowSsEncryptionView);
+            ShowSsFofaViewCommand = new SsCommand(ShowSsFofaView);
             ShowSsFtpManagerViewCommand = new SsCommand(ShowSsFtpManagerView);
             ShowSsGitHubViewCommand = new SsCommand(ShowSsGitHubView);
             ShowSsGoogleDorkViewCommand = new SsCommand(ShowSsGoogleDorkView);
@@ -297,6 +309,7 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
             #region OSINT
 
+            ShowSsLeakLookupViewCommand = new SsCommand(ShowSsLeakLookupView);
             ShowSsOsintFrameworkViewCommand = new SsCommand(ShowSsOsintFrameworkView);
             ShowSsSocialSearcherViewCommand = new SsCommand(ShowSsSocialSearcherView);
             ShowSsTruecallerViewCommand = new SsCommand(ShowSsTruecallerView);
@@ -356,6 +369,13 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
             ShowSsAndroidOperatingSystemListViewCommand = new SsCommand(ShowSsAndroidOperatingSystemListView);
             ShowSsLinuxOperatingSystemListViewCommand = new SsCommand(ShowSsLinuxOperatingSystemListView);
             ShowSsWindowsOperatingSystemListViewCommand = new SsCommand(ShowSsWindowsOperatingSystemListView);
+
+            #endregion
+
+
+            #region Wiki
+
+            ShowSsWellKnownPortsViewCommand = new SsCommand(ShowSsWellKnownPortsView);
 
             #endregion
         }
@@ -466,6 +486,11 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
         private void ShowSsEncryptionView(object parameter)
         {
             _dockService.ShowSsView<SsEncryptionView>();
+        }
+
+        private void ShowSsFofaView(object parameter)
+        {
+            _dockService.ShowSsView<SsFofaView>();
         }
 
         private void ShowSsFtpManagerView(object parameter)
@@ -613,6 +638,11 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
 
         #region OSINT
 
+        private void ShowSsLeakLookupView(object parameter)
+        {
+            _dockService.ShowSsView<SsLeakLookupView>();
+        }
+
         private void ShowSsOsintFrameworkView(object parameter)
         {
             _dockService.ShowSsView<SsOsintFrameworkView>();
@@ -734,6 +764,16 @@ namespace SecurityStudio.Module.Main.Main.ViewModel
         private void ShowSsWindowsOperatingSystemListView(object parameter)
         {
             _dockService.ShowSsView<SsWindowsOperatingSystemListView>();
+        }
+
+        #endregion
+
+
+        #region Wiki
+
+        private void ShowSsWellKnownPortsView(object parameter)
+        {
+            _dockService.ShowSsView<SsWellKnownPortsView>();
         }
 
         #endregion

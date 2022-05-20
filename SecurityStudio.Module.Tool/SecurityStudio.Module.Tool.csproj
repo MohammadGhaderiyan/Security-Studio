@@ -13,7 +13,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="CliWrap" Version="3.4.4" />
-		<PackageReference Include="ConsoleControl.WPF" Version="1.3.0" />
 		<PackageReference Include="FluentValidation" Version="10.4.0" />
 		<PackageReference Include="LiteDB" Version="5.0.11" />
 		<PackageReference Include="Ninject" Version="3.3.4" />
@@ -31,14 +30,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+		<Reference Include="DevExpress.Data.Desktop.v21.2">
 			<SpecificVersion>False</SpecificVersion>
 			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Data.Desktop.v21.2.dll</HintPath>
 		</Reference>
 		<Reference Include="DevExpress.Data.v21.2">
 			<HintPath>..\Devexpress Standard 21.2.5.0\DevExpress.Data.v21.2.dll</HintPath>
 		</Reference>
-		<Reference Include="DevExpress.Mvvm.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+		<Reference Include="DevExpress.Mvvm.v21.2">
 			<SpecificVersion>False</SpecificVersion>
 			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Mvvm.v21.2.dll</HintPath>
 			<Private>True</Private>
@@ -46,11 +45,11 @@
 		<Reference Include="DevExpress.Printing.v21.2.Core">
 			<HintPath>..\Devexpress Standard 21.2.5.0\DevExpress.Printing.v21.2.Core.dll</HintPath>
 		</Reference>
-		<Reference Include="DevExpress.Xpf.Controls.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+		<Reference Include="DevExpress.Xpf.Controls.v21.2">
 			<SpecificVersion>False</SpecificVersion>
 			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Controls.v21.2.dll</HintPath>
 		</Reference>
-		<Reference Include="DevExpress.Xpf.Core.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+		<Reference Include="DevExpress.Xpf.Core.v21.2">
 			<SpecificVersion>False</SpecificVersion>
 			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Core.v21.2.dll</HintPath>
 		</Reference>
@@ -75,7 +74,7 @@
 		<Reference Include="DevExpress.Xpf.Printing.v21.2">
 			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Printing.v21.2.dll</HintPath>
 		</Reference>
-		<Reference Include="DevExpress.Xpf.Ribbon.v21.2, Version=21.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+		<Reference Include="DevExpress.Xpf.Ribbon.v21.2">
 			<SpecificVersion>False</SpecificVersion>
 			<HintPath>..\DevExpress NetCore 21.2.5.0\DevExpress.Xpf.Ribbon.v21.2.dll</HintPath>
 		</Reference>
@@ -84,6 +83,36 @@
 		</Reference>
 		<Reference Include="DevExpress.Xpf.Themes.Office2013LightGray.v21.2">
 			<HintPath>..\Devexpress NetCore 21.2.5.0\DevExpress.Xpf.Themes.Office2013LightGray.v21.2.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.Base">
+			<HintPath>..\EO.Total 2022\EO.Base.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.Pdf">
+			<HintPath>..\EO.Total 2022\EO.Pdf.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.Pdf.WinForm">
+			<HintPath>..\EO.Total 2022\EO.Pdf.WinForm.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.Pdf.Wpf">
+			<HintPath>..\EO.Total 2022\EO.Pdf.Wpf.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.Web.Design">
+			<HintPath>..\EO.Total 2022\EO.Web.Design.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.WebBrowser">
+			<HintPath>..\EO.Total 2022\EO.WebBrowser.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.WebBrowser.WinForm">
+			<HintPath>..\EO.Total 2022\EO.WebBrowser.WinForm.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.WebBrowser.Wpf">
+			<HintPath>..\EO.Total 2022\EO.WebBrowser.Wpf.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.WebEngine">
+			<HintPath>..\EO.Total 2022\EO.WebEngine.dll</HintPath>
+		</Reference>
+		<Reference Include="EO.Wpf">
+			<HintPath>..\EO.Total 2022\EO.Wpf.dll</HintPath>
 		</Reference>
 		<Reference Include="Rebex.Common">
 			<HintPath>..\Rebex Total Pack v6.0.8000\Rebex.Common.dll</HintPath>
@@ -163,142 +192,149 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Douran\View\SsDouranView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="ApiPlatform\View\SsApiPlatformView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="Afta\View\SsAftaView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="Censys\View\SsCensysView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="Iana\View\SsIanaView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="GoogleDork\View\SsGoogleDorkView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="Hash\View\SsHashView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="Encryption\View\SsEncryptionView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="EcCouncil\View\SsEcCouncilView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="SansInstitute\View\SsSansInstituteView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="Whois\View\SsWhoisView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="Mimikatz\View\SsMimikatzView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="GitHub\View\SsGitHubView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="TextEditor\View\SsTextEditorView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="Shodan\View\SsShodanView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="Nmap\View\SsNmapView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="WebBrowser\View\SsWebBrowserView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="WebServer\View\SsWebServerView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
-	  <Compile Update="FtpManager\View\SsFtpManagerView.xaml.cs">
-	    <SubType>Code</SubType>
-	  </Compile>
+		<Compile Update="Fofa\View\SsFofaView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Douran\View\SsDouranView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="ApiPlatform\View\SsApiPlatformView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Afta\View\SsAftaView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Censys\View\SsCensysView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Iana\View\SsIanaView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="GoogleDork\View\SsGoogleDorkView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Hash\View\SsHashView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Encryption\View\SsEncryptionView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="EcCouncil\View\SsEcCouncilView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="SansInstitute\View\SsSansInstituteView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Whois\View\SsWhoisView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Mimikatz\View\SsMimikatzView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="GitHub\View\SsGitHubView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="TextEditor\View\SsTextEditorView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Shodan\View\SsShodanView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Nmap\View\SsNmapView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="WebBrowser\View\SsWebBrowserView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="WebServer\View\SsWebServerView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="FtpManager\View\SsFtpManagerView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Page Update="Douran\View\SsDouranView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="ApiPlatform\View\SsApiPlatformView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="Afta\View\SsAftaView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="Censys\View\SsCensysView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="Iana\View\SsIanaView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="GoogleDork\View\SsGoogleDorkView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="Hash\View\SsHashView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="Encryption\View\SsEncryptionView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="EcCouncil\View\SsEcCouncilView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="SansInstitute\View\SsSansInstituteView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="Whois\View\SsWhoisView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="Mimikatz\View\SsMimikatzView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="GitHub\View\SsGitHubView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="TextEditor\View\SsTextEditorView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="Shodan\View\SsShodanView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="Nmap\View\SsNmapView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="WebBrowser\View\SsWebBrowserView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="WebServer\View\SsWebServerView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
-	  <Page Update="FtpManager\View\SsFtpManagerView.xaml">
-	    <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-	    <SubType>Designer</SubType>
-	  </Page>
+		<Page Update="Fofa\View\SsFofaView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="Douran\View\SsDouranView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="ApiPlatform\View\SsApiPlatformView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="Afta\View\SsAftaView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="Censys\View\SsCensysView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="Iana\View\SsIanaView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="GoogleDork\View\SsGoogleDorkView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="Hash\View\SsHashView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="Encryption\View\SsEncryptionView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="EcCouncil\View\SsEcCouncilView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="SansInstitute\View\SsSansInstituteView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="Whois\View\SsWhoisView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="Mimikatz\View\SsMimikatzView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="GitHub\View\SsGitHubView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="TextEditor\View\SsTextEditorView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="Shodan\View\SsShodanView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="Nmap\View\SsNmapView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="WebBrowser\View\SsWebBrowserView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="WebServer\View\SsWebServerView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="FtpManager\View\SsFtpManagerView.xaml">
+			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+			<SubType>Designer</SubType>
+		</Page>
 	</ItemGroup>
 
 </Project>

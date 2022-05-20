@@ -8,6 +8,8 @@
              xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
              xmlns:container="clr-namespace:SecurityStudio.Base.Control.Container;assembly=SecurityStudio.Base.Control"
              xmlns:bar="clr-namespace:SecurityStudio.Base.Control.Bar;assembly=SecurityStudio.Base.Control"
+             xmlns:comboBox="clr-namespace:SecurityStudio.Base.Control.ComboBox;assembly=SecurityStudio.Base.Control"
+             xmlns:button="clr-namespace:SecurityStudio.Base.Control.Button;assembly=SecurityStudio.Base.Control"
              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="500">
     <container:SsDockPanel>
         <bar:SsBarContainerControl container:SsDockPanel.Dock="Top">
@@ -19,6 +21,22 @@
             </bar:SsMainMenuControl>
         </bar:SsBarContainerControl>
         <layout:SsLayoutControl>
+            <layout:SsLayoutGroup HorizontalAlignment="Stretch">
+                <layout:SsLayoutItem Label="Query : " HorizontalAlignment="Stretch">
+                    <comboBox:SsComboBoxEdit EditValue="{wpf:SsBinding Path=Query}" ControlWidthType="Auto">
+                        <comboBox:SsComboBoxEdit.Items>
+                            <comboBox:SsComboBoxEditItem>services.http.request.body:douran</comboBox:SsComboBoxEditItem>
+                            <comboBox:SsComboBoxEditItem>location.country_code:DE and services.service_name:{"FP", "Telnet"}</comboBox:SsComboBoxEditItem>
+                            <comboBox:SsComboBoxEditItem>services.software.product:"Raspberry Pi"</comboBox:SsComboBoxEditItem>
+                        </comboBox:SsComboBoxEdit.Items>
+                    </comboBox:SsComboBoxEdit>
+                </layout:SsLayoutItem>
+            </layout:SsLayoutGroup>
+            <layout:SsLayoutGroup HorizontalAlignment="Stretch">
+                <layout:SsLayoutItem HorizontalAlignment="Center">
+                    <button:SsSearchSimpleButton Command="{wpf:SsBinding Path=SsSearchCommand}" />
+                </layout:SsLayoutItem>
+            </layout:SsLayoutGroup>
             <layout:SsLayoutGroup HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <layout:SsLayoutItem HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <WebBrowser Name="WebBrowserMain" />

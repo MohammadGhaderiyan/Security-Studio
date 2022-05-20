@@ -1,4 +1,5 @@
-﻿using SecurityStudio.Base.Main.Mvvm;
+﻿using EO.WebBrowser;
+using SecurityStudio.Base.Main.Mvvm;
 using SecurityStudio.Module.Main.Test.ViewModel;
 
 namespace SecurityStudio.Module.Main.Test.View
@@ -13,6 +14,8 @@ namespace SecurityStudio.Module.Main.Test.View
 
         public override void SsViewLoaded()
         {
+            WebControlMain.WebView = new WebView();
+            WebControlMain.WebView.LoadUrl("http://www.google.com");
         }
     }
 }

@@ -12,10 +12,30 @@
     <container:SsDockPanel>
         <bar:SsBarContainerControl container:SsDockPanel.Dock="Top">
             <bar:SsMainMenuControl>
-                <bar:SsBarButtonItem Content="Show IANA"
-                                     Command="{wpf:SsBinding Path=SsShowIanaCommand}" />
-                <bar:SsBarButtonItem Content="Open IANA"
-                                     Command="{wpf:SsBinding Path=SsOpenIanaCommand}" />
+                <bar:SsBarSubItem Content="Show IANA">
+                    <bar:SsBarButtonItem Content="Show RIPE"
+                                         Command="{wpf:SsBinding Path=SsShowRipeCommand}" />
+                    <bar:SsBarButtonItem Content="Show ARIN"
+                                         Command="{wpf:SsBinding Path=SsShowArinCommand}" />
+                    <bar:SsBarButtonItem Content="Show AFRINIC"
+                                         Command="{wpf:SsBinding Path=SsShowAfrinicCommand}" />
+                    <bar:SsBarButtonItem Content="Show APNIC"
+                                         Command="{wpf:SsBinding Path=SsShowApnicCommand}" />
+                    <bar:SsBarButtonItem Content="Show LACNIC"
+                                         Command="{wpf:SsBinding Path=SsShowLacnicCommand}" />
+                </bar:SsBarSubItem>
+                <bar:SsBarSubItem Content="Open IANA">
+                    <bar:SsBarButtonItem Content="Open RIPE"
+                                         Command="{wpf:SsBinding Path=SsOpenRipeCommand}" />
+                    <bar:SsBarButtonItem Content="Open ARIN"
+                                         Command="{wpf:SsBinding Path=SsOpenArinCommand}" />
+                    <bar:SsBarButtonItem Content="Open AFRINIC"
+                                         Command="{wpf:SsBinding Path=SsOpenAfrinicCommand}" />
+                    <bar:SsBarButtonItem Content="Open APNIC"
+                                         Command="{wpf:SsBinding Path=SsOpenApnicCommand}" />
+                    <bar:SsBarButtonItem Content="Open LACNIC"
+                                         Command="{wpf:SsBinding Path=SsOpenLacnicCommand}" />
+                </bar:SsBarSubItem>
             </bar:SsMainMenuControl>
         </bar:SsBarContainerControl>
         <layout:SsLayoutControl>

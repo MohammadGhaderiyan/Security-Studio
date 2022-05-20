@@ -37,7 +37,7 @@ namespace SecurityStudio.Module.Tool.GoogleDork.ViewModel
         private void SsSearch(object parameter)
         {
             WebBrowser.Navigate(_googleDorkTool.GetUri(
-                Keyword, Site, FileType, InUrl, InTitle, Link, Cache));
+                Keyword, Site, FileType, InUrl, InTitle, Link, Cache, Custom));
         }
 
         private string _url;
@@ -72,7 +72,7 @@ namespace SecurityStudio.Module.Tool.GoogleDork.ViewModel
             set
             {
                 _keyword = value;
-                SsShowGoogleDork(null);
+                OnPropertyChanged();
             }
         }
 
@@ -83,7 +83,7 @@ namespace SecurityStudio.Module.Tool.GoogleDork.ViewModel
             set
             {
                 _site = value;
-                SsShowGoogleDork(null);
+                OnPropertyChanged();
             }
         }
 
@@ -94,7 +94,7 @@ namespace SecurityStudio.Module.Tool.GoogleDork.ViewModel
             set
             {
                 _fileType = value;
-                SsShowGoogleDork(null);
+                OnPropertyChanged();
             }
         }
 
@@ -105,7 +105,7 @@ namespace SecurityStudio.Module.Tool.GoogleDork.ViewModel
             set
             {
                 _inUrl = value;
-                SsShowGoogleDork(null);
+                OnPropertyChanged();
             }
         }
 
@@ -116,7 +116,7 @@ namespace SecurityStudio.Module.Tool.GoogleDork.ViewModel
             set
             {
                 _inTitle = value;
-                SsShowGoogleDork(null);
+                OnPropertyChanged();
             }
         }
 
@@ -127,7 +127,7 @@ namespace SecurityStudio.Module.Tool.GoogleDork.ViewModel
             set
             {
                 _link = value;
-                SsShowGoogleDork(null);
+                OnPropertyChanged();
             }
         }
 
@@ -138,7 +138,18 @@ namespace SecurityStudio.Module.Tool.GoogleDork.ViewModel
             set
             {
                 _cache = value;
-                SsShowGoogleDork(null);
+                OnPropertyChanged();
+            }
+        }
+
+        private string _custom;
+        public string Custom
+        {
+            get => _custom;
+            set
+            {
+                _custom = value;
+                OnPropertyChanged();
             }
         }
 
