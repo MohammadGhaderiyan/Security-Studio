@@ -1,13 +1,12 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading.Tasks;
 using SecurityStudio.Base.Main.Model;
 using SecurityStudio.Base.Main.Mvvm;
 using SecurityStudio.Module.Definition.AndroidOperatingSystem.View;
+using SecurityStudio.Service.Base.MessageBox;
+using SecurityStudio.Service.Base.Parameter;
+using SecurityStudio.Service.Base.Window;
 using SecurityStudio.Service.Definition.AndroidOperatingSystem;
-using SecurityStudio.Service.Main.MessageBox;
-using SecurityStudio.Service.Main.Parameter;
-using SecurityStudio.Service.Main.Window;
 
 namespace SecurityStudio.Module.Definition.AndroidOperatingSystem.ViewModel
 {
@@ -43,18 +42,15 @@ namespace SecurityStudio.Module.Definition.AndroidOperatingSystem.ViewModel
                 SsDeleteAndroidOperatingSystem, CanSsDeleteAndroidOperatingSystem);
         }
 
-        private async Task SsSearch(object parameter)
+        private void SsSearch(object parameter)
         {
-            await Task.Run(FillAndroidOperatingSystems);
+            FillAndroidOperatingSystems();
         }
 
-        private async Task SsAddAndroidOperatingSystem(object parameter)
+        private void SsAddAndroidOperatingSystem(object parameter)
         {
-            await Task.Run(() =>
-            {
-                _windowService.ShowDialogSsView<SsAndroidOperatingSystemView>();
-                FillAndroidOperatingSystems();
-            });
+            _windowService.ShowDialogSsView<SsAndroidOperatingSystemView>();
+            FillAndroidOperatingSystems();
         }
 
         private void SsEditAndroidOperatingSystem(object parameter)
@@ -73,7 +69,7 @@ namespace SecurityStudio.Module.Definition.AndroidOperatingSystem.ViewModel
         {
             if (_messageBoxService.ShowDeleteYesNoQuestion(ModelName.AndroidOperatingSystem))
             {
-                _androidOperatingSystemService.Delete(CurrentAndroidOperatingSystem);
+                _androidOperatingSystemService.Remove(CurrentAndroidOperatingSystem);
                 AndroidOperatingSystems.Remove(CurrentAndroidOperatingSystem);
                 FillAndroidOperatingSystems();
             }
@@ -101,7 +97,7 @@ namespace SecurityStudio.Module.Definition.AndroidOperatingSystem.ViewModel
                 currentAndroidOperatingSystemId = CurrentAndroidOperatingSystem.Id;
 
             AndroidOperatingSystems = new ObservableCollection<Database.Model.Definition.AndroidOperatingSystem>(
-                _androidOperatingSystemService.GetAndroidOperatingSystems());
+                _androidOperatingSystemService.GetAll());
 
             CurrentAndroidOperatingSystem = currentAndroidOperatingSystemId != null ? AndroidOperatingSystems.FirstOrDefault(
                 item => item.Id == currentAndroidOperatingSystemId.Value) : AndroidOperatingSystems.FirstOrDefault();
@@ -137,8 +133,8 @@ namespace SecurityStudio.Module.Definition.AndroidOperatingSystem.ViewModel
             {
                 _currentAndroidOperatingSystem = value;
                 OnPropertyChanged();
-                SsEditAndroidOperatingSystemCommand.CheckCanExecuteChanged();
-                SsDeleteAndroidOperatingSystemCommand.CheckCanExecuteChanged();
+                SsEditAndroidOperatingSystemCommand.RaiseCanExecuteChanged();
+                SsDeleteAndroidOperatingSystemCommand.RaiseCanExecuteChanged();
             }
         }
 

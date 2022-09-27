@@ -1,4 +1,4 @@
-﻿using SecurityStudio.Service.Main.Repository;
+﻿using SecurityStudio.Service.Base.Repository;
 
 namespace SecurityStudio.Service.Definition.LinuxOperatingSystem
 {

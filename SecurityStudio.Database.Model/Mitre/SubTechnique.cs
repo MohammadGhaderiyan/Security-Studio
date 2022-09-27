@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using SecurityStudio.Database.Model.Infrastructure;
+using SecurityStudio.Base.Main.Database;
 using SecurityStudio.Database.Model.Validation.Mitre;
 
 namespace SecurityStudio.Database.Model.Mitre
@@ -7,7 +7,7 @@ namespace SecurityStudio.Database.Model.Mitre
     /// <summary>
     /// Sub Technique
     /// </summary>
-    public class SubTechnique : ModelBase, IDataErrorInfo
+    public class SubTechnique : BaseEntity, IDataErrorInfo
     {
         public SubTechnique()
         {

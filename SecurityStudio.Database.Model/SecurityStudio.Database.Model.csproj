@@ -23,17 +23,21 @@
   <ItemGroup>
     <Folder Include="Database\" />
     <Folder Include="Linux\" />
-    <Folder Include="MobilePenTest\" />
+    <Folder Include="Osint\" />
+    <Folder Include="Exploit\" />
+    <Folder Include="Forensic\" />
     <Folder Include="Validation\CodeEditor\" />
     <Folder Include="Validation\Database\" />
+    <Folder Include="Validation\Forensic\" />
     <Folder Include="Validation\Linux\" />
-    <Folder Include="Validation\MobilePenTest\" />
-    <Folder Include="Validation\NetworkPenTest\" />
+    <Folder Include="Validation\Osint\" />
+    <Folder Include="Validation\PenTest\" />
+    <Folder Include="Validation\Exploit\" />
     <Folder Include="Validation\Tool\" />
     <Folder Include="Windows\" />
-    <Folder Include="WebPenTest\" />
+    <Folder Include="Wiki\" />
     <Folder Include="CodeEditor\" />
-    <Folder Include="NetworkPenTest\" />
+    <Folder Include="PenTest\" />
     <Folder Include="Tool\" />
   </ItemGroup>
 

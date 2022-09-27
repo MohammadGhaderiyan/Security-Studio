@@ -24,10 +24,11 @@
 	<ItemGroup>
 		<ProjectReference Include="..\SecurityStudio.Base.Control\SecurityStudio.Base.Control.csproj" />
 		<ProjectReference Include="..\SecurityStudio.Base.Main\SecurityStudio.Base.Main.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Base.Tool\SecurityStudio.Base.Tool.csproj" />
 		<ProjectReference Include="..\SecurityStudio.Base.Windows\SecurityStudio.Base.Windows.csproj" />
 		<ProjectReference Include="..\SecurityStudio.Database.Data\SecurityStudio.Database.Data.csproj" />
 		<ProjectReference Include="..\SecurityStudio.Database.Model\SecurityStudio.Database.Model.csproj" />
-		<ProjectReference Include="..\SecurityStudio.Service.Main\SecurityStudio.Service.Main.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Service.Base\SecurityStudio.Service.Base.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

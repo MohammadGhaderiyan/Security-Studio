@@ -1,7 +1,7 @@
 ﻿using SecurityStudio.Base.Main.Common;
 using SecurityStudio.Base.Main.Mvvm;
 using SecurityStudio.Base.Windows.Arp;
-using SecurityStudio.Service.Main.Session;
+using SecurityStudio.Service.Base.Session;
 
 namespace SecurityStudio.Module.Windows.Arp.ViewModel
 {
@@ -23,14 +23,14 @@ namespace SecurityStudio.Module.Windows.Arp.ViewModel
             SsHelpCommand = new SsCommand(SsHelp);
         }
 
-        private void SsGetArpEntries(object parameter)
+        private async void SsGetArpEntries(object parameter)
         {
-            Result = await _arpWindowsCommandTool.GetArpEntries();
+            SsResult = await _arpWindowsCommandTool.GetArpEntries();
         }
 
-        private void SsHelp(object parameter)
+        private async void SsHelp(object parameter)
         {
-            Result = _arpWindowsCommandTool.Help().Result;
+            SsResult = await _arpWindowsCommandTool.GetHelp();
         }
 
         private ArpWindowsCommandTool _arpWindowsCommandTool;
@@ -38,20 +38,20 @@ namespace SecurityStudio.Module.Windows.Arp.ViewModel
         protected override void PrepareVariables()
         {
             Title = "Arp";
-            _arpWindowsTool = new ArpWindowsTool(_sessionService.WindowsOperatingSystem);
+            _arpWindowsCommandTool = new ArpWindowsCommandTool(_sessionService.WindowsOperatingSystem);
         }
 
         protected override void FillData()
         {
         }
 
-        private Result _Result;
-        public Result Result
+        private SsResult _ssResult;
+        public SsResult SsResult
         {
-            get => _Result;
+            get => _ssResult;
             set
             {
-                _Result = value;
+                _ssResult = value;
                 OnPropertyChanged();
             }
         }

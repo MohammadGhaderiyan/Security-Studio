@@ -3,10 +3,10 @@ using System.Linq;
 using SecurityStudio.Base.Main.Model;
 using SecurityStudio.Base.Main.Mvvm;
 using SecurityStudio.Module.Definition.WindowsOperatingSystem.View;
+using SecurityStudio.Service.Base.MessageBox;
+using SecurityStudio.Service.Base.Parameter;
+using SecurityStudio.Service.Base.Window;
 using SecurityStudio.Service.Definition.WindowsOperatingSystem;
-using SecurityStudio.Service.Main.MessageBox;
-using SecurityStudio.Service.Main.Parameter;
-using SecurityStudio.Service.Main.Window;
 
 namespace SecurityStudio.Module.Definition.WindowsOperatingSystem.ViewModel
 {
@@ -133,8 +133,8 @@ namespace SecurityStudio.Module.Definition.WindowsOperatingSystem.ViewModel
             {
                 _currentWindowsOperatingSystem = value;
                 OnPropertyChanged();
-                SsEditWindowsOperatingSystemCommand.CheckCanExecuteChanged();
-                SsDeleteWindowsOperatingSystemCommand.CheckCanExecuteChanged();
+                SsEditWindowsOperatingSystemCommand.RaiseCanExecuteChanged();
+                SsDeleteWindowsOperatingSystemCommand.RaiseCanExecuteChanged();
             }
         }
 

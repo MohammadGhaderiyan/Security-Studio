@@ -20,4 +20,19 @@
     <ProjectReference Include="..\SecurityStudio.Database.Model\SecurityStudio.Database.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Configuration\CodeEditor\" />
+    <Folder Include="Configuration\Database\" />
+    <Folder Include="Configuration\Definition\" />
+    <Folder Include="Configuration\Exploit\" />
+    <Folder Include="Configuration\Forensic\" />
+    <Folder Include="Configuration\Mitre\" />
+    <Folder Include="Configuration\Linux\" />
+    <Folder Include="Configuration\Osint\" />
+    <Folder Include="Configuration\PenTest\" />
+    <Folder Include="Configuration\Tool\" />
+    <Folder Include="Configuration\Wiki\" />
+    <Folder Include="Configuration\Windows\" />
+  </ItemGroup>
+
 </Project>

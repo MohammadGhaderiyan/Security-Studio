@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using SecurityStudio.Base.Main.Mvvm;
+using SecurityStudio.Service.Base.DateTime;
+using SecurityStudio.Service.Base.Parameter;
+using SecurityStudio.Service.Base.Window;
 using SecurityStudio.Service.Definition.WindowsOperatingSystem;
-using SecurityStudio.Service.Main.DateTime;
-using SecurityStudio.Service.Main.Parameter;
-using SecurityStudio.Service.Main.Window;
 
 namespace SecurityStudio.Module.Definition.WindowsOperatingSystem.ViewModel
 {
@@ -82,7 +82,7 @@ namespace SecurityStudio.Module.Definition.WindowsOperatingSystem.ViewModel
 
         private void WindowsOperatingSystemOnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            SsSaveWindowsOperatingSystemCommand.CheckCanExecuteChanged();
+            SsSaveWindowsOperatingSystemCommand.RaiseCanExecuteChanged();
         }
 
         private Database.Model.Definition.WindowsOperatingSystem _windowsOperatingSystem;

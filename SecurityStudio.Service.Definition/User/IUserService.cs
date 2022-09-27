@@ -1,4 +1,4 @@
-﻿using SecurityStudio.Base.Main.Mvvm;
+﻿using SecurityStudio.Base.Main.Service;
 
 namespace SecurityStudio.Service.Definition.User
 {

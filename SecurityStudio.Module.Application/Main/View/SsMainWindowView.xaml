@@ -1,0 +1,333 @@
+﻿<mvvm:SsWindowView x:Class="SecurityStudio.Module.Application.Main.View.SsMainWindowView"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:container="clr-namespace:SecurityStudio.Base.Control.Container;assembly=SecurityStudio.Base.Control"
+                   xmlns:ribbon="clr-namespace:SecurityStudio.Base.Control.Ribbon;assembly=SecurityStudio.Base.Control"
+                   xmlns:mvvm="clr-namespace:SecurityStudio.Base.Main.Mvvm;assembly=SecurityStudio.Base.Main"
+                   xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
+                   xmlns:bar="clr-namespace:SecurityStudio.Base.Control.Bar;assembly=SecurityStudio.Base.Control"
+                   xmlns:dock="clr-namespace:SecurityStudio.Base.Control.Dock;assembly=SecurityStudio.Base.Control"
+                   xmlns:layout="clr-namespace:SecurityStudio.Base.Control.Layout;assembly=SecurityStudio.Base.Control"
+                   xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                   mc:Ignorable="d" Title="Security Studio" WindowState="Maximized"
+                   MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen">
+    <container:SsDockPanel LastChildFill="True">
+        <ribbon:SsRibbonControl ApplicationButtonText="Security Studio" DockPanel.Dock="Top">
+            <ribbon:SsRibbonControl.ApplicationMenu>
+                <ribbon:SsApplicationMenu RightPaneWidth="280" ShowRightPane="True" />
+            </ribbon:SsRibbonControl.ApplicationMenu>
+            <ribbon:SsRibbonDefaultPageCategory>
+                <ribbon:SsRibbonPage Caption="Mitre">
+                    <ribbon:SsRibbonPageGroup Caption="Mitre">
+                        <ribbon:SsLargeBarButtonItem Content="01- Reconnaissance"
+                                                     Command="{wpf:SsBinding Path=ShowSsReconnaissanceViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="02- Resource Development"
+                                                     Command="{wpf:SsBinding Path=ShowSsResourceDevelopmentViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="03- Initial Access"
+                                                     Command="{wpf:SsBinding Path=ShowSsInitialAccessViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="04- Execution"
+                                                     Command="{wpf:SsBinding Path=ShowSsExecutionViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="05- Persistence"
+                                                     Command="{wpf:SsBinding Path=ShowSsPersistenceViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="06- Privilege Escalation"
+                                                     Command="{wpf:SsBinding Path=ShowSsPrivilegeEscalationViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="07- Defense Evasion"
+                                                     Command="{wpf:SsBinding Path=ShowSsDefenseEvasionViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="08- Credential Access"
+                                                     Command="{wpf:SsBinding Path=ShowSsCredentialAccessViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="09- Discovery"
+                                                     Command="{wpf:SsBinding Path=ShowSsDiscoveryViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="10- Lateral Movement"
+                                                     Command="{wpf:SsBinding Path=ShowSsLateralMovementViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="11- Collection"
+                                                     Command="{wpf:SsBinding Path=ShowSsCollectionViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="12- Command and Control"
+                                                     Command="{wpf:SsBinding Path=ShowSsCommandAndControlViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="13- Exfiltration"
+                                                     Command="{wpf:SsBinding Path=ShowSsExfiltrationViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="14- Impact"
+                                                     Command="{wpf:SsBinding Path=ShowSsImpactViewCommand}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Tools">
+                    <ribbon:SsRibbonPageGroup Caption="Tools">
+                        <ribbon:SsLargeBarButtonItem Content="AFTA"
+                                                     Command="{wpf:SsBinding Path=ShowSsAftaViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="API Platform"
+                                                     Command="{wpf:SsBinding Path=ShowSsApiPlatformViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Censys"
+                                                     Command="{wpf:SsBinding Path=ShowSsCensysViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Douran"
+                                                     Command="{wpf:SsBinding Path=ShowSsDouranViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="EC-Council"
+                                                     Command="{wpf:SsBinding Path=ShowSsEcCouncilViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Encryption"
+                                                     Command="{wpf:SsBinding Path=ShowSsEncryptionViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="FOFA"
+                                                     Command="{wpf:SsBinding Path=ShowSsFofaViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="FTP Manager"
+                                                     Command="{wpf:SsBinding Path=ShowSsFtpManagerViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="GitHub"
+                                                     Command="{wpf:SsBinding Path=ShowSsGitHubViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Google Dork"
+                                                     Command="{wpf:SsBinding Path=ShowSsGoogleDorkViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Hash"
+                                                     Command="{wpf:SsBinding Path=ShowSsHashViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="IANA"
+                                                     Command="{wpf:SsBinding Path=ShowSsIanaViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Mimikatz"
+                                                     Command="{wpf:SsBinding Path=ShowSsMimikatzViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Nmap"
+                                                     Command="{wpf:SsBinding Path=ShowSsNmapViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="SANS Institute"
+                                                     Command="{wpf:SsBinding Path=ShowSsSansInstituteViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Shodan"
+                                                     Command="{wpf:SsBinding Path=ShowSsShodanViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Text Editor"
+                                                     Command="{wpf:SsBinding Path=ShowSsTextEditorViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Web Browser"
+                                                     Command="{wpf:SsBinding Path=ShowSsWebBrowserViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Web Server"
+                                                     Command="{wpf:SsBinding Path=ShowSsWebServerViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Whois"
+                                                     Command="{wpf:SsBinding Path=ShowSsWhoisViewCommand}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Linux">
+                    <ribbon:SsRibbonPageGroup Caption="Linux">
+                        <ribbon:SsLargeBarButtonItem Content="Dig"
+                                                     Command="{wpf:SsBinding Path=ShowSsDigViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="File Explorer"
+                                                     Command="{wpf:SsBinding Path=ShowSsLinuxFileExplorerViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Network"
+                                                     Command="{wpf:SsBinding Path=ShowSsLinuxNetworkViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="nslookup"
+                                                     Command="{wpf:SsBinding Path=ShowSsLinuxNslookupViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="ping"
+                                                     Command="{wpf:SsBinding Path=ShowSsLinuxPingViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Terminal"
+                                                     Command="{wpf:SsBinding Path=ShowSsTerminalViewCommand}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Windows">
+                    <ribbon:SsRibbonPageGroup Caption="Windows">
+                        <ribbon:SsLargeBarButtonItem Content="Arp"
+                                                     Command="{wpf:SsBinding Path=ShowSsArpViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Command Prompt"
+                                                     Command="{wpf:SsBinding Path=ShowSsCommandPromptViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="File Explorer"
+                                                     Command="{wpf:SsBinding Path=ShowSsWindowsFileExplorerViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Network"
+                                                     Command="{wpf:SsBinding Path=ShowSsWindowsNetworkViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="nslookup"
+                                                     Command="{wpf:SsBinding Path=ShowSsWindowsNslookupViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Registry Editor"
+                                                     Command="{wpf:SsBinding Path=ShowSsRegistryEditorViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="ping"
+                                                     Command="{wpf:SsBinding Path=ShowSsWindowsPingViewCommand}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="OSINT">
+                    <ribbon:SsRibbonPageGroup Caption="OSINT">
+                        <ribbon:SsLargeBarButtonItem Content="Leak-Lookup"
+                                                     Command="{wpf:SsBinding Path=ShowSsLeakLookupViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="OSINT Framework"
+                                                     Command="{wpf:SsBinding Path=ShowSsOsintFrameworkViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Social Searcher"
+                                                     Command="{wpf:SsBinding Path=ShowSsSocialSearcherViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Truecaller"
+                                                     Command="{wpf:SsBinding Path=ShowSsTruecallerViewCommand}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Exploit">
+                    <ribbon:SsRibbonPageGroup Caption="Exploit">
+                        <ribbon:SsLargeBarButtonItem Content="Exploit DB"
+                                                     Command="{wpf:SsBinding Path=ShowSsExploitDbViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Code Editor">
+                    <ribbon:SsRibbonPageGroup Caption="Code Editor">
+                        <ribbon:SsLargeBarButtonItem Content="Assembly"
+                                                     Command="{wpf:SsBinding Path=ShowSsAssemblyViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Bash Script"
+                                                     Command="{wpf:SsBinding Path=ShowSsBashScriptViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Batch Script"
+                                                     Command="{wpf:SsBinding Path=ShowSsBatchScriptViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="C"
+                                                     Command="{wpf:SsBinding Path=ShowSsCViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="C++"
+                                                     Command="{wpf:SsBinding Path=ShowSsCPlusPlusViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="C#"
+                                                     Command="{wpf:SsBinding Path=ShowSsCSharpViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Go"
+                                                     Command="{wpf:SsBinding Path=ShowSsGoViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Java"
+                                                     Command="{wpf:SsBinding Path=ShowSsJavaViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Power Shell Script"
+                                                     Command="{wpf:SsBinding Path=ShowSsPowerShellScriptViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Python"
+                                                     Command="{wpf:SsBinding Path=ShowSsPythonViewCommand}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Database">
+                    <ribbon:SsRibbonPageGroup Caption="Database">
+                        <ribbon:SsLargeBarButtonItem Content="Mongo DB"
+                                                     Command="{wpf:SsBinding Path=ShowSsMongoDbViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="My Sql"
+                                                     Command="{wpf:SsBinding Path=ShowSsMySqlViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Oracle"
+                                                     Command="{wpf:SsBinding Path=ShowSsOracleViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="SqlServer"
+                                                     Command="{wpf:SsBinding Path=ShowSsSqlServerViewCommand}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Pen Test">
+                    <ribbon:SsRibbonPageGroup Caption="Web Pen Test">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                    <ribbon:SsRibbonPageGroup Caption="Network Pen Test">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                    <ribbon:SsRibbonPageGroup Caption="Mobile Pen Test">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                    <ribbon:SsRibbonPageGroup Caption="Compiled Application Pen Test">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Forensic">
+                    <ribbon:SsRibbonPageGroup Caption="Malware Forensic">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                    <ribbon:SsRibbonPageGroup Caption="Windows Forensic">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                    <ribbon:SsRibbonPageGroup Caption="Linux Forensic">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                    <ribbon:SsRibbonPageGroup Caption="Memory Forensic">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                    <ribbon:SsRibbonPageGroup Caption="Network Forensic">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                    <ribbon:SsRibbonPageGroup Caption="Mobile Forensic">
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Definition">
+                    <ribbon:SsRibbonPageGroup Caption="Definition">
+                        <ribbon:SsLargeBarButtonItem Content="Android Operating System"
+                                                     Command="{wpf:SsBinding Path=ShowSsAndroidOperatingSystemListViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Linux Operating System"
+                                                     Command="{wpf:SsBinding Path=ShowSsLinuxOperatingSystemListViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="Windows Operating System"
+                                                     Command="{wpf:SsBinding Path=ShowSsWindowsOperatingSystemListViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+                <ribbon:SsRibbonPage Caption="Wiki">
+                    <ribbon:SsRibbonPageGroup Caption="Wiki">
+                        <ribbon:SsLargeBarButtonItem Content="Well Known Ports"
+                                                     Command="{wpf:SsBinding Path=ShowSsWellKnownPortsViewCommand}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                        <ribbon:SsLargeBarButtonItem Content="XXXXXXXX"
+                                                     Command="{wpf:SsBinding Path=XXXXXXXXXXXXX}" />
+                    </ribbon:SsRibbonPageGroup>
+                </ribbon:SsRibbonPage>
+            </ribbon:SsRibbonDefaultPageCategory>
+        </ribbon:SsRibbonControl>
+        <bar:SsStatusBarControl DockPanel.Dock="Bottom" Caption="StatusBar">
+            <bar:SsBarStaticItem Content="Visual Security" ShowBorder="False" />
+            <bar:SsBarEditItem Content="Windows : " EditWidth="100" Alignment="Far"
+                               EditValue="{wpf:SsBinding Path=CurrentWindowsOperatingSystem}">
+                <bar:SsBarEditItem.EditSettings>
+                    <dxe:ComboBoxEditSettings ItemsSource="{wpf:SsBinding Path=WindowsOperatingSystems}"
+                                              IsTextEditable="False" />
+                </bar:SsBarEditItem.EditSettings>
+            </bar:SsBarEditItem>
+            <bar:SsBarEditItem Content="Linux : " EditWidth="100" Alignment="Far"
+                               EditValue="{wpf:SsBinding Path=CurrentLinuxOperatingSystem}">
+                <bar:SsBarEditItem.EditSettings>
+                    <dxe:ComboBoxEditSettings ItemsSource="{wpf:SsBinding Path=LinuxOperatingSystems}"
+                                              IsTextEditable="False" />
+                </bar:SsBarEditItem.EditSettings>
+            </bar:SsBarEditItem>
+        </bar:SsStatusBarControl>
+        <container:SsBackgroundPanel>
+            <layout:SsLayoutControl>
+                <layout:SsLayoutGroup VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <dock:SsDockLayoutManager ClosingBehavior="ImmediatelyRemove"
+                                              DockItemClosing="DockLayoutManagerOnDockItemClosing"
+                                              DockItemClosed="DockLayoutManagerOnDockItemClosed">
+                        <dock:SsLayoutGroup Orientation="Horizontal">
+                            <dock:SsLayoutGroup ItemWidth="*" Orientation="Horizontal">
+                                <dock:SsDocumentGroup ItemWidth="*" x:Name="SdvDocumentGroupMain" />
+                            </dock:SsLayoutGroup>
+                        </dock:SsLayoutGroup>
+                    </dock:SsDockLayoutManager>
+                </layout:SsLayoutGroup>
+            </layout:SsLayoutControl>
+        </container:SsBackgroundPanel>
+    </container:SsDockPanel>
+</mvvm:SsWindowView>

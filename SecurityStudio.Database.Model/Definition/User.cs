@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel;
-using SecurityStudio.Database.Model.Infrastructure;
+using SecurityStudio.Base.Main.Database;
 using SecurityStudio.Database.Model.Validation.Definition;
 
 namespace SecurityStudio.Database.Model.Definition
@@ -7,7 +7,7 @@ namespace SecurityStudio.Database.Model.Definition
     /// <summary>
     /// User
     /// </summary>
-    public class User : ModelBase, IDataErrorInfo
+    public class User : BaseEntity, IDataErrorInfo
     {
         public User()
         {

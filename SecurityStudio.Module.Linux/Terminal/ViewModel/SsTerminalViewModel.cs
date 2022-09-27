@@ -1,5 +1,5 @@
 ﻿using SecurityStudio.Base.Main.Mvvm;
-using SecurityStudio.Service.Main.Session;
+using SecurityStudio.Service.Base.Session;
 
 namespace SecurityStudio.Module.Linux.Terminal.ViewModel
 {

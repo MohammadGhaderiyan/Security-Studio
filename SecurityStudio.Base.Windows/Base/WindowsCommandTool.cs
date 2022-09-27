@@ -18,7 +18,7 @@ namespace SecurityStudio.Base.Windows.Base
             _kernelWindowsTool = new KernelWindowsTool(windowsOperatingSystem);
         }
 
-        public async Task<Result<string>> RunCommand(string arguments)
+        public async Task<SsResult<string>> RunCommand(string arguments)
         {
             return await _kernelWindowsTool.RunCliCommand(CommandName, arguments);
         }

@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using SecurityStudio.Base.Main.Mvvm;
+using SecurityStudio.Service.Base.DateTime;
+using SecurityStudio.Service.Base.Parameter;
+using SecurityStudio.Service.Base.Window;
 using SecurityStudio.Service.Definition.LinuxOperatingSystem;
-using SecurityStudio.Service.Main.DateTime;
-using SecurityStudio.Service.Main.Parameter;
-using SecurityStudio.Service.Main.Window;
 
 namespace SecurityStudio.Module.Definition.LinuxOperatingSystem.ViewModel
 {
@@ -82,7 +82,7 @@ namespace SecurityStudio.Module.Definition.LinuxOperatingSystem.ViewModel
 
         private void LinuxOperatingSystemOnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            SsSaveLinuxOperatingSystemCommand.CheckCanExecuteChanged();
+            SsSaveLinuxOperatingSystemCommand.RaiseCanExecuteChanged();
         }
 
         private Database.Model.Definition.LinuxOperatingSystem _linuxOperatingSystem;

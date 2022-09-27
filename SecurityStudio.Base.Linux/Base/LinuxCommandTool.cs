@@ -18,7 +18,7 @@ namespace SecurityStudio.Base.Linux.Base
             _sshLinuxTool = new SshLinuxTool(linuxOperatingSystem);
         }
 
-        public async Task<Result<string>> RunCommand(string arguments)
+        public async Task<SsResult<string>> RunCommand(string arguments)
         {
             return await _sshLinuxTool.RunCommand($"{CommandName} {arguments}");
         }

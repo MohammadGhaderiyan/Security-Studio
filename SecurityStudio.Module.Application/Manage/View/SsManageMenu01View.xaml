@@ -1,0 +1,48 @@
+﻿<mvvm:SsView x:Class="SecurityStudio.Module.Application.Manage.View.SsManageMenu01View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mvvm="clr-namespace:SecurityStudio.Base.Main.Mvvm;assembly=SecurityStudio.Base.Main"
+             xmlns:layout="clr-namespace:SecurityStudio.Base.Control.Layout;assembly=SecurityStudio.Base.Control"
+             xmlns:utility="clr-namespace:SecurityStudio.Base.Control.Utility;assembly=SecurityStudio.Base.Control"
+             xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
+             xmlns:container="clr-namespace:SecurityStudio.Base.Control.Container;assembly=SecurityStudio.Base.Control"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="500">
+    <layout:SsLayoutControl>
+        <layout:SsLayoutControl.Resources>
+            <Style TargetType="utility:SsTileBarItem">
+                <Setter Property="Margin" Value="-7" />
+                <Setter Property="Height" Value="39" />
+            </Style>
+        </layout:SsLayoutControl.Resources>
+        <layout:SsLayoutGroup VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <layout:SsLayoutGroup VerticalAlignment="Stretch">
+                <utility:SsTileBar Orientation="Vertical">
+                    <utility:SsTileBarItem Content="XXXXXXXXX"
+                                           Command="{wpf:SsBinding Path=XXXXXXXXX}" />
+                    <utility:SsTileBarItem Content="XXXXXXXXX"
+                                           Command="{wpf:SsBinding Path=XXXXXXXXX}" />
+                    <utility:SsTileBarItem Content="XXXXXXXXX"
+                                           Command="{wpf:SsBinding Path=XXXXXXXXX}" />
+                    <utility:SsTileBarItem Content="XXXXXXXXX"
+                                           Command="{wpf:SsBinding Path=XXXXXXXXX}" />
+                    <utility:SsTileBarItem Content="XXXXXXXXX"
+                                           Command="{wpf:SsBinding Path=XXXXXXXXX}" />
+                    <utility:SsTileBarItem Content="XXXXXXXXX"
+                                           Command="{wpf:SsBinding Path=XXXXXXXXX}" />
+                    <utility:SsTileBarItem Content="XXXXXXXXX"
+                                           Command="{wpf:SsBinding Path=XXXXXXXXX}" />
+                    <utility:SsTileBarItem Content="XXXXXXXXX"
+                                           Command="{wpf:SsBinding Path=XXXXXXXXX}" />
+                    <utility:SsTileBarItem Content="XXXXXXXXX"
+                                           Command="{wpf:SsBinding Path=XXXXXXXXX}" />
+                </utility:SsTileBar>
+            </layout:SsLayoutGroup>
+            <layout:SsLayoutGroup HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <container:SsContentControl Content="{wpf:SsBinding Path=MainSsView}" />
+            </layout:SsLayoutGroup>
+        </layout:SsLayoutGroup>
+    </layout:SsLayoutControl>
+</mvvm:SsView>

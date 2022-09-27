@@ -1,5 +1,5 @@
 01- All project set nullable in general properties group
-
-
+02- Change commands to asycable with Task class
+03- Work on a good MVVM framework
 
 

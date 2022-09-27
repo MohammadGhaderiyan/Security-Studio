@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace SecurityStudio.Base.Main.Mvvm
@@ -9,28 +8,28 @@ namespace SecurityStudio.Base.Main.Mvvm
         public event EventHandler CanExecuteChanged;
 
         private bool _isExecuting;
-        private readonly Func<Task> _execute;
-        private readonly Func<bool> _canExecute;
+        private readonly Action<object> _execute;
+        private readonly Func<object, bool> _canExecute;
 
-        public SsCommand(Func<Task> execute, Func<bool> canExecute = null)
+        public SsCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
             _execute = execute;
             _canExecute = canExecute;
         }
 
-        public bool CanExecute()
+        public bool CanExecute(object parameter)
         {
-            return !_isExecuting && (_canExecute?.Invoke() ?? true);
+            return !_isExecuting && (_canExecute?.Invoke(parameter) ?? true);
         }
 
-        public async Task ExecuteAsync()
+        public void Execute(object parameter)
         {
-            if (CanExecute())
+            if (CanExecute(parameter))
             {
                 try
                 {
                     _isExecuting = true;
-                    await _execute();
+                    _execute(parameter);
                 }
                 finally
                 {
@@ -48,12 +47,12 @@ namespace SecurityStudio.Base.Main.Mvvm
 
         bool ICommand.CanExecute(object parameter)
         {
-            return CanExecute();
+            return CanExecute(parameter);
         }
 
-        async void ICommand.Execute(object parameter)
+        void ICommand.Execute(object parameter)
         {
-            await ExecuteAsync();
+            Execute(parameter);
         }
     }
 }

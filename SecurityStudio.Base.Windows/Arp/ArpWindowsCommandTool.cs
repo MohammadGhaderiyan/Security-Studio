@@ -13,19 +13,19 @@ namespace SecurityStudio.Base.Windows.Arp
         {
         }
 
-        public Task<Result<string>> GetArpEntries()
+        public Task<SsResult<string>> GetArpEntries()
         {
             return RunCommand("-a");
         }
 
-        public override Task<Result<string>> GetHelp()
+        public override Task<SsResult<string>> GetHelp()
         {
             return RunCommand("/?");
         }
 
-        public override Task<Result<string>> GetVersion()
+        public override Task<SsResult<string>> GetVersion()
         {
-            return Task.FromResult(new Result<string>(new NotSupportedException()));
+            return Task.FromResult(new SsResult<string>(new NotSupportedException()));
         }
     }
 }

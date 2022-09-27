@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using SecurityStudio.Base.Main.Mvvm;
+using SecurityStudio.Service.Base.DateTime;
+using SecurityStudio.Service.Base.Parameter;
+using SecurityStudio.Service.Base.Window;
 using SecurityStudio.Service.Definition.AndroidOperatingSystem;
-using SecurityStudio.Service.Main.DateTime;
-using SecurityStudio.Service.Main.Parameter;
-using SecurityStudio.Service.Main.Window;
 
 namespace SecurityStudio.Module.Definition.AndroidOperatingSystem.ViewModel
 {
@@ -37,7 +37,7 @@ namespace SecurityStudio.Module.Definition.AndroidOperatingSystem.ViewModel
 
         private void SsSaveAndroidOperatingSystem(object parameter)
         {
-            _androidOperatingSystemService.Save(AndroidOperatingSystem);
+            _androidOperatingSystemService.Save();
             _windowService.Close(this);
         }
 
@@ -65,7 +65,7 @@ namespace SecurityStudio.Module.Definition.AndroidOperatingSystem.ViewModel
             if (_parameterService.Exist("AndroidOperatingSystemId"))
             {
                 var androidOperatingSystemId = _parameterService.GetValue<int>("AndroidOperatingSystemId");
-                AndroidOperatingSystem = _androidOperatingSystemService.GetAndroidOperatingSystem(androidOperatingSystemId);
+                AndroidOperatingSystem = _androidOperatingSystemService.Find(androidOperatingSystemId);
                 Title = "Edit Android Operating System";
             }
             else
@@ -82,7 +82,7 @@ namespace SecurityStudio.Module.Definition.AndroidOperatingSystem.ViewModel
 
         private void AndroidOperatingSystemOnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            SsSaveAndroidOperatingSystemCommand.CheckCanExecuteChanged();
+            SsSaveAndroidOperatingSystemCommand.RaiseCanExecuteChanged();
         }
 
         private Database.Model.Definition.AndroidOperatingSystem _androidOperatingSystem;

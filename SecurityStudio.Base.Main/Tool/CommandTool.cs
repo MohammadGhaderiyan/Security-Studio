@@ -13,7 +13,7 @@ namespace SecurityStudio.Base.Main.Tool
 
         public string CommandName { get; set; }
 
-        public abstract Task<Result<string>> GetHelp();
-        public abstract Task<Result<string>> GetVersion();
+        public abstract Task<SsResult<string>> GetHelp();
+        public abstract Task<SsResult<string>> GetVersion();
     }
 }

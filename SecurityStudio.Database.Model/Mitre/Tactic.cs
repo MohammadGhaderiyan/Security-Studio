@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using SecurityStudio.Database.Model.Infrastructure;
+using SecurityStudio.Base.Main.Database;
 using SecurityStudio.Database.Model.Validation.Mitre;
 
 namespace SecurityStudio.Database.Model.Mitre
@@ -7,7 +7,7 @@ namespace SecurityStudio.Database.Model.Mitre
     /// <summary>
     /// Tactic
     /// </summary>
-    public class Tactic : ModelBase
+    public class Tactic : BaseEntity
     {
         public Tactic()
         {

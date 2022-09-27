@@ -1,7 +1,7 @@
 ﻿using ConsoleControlAPI;
 using SecurityStudio.Base.Main.Mvvm;
 using SecurityStudio.Base.Windows.Utility;
-using SecurityStudio.Service.Main.Session;
+using SecurityStudio.Service.Base.Session;
 
 namespace SecurityStudio.Module.Windows.CommandPrompt.ViewModel
 {

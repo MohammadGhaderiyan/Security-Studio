@@ -14,7 +14,7 @@ namespace SecurityStudio.Base.Windows.Kernel
         {
         }
 
-        public async Task<Result<string>> RunCliCommand(string filePath, string arguments = null)
+        public async Task<SsResult<string>> RunCliCommand(string filePath, string arguments = null)
         {
             try
             {
@@ -22,12 +22,12 @@ namespace SecurityStudio.Base.Windows.Kernel
                     .WithArguments(arguments ?? "");
 
                 var result = (await command.ExecuteBufferedAsync()).StandardOutput;
-                return new Result<string>(result);
+                return new SsResult<string>(result);
 
             }
             catch (System.Exception exception)
             {
-                return new Result<string>(exception);
+                return new SsResult<string>(exception);
             }
         }
     }

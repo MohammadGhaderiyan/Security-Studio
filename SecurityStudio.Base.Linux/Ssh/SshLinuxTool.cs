@@ -15,7 +15,7 @@ namespace SecurityStudio.Base.Linux.Ssh
             _ssh = new Rebex.Net.Ssh();
         }
 
-        public async Task<Result<string>> RunCommand(string command)
+        public async Task<SsResult<string>> RunCommand(string command)
         {
             try
             {
@@ -27,11 +27,11 @@ namespace SecurityStudio.Base.Linux.Ssh
 
                 var shell = await _ssh.StartCommandAsync(command);
 
-                return new Result<string>(shell.ReadAll());
+                return new SsResult<string>(shell.ReadAll());
             }
             catch (System.Exception exception)
             {
-                return new Result<string>(exception);
+                return new SsResult<string>(exception);
             }
         }
     }

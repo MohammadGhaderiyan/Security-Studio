@@ -3,10 +3,10 @@ using System.Linq;
 using SecurityStudio.Base.Main.Model;
 using SecurityStudio.Base.Main.Mvvm;
 using SecurityStudio.Module.Definition.LinuxOperatingSystem.View;
+using SecurityStudio.Service.Base.MessageBox;
+using SecurityStudio.Service.Base.Parameter;
+using SecurityStudio.Service.Base.Window;
 using SecurityStudio.Service.Definition.LinuxOperatingSystem;
-using SecurityStudio.Service.Main.MessageBox;
-using SecurityStudio.Service.Main.Parameter;
-using SecurityStudio.Service.Main.Window;
 
 namespace SecurityStudio.Module.Definition.LinuxOperatingSystem.ViewModel
 {
@@ -133,8 +133,8 @@ namespace SecurityStudio.Module.Definition.LinuxOperatingSystem.ViewModel
             {
                 _currentLinuxOperatingSystem = value;
                 OnPropertyChanged();
-                SsEditLinuxOperatingSystemCommand.CheckCanExecuteChanged();
-                SsDeleteLinuxOperatingSystemCommand.CheckCanExecuteChanged();
+                SsEditLinuxOperatingSystemCommand.RaiseCanExecuteChanged();
+                SsDeleteLinuxOperatingSystemCommand.RaiseCanExecuteChanged();
             }
         }
 
