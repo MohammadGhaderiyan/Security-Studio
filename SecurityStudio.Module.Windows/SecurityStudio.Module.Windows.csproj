@@ -200,6 +200,9 @@
 		<Compile Update="Arp\View\SsArpView.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
+		<Compile Update="Telnet\View\SsTelnetView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
 		<Compile Update="WindowsPing\View\SsWindowsPingView.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
@@ -225,6 +228,10 @@
 		<Page Update="Arp\View\SsArpView.xaml">
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="Telnet\View\SsTelnetView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
 		</Page>
 		<Page Update="WindowsPing\View\SsWindowsPingView.xaml">
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>

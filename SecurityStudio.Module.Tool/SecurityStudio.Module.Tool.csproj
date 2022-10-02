@@ -227,7 +227,7 @@
 		<Compile Update="SansInstitute\View\SsSansInstituteView.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
-		<Compile Update="XXXXXXX - Copy %282%29 - Copy %282%29 - Copy\View\SsXXXXXXXView.xaml.cs">
+		<Compile Update="Dnsenum\View\SsDnsenumView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
 		<Compile Update="Mp3Stego\View\SsMp3StegoView.xaml.cs">
@@ -260,13 +260,10 @@
 		<Compile Update="XXXXXXX - Copy %283%29 - Copy %283%29\View\SsXXXXXXXView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
-		<Compile Update="XXXXXXX - Copy %283%29 - Copy - Copy %282%29\View\SsXXXXXXXView.xaml.cs">
+		<Compile Update="TheHarvester\View\SsTheHarvesterView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
 		<Compile Update="Scapy\View\SsScapyView.xaml.cs">
-		  <SubType>Code</SubType>
-		</Compile>
-		<Compile Update="XXXXXXX - Copy %283%29 - Copy - Copy\View\SsXXXXXXXView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
 		<Compile Update="XXXXXXX - Copy %283%29 - Copy\View\SsXXXXXXXView.xaml.cs">
@@ -284,25 +281,22 @@
 		<Compile Update="XXXXXXX - Copy %284%29 - Copy %283%29\View\SsXXXXXXXView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
-		<Compile Update="XXXXXXX - Copy %284%29 - Copy - Copy %282%29\View\SsXXXXXXXView.xaml.cs">
+		<Compile Update="Metasploit\View\SsMetasploitView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
-		<Compile Update="XXXXXXX - Copy %284%29 - Copy - Copy - Copy\View\SsXXXXXXXView.xaml.cs">
+		<Compile Update="Pathping\View\SsPathpingView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
-		<Compile Update="XXXXXXX - Copy %284%29 - Copy - Copy\View\SsXXXXXXXView.xaml.cs">
-		  <SubType>Code</SubType>
-		</Compile>
-		<Compile Update="XXXXXXX - Copy %284%29 - Copy\View\SsXXXXXXXView.xaml.cs">
+		<Compile Update="Binwalk\View\SsBinwalkView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
 		<Compile Update="XXXXXXX - Copy %284%29\View\SsXXXXXXXView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
-		<Compile Update="XXXXXXX - Copy %285%29 - Copy %282%29\View\SsXXXXXXXView.xaml.cs">
+		<Compile Update="Mimikatz\View\SsMimikatzView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
-		<Compile Update="XXXXXXX - Copy %285%29 - Copy - Copy\View\SsXXXXXXXView.xaml.cs">
+		<Compile Update="ReconNg\View\SsReconNgView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
 		<Compile Update="XXXXXXX - Copy %285%29 - Copy\View\SsXXXXXXXView.xaml.cs">
@@ -348,9 +342,6 @@
 		  <SubType>Code</SubType>
 		</Compile>
 		<Compile Update="Whois\View\SsWhoisView.xaml.cs">
-			<SubType>Code</SubType>
-		</Compile>
-		<Compile Update="Mimikatz\View\SsMimikatzView.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
 		<Compile Update="GitHub\View\SsGitHubView.xaml.cs">
@@ -439,7 +430,7 @@
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 			<SubType>Designer</SubType>
 		</Page>
-		<Page Update="XXXXXXX - Copy %282%29 - Copy %282%29 - Copy\View\SsXXXXXXXView.xaml">
+		<Page Update="Dnsenum\View\SsDnsenumView.xaml">
 		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		  <SubType>Designer</SubType>
 		</Page>
@@ -483,15 +474,11 @@
 		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		  <SubType>Designer</SubType>
 		</Page>
-		<Page Update="XXXXXXX - Copy %283%29 - Copy - Copy %282%29\View\SsXXXXXXXView.xaml">
+		<Page Update="TheHarvester\View\SsTheHarvesterView.xaml">
 		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		  <SubType>Designer</SubType>
 		</Page>
 		<Page Update="Scapy\View\SsScapyView.xaml">
-		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-		  <SubType>Designer</SubType>
-		</Page>
-		<Page Update="XXXXXXX - Copy %283%29 - Copy - Copy\View\SsXXXXXXXView.xaml">
 		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		  <SubType>Designer</SubType>
 		</Page>
@@ -515,19 +502,15 @@
 		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		  <SubType>Designer</SubType>
 		</Page>
-		<Page Update="XXXXXXX - Copy %284%29 - Copy - Copy %282%29\View\SsXXXXXXXView.xaml">
+		<Page Update="Metasploit\View\SsMetasploitView.xaml">
 		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		  <SubType>Designer</SubType>
 		</Page>
-		<Page Update="XXXXXXX - Copy %284%29 - Copy - Copy - Copy\View\SsXXXXXXXView.xaml">
+		<Page Update="Pathping\View\SsPathpingView.xaml">
 		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		  <SubType>Designer</SubType>
 		</Page>
-		<Page Update="XXXXXXX - Copy %284%29 - Copy - Copy\View\SsXXXXXXXView.xaml">
-		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-		  <SubType>Designer</SubType>
-		</Page>
-		<Page Update="XXXXXXX - Copy %284%29 - Copy\View\SsXXXXXXXView.xaml">
+		<Page Update="Binwalk\View\SsBinwalkView.xaml">
 		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		  <SubType>Designer</SubType>
 		</Page>
@@ -535,11 +518,11 @@
 		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		  <SubType>Designer</SubType>
 		</Page>
-		<Page Update="XXXXXXX - Copy %285%29 - Copy %282%29\View\SsXXXXXXXView.xaml">
+		<Page Update="Mimikatz\View\SsMimikatzView.xaml">
 		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		  <SubType>Designer</SubType>
 		</Page>
-		<Page Update="XXXXXXX - Copy %285%29 - Copy - Copy\View\SsXXXXXXXView.xaml">
+		<Page Update="ReconNg\View\SsReconNgView.xaml">
 		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		  <SubType>Designer</SubType>
 		</Page>
@@ -600,10 +583,6 @@
 		  <SubType>Designer</SubType>
 		</Page>
 		<Page Update="Whois\View\SsWhoisView.xaml">
-			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-			<SubType>Designer</SubType>
-		</Page>
-		<Page Update="Mimikatz\View\SsMimikatzView.xaml">
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 			<SubType>Designer</SubType>
 		</Page>

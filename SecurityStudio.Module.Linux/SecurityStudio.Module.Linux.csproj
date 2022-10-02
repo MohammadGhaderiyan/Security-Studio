@@ -208,6 +208,9 @@
 		<Compile Update="LinuxNetwork\View\SsLinuxNetworkView.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
+		<Compile Update="Traceroute\View\SsTracerouteView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -230,6 +233,10 @@
 		<Page Update="LinuxNetwork\View\SsLinuxNetworkView.xaml">
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="Traceroute\View\SsTracerouteView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
 		</Page>
 	</ItemGroup>
 
