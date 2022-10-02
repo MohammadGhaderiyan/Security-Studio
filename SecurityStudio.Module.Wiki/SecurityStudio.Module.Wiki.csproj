@@ -24,6 +24,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\SecurityStudio.Base.Control\SecurityStudio.Base.Control.csproj" />
 		<ProjectReference Include="..\SecurityStudio.Base.Main\SecurityStudio.Base.Main.csproj" />
+		<ProjectReference Include="..\SecurityStudio.Base.Tool\SecurityStudio.Base.Tool.csproj" />
 		<ProjectReference Include="..\SecurityStudio.Database.Data\SecurityStudio.Database.Data.csproj" />
 		<ProjectReference Include="..\SecurityStudio.Database.Model\SecurityStudio.Database.Model.csproj" />
 		<ProjectReference Include="..\SecurityStudio.Service.Base\SecurityStudio.Service.Base.csproj" />
@@ -192,15 +193,141 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Compile Update="ImmunityDebugger\View\SsImmunityDebuggerView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Snort\View\SsSnortView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Suricata\View\SsSuricataView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="KonBoot\View\SsKonBootView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="OpenVas\View\SsOpenVASView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Nexpose\View\SsNexposeView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="OllyDbg\View\SsOllyDbgView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="GfiLanGuard\View\SsGfiLanGuardView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="CoreImpact\View\SsCoreImpactView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="CanvasImmunity\View\SsCanvasImmunityView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Netmon\View\SsNetmonView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Wappalyzer\View\SsWappalyzerView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Tor\View\SsTorView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Modsecurity\View\SsModsecurityView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Wireshark\View\SsWiresharkView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="IdaPro\View\SsIdaProView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
 		<Compile Update="WellKnownPorts\View\SsWellKnownPortsView.xaml.cs">
 			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Mitre\View\SsMitreView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="CveDetails\View\SsCveDetailsView.xaml.cs">
+		  <SubType>Code</SubType>
 		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+		<Page Update="ImmunityDebugger\View\SsImmunityDebuggerView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Snort\View\SsSnortView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Suricata\View\SsSuricataView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="KonBoot\View\SsKonBootView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="OpenVas\View\SsOpenVASView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Nexpose\View\SsNexposeView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="OllyDbg\View\SsOllyDbgView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="GfiLanGuard\View\SsGfiLanGuardView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="CoreImpact\View\SsCoreImpactView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="CanvasImmunity\View\SsCanvasImmunityView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Netmon\View\SsNetmonView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Wappalyzer\View\SsWappalyzerView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Tor\View\SsTorView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Modsecurity\View\SsModsecurityView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Wireshark\View\SsWiresharkView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="IdaPro\View\SsIdaProView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
 		<Page Update="WellKnownPorts\View\SsWellKnownPortsView.xaml">
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="Mitre\View\SsMitreView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="CveDetails\View\SsCveDetailsView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
 		</Page>
 	</ItemGroup>
 

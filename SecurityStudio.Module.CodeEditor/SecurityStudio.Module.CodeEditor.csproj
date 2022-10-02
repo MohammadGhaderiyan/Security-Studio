@@ -204,6 +204,9 @@
 		<Compile Update="Assembly\View\SsAssemblyView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
+		<Compile Update="Php\View\SsPhpView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
 		<Compile Update="Java\View\SsJavaView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
@@ -238,6 +241,10 @@
 			<SubType>Designer</SubType>
 		</Page>
 		<Page Update="Assembly\View\SsAssemblyView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Php\View\SsPhpView.xaml">
 		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		  <SubType>Designer</SubType>
 		</Page>

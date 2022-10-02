@@ -206,6 +206,21 @@
 		<Compile Update="OsintFramework\View\SsOsintFrameworkView.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
+		<Compile Update="411\View\Ss411View.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="IntelX\View\SsIntelXView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="SecurityTrails\View\SsSecurityTrailsView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Hunter\View\SsHunterView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="OneMillionTweetMap\View\SsOneMillionTweetMapView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -224,6 +239,26 @@
 		<Page Update="OsintFramework\View\SsOsintFrameworkView.xaml">
 			<XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 			<SubType>Designer</SubType>
+		</Page>
+		<Page Update="411\View\Ss411View.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="IntelX\View\SsIntelXView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="SecurityTrails\View\SsSecurityTrailsView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Hunter\View\SsHunterView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="OneMillionTweetMap\View\SsOneMillionTweetMapView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
 		</Page>
 	</ItemGroup>
 
