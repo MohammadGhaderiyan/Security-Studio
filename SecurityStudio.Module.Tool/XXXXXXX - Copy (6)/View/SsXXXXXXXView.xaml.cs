@@ -1,5 +1,6 @@
 ﻿using SecurityStudio.Base.Main.Mvvm;
-using SecurityStudio.Module.Tool.XXXXXXX___Copy__3_.ViewModel;
+using SecurityStudio.Module.Tool.SnmpWalk.ViewModel;
+using SecurityStudio.Module.Tool.XXXXXXX___Copy__6____Copy__2_.ViewModel;
 
 namespace SecurityStudio.Module.Tool.XXXXXXX___Copy__6_.View
 {

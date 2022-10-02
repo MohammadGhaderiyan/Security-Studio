@@ -1,0 +1,30 @@
+﻿<mvvm:SsView x:Class="SecurityStudio.Module.Wiki.Bettercap.View.SsBettercapView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mvvm="clr-namespace:SecurityStudio.Base.Main.Mvvm;assembly=SecurityStudio.Base.Main"
+             xmlns:layout="clr-namespace:SecurityStudio.Base.Control.Layout;assembly=SecurityStudio.Base.Control"
+             xmlns:wpf="clr-namespace:SecurityStudio.Base.Main.Wpf;assembly=SecurityStudio.Base.Main"
+             xmlns:container="clr-namespace:SecurityStudio.Base.Control.Container;assembly=SecurityStudio.Base.Control"
+             xmlns:bar="clr-namespace:SecurityStudio.Base.Control.Bar;assembly=SecurityStudio.Base.Control"
+             xmlns:web="clr-namespace:SecurityStudio.Base.Control.Web;assembly=SecurityStudio.Base.Control"
+             mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="500">
+    <container:SsDockPanel>
+        <bar:SsBarContainerControl container:SsDockPanel.Dock="Top">
+            <bar:SsMainMenuControl>
+                <bar:SsBarButtonItem Content="Show Exploit-DB"
+                                     Command="{wpf:SsBinding Path=SsShowBettercapCommand}" />
+                <bar:SsBarButtonItem Content="Open Exploit-DB"
+                                     Command="{wpf:SsBinding Path=SsOpenBettercapCommand}" />
+            </bar:SsMainMenuControl>
+        </bar:SsBarContainerControl>
+        <layout:SsLayoutControl>
+            <layout:SsLayoutGroup HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <layout:SsLayoutItem HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <web:SsWebControl Uri="{wpf:SsBinding Path=Uri}" />
+                </layout:SsLayoutItem>
+            </layout:SsLayoutGroup>
+        </layout:SsLayoutControl>
+    </container:SsDockPanel>
+</mvvm:SsView>

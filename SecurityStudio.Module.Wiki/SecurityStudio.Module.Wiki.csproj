@@ -193,6 +193,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Compile Update="Afta\View\SsAftaView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Douran\View\SsDouranView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="EcCouncil\View\SsEcCouncilView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
 		<Compile Update="ImmunityDebugger\View\SsImmunityDebuggerView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
@@ -226,6 +235,54 @@
 		<Compile Update="Netmon\View\SsNetmonView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
+		<Compile Update="W3af\View\SsW3afView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="SecurityOnionSolutions\View\SsSecurityOnionSolutionsView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="VisualRoute\View\SsVisualRouteView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Nessus\View\SsTorView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Bettercap\View\SsBettercapView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Ubertooth\View\SsUbertoothView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Cyberx\View\SsCyberxView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="IbmAppScan\View\SsIbmAppScanView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="HpWebInsPect\View\SsHpWebInsPectView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Acunetix\View\SsAcunetixView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="KfSensor\View\SsTorView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Honeyd\View\SsHoneydView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="BurpSuite\View\SsBurpSuiteView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Wazuh\View\SsWazuhView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Zeek\View\SsZeekView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Ossec\View\SsOssecView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
 		<Compile Update="Wappalyzer\View\SsWappalyzerView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
@@ -253,6 +310,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Page Update="Afta\View\SsAftaView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Douran\View\SsDouranView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="EcCouncil\View\SsEcCouncilView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
 		<Page Update="ImmunityDebugger\View\SsImmunityDebuggerView.xaml">
 		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		  <SubType>Designer</SubType>
@@ -294,6 +363,70 @@
 		  <SubType>Designer</SubType>
 		</Page>
 		<Page Update="Netmon\View\SsNetmonView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="W3af\View\SsW3afView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="SecurityOnionSolutions\View\SsSecurityOnionSolutionsView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="VisualRoute\View\SsVisualRouteView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Nessus\View\SsTorView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Bettercap\View\SsBettercapView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Ubertooth\View\SsUbertoothView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Cyberx\View\SsCyberxView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="IbmAppScan\View\SsIbmAppScanView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="HpWebInsPect\View\SsHpWebInsPectView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Acunetix\View\SsAcunetixView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="KfSensor\View\SsTorView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Honeyd\View\SsHoneydView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="BurpSuite\View\SsBurpSuiteView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Wazuh\View\SsWazuhView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Zeek\View\SsZeekView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Ossec\View\SsOssecView.xaml">
 		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		  <SubType>Designer</SubType>
 		</Page>

@@ -211,6 +211,24 @@
 		<Compile Update="Traceroute\View\SsTracerouteView.xaml.cs">
 		  <SubType>Code</SubType>
 		</Compile>
+		<Compile Update="SnmpSet\View\SsSnmpSetView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Nc\View\SsNcView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="XXXXXXX - Copy %286%29 - Copy\View\SsXXXXXXXView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Dpkg\View\SsDpkgView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="XXXXXXX - Copy %287%29 - Copy\View\SsXXXXXXXView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="XXXXXXX - Copy %287%29\View\SsXXXXXXXView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -235,6 +253,30 @@
 			<SubType>Designer</SubType>
 		</Page>
 		<Page Update="Traceroute\View\SsTracerouteView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="SnmpSet\View\SsSnmpSetView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Nc\View\SsNcView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="XXXXXXX - Copy %286%29 - Copy\View\SsXXXXXXXView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="Dpkg\View\SsDpkgView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="XXXXXXX - Copy %287%29 - Copy\View\SsXXXXXXXView.xaml">
+		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+		  <SubType>Designer</SubType>
+		</Page>
+		<Page Update="XXXXXXX - Copy %287%29\View\SsXXXXXXXView.xaml">
 		  <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
 		  <SubType>Designer</SubType>
 		</Page>
